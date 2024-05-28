@@ -1,12 +1,12 @@
 import Observer from '@/components/common/Observer';
-import TourCard from '@/components/common/TourCard';
 
 const Home = () => {
   return (
     <main className='min-h-screen'>
-      <Observer>
-        <TourCard />
-      </Observer>
+      <Observer />
+      <div className='section container'>
+        <h1 className='section-title'>Hel</h1>
+      </div>
     </main>
   );
 };
