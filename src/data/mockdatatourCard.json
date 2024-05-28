@@ -1,0 +1,10 @@
+{
+  "imgSrc": "/images/mock-img.jpeg",
+  "alt": "Засніжені гори",
+  "title": "Адршпах: Місце з фантастичного фільму",
+  "date": "string",
+  "location": "string",
+  "type": "string",
+  "duration": "string",
+  "link": "string"
+}

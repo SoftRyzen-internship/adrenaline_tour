@@ -1,5 +1,6 @@
 import Observer from '@/components/common/Observer';
 import TourCard from '@/components/common/TourCard';
+import mockdatatourCard from '@/data/mockdatatourCard.json';
 
 const Home = () => {
   return (
@@ -8,9 +9,11 @@ const Home = () => {
       <div className='section container'>
         <h1 className='section-title'>Hel</h1>
       </div>
-      <div className='section container'>
-        <TourCard />
-      </div>
+      <section className='section'>
+        <div className='container'>
+          <TourCard data={mockdatatourCard} />
+        </div>
+      </section>
     </main>
   );
 };
