@@ -28,7 +28,9 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <Phones variant='footer' />
       </div>
       <section className='section'>
-        <div className='container'>
+        <div className='container flex flex-wrap gap-8'>
+          <TourCard data={mockdatatourCard} />
+          <TourCard data={mockdatatourCard} />
           <TourCard data={mockdatatourCard} />
         </div>
       </section>
