@@ -2,6 +2,9 @@ import clsx from 'clsx';
 
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
+import mockdatatourCard from '@/data/mockdatatourCard.json';
+
+import TourCard from '../TourCard';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
@@ -24,6 +27,11 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <Phones variant='contacts' />
         <Phones variant='footer' />
       </div>
+      <section className='section'>
+        <div className='container'>
+          <TourCard data={mockdatatourCard} />
+        </div>
+      </section>
 
       {children}
     </div>
