@@ -1,5 +1,5 @@
 const TourCard = () => {
-  return <div></div>;
+  return <div>TourCard</div>;
 };
 
 export default TourCard;
