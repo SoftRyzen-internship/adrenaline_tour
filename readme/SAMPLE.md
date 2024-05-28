@@ -10,18 +10,4 @@ The application example - `<CustomCheckbox />`
 
 #### The remark
 
-`<Social />`
-
-| Prop | Required | Type | Description |
-| --- | --- | --- | --- |
-| `variant` | yes | string | 'header' or 'footer' |
-| `className` | not | string | styles can be passed for the component wrapper |
-
-`Phones />`
-
-| Prop | Required | Type | Description |
-| --- | --- | --- | --- |
-| `variant` | yes | string | 'contacts' or 'footer' |
-| `className` | not | string | styles can be passed for the component wrapper |
-
 To apply with React-Hook-Form using the library's component - `<Controller />`
