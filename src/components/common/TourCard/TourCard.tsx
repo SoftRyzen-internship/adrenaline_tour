@@ -12,9 +12,9 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
 
   return (
     <div className='group relative flex h-[411px] w-[328px] flex-col md:h-[439px] md:w-[334px] xl:h-[485px] xl:w-[384px]'>
-      <p className='absolute right-4 top-4 z-10 bg-white px-3 py-[11px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue transition group-hover:text-accentDefaultOrange md:px-[11px] md:py-4 md:text-[12px] md:leading-[16px]'>
+      <span className='absolute right-4 top-4 z-10 bg-white px-3 py-[11px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue transition group-hover:text-accentDefaultOrange md:px-[11px] md:py-4 md:text-[12px] md:leading-[16px]'>
         {date}
-      </p>
+      </span>
       <div className='relative mb-2 h-[291px] w-full md:mb-3 xl:mb-4 xl:h-[333px]'>
         <Image className='object-cover' src={imgSrc} fill alt={alt} />
       </div>
