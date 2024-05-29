@@ -40,9 +40,9 @@ const RootLayout = ({
           'flex h-full min-h-screen flex-col',
         )}
       >
-        {/* <header className='bg-blue-500'>Header will be here</header> */}
+        <header className='bg-blue-500'>Header will be here</header>
         <main className='flex-1'>{children}</main>
-        {/* <footer className='bg-blue-500'>Footer will be here</footer> */}
+        <footer className='bg-blue-500'>Footer will be here</footer>
       </body>
     </html>
   );
