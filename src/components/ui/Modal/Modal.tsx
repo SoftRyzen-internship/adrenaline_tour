@@ -1,6 +1,4 @@
-'use client';
-
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
   Dialog,
@@ -8,20 +6,27 @@ import {
   Transition,
   TransitionChild,
 } from '@headlessui/react';
+import clsx from 'clsx';
 
 interface IModalProps {
   children: React.ReactNode;
-  variant?: 'simple' | 'burger';
+  isOpen: boolean;
+  close: () => void;
+  variant: 'simple' | 'burger';
+  className?: string;
 }
 
-const Modal: React.FC<IModalProps> = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
+const Modal: React.FC<IModalProps> = ({
+  children,
+  isOpen,
+  close,
+  variant,
+  className,
+}) => {
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>Open dialog</button>
       <Transition show={isOpen}>
-        <Dialog onClose={() => setIsOpen(false)} className='relative z-50'>
+        <Dialog onClose={close} className='relative z-50'>
           <TransitionChild
             enter='ease-out duration-300'
             enterFrom='opacity-0'
@@ -35,14 +40,43 @@ const Modal: React.FC<IModalProps> = ({ children }) => {
 
           <TransitionChild
             enter='transition ease-in-out duration-300'
-            enterFrom='translate-x-full'
-            enterTo='translate-x-0'
+            enterFrom={
+              variant === 'burger'
+                ? 'translate-x-full'
+                : 'translate-z-0 scale-150 opacity-100'
+            }
+            enterTo={
+              variant === 'burger'
+                ? 'translate-x-0'
+                : 'translate-z-[1000px] scale-100 opacity-100'
+            }
             leave='transition ease-in-out duration-300'
-            leaveFrom='translate-x-0'
-            leaveTo='translate-x-full'
+            leaveFrom={
+              variant === 'burger'
+                ? 'translate-x-0'
+                : 'translate-z-0 scale-100 opacity-100'
+            }
+            leaveTo={
+              variant === 'burger'
+                ? 'translate-x-full'
+                : 'translate-z-[1000px] scale-50 opacity-0 '
+            }
           >
-            <div className='fixed inset-0 flex w-screen items-center justify-center p-4'>
-              <DialogPanel className='max-w-lg space-y-4 bg-white p-12'>
+            <div
+              className={clsx(
+                'fixed inset-0 flex w-screen items-center justify-end',
+                variant === 'simple' && 'justify-center p-4',
+              )}
+            >
+              <DialogPanel
+                className={clsx(
+                  ' bg-white ',
+                  variant === 'burger' && 'h-full w-full xl:max-w-[704px]',
+                  variant === 'simple' &&
+                    'max-h-[90%] min-w-[328px] sm:max-w-[480px] md:max-w-[700px] xl:max-w-[900px]',
+                  className,
+                )}
+              >
                 {children}
               </DialogPanel>
             </div>
