@@ -5,7 +5,7 @@ import banner from '@/data/banner.json';
 
 import s from './MovingBanner.module.css';
 
-function MovingBanner() {
+const MovingBanner = () => {
   return (
     <Marquee autoFill speed={60} className='bg-darkBlue'>
       <div className='flex items-center justify-center'>
@@ -20,6 +20,6 @@ function MovingBanner() {
       </div>
     </Marquee>
   );
-}
+};
 
 export default MovingBanner;
