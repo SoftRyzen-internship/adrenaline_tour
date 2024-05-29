@@ -37,10 +37,12 @@ const RootLayout = ({
         className={clsx(
           unbounded.variable,
           inter.variable,
-          'h-full min-h-screen',
+          'flex h-full min-h-screen flex-col',
         )}
       >
-        {children}
+        <header className='bg-blue-500'>Header will be here</header>
+        <main className='flex-1'>{children}</main>
+        <footer className='bg-blue-500'>Footer will be here</footer>
       </body>
     </html>
   );

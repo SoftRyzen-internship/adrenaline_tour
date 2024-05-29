@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import clsx from 'clsx';
 
 import ArrowRight from '@/../public/icons/arrow-right.svg';
-import ArrowRightDownIcon from '@/../public/icons/arrow-rigt_up.svg';
+import ArrowRightDownIcon from '@/../public/icons/arrow-right_up.svg';
 import BurgerMenuIcon from '@/../public/icons/burger-menu-sm.svg';
 import CloseIcon from '@/../public/icons/close_24.svg';
 import CalendarIcon from '@/../public/icons/date.svg';
@@ -12,10 +12,13 @@ import FacebookIcon from '@/../public/icons/facebook.svg';
 import Button from '@/components/ui/Button';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
+import { Logo } from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
 import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
+import TourCard from '@/components/ui/TourCard';
+import mockdatatourCard from '@/data/mockdatatourCard.json';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
@@ -34,12 +37,23 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         The temporary component is used for the observation of newly created
         components.
       </h1>
+
       <div className='section container bg-blueDefault'>
         <Social variant='header' />
         <Social variant='footer' />
         <Phones variant='contacts' />
         <Phones variant='footer' />
+
+        <Logo textWhite={true} width={153} height={51} />
+        <Logo textWhite={false} width={252} height={80} />
       </div>
+      <section className='section'>
+        <div className='container flex flex-wrap gap-8'>
+          <TourCard data={mockdatatourCard} />
+          <TourCard data={mockdatatourCard} />
+          <TourCard data={mockdatatourCard} />
+        </div>
+      </section>
       <section className='section'>
         <MovingBanner />
       </section>
@@ -97,12 +111,12 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </LinkButton>
         </div>
         <div>
-          <p className='p-1 text-xs'>LinkButton: variant - navlink</p>
-          <LinkButton href='/' variant='navlink'>
+          <p className='p-1 text-xs'>LinkButton: variant - navLink</p>
+          <LinkButton href='/' variant='navLink'>
             Головна
           </LinkButton>
         </div>
-        <div className='bg-accentGreen bg-darkBlue px-4 py-4'>
+        <div className='bg-darkBlue px-4 py-4'>
           <p className='p-1 text-xs text-white'>variant - footer</p>
           <LinkButton href='/' variant='footer'>
             Політика конфіденціальності
@@ -141,14 +155,14 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </Button>
         </div>
         <div>
-          <p className='p-1 text-xs'>variant-readmore-main</p>
-          <Button type='button' variant='readmore-main'>
+          <p className='p-1 text-xs'>variant-readMore-main</p>
+          <Button type='button' variant='readMore-main'>
             Читати більше
           </Button>
         </div>
         <div>
-          <p className='p-1 text-xs'>variant-readmore-secondary</p>
-          <Button variant='readmore-secondary'>Читати далі</Button>
+          <p className='p-1 text-xs'>variant-readMore-secondary</p>
+          <Button variant='readMore-secondary'>Читати далі</Button>
         </div>
       </div>
       <p className='container text-center text-[24px] font-bold'>

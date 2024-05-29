@@ -1,7 +1,7 @@
 export interface ILinkButtonProps {
   children: React.ReactNode;
   href: string;
-  variant: 'main' | 'secondary' | 'secondary-blue' | 'navlink' | 'footer';
+  variant: 'main' | 'secondary' | 'secondary-blue' | 'navLink' | 'footer';
   toScroll?: boolean;
   to?: string;
   icon?: React.ReactNode;
