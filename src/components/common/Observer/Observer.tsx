@@ -8,6 +8,7 @@ import BurgerMenuIcon from '@/../public/icons/burger-menu-sm.svg';
 import CalendarIcon from '@/../public/icons/date.svg';
 import FacebookIcon from '@/../public/icons/facebook.svg';
 import Button from '@/components/ui/Button';
+import FormInput from '@/components/ui/FormInput';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import { Logo } from '@/components/ui/Logo';
@@ -15,12 +16,17 @@ import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 import TourCard from '@/components/ui/TourCard';
+import form from '@/data/form.json';
 import mockdatatourCard from '@/data/mockdatatourCard.json';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
+  const {
+    formProps: { inputs },
+  } = form;
+
   return (
     <div>
       <h1
@@ -51,6 +57,21 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
       </section>
       <section className='section'>
         <MovingBanner />
+      </section>
+      <section className='section bg-darkBlue'>
+        <div className='container flex flex-col gap-8'>
+          {inputs.map(({ name, placeholder, type, label }, index) => {
+            return (
+              <FormInput
+                key={index}
+                label={label}
+                type={type}
+                name={name}
+                placeholder={placeholder}
+              />
+            );
+          })}
+        </div>
       </section>
 
       {children}
