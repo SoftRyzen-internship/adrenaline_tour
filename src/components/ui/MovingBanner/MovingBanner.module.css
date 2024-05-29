@@ -1,0 +1,23 @@
+.item {
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 48px;
+    background-color: #10425d;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+  }
+  @media screen and (min-width: 768px) {
+    &::after {
+      height: 64px;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    &::after {
+      height: 98px;
+    }
+  }
+}
