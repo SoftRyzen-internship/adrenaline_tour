@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import Facebook from '/public/icons/facebook.svg';
 import Instagram from '/public/icons/instagram.svg';
 
-import data from '@/data/social.json';
+import { social } from '@/data';
 
 import { ISocialProps } from './Social.types';
 
@@ -20,7 +20,7 @@ const Social: React.FC<ISocialProps> = ({
         className,
       )}
     >
-      {data.map(item => (
+      {social.map(item => (
         <li key={item.id}>
           <a
             href={item.href}
@@ -37,6 +37,8 @@ const Social: React.FC<ISocialProps> = ({
           >
             {item.name === 'instagram' && (
               <Instagram
+                width={20}
+                height={20}
                 className={clsx(
                   variant === 'header' && 'h-6 w-6',
                   variant === 'footer' && 'h-5 w-5 xl:h-6 xl:w-6',
@@ -45,6 +47,8 @@ const Social: React.FC<ISocialProps> = ({
             )}
             {item.name === 'facebook' && (
               <Facebook
+                width={20}
+                height={20}
                 className={clsx(
                   variant === 'header' && 'h-6 w-6',
                   variant === 'footer' && 'h-5 w-5 xl:h-6 xl:w-6',
