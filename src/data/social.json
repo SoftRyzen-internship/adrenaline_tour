@@ -1,0 +1,14 @@
+[
+  {
+    "id": "1",
+    "name": "instagram",
+    "href": "https://www.instagram.com/adrenalinetourtranscarpatia/",
+    "ariaLabel": "посилання на інстаграм"
+  },
+  {
+    "id": "2",
+    "name": "facebook",
+    "href": "https://facebook.com/adrenalinetour.eu",
+    "ariaLabel": "посилання на фейсбук"
+  }
+]
