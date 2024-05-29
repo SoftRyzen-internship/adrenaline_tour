@@ -7,12 +7,12 @@ import { IIconButtonProps } from './IconButton.types';
 const IconButton: React.FC<IIconButtonProps> = ({
   children,
   ariaLabel,
-  className = '',
+  className,
   ...rest
 }) => {
   return (
     <button
-      className={clsx(className, 'flex items-center justify-center')}
+      className={clsx('flex items-center justify-center', className)}
       aria-label={ariaLabel}
       {...rest}
     >
