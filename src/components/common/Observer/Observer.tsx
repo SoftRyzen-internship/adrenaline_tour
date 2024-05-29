@@ -59,8 +59,8 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <MovingBanner />
       </section>
       <section className='section bg-darkBlue'>
-        <div className='container flex flex-col gap-8'>
-          {inputs.map(({ name, placeholder, type, label }, index) => {
+        <div className='container flex flex-col gap-12 xl:w-1/2'>
+          {inputs.map(({ name, placeholder, type, label, required }, index) => {
             return (
               <FormInput
                 key={index}
@@ -68,6 +68,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
                 type={type}
                 name={name}
                 placeholder={placeholder}
+                required={required}
               />
             );
           })}

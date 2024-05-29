@@ -3,22 +3,25 @@
   "formProps": {
     "inputs": [
       {
-        "label": "Ваше імʼя*",
+        "label": "Ваше імʼя",
         "name": "name",
         "type": "text",
-        "placeholder": "Яна"
+        "placeholder": "Яна",
+        "required": true
       },
       {
-        "label": "Email*",
+        "label": "Email",
         "name": "email",
         "type": "text",
-        "placeholder": "yanapetrychenko@gmail.com"
+        "placeholder": "yanapetrychenko@gmail.com",
+        "required": true
       },
       {
-        "label": "Телефон*",
+        "label": "Телефон",
         "name": "phone",
         "type": "number",
-        "placeholder": "+380988888454"
+        "placeholder": "+380988888454",
+        "required": true
       }
     ],
     "textarea": {

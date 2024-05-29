@@ -3,4 +3,5 @@ export interface FormInputProps {
   type: string;
   name: string;
   label: string;
+  required: boolean;
 }
