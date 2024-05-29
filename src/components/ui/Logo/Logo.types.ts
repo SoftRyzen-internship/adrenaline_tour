@@ -1,13 +1,7 @@
-export interface ILogoSvgProps {
-  textColor?: 'white' | 'green';
-  width: string;
-  height: string;
-}
-
 export interface ILogoProps {
-  textColor?: 'white' | 'green';
-  width: string;
-  height: string;
+  textWhite: boolean;
+  width: number;
+  height: number;
   toScroll?: boolean;
   onClick?: () => void;
 }

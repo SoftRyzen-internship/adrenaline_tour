@@ -1,15 +1,17 @@
 'use client';
 
+import clsx from 'clsx';
 import Link from 'next/link';
 import { Link as LinkScroll } from 'react-scroll';
+
+import LogoIcon from '/public/icons/logo.svg';
 
 import { logo } from '@/data';
 
 import { ILogoProps } from './Logo.types';
-import LogoSvg from './LogoSvg';
 
 const Logo: React.FC<ILogoProps> = ({
-  textColor,
+  textWhite,
   width,
   height,
   toScroll,
@@ -29,7 +31,14 @@ const Logo: React.FC<ILogoProps> = ({
           aria-label={logo.ariaLabel}
         >
           <div className='inline-block'>
-            <LogoSvg textColor={textColor} width={width} height={height} />
+            <LogoIcon
+              width={width}
+              height={height}
+              className={clsx(
+                'fill-white  transition  hover:fill-accentDarkOrange hover:text-accentDarkOrange',
+                textWhite ? 'text-white' : 'text-darkGreen',
+              )}
+            />
           </div>
         </LinkScroll>
       ) : (
@@ -40,7 +49,14 @@ const Logo: React.FC<ILogoProps> = ({
           onClick={onClick}
         >
           <div className='inline-block'>
-            <LogoSvg textColor={textColor} width={width} height={height} />
+            <LogoIcon
+              width={width}
+              height={height}
+              className={clsx(
+                'fill-white  transition  hover:fill-accentDarkOrange hover:text-accentDarkOrange',
+                textWhite ? 'text-white' : 'text-darkGreen',
+              )}
+            />
           </div>
         </Link>
       )}
