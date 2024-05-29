@@ -2,9 +2,8 @@ import clsx from 'clsx';
 
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
+import TourCard from '@/components/ui/TourCard';
 import mockdatatourCard from '@/data/mockdatatourCard.json';
-
-import TourCard from '../TourCard';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
