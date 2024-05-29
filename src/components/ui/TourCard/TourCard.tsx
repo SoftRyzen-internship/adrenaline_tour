@@ -1,8 +1,11 @@
 import clsx from 'clsx';
 import Image from 'next/image';
-import Link from 'next/link';
 
 import Location from '/public/icons/location.svg';
+
+import ArrowRight from '@/../public/icons/arrow-right.svg';
+
+import LinkButton from '../LinkButton';
 
 import s from './TourCard.module.css';
 import { ITourCardProps } from './TourCard.types';
@@ -30,12 +33,14 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
         </div>
       </div>
       <div className='transition-all xl:opacity-0 xl:group-hover:flex xl:group-hover:opacity-100'>
-        <Link
-          className='mt-auto py-2 font-unbounded text-light leading-[21px] text-accentDefaultOrange '
+        <LinkButton
           href={link}
+          variant='secondary'
+          iconPosition='after'
+          icon={<ArrowRight width={24} height={24} className='h-6 w-6' />}
         >
-          Детальніше -&gt;
-        </Link>
+          Детальніше{' '}
+        </LinkButton>
       </div>
     </div>
   );
