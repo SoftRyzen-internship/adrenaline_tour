@@ -2,6 +2,7 @@
 
 import clsx from 'clsx';
 
+
 import ArrowRight from '@/../public/icons/arrow-right.svg';
 import ArrowRightDownIcon from '@/../public/icons/arrow-rigt_up.svg';
 import BurgerMenuIcon from '@/../public/icons/burger-menu-sm.svg';
@@ -10,6 +11,8 @@ import FacebookIcon from '@/../public/icons/facebook.svg';
 import Button from '@/components/ui/Button';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
+import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
+
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 
@@ -34,6 +37,9 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <Phones variant='contacts' />
         <Phones variant='footer' />
       </div>
+      <section className='section'>
+        <MovingBanner />
+      </section>
 
       {children}
       <p className='container text-center text-[24px] font-bold'>
