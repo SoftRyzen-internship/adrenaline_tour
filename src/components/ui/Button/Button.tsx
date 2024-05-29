@@ -9,15 +9,13 @@ import { IButtonProps } from './Button.types';
 const Button: React.FC<IButtonProps> = ({
   children,
   variant,
-  type = 'button',
   icon,
   iconPosition,
-  className = '',
+  className,
   ...rest
 }) => {
   return (
     <button
-      type={type}
       className={clsx(
         className,
         'inline-flex items-center justify-center leading-[1.5]',
