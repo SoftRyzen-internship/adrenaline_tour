@@ -1,11 +1,23 @@
-@keyframes moveLineAnimation {
-  from {
-    transform: translateX(0);
+.item {
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 48px;
+    background-color: #10425d;
+    position: absolute;
+    top: 0px;
+    right: 0px;
   }
-  to {
-    transform: translateX(calc(-100% - 24px));
+  @media screen and (min-width: 768px) {
+    &::after {
+      height: 64px;
+    }
   }
-}
-.movingLine {
-  animation: moveLineAnimation 15s linear infinite;
+  @media screen and (min-width: 1280px) {
+    &::after {
+      height: 98px;
+    }
+  }
 }

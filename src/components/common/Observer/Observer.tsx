@@ -26,9 +26,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <Phones variant='footer' />
       </div>
       <section className='section'>
-        <div className='container'>
-          <MovingBanner />
-        </div>
+        <MovingBanner />
       </section>
 
       {children}
