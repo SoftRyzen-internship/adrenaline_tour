@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 
@@ -24,6 +25,11 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <Phones variant='contacts' />
         <Phones variant='footer' />
       </div>
+      <section className='section'>
+        <div className='container'>
+          <MovingBanner />
+        </div>
+      </section>
 
       {children}
     </div>

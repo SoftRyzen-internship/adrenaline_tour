@@ -1,0 +1,11 @@
+@keyframes moveLineAnimation {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 24px));
+  }
+}
+.movingLine {
+  animation: moveLineAnimation 15s linear infinite;
+}
