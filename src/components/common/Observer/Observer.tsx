@@ -209,7 +209,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           variant='burger'
           close={() => setIsOpenBurger(false)}
         >
-          <div className='p-10'>
+          <div className='px-10 pb-10 pt-20'>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
             corrupti corporis consequatur autem, libero omnis fugit earum natus
             nesciunt sunt illum repellat perferendis deleniti eum sed animi
