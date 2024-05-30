@@ -42,7 +42,7 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
             'inline-flex items-center justify-center  font-medium leading-[1.5]',
             variant === 'main' && linkButtonStyle.main,
             variant === 'secondary' && linkButtonStyle.secondary,
-            variant === 'navlink' && linkButtonStyle.navLink,
+            variant === 'navLink' && linkButtonStyle.navLink,
             variant === 'footer' && linkButtonStyle.footer,
             className,
           )}
@@ -58,7 +58,7 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
             'inline-flex items-center justify-center  font-medium leading-[1.5]',
             variant === 'main' && linkButtonStyle.main,
             variant === 'secondary' && linkButtonStyle.secondary,
-            variant === 'navlink' && linkButtonStyle.navLink,
+            variant === 'navLink' && linkButtonStyle.navLink,
             variant === 'footer' && linkButtonStyle.footer,
             className,
           )}
