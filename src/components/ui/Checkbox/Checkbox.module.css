@@ -30,5 +30,5 @@
   background-size: 13px 13px;
 }
 .custom-checkbox:focus + span::before {
-  outline: 2px solid blue;
+  outline: auto;
 }
