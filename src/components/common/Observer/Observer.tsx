@@ -9,6 +9,7 @@ import CalendarIcon from '@/../public/icons/date.svg';
 import FacebookIcon from '@/../public/icons/facebook.svg';
 import Button from '@/components/ui/Button';
 import FormInput from '@/components/ui/FormInput';
+import FormTextArea from '@/components/ui/FormTextArea';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import { Logo } from '@/components/ui/Logo';
@@ -24,7 +25,10 @@ import { IObserverProps } from './Observer.types';
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
   const {
-    formProps: { inputs },
+    formProps: {
+      inputs,
+      textarea: { label, name, placeholder },
+    },
   } = form;
 
   return (
@@ -72,6 +76,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
               />
             );
           })}
+          <FormTextArea label={label} name={name} placeholder={placeholder} />
         </div>
       </section>
 
