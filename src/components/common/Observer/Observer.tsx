@@ -187,7 +187,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </IconButton>
         </div>
       </div>
-      <div className='container p-8'>
+      <div className='container'>
         <DisclosureMain />
       </div>
     </div>
