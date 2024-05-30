@@ -1,0 +1,32 @@
+{
+  "title": "Галерея",
+  "images": [
+    {
+      "id": "1",
+      "src": "/images/gallery/gallery1@2x.webp",
+      "alt": "slide1"
+    },
+    {
+      "id": "2",
+      "src": "/images/gallery/gallery2@2x.webp",
+      "alt": "slide2"
+    },
+    {
+      "id": "3",
+      "src": "/images/gallery/gallery3@2x.webp",
+      "alt": "slide3"
+    },
+    {
+      "id": "4",
+      "src": "/images/gallery/gallery4@2x.webp",
+      "alt": "slide4"
+    },
+    {
+      "id": "5",
+      "src": "/images/gallery/gallery2@2x.webp",
+      "alt": "slide5"
+    }
+  ],
+  "prev": "Попередній слайд",
+  "next": "Наступний слайд"
+}
