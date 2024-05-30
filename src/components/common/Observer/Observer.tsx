@@ -57,29 +57,33 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           <TourCard data={mockdatatourCard} />
         </div>
       </section>
-      <section className='section'>
+      <section className='section bg-darkBlue'>
         <MovingBanner />
       </section>
       <section className='section bg-darkBlue'>
-        <div className='container flex flex-col gap-12 xl:w-1/2'>
-          {inputs.map(({ name, placeholder, type, label, required }, index) => {
-            return (
-              <FormInput
-                key={index}
-                label={label}
-                type={type}
-                name={name}
-                placeholder={placeholder}
-                required={required}
-              />
-            );
-          })}
-          <FormTextArea
-            label={textarea.label}
-            name={textarea.name}
-            placeholder={textarea.placeholder}
-          />
-          <Checkbox name={checkbox.name} label={checkbox.label} />
+        <div className='container flex xl:justify-end'>
+          <div className='flex w-full flex-col gap-12 xl:w-1/2'>
+            {inputs.map(
+              ({ name, placeholder, type, label, required }, index) => {
+                return (
+                  <FormInput
+                    key={index}
+                    label={label}
+                    type={type}
+                    name={name}
+                    placeholder={placeholder}
+                    required={required}
+                  />
+                );
+              },
+            )}
+            <FormTextArea
+              label={textarea.label}
+              name={textarea.name}
+              placeholder={textarea.placeholder}
+            />
+            <Checkbox name={checkbox.name} label={checkbox.label} />
+          </div>
         </div>
       </section>
 
