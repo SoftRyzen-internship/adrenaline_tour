@@ -2,7 +2,7 @@ import { FormInputProps } from './FormInput.types';
 
 const FormInput = ({ placeholder, name, label, required }: FormInputProps) => {
   return (
-    <label className='flex flex-col gap-4 border-b border-white32 text-medium text-white md:text-lightLarge'>
+    <label className='flex flex-col gap-4 border-b border-white32 text-medium font-medium text-white md:text-lightLarge'>
       <p>
         {label}{' '}
         {required && <span className='text-accentDefaultOrange'>*</span>}

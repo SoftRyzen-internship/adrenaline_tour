@@ -8,6 +8,7 @@ import BurgerMenuIcon from '@/../public/icons/burger-menu-sm.svg';
 import CalendarIcon from '@/../public/icons/date.svg';
 import FacebookIcon from '@/../public/icons/facebook.svg';
 import Button from '@/components/ui/Button';
+import Checkbox from '@/components/ui/Checkbox';
 import FormInput from '@/components/ui/FormInput';
 import FormTextArea from '@/components/ui/FormTextArea';
 import IconButton from '@/components/ui/IconButton';
@@ -25,10 +26,7 @@ import { IObserverProps } from './Observer.types';
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
   const {
-    formProps: {
-      inputs,
-      textarea: { label, name, placeholder },
-    },
+    formProps: { inputs, textarea, checkbox },
   } = form;
 
   return (
@@ -76,7 +74,12 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
               />
             );
           })}
-          <FormTextArea label={label} name={name} placeholder={placeholder} />
+          <FormTextArea
+            label={textarea.label}
+            name={textarea.name}
+            placeholder={textarea.placeholder}
+          />
+          <Checkbox name={checkbox.name} label={checkbox.label} />
         </div>
       </section>
 
