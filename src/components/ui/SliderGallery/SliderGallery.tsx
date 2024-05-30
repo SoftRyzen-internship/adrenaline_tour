@@ -2,6 +2,7 @@ import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
+import './Slider.css';
 import { ISliderGalleryProps } from './SliderGallery.types';
 
 import { gallery } from '@/data';
@@ -11,9 +12,8 @@ import Right from '/public/icons/arrow-right.svg';
 
 const SliderGallery: React.FC<ISliderGalleryProps> = ({ slides }) => {
   return (
-    <div className='container relative px-0'>
+    <div>
       <Swiper
-        className=''
         modules={[Navigation]}
         wrapperTag='ul'
         loop={true}
@@ -25,11 +25,17 @@ const SliderGallery: React.FC<ISliderGalleryProps> = ({ slides }) => {
           prevEl: '.btn-prev',
         }}
         breakpoints={{
-          768: {
+          400: {
             slidesPerView: 3,
+            centeredSlides: true,
           },
           1280: {
             slidesPerView: 4,
+            centeredSlides: true,
+          },
+          1580: {
+            slidesPerView: 5,
+            centeredSlides: true,
           },
         }}
       >
@@ -39,28 +45,30 @@ const SliderGallery: React.FC<ISliderGalleryProps> = ({ slides }) => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <button
-        type='button'
-        aria-label={gallery.prev}
-        className='btn-prev absolute right-[68px] top-[-72px] h-10 w-10 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:right-[114px] md:top-[-120px] md:h-16 md:w-16 xl:right-[146px] xl:top-[-146px] xl:h-[90px] xl:w-[90px]'
-      >
-        <Left
-          width={40}
-          height={40}
-          className='md:h-16 md:w-16 xl:h-[90px] xl:w-[90px]'
-        />
-      </button>
-      <button
-        type='button'
-        aria-label={gallery.next}
-        className='btn-next absolute right-4 top-[-72px] h-10 w-10 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:right-[34px] md:top-[-120px] md:h-16 md:w-16 xl:right-[32px] xl:top-[-146px] xl:h-[90px] xl:w-[90px]'
-      >
-        <Right
-          width={40}
-          height={40}
-          className='md:h-16 md:w-16 xl:h-[90px] xl:w-[90px]'
-        />
-      </button>
+      <div className='container relative w-full fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange'>
+        <button
+          type='button'
+          aria-label={gallery.prev}
+          className='btn-prev absolute right-[68px] top-[-353px] md:right-[114px] md:top-[-467px] xl:right-[146px] xl:top-[-652px]'
+        >
+          <Left
+            width={40}
+            height={40}
+            className='md:h-16 md:w-16 xl:h-[90px] xl:w-[90px]'
+          />
+        </button>
+        <button
+          type='button'
+          aria-label={gallery.next}
+          className='btn-next absolute right-[16px] top-[-353px] md:right-[34px] md:top-[-467px] xl:right-[32px] xl:top-[-652px]'
+        >
+          <Right
+            width={40}
+            height={40}
+            className='md:h-16 md:w-16 xl:h-[90px] xl:w-[90px]'
+          />
+        </button>
+      </div>
     </div>
   );
 };

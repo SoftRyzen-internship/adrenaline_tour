@@ -4,15 +4,13 @@ import { ICardGalleryProps } from './CardGallery.types';
 
 const CardGallery: React.FC<ICardGalleryProps> = ({ src, alt }) => {
   return (
-    <div>
-      <Image
-        src={src}
-        alt={alt}
-        width={182}
-        height={281}
-        className='h-[281px] md:h-[347px] xl:h-[506px]'
-      />
-    </div>
+    <Image
+      src={src}
+      alt={alt}
+      width={459}
+      height={281}
+      className='h-[281px] object-cover md:h-[347px] xl:h-[506px]'
+    />
   );
 };
 
