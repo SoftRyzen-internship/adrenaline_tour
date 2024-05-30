@@ -3,7 +3,7 @@
 import clsx from 'clsx';
 
 import ArrowRight from '@/../public/icons/arrow-right.svg';
-import ArrowRightDownIcon from '@/../public/icons/arrow-rigt_up.svg';
+import ArrowRightDownIcon from '@/../public/icons/arrow-right_up.svg';
 import BurgerMenuIcon from '@/../public/icons/burger-menu-sm.svg';
 import CalendarIcon from '@/../public/icons/date.svg';
 import FacebookIcon from '@/../public/icons/facebook.svg';
@@ -136,12 +136,12 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </LinkButton>
         </div>
         <div>
-          <p className='p-1 text-xs'>LinkButton: variant - navlink</p>
-          <LinkButton href='/' variant='navlink'>
+          <p className='p-1 text-xs'>LinkButton: variant - navLink</p>
+          <LinkButton href='/' variant='navLink'>
             Головна
           </LinkButton>
         </div>
-        <div className='bg-accentGreen bg-darkBlue px-4 py-4'>
+        <div className='bg-darkBlue px-4 py-4'>
           <p className='p-1 text-xs text-white'>variant - footer</p>
           <LinkButton href='/' variant='footer'>
             Політика конфіденціальності
@@ -180,14 +180,14 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </Button>
         </div>
         <div>
-          <p className='p-1 text-xs'>variant-readmore-main</p>
-          <Button type='button' variant='readmore-main'>
+          <p className='p-1 text-xs'>variant-readMore-main</p>
+          <Button type='button' variant='readMore-main'>
             Читати більше
           </Button>
         </div>
         <div>
-          <p className='p-1 text-xs'>variant-readmore-secondary</p>
-          <Button variant='readmore-secondary'>Читати далі</Button>
+          <p className='p-1 text-xs'>variant-readMore-secondary</p>
+          <Button variant='readMore-secondary'>Читати далі</Button>
         </div>
       </div>
       <p className='container text-center text-[24px] font-bold'>

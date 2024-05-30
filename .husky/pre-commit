@@ -1,1 +1,7 @@
+current_branch=$(git symbolic-ref --short HEAD)
+if [ "$current_branch" = "dev" ]; then
+  echo "Не можна пушити безпосередньо в гілку dev. Створи feature/ чи fix/ гілку."
+  exit 1
+fi
 npx lint-staged
+echo "Вітаю, все не так і страшно)))."
