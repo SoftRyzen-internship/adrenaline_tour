@@ -17,6 +17,8 @@ import Social from '@/components/ui/Social';
 import TourCard from '@/components/ui/TourCard';
 import mockdatatourCard from '@/data/mockdatatourCard.json';
 
+import DisclosureMain from '../Disclosure';
+
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
 
@@ -184,6 +186,9 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
             />
           </IconButton>
         </div>
+      </div>
+      <div className='container p-8'>
+        <DisclosureMain />
       </div>
     </div>
   );
