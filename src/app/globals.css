@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer components {
+  .section {
+    @apply py-10 md:py-[60px] xl:py-20;
+  }
+
+  .title {
+    @apply font-unbounded text-[40px] font-bold leading-[1] text-white md:text-[64px] xl:text-[98px];
+  }
+
+  .section-title {
+    @apply font-unbounded text-[28px] font-bold leading-[1] text-blueDefault md:text-[48px] xl:text-[64px];
+  }
+}
+
+@layer utilities {
+  .transition {
+    @apply transition-all duration-300 ease-out;
+  }
+}
