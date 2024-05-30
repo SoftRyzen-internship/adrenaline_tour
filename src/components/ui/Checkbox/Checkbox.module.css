@@ -4,10 +4,10 @@
   opacity: 0;
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.custom-checkbox + p {
+.custom-checkbox + span {
   display: inline-flex;
 }
-.custom-checkbox + p::before {
+.custom-checkbox + span::before {
   content: '';
   display: inline-block;
   width: 20px;
@@ -19,16 +19,16 @@
   margin-right: 12px;
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.custom-checkbox:hover + p::before {
+.custom-checkbox:hover + span::before {
   border: 1px solid white;
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
-.custom-checkbox:checked + p::before {
+.custom-checkbox:checked + span::before {
   background: white url('/icons/check-mark.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 13px 13px;
 }
-.custom-checkbox:focus + p::before {
+.custom-checkbox:focus + span::before {
   outline: 2px solid blue;
 }

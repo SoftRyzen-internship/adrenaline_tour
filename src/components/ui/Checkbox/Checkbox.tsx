@@ -12,7 +12,7 @@ const Checkbox = ({ name, label }: CheckboxProps) => {
         name={name}
         tabIndex={0}
       />
-      <p>{label}</p>
+      <span>{label}</span>
     </label>
   );
 };
