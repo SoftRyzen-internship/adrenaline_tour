@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 
-import Location from '/public/icons/location.svg';
-
 import ArrowRight from '@/../public/icons/arrow-right.svg';
+import Location from '@/../public/icons/location.svg';
+import { button } from '@/data/tourCard.json';
 
 import LinkButton from '../LinkButton';
 
@@ -39,7 +39,7 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
           iconPosition='after'
           icon={<ArrowRight width={24} height={24} className='h-6 w-6' />}
         >
-          Детальніше{' '}
+          {button}{' '}
         </LinkButton>
       </div>
     </div>
