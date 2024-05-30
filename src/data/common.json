@@ -1,8 +1,6 @@
 {
-  "ariaLabel": {
-    "burgerOpen": "відкрити меню",
-    "burgerClose": "закрити меню",
-    "modalOpen": "відкрити модальне вікно",
-    "modalClose": "закрити модальне вікно"
-  }
+  "burgerOpen": "відкрити меню",
+  "burgerClose": "закрити меню",
+  "modalOpen": "відкрити модальне вікно",
+  "modalClose": "закрити модальне вікно"
 }

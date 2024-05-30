@@ -1,5 +1,3 @@
-import React from 'react';
-
 import {
   Dialog,
   DialogPanel,
@@ -9,7 +7,7 @@ import {
 import clsx from 'clsx';
 
 import CloseIcon from '@/../public/icons/close_24.svg';
-import { ariaLabel } from '@/data/common.json';
+import { ariaLabel } from '@/data';
 
 import IconButton from '../IconButton';
 
