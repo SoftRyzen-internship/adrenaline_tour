@@ -1,4 +1,5 @@
 'use client';
+import React, { useState } from 'react';
 
 import clsx from 'clsx';
 
@@ -11,6 +12,7 @@ import Button from '@/components/ui/Button';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import { Logo } from '@/components/ui/Logo';
+import Modal from '@/components/ui/Modal';
 import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
@@ -21,6 +23,8 @@ import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
+  const [isOpenBurger, setIsOpenBurger] = useState(false);
+  const [isOpenSimple, setIsOpenSimple] = useState(false);
   return (
     <div>
       <h1
@@ -184,6 +188,69 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
             />
           </IconButton>
         </div>
+      </div>
+      <p className='container text-center text-[24px] font-bold'>
+        Component Modal
+      </p>
+      <div className='container bg-darkBlue px-4 py-4'>
+        <p className='text-white'>variant - burger</p>
+        <IconButton
+          ariaLabel='Відкрити Модалку'
+          onClick={() => setIsOpenBurger(true)}
+        >
+          <BurgerMenuIcon
+            width={32}
+            height={32}
+            className='h-8 w-8 stroke-white transition hover:stroke-accentDefaultOrange'
+          />
+        </IconButton>
+        <Modal
+          isOpen={isOpenBurger}
+          variant='burger'
+          close={() => setIsOpenBurger(false)}
+        >
+          <div className='px-10 pb-10 pt-20'>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
+            corrupti corporis consequatur autem, libero omnis fugit earum natus
+            nesciunt sunt illum repellat perferendis deleniti eum sed animi
+            optio exercitationem. Perferendis molestiae est ex itaque
+            perspiciatis minus, dolorum vero? Iure doloribus quisquam culpa
+            consequatur velit adipisci quis dignissimos a. Vitae,
+            exercitationem!
+            <LinkButton
+              variant='navLink'
+              href='calendar'
+              onClick={() => setIsOpenBurger(false)}
+            >
+              Календарь
+            </LinkButton>
+          </div>
+        </Modal>
+      </div>
+      <div className='container bg-darkBlue px-4 py-4'>
+        <p className='text-white'>variant - simple</p>
+        <Button
+          type='button'
+          variant='readMore-main'
+          onClick={() => setIsOpenSimple(true)}
+        >
+          Читати більше
+        </Button>
+        <Modal
+          isOpen={isOpenSimple}
+          variant='simple'
+          close={() => setIsOpenSimple(false)}
+        >
+          <div className='p-10'>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
+            corrupti corporis consequatur autem, libero omnis fugit earum natus
+            nesciunt sunt illum repellat perferendis deleniti eum sed animi
+            optio exercitationem. Perferendis molestiae est ex itaque
+            perspiciatis minus, dolorum vero? Iure doloribus quisquam culpa
+            consequatur velit adipisci quis dignissimos a. Vitae,
+            exercitationem!
+          </div>
+        </Modal>
       </div>
     </div>
   );

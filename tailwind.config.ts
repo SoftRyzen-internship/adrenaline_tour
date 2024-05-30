@@ -53,6 +53,7 @@ const config: Config = {
         grey01: '#D3D3D3',
         grey02: '#9D9D9D',
         red: '#DD4B4B',
+        backdrop: 'rgba(0, 0, 0, 0.65)',
       },
     },
   },
