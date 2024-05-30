@@ -8,13 +8,11 @@ import {
 } from '@headlessui/react';
 import clsx from 'clsx';
 
-interface IModalProps {
-  children: React.ReactNode;
-  isOpen: boolean;
-  close: () => void;
-  variant: 'simple' | 'burger';
-  className?: string;
-}
+import CloseIcon from '@/../public/icons/close_24.svg';
+
+import IconButton from '../IconButton';
+
+import { IModalProps } from './Modal.types';
 
 const Modal: React.FC<IModalProps> = ({
   children,
@@ -70,7 +68,7 @@ const Modal: React.FC<IModalProps> = ({
             >
               <DialogPanel
                 className={clsx(
-                  ' bg-white ',
+                  ' relative bg-white',
                   variant === 'burger' && 'h-full w-full xl:max-w-[704px]',
                   variant === 'simple' &&
                     'max-h-[90%] min-w-[328px] sm:max-w-[480px] md:max-w-[700px] xl:max-w-[900px]',
@@ -78,6 +76,18 @@ const Modal: React.FC<IModalProps> = ({
                 )}
               >
                 {children}
+                <IconButton ariaLabel='Закрити модалку' onClick={close}>
+                  <CloseIcon
+                    width={24}
+                    height={24}
+                    className={clsx(
+                      'absolute  h-6 w-6 stroke-grey01 transition hover:stroke-accentDarkOrange focus:stroke-accentDarkOrange md:h-10 md:w-10',
+                      variant === 'burger'
+                        ? 'right-4 top-8 md:right-8 md:top-9 xl:h-12 xl:w-12'
+                        : 'right-4 top-4 md:right-6 md:top-6',
+                    )}
+                  />
+                </IconButton>
               </DialogPanel>
             </div>
           </TransitionChild>

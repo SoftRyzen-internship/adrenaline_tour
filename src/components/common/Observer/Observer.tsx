@@ -6,7 +6,6 @@ import clsx from 'clsx';
 import ArrowRight from '@/../public/icons/arrow-right.svg';
 import ArrowRightDownIcon from '@/../public/icons/arrow-right_up.svg';
 import BurgerMenuIcon from '@/../public/icons/burger-menu-sm.svg';
-import CloseIcon from '@/../public/icons/close_24.svg';
 import CalendarIcon from '@/../public/icons/date.svg';
 import FacebookIcon from '@/../public/icons/facebook.svg';
 import Button from '@/components/ui/Button';
@@ -194,6 +193,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         Component Modal
       </p>
       <div className='container bg-darkBlue px-4 py-4'>
+        <p className='text-white'>variant - burger</p>
         <IconButton
           ariaLabel='Відкрити Модалку'
           onClick={() => setIsOpenBurger(true)}
@@ -209,7 +209,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           variant='burger'
           close={() => setIsOpenBurger(false)}
         >
-          <div className='relative p-5'>
+          <div className='p-10'>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
             corrupti corporis consequatur autem, libero omnis fugit earum natus
             nesciunt sunt illum repellat perferendis deleniti eum sed animi
@@ -217,23 +217,21 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
             perspiciatis minus, dolorum vero? Iure doloribus quisquam culpa
             consequatur velit adipisci quis dignissimos a. Vitae,
             exercitationem!
-            <IconButton
-              ariaLabel='Закрити модалку'
+            <LinkButton
+              variant='navLink'
+              href='calendar'
               onClick={() => setIsOpenBurger(false)}
             >
-              <CloseIcon
-                width={32}
-                height={32}
-                className='absolute right-2 top-2 h-8 w-8 stroke-accentDarkOrange transition hover:scale-110'
-              />
-            </IconButton>
+              Календарь
+            </LinkButton>
           </div>
         </Modal>
       </div>
       <div className='container bg-darkBlue px-4 py-4'>
+        <p className='text-white'>variant - simple</p>
         <Button
           type='button'
-          variant='readmore-main'
+          variant='readMore-main'
           onClick={() => setIsOpenSimple(true)}
         >
           Читати більше
@@ -243,7 +241,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           variant='simple'
           close={() => setIsOpenSimple(false)}
         >
-          <div className='relative p-5'>
+          <div className='p-10'>
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
             corrupti corporis consequatur autem, libero omnis fugit earum natus
             nesciunt sunt illum repellat perferendis deleniti eum sed animi
@@ -251,16 +249,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
             perspiciatis minus, dolorum vero? Iure doloribus quisquam culpa
             consequatur velit adipisci quis dignissimos a. Vitae,
             exercitationem!
-            <IconButton
-              ariaLabel='Закрити модалку'
-              onClick={() => setIsOpenSimple(false)}
-            >
-              <CloseIcon
-                width={24}
-                height={24}
-                className='absolute right-2 top-2 h-6 w-6 stroke-accentDarkOrange transition hover:scale-110'
-              />
-            </IconButton>
           </div>
         </Modal>
       </div>
