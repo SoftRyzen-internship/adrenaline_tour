@@ -14,8 +14,9 @@ import { Logo } from '@/components/ui/Logo';
 import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
-import TourCard from '@/components/ui/TourCard';
-import mockdatatourCard from '@/data/mockdatatourCard.json';
+// import TourCard from '@/components/ui/TourCard';
+// import mockdatatourCard from '@/data/mockdatatourCard.json';
+import UpcomingTours from '@/sections/UpcomingTours';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
@@ -44,9 +45,9 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
       </div>
       <section className='section'>
         <div className='container flex flex-wrap gap-8'>
+          {/* <TourCard data={mockdatatourCard} />
           <TourCard data={mockdatatourCard} />
-          <TourCard data={mockdatatourCard} />
-          <TourCard data={mockdatatourCard} />
+          <TourCard data={mockdatatourCard} /> */}
         </div>
       </section>
       <section className='section'>
@@ -185,6 +186,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </IconButton>
         </div>
       </div>
+      <UpcomingTours />
     </div>
   );
 };
