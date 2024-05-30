@@ -29,3 +29,6 @@
   background-position: center;
   background-size: 13px 13px;
 }
+.custom-checkbox:focus + p::before {
+  outline: 2px solid blue;
+}

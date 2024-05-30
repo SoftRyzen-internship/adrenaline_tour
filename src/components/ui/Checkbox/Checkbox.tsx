@@ -10,6 +10,7 @@ const Checkbox = ({ name, label }: CheckboxProps) => {
         className={clsx('', s['custom-checkbox'])}
         type='checkbox'
         name={name}
+        tabIndex={0}
       />
       <p>{label}</p>
     </label>
