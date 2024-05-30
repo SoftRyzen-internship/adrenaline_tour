@@ -44,6 +44,7 @@ const config: Config = {
         additionalBlue: '#10425D',
         white: '#FFFFFF',
         white32: 'rgba(255, 255, 255, 0.32)',
+        white48: 'rgba(255, 255, 255, 0.48)',
         dark: '#4D4D4D',
         accentLightOrange: '#FF8C6C',
         accentDefaultOrange: '#FF6033',
