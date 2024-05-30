@@ -7,7 +7,7 @@ const FormTextArea = ({
   ...rest
 }: FormTextAreaProps) => {
   return (
-    <label className='flex flex-col gap-4 border-b border-white32 text-medium font-medium text-white md:text-lightLarge'>
+    <label className='flex cursor-pointer flex-col gap-4 border-b border-white32 text-medium font-medium text-white hover:border-white48 focus:border-white48 md:text-lightLarge'>
       <p>
         {label}{' '}
         {required && <span className='text-accentDefaultOrange'>*</span>}

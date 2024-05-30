@@ -19,6 +19,10 @@
   margin-right: 12px;
   transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
 }
+.custom-checkbox:hover + p::before {
+  border: 1px solid white;
+  transition: all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
 .custom-checkbox:checked + p::before {
   background: white url('/icons/check-mark.svg');
   background-repeat: no-repeat;
