@@ -20,9 +20,7 @@ import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
 import NavMenu from '@/components/ui/NavMenu';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
-import TourCard from '@/components/ui/TourCard';
 import form from '@/data/form.json';
-import mockdatatourCard from '@/data/mockdatatourCard.json';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
@@ -57,11 +55,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <NavMenu buttonStyle='footer' />
       </div>
       <section className='section'>
-        <div className='container flex flex-wrap gap-8'>
-          <TourCard data={mockdatatourCard} />
-          <TourCard data={mockdatatourCard} />
-          <TourCard data={mockdatatourCard} />
-        </div>
+        <div className='container flex flex-wrap gap-8'></div>
       </section>
       <section className='section bg-darkBlue'>
         <MovingBanner />
