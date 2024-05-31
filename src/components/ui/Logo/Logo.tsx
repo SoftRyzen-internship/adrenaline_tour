@@ -6,6 +6,7 @@ import { Link as LinkScroll } from 'react-scroll';
 
 import LogoIcon from '/public/icons/logo.svg';
 
+import { Pages } from '@/@types';
 import { logo } from '@/data';
 
 import { ILogoProps } from './Logo.types';
@@ -41,7 +42,7 @@ const Logo: React.FC<ILogoProps> = ({
         </LinkScroll>
       ) : (
         <Link
-          href='/'
+          href={Pages.MAIN}
           className='cursor-pointer focus:outline-1'
           aria-label={logo.ariaLabel}
           onClick={onClick}
