@@ -1,0 +1,5 @@
+[
+  { "id": "1", "page": "MAIN", "title": "Головна" },
+  { "id": "2", "page": "CALENDAR", "title": "Календар" },
+  { "id": "3", "page": "OUR_TOUR", "title": "Наші тури" }
+]

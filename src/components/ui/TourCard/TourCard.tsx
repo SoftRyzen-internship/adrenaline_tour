@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 
-import Location from '/public/icons/location.svg';
-
 import ArrowRight from '@/../public/icons/arrow-right.svg';
+import Location from '@/../public/icons/location.svg';
+import { tourCardData } from '@/data';
 
 import LinkButton from '../LinkButton';
 
@@ -19,7 +19,13 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
         {date}
       </span>
       <div className='relative mb-2 h-[291px] w-full md:mb-3 xl:mb-4 xl:h-[333px]'>
-        <Image className='object-cover' src={imgSrc} fill alt={alt} />
+        <Image
+          className='object-cover'
+          src={imgSrc}
+          fill
+          sizes='(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw'
+          alt={alt}
+        />
       </div>
       <div className='flex-grow'>
         <h2 className='mb-[6px] font-inter text-lightLarge font-bold text-blueDefault md:mb-2 md:text-extraLarge xl:text-[28px] xl:leading-[30px]'>
@@ -39,7 +45,7 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
           iconPosition='after'
           icon={<ArrowRight width={24} height={24} className='h-6 w-6' />}
         >
-          Детальніше{' '}
+          {tourCardData.button}{' '}
         </LinkButton>
       </div>
     </div>
