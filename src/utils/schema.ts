@@ -11,6 +11,7 @@ const {
     phoneMin,
     phoneMax,
     phonePattern,
+    emailMax,
     emailPattern,
   },
 } = form;
@@ -31,6 +32,7 @@ export const schema = yup.object({
   email: yup
     .string()
     .required(required)
+    .max(63, emailMax)
     .matches(/^$|^\s*[^\s@]+@[^\s@]+\.[^\s@]+\s*$/, emailPattern),
   message: yup.string(),
   privacyPolicy: yup.boolean().oneOf([true]).required(),
