@@ -63,7 +63,7 @@ const Form = () => {
             <ArrowRightDownIcon width={24} height={24} className='h-6 w-6' />
           }
         >
-          Зв’яжіться з нами
+          {form.buttonText}
         </Button>
       </form>
     </>
