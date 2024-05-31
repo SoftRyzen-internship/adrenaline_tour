@@ -1,5 +1,5 @@
+import SliderGallery from '@/components/common/SliderGallery';
 import CardGallery from '@/components/ui/CardGallery';
-import SliderGallery from '@/components/ui/SliderGallery';
 import { gallery } from '@/data';
 
 const slides = gallery.images.map(item => ({

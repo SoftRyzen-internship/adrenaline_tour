@@ -19,24 +19,10 @@ const SliderGallery: React.FC<ISliderGalleryProps> = ({ slides }) => {
         loop={true}
         spaceBetween={8}
         grabCursor={true}
-        slidesPerView={2}
+        slidesPerView={'auto'}
         navigation={{
           nextEl: '.btn-next',
           prevEl: '.btn-prev',
-        }}
-        breakpoints={{
-          400: {
-            slidesPerView: 3,
-            centeredSlides: true,
-          },
-          1280: {
-            slidesPerView: 4,
-            centeredSlides: true,
-          },
-          1580: {
-            slidesPerView: 5,
-            centeredSlides: true,
-          },
         }}
       >
         {slides.map(slide => (
