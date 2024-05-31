@@ -1,8 +1,6 @@
-import { ReactNode } from 'react';
-
 interface Slide {
   id: number | string;
-  content: ReactNode;
+  content: React.ReactNode;
 }
 
 export interface ISliderGalleryProps {
