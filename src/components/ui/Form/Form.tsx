@@ -71,6 +71,7 @@ const Form = () => {
           variant='main'
           type='submit'
           iconPosition='after'
+          className='md:max-w-[286px]'
           icon={
             <ArrowRightDownIcon width={24} height={24} className='h-6 w-6' />
           }
