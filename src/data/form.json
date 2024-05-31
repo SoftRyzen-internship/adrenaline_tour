@@ -6,22 +6,19 @@
         "label": "Ваше імʼя",
         "name": "name",
         "type": "text",
-        "placeholder": "Яна",
-        "required": true
+        "placeholder": "Яна"
       },
       {
         "label": "Email",
         "name": "email",
         "type": "text",
-        "placeholder": "yanapetrychenko@gmail.com",
-        "required": true
+        "placeholder": "yanapetrychenko@gmail.com"
       },
       {
         "label": "Телефон",
         "name": "phone",
         "type": "number",
-        "placeholder": "+380988888454",
-        "required": true
+        "placeholder": "+380988888454"
       }
     ],
     "textarea": {

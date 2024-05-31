@@ -34,14 +34,13 @@ const Form = () => {
         onSubmit={handleSubmit(onSubmit)}
         className='flex w-full flex-col gap-12 xl:w-1/2'
       >
-        {inputs.map(({ name, placeholder, type, label, required }, index) => {
+        {inputs.map(({ name, placeholder, type, label }, index) => {
           return (
             <FormInput
               key={index}
               label={label}
               type={type}
               placeholder={placeholder}
-              required={required}
               {...register(name as keyof formDataType)}
               errorMessage={errors[name as keyof formDataType]?.message}
             />
