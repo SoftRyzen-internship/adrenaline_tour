@@ -1,3 +1,7 @@
+'use client';
+
+// import { useState } from 'react';
+
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
@@ -13,9 +17,13 @@ import Button from '../Button';
 import { formDataType } from './Form.types';
 
 const Form = () => {
+  //   const [openErrorModal, setOpenErrorModal] = useState(false);
+  //   const [openSuccessModal, setOpenSuccessModal] = useState(false);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
     control,
   } = useForm<formDataType>({ resolver: yupResolver(schema) });
@@ -24,8 +32,14 @@ const Form = () => {
     formProps: { inputs, textarea, checkbox },
   } = form;
 
-  const onSubmit = (data: formDataType) => {
-    console.log(data);
+  const onSubmit = async (data: formDataType) => {
+    try {
+      console.log(data);
+      reset();
+      //   setOpenSuccessModal(true);
+    } catch (error) {
+      //   setOpenErrorModal(true);
+    }
   };
 
   return (
