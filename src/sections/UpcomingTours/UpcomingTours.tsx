@@ -1,4 +1,5 @@
 import CalendarIcon from '@/../public/icons/date.svg';
+import { Pages } from '@/@types';
 import Slider from '@/components/common/Slider';
 import LinkButton from '@/components/ui/LinkButton';
 import TourCard from '@/components/ui/TourCard';
@@ -16,10 +17,14 @@ const UpcomingTours = () => {
       <h2 className='section-title mb-8 w-[206px] md:mb-14 md:w-[478px] xl:mb-12 xl:w-[520px]'>
         {upcomingTours.title}
       </h2>
-      <Slider slides={slides} className={'mb-8 md:mb-14'} />
+      <Slider
+        slides={slides}
+        section='upcomingTours'
+        className={'mb-8 md:mb-14'}
+      />
       <div className='flex justify-center'>
         <LinkButton
-          href='/'
+          href={Pages.OUR_TOUR}
           variant='main'
           iconPosition='before'
           icon={

@@ -3,7 +3,7 @@ export { default as logo } from './logo.json';
 export { default as phones } from './phones.json';
 export { default as social } from './social.json';
 export { default as banner } from './banner.json';
-export { default as slider } from './slider.json';
+export { default as btnSlider } from './btnSlider.json';
 export { default as upcomingTours } from './upcomingTours.json';
 export { default as navList } from './navMenuData.json';
 export { default as ariaLabel } from './common.json';
