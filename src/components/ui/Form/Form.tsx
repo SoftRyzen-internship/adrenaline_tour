@@ -4,6 +4,7 @@
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
+import useFormPersist from 'react-hook-form-persist';
 
 import ArrowRightDownIcon from '@/../public/icons/arrow-right_up.svg';
 import Checkbox from '@/components/ui/Checkbox';
@@ -23,10 +24,18 @@ const Form = () => {
   const {
     register,
     handleSubmit,
+    watch,
+    setValue,
     reset,
     formState: { errors },
     control,
   } = useForm<formDataType>({ resolver: yupResolver(schema) });
+
+  useFormPersist('formData', {
+    watch,
+    setValue,
+    exclude: ['privacyPolicy'],
+  });
 
   const {
     formProps: { inputs, textarea, checkbox },
