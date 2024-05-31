@@ -17,6 +17,11 @@ const Logo: React.FC<ILogoProps> = ({
   toScroll,
   onClick,
 }) => {
+  const styleLogo = clsx(
+    'fill-white  transition  hover:fill-accentDarkOrange hover:text-accentDarkOrange',
+    textWhite ? 'text-white' : 'text-darkGreen',
+  );
+
   return (
     <>
       {toScroll ? (
@@ -31,14 +36,7 @@ const Logo: React.FC<ILogoProps> = ({
           aria-label={logo.ariaLabel}
         >
           <div className='inline-block'>
-            <LogoIcon
-              width={width}
-              height={height}
-              className={clsx(
-                'fill-white  transition  hover:fill-accentDarkOrange hover:text-accentDarkOrange',
-                textWhite ? 'text-white' : 'text-darkGreen',
-              )}
-            />
+            <LogoIcon width={width} height={height} className={styleLogo} />
           </div>
         </LinkScroll>
       ) : (
@@ -49,14 +47,7 @@ const Logo: React.FC<ILogoProps> = ({
           onClick={onClick}
         >
           <div className='inline-block'>
-            <LogoIcon
-              width={width}
-              height={height}
-              className={clsx(
-                'fill-white  transition  hover:fill-accentDarkOrange hover:text-accentDarkOrange',
-                textWhite ? 'text-white' : 'text-darkGreen',
-              )}
-            />
+            <LogoIcon width={width} height={height} className={styleLogo} />
           </div>
         </Link>
       )}
