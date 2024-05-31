@@ -25,7 +25,7 @@ const NavMenu: React.FC<INavMenuProps> = ({
             <li key={id}>
               <LinkButton
                 variant={buttonStyle}
-                href={page}
+                href={Pages[page as keyof typeof Pages]}
                 onClick={onCloseMenu}
                 className={clsx(
                   buttonStyle === 'navLink' && 'px-1 py-[10px]',

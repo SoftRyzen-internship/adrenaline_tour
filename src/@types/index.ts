@@ -1,5 +1,5 @@
 export enum Pages {
-  MANE = '/',
+  MAIN = '/',
   CALENDAR = 'calendar',
   OUR_TOUR = 'tours',
   POLICY = 'policy',
