@@ -95,11 +95,11 @@ const SliderHero: React.FC<ISliderHeroProps> = ({ images }) => {
         slidesPerView={1}
         className='h-full w-full'
       >
-        {images.map((_, index) => (
+        {images.map((image, index) => (
           <SwiperSlide
             className='swiper-slide bg-darkBlue bg-cover bg-center bg-no-repeat'
             data-index={index.toString()}
-            key={index}
+            key={image._id}
           ></SwiperSlide>
         ))}
       </SwiperComponent>
