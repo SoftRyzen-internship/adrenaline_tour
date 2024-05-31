@@ -7,14 +7,17 @@ import ArrowRightDownIcon from '@/../public/icons/arrow-right_up.svg';
 import BurgerMenuIcon from '@/../public/icons/burger-menu-sm.svg';
 import CalendarIcon from '@/../public/icons/date.svg';
 import FacebookIcon from '@/../public/icons/facebook.svg';
+import SliderHero from '@/components/common/SliderHero/SliderHero';
 import Button from '@/components/ui/Button';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
-import { Logo } from '@/components/ui/Logo';
+import Logo from '@/components/ui/Logo';
 import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 import TourCard from '@/components/ui/TourCard';
+import { mainHeroImages } from '@/data';
+import { ourToursHeroCard } from '@/data';
 import mockdatatourCard from '@/data/mockdatatourCard.json';
 
 import s from './Observer.module.css';
@@ -32,6 +35,8 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         The temporary component is used for the observation of newly created
         components.
       </h1>
+
+      <SliderHero images={mainHeroImages} />
 
       <div className='section container bg-blueDefault'>
         <Social variant='header' />
@@ -52,6 +57,8 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
       <section className='section'>
         <MovingBanner />
       </section>
+
+      <SliderHero images={ourToursHeroCard} />
 
       {children}
       <p className='container text-center text-[24px] font-bold'>
