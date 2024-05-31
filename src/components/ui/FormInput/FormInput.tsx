@@ -3,9 +3,9 @@ import { forwardRef } from 'react';
 import { FormInputProps } from './FormInput.types';
 
 const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
-  ({ label, required, ...rest }, ref) => {
+  ({ label, required, errorMessage, ...rest }, ref) => {
     return (
-      <label className='flex cursor-pointer flex-col gap-4 border-b border-white32 text-medium font-medium text-white hover:border-white48 focus:border-white48 md:text-lightLarge'>
+      <label className='relative flex cursor-pointer flex-col gap-4 border-b border-white32 text-medium font-medium text-white hover:border-white48 focus:border-white48 md:text-lightLarge'>
         <span>
           {label}{' '}
           {required && <span className='text-accentDefaultOrange'>*</span>}
@@ -16,6 +16,9 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
           {...rest}
           ref={ref}
         />
+        {errorMessage && (
+          <span className='text-accentDefaultOrange'>{errorMessage}</span>
+        )}
       </label>
     );
   },

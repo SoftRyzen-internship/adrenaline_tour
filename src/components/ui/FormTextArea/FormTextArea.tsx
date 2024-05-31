@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { FormTextAreaProps } from './FormTextArea.types';
 
 const FormTextArea = forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
-  ({ name, label, required, ...rest }, ref) => {
+  ({ name, label, required, errorMessage, ...rest }, ref) => {
     return (
       <label className='flex cursor-pointer flex-col gap-4 border-b border-white32 text-medium font-medium text-white hover:border-white48 focus:border-white48 md:text-lightLarge'>
         <span>
@@ -16,6 +16,9 @@ const FormTextArea = forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
           ref={ref}
           {...rest}
         ></textarea>
+        {errorMessage && (
+          <span className='text-accentDefaultOrange'>{errorMessage}</span>
+        )}
       </label>
     );
   },

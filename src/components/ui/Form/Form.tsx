@@ -11,7 +11,12 @@ import Button from '../Button';
 import { formDataType } from './Form.types';
 
 const Form = () => {
-  const { register, handleSubmit, control } = useForm<formDataType>({});
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    control,
+  } = useForm<formDataType>({});
 
   const {
     formProps: { inputs, textarea, checkbox },
@@ -36,6 +41,7 @@ const Form = () => {
               placeholder={placeholder}
               required={required}
               {...register(name as keyof formDataType)}
+              errorMessage={errors.name?.message}
             />
           );
         })}
@@ -43,6 +49,7 @@ const Form = () => {
           label={textarea.label}
           placeholder={textarea.placeholder}
           {...register(textarea.name as keyof formDataType)}
+          errorMessage={errors.name?.message}
         />
         <Controller
           name={checkbox.name as keyof formDataType}
@@ -52,6 +59,7 @@ const Form = () => {
               label={checkbox.label}
               checked={!!field.value}
               onChange={field.onChange}
+              errorMessage={errors.name?.message}
             />
           )}
         />

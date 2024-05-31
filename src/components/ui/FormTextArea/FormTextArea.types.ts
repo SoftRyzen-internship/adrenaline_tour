@@ -5,4 +5,5 @@ export interface FormTextAreaProps
   name: string;
   label: string;
   required?: boolean;
+  errorMessage?: string;
 }
