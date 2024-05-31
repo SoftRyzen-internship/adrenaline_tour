@@ -1,0 +1,59 @@
+.bgReviews {
+  background-image: url('/images/mountainVector@1x.webp'), url('/images/bg/bgReviews@1x.webp');
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size:
+    auto 356px,
+    cover;
+}
+
+/* @media screen and (min-width: 768px) {
+  .bgReviews {
+    background-image: url('/images/bg/hero/bg_ellipse_t@1x.webp'),
+      url('/images/bg/hero/bg_yellow_t@1x.webp');
+    background-size:
+      auto 621px,
+      cover;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .bgReviews {
+    background-image: url('/images/bg/hero/bg_ellipse_d@1x.webp'),
+      url('/images/bg/hero/bg_yellow_d@1x.webp');
+    background-position:
+      right 112px top 583px,
+      center;
+    background-size:
+      auto 1306px,
+      cover;
+  }
+} */
+
+/* @media screen and (min-width: 1580px) {
+  .bgHero {
+    background-position:
+      center 583px,
+      center;
+  }
+} */
+
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .bgReviews {
+    background-image: url('/images/mountainVector@1x.webp'), url('/images/bgReviews@2x.webp');
+  }
+
+  /* @media screen and (min-width: 768px) {
+    .bgReviews {
+      background-image: url('/images/bg/hero/bg_ellipse_t@2x.webp'),
+        url('/images/bg/hero/bg_yellow_t@2x.webp');
+    }
+  }
+
+  @media screen and (min-width: 1280px) {
+    .bgReviews {
+      background-image: url('/images/bg/hero/bg_ellipse_d@2x.webp'),
+        url('/images/bg/hero/bg_yellow_d@2x.webp');
+    }
+  } */
+}

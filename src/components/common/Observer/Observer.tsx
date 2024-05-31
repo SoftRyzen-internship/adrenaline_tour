@@ -22,6 +22,7 @@ import Social from '@/components/ui/Social';
 import TourCard from '@/components/ui/TourCard';
 import form from '@/data/form.json';
 import mockdatatourCard from '@/data/mockdatatourCard.json';
+import Reviews from '@/sections/Reviews';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
@@ -285,6 +286,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </div>
         </Modal>
       </div>
+      <Reviews />
     </div>
   );
 };
