@@ -11,7 +11,7 @@ const MovingBanner = () => {
       <div className='flex items-center justify-center'>
         <p
           className={clsx(
-            'px-[22px] font-unbounded text-[48px] font-bold leading-none text-additionalBlue md:text-[64px] xl:px-[44px] xl:text-[98px]',
+            'overflow-hidden px-[22px] font-unbounded text-[48px] font-bold leading-none text-additionalBlue md:text-[64px] xl:px-[44px] xl:text-[98px]',
             s['item'],
           )}
         >
