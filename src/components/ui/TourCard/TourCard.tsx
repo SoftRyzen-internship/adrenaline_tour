@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 
-import Location from '/public/icons/location.svg';
-
 import ArrowRight from '@/../public/icons/arrow-right.svg';
+import Location from '@/../public/icons/location.svg';
+import { tourCardData } from '@/data';
 
 import LinkButton from '../LinkButton';
 
@@ -14,12 +14,18 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
   const { imgSrc, alt, title, date, location, type, duration, link } = data;
 
   return (
-    <div className='group relative flex h-[411px] w-[328px] flex-col md:h-[439px] md:w-[334px] xl:h-[485px] xl:w-[384px]'>
+    <div className='group relative flex h-[411px] w-full flex-col md:h-[439px] md:w-[334px] xl:h-[485px] xl:w-[384px]'>
       <span className='absolute right-4 top-4 z-10 bg-white px-3 py-[11px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue transition group-hover:text-accentDefaultOrange md:px-[11px] md:py-4 md:text-[12px] md:leading-[16px]'>
         {date}
       </span>
       <div className='relative mb-2 h-[291px] w-full md:mb-3 xl:mb-4 xl:h-[333px]'>
-        <Image className='object-cover' src={imgSrc} fill alt={alt} />
+        <Image
+          className='object-cover'
+          src={imgSrc}
+          fill
+          sizes='(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw'
+          alt={alt}
+        />
       </div>
       <div className='flex-grow'>
         <h2 className='mb-[6px] font-inter text-lightLarge font-bold text-blueDefault md:mb-2 md:text-extraLarge xl:text-[28px] xl:leading-[30px]'>
@@ -39,7 +45,7 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
           iconPosition='after'
           icon={<ArrowRight width={24} height={24} className='h-6 w-6' />}
         >
-          Детальніше{' '}
+          {tourCardData.button}{' '}
         </LinkButton>
       </div>
     </div>

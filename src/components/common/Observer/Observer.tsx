@@ -1,4 +1,5 @@
 'use client';
+import React, { useState } from 'react';
 
 import clsx from 'clsx';
 
@@ -9,21 +10,30 @@ import CalendarIcon from '@/../public/icons/date.svg';
 import FacebookIcon from '@/../public/icons/facebook.svg';
 import SliderHero from '@/components/common/SliderHero/SliderHero';
 import Button from '@/components/ui/Button';
+import Checkbox from '@/components/ui/Checkbox';
+import FormInput from '@/components/ui/FormInput';
+import FormTextArea from '@/components/ui/FormTextArea';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import Logo from '@/components/ui/Logo';
+import Modal from '@/components/ui/Modal';
 import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
+import NavMenu from '@/components/ui/NavMenu';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
-import TourCard from '@/components/ui/TourCard';
 import { mainHeroImages } from '@/data';
 import { ourToursHeroCard } from '@/data';
-import mockdatatourCard from '@/data/mockdatatourCard.json';
+import form from '@/data/form.json';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
+  const {
+    formProps: { inputs, textarea, checkbox },
+  } = form;
+  const [isOpenBurger, setIsOpenBurger] = useState(false);
+  const [isOpenSimple, setIsOpenSimple] = useState(false);
   return (
     <div>
       <h1
@@ -46,16 +56,40 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
 
         <Logo textWhite={true} width={153} height={51} />
         <Logo textWhite={false} width={252} height={80} />
+
+        <NavMenu buttonStyle='footer' />
       </div>
       <section className='section'>
-        <div className='container flex flex-wrap gap-8'>
-          <TourCard data={mockdatatourCard} />
-          <TourCard data={mockdatatourCard} />
-          <TourCard data={mockdatatourCard} />
-        </div>
+        <div className='container flex flex-wrap gap-8'></div>
       </section>
-      <section className='section'>
+      <section className='section bg-darkBlue'>
         <MovingBanner />
+      </section>
+      <section className='section bg-darkBlue'>
+        <div className='container flex xl:justify-end'>
+          <div className='flex w-full flex-col gap-12 xl:w-1/2'>
+            {inputs.map(
+              ({ name, placeholder, type, label, required }, index) => {
+                return (
+                  <FormInput
+                    key={index}
+                    label={label}
+                    type={type}
+                    name={name}
+                    placeholder={placeholder}
+                    required={required}
+                  />
+                );
+              },
+            )}
+            <FormTextArea
+              label={textarea.label}
+              name={textarea.name}
+              placeholder={textarea.placeholder}
+            />
+            <Checkbox name={checkbox.name} label={checkbox.label} />
+          </div>
+        </div>
       </section>
 
       <SliderHero images={ourToursHeroCard} />
@@ -191,6 +225,59 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
             />
           </IconButton>
         </div>
+      </div>
+      <p className='container text-center text-[24px] font-bold'>
+        Component Modal
+      </p>
+      <div className='container bg-darkBlue px-4 py-4'>
+        <p className='text-white'>variant - burger</p>
+        <IconButton
+          ariaLabel='Відкрити Модалку'
+          onClick={() => setIsOpenBurger(true)}
+        >
+          <BurgerMenuIcon
+            width={32}
+            height={32}
+            className='h-8 w-8 stroke-white transition hover:stroke-accentDefaultOrange'
+          />
+        </IconButton>
+        <Modal
+          isOpen={isOpenBurger}
+          variant='burger'
+          close={() => setIsOpenBurger(false)}
+        >
+          <div className='px-10 pb-10 pt-20'>
+            <NavMenu
+              buttonStyle='navLink'
+              onCloseMenu={() => setIsOpenBurger(false)}
+            />
+          </div>
+        </Modal>
+      </div>
+      <div className='container bg-darkBlue px-4 py-4'>
+        <p className='text-white'>variant - simple</p>
+        <Button
+          type='button'
+          variant='readMore-main'
+          onClick={() => setIsOpenSimple(true)}
+        >
+          Читати більше
+        </Button>
+        <Modal
+          isOpen={isOpenSimple}
+          variant='simple'
+          close={() => setIsOpenSimple(false)}
+        >
+          <div className='p-10'>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
+            corrupti corporis consequatur autem, libero omnis fugit earum natus
+            nesciunt sunt illum repellat perferendis deleniti eum sed animi
+            optio exercitationem. Perferendis molestiae est ex itaque
+            perspiciatis minus, dolorum vero? Iure doloribus quisquam culpa
+            consequatur velit adipisci quis dignissimos a. Vitae,
+            exercitationem!
+          </div>
+        </Modal>
       </div>
     </div>
   );
