@@ -42,7 +42,7 @@ const RootLayout = ({
         )}
       >
         <header className='bg-blue-500'>Header will be here</header>
-        <main className='flex-1'>{children}</main>
+        <main className='flex-1 bg-darkBlue'>{children}</main>
         <Footer />
       </body>
     </html>

@@ -8,3 +8,4 @@ export { default as upcomingTours } from './upcomingTours.json';
 export { default as navList } from './navMenuData.json';
 export { default as ariaLabel } from './common.json';
 export { default as tourCardData } from './tourCard.json';
+export { default as footerData } from './footerData.json';

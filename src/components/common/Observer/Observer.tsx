@@ -1,13 +1,14 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import clsx from 'clsx';
 
-import ArrowRight from '@/../public/icons/arrow-right.svg';
-import ArrowRightDownIcon from '@/../public/icons/arrow-right_up.svg';
-import BurgerMenuIcon from '@/../public/icons/burger-menu-sm.svg';
-import CalendarIcon from '@/../public/icons/date.svg';
-import FacebookIcon from '@/../public/icons/facebook.svg';
+import ArrowRight from '/public/icons/arrow-right.svg';
+import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
+import BurgerMenuIcon from '/public/icons/burger-menu-sm.svg';
+import CalendarIcon from '/public/icons/date.svg';
+import FacebookIcon from '/public/icons/facebook.svg';
+
 import Button from '@/components/ui/Button';
 import Checkbox from '@/components/ui/Checkbox';
 import FormInput from '@/components/ui/FormInput';
@@ -178,16 +179,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         Component IconButton
       </p>
       <div className='container flex flex-wrap gap-2 py-4'>
-        <div className='bg-accentGreen px-4 py-4'>
-          <p className='p-1 text-xs'>icon as children with own style</p>
-          <IconButton ariaLabel='Відкрити Модалку'>
-            <BurgerMenuIcon
-              width={32}
-              height={32}
-              className='h-8 w-8 stroke-white transition hover:stroke-accentDefaultOrange'
-            />
-          </IconButton>
-        </div>
         <div className='bg-accentGreen px-4 py-4'>
           <p className='p-1 text-xs'>icon as children with own style</p>
           <IconButton ariaLabel='Відкрити Модалку'>
