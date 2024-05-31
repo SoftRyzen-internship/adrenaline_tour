@@ -1,5 +1,6 @@
 export interface ITourCardProps {
   data: {
+    id: string;
     imgSrc: string;
     alt: string;
     title: string;
