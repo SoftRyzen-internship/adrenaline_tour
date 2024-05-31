@@ -92,6 +92,21 @@ const Form = () => {
           {form.buttonText}
         </Button>
       </form>
+      {/* <FormModal
+        open={openSuccessModal}
+        handleClose={() => setOpenSuccessModal(false)}
+        title={successMessage.title}
+        text={successMessage.text}
+        buttonText={modalButtonText}
+      />
+      <FormModal
+        open={openErrorModal}
+        handleClose={() => setOpenErrorModal(false)}
+        title={errorMessage.title}
+        text={errorMessage.text}
+        buttonText={modalButtonText}
+        error={true}
+      /> */}
     </>
   );
 };
