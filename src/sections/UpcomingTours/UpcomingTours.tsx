@@ -16,7 +16,7 @@ const UpcomingTours = () => {
       <h2 className='section-title mb-8 w-[206px] md:mb-14 md:w-[478px] xl:mb-12 xl:w-[520px]'>
         {upcomingTours.title}
       </h2>
-      <Slider slides={slides} />
+      <Slider slides={slides} className={'mb-8 md:mb-14'} />
       <div className='flex justify-center'>
         <LinkButton
           href='/'
@@ -29,7 +29,7 @@ const UpcomingTours = () => {
               className='h-6 w-6 md:h-8 md:w-8'
             />
           }
-          className={'mt-8 w-full md:mt-14 md:w-[330px] md:py-[14px]'}
+          className={'w-full md:w-[330px] md:py-[14px]'}
         >
           {upcomingTours.btn}
         </LinkButton>

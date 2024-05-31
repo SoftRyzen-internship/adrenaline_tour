@@ -8,4 +8,5 @@ interface Slide {
 export interface ISliderProps {
   slides: Slide[];
   isReview?: boolean;
+  className?: string;
 }
