@@ -5,3 +5,6 @@ export { default as social } from './social.json';
 export { default as banner } from './banner.json';
 export { default as slider } from './slider.json';
 export { default as upcomingTours } from './upcomingTours.json';
+export { default as navList } from './navMenuData.json';
+export { default as ariaLabel } from './common.json';
+export { default as tourCardData } from './tourCard.json';
