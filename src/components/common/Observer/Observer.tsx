@@ -14,9 +14,8 @@ import FormInput from '@/components/ui/FormInput';
 import FormTextArea from '@/components/ui/FormTextArea';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
-import { Logo } from '@/components/ui/Logo';
+import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
-import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
 import NavMenu from '@/components/ui/NavMenu';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
@@ -47,14 +46,9 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
 
       <div className='section container bg-blueDefault'>
         <Social variant='header' />
-        <Social variant='footer' />
         <Phones variant='contacts' />
-        <Phones variant='footer' />
 
-        <Logo textWhite={true} width={153} height={51} />
         <Logo textWhite={false} width={252} height={80} />
-
-        <NavMenu buttonStyle='footer' />
       </div>
       <section className='section'>
         <div className='container flex flex-wrap gap-8'>
@@ -63,9 +57,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           <TourCard data={mockdatatourCard} />
         </div>
       </section>
-      <section className='section bg-darkBlue'>
-        <MovingBanner />
-      </section>
+
       <section className='section bg-darkBlue'>
         <div className='container flex xl:justify-end'>
           <div className='flex w-full flex-col gap-12 xl:w-1/2'>
@@ -143,18 +135,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
             icon={<ArrowRight width={24} height={24} className='h-6 w-6' />}
           >
             Детальніше{' '}
-          </LinkButton>
-        </div>
-        <div>
-          <p className='p-1 text-xs'>LinkButton: variant - navLink</p>
-          <LinkButton href='/' variant='navLink'>
-            Головна
-          </LinkButton>
-        </div>
-        <div className='bg-darkBlue px-4 py-4'>
-          <p className='p-1 text-xs text-white'>variant - footer</p>
-          <LinkButton href='/' variant='footer'>
-            Політика конфіденціальності
           </LinkButton>
         </div>
       </div>

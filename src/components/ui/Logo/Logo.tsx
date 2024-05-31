@@ -30,16 +30,14 @@ const Logo: React.FC<ILogoProps> = ({
           className='cursor-pointer focus:outline-1'
           aria-label={logo.ariaLabel}
         >
-          <div className='inline-block'>
-            <LogoIcon
-              width={width}
-              height={height}
-              className={clsx(
-                'fill-white  transition  hover:fill-accentDarkOrange hover:text-accentDarkOrange',
-                textWhite ? 'text-white' : 'text-darkGreen',
-              )}
-            />
-          </div>
+          <LogoIcon
+            width={width}
+            height={height}
+            className={clsx(
+              'inline-block fill-white  transition  hover:fill-accentDarkOrange hover:text-accentDarkOrange',
+              textWhite ? 'text-white' : 'text-darkGreen',
+            )}
+          />
         </LinkScroll>
       ) : (
         <Link
@@ -48,16 +46,14 @@ const Logo: React.FC<ILogoProps> = ({
           aria-label={logo.ariaLabel}
           onClick={onClick}
         >
-          <div className='inline-block'>
-            <LogoIcon
-              width={width}
-              height={height}
-              className={clsx(
-                'fill-white  transition  hover:fill-accentDarkOrange hover:text-accentDarkOrange',
-                textWhite ? 'text-white' : 'text-darkGreen',
-              )}
-            />
-          </div>
+          <LogoIcon
+            width={width}
+            height={height}
+            className={clsx(
+              'inline-block fill-white  transition  hover:fill-accentDarkOrange hover:text-accentDarkOrange',
+              textWhite ? 'text-white' : 'text-darkGreen',
+            )}
+          />
         </Link>
       )}
     </>
