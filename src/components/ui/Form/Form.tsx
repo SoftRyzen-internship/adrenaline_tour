@@ -43,7 +43,7 @@ const Form = () => {
               placeholder={placeholder}
               required={required}
               {...register(name as keyof formDataType)}
-              errorMessage={errors.name?.message}
+              errorMessage={errors[name as keyof formDataType]?.message}
             />
           );
         })}
@@ -51,7 +51,7 @@ const Form = () => {
           label={textarea.label}
           placeholder={textarea.placeholder}
           {...register(textarea.name as keyof formDataType)}
-          errorMessage={errors.name?.message}
+          errorMessage={errors[textarea.name as keyof formDataType]?.message}
         />
         <Controller
           name={checkbox.name as keyof formDataType}
@@ -61,7 +61,9 @@ const Form = () => {
               label={checkbox.label}
               checked={!!field.value}
               onChange={field.onChange}
-              errorMessage={errors.name?.message}
+              errorMessage={
+                errors[checkbox.name as keyof formDataType]?.message
+              }
             />
           )}
         />
