@@ -12,16 +12,16 @@ const Checkbox = ({
   return (
     <label className='flex cursor-pointer gap-3  text-light font-light text-white md:text-medium'>
       <input
-        className={clsx('', s['custom-checkbox'])}
+        className={clsx(
+          errorMessage && s['custom-checkbox-error'],
+          s['custom-checkbox'],
+        )}
         type='checkbox'
         checked={checked}
         onChange={e => onChange(e.target.checked)}
         tabIndex={0}
       />
       <span>{label}</span>
-      {errorMessage && (
-        <span className='text-accentDefaultOrange'>{errorMessage}</span>
-      )}
     </label>
   );
 };

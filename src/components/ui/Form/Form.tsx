@@ -1,3 +1,4 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 
 import ArrowRightDownIcon from '@/../public/icons/arrow-right_up.svg';
@@ -5,6 +6,7 @@ import Checkbox from '@/components/ui/Checkbox';
 import FormInput from '@/components/ui/FormInput';
 import FormTextArea from '@/components/ui/FormTextArea';
 import form from '@/data/form.json';
+import { schema } from '@/utils/schema';
 
 import Button from '../Button';
 
@@ -16,7 +18,7 @@ const Form = () => {
     handleSubmit,
     formState: { errors },
     control,
-  } = useForm<formDataType>({});
+  } = useForm<formDataType>({ resolver: yupResolver(schema) });
 
   const {
     formProps: { inputs, textarea, checkbox },

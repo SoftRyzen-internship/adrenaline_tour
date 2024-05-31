@@ -17,7 +17,9 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
           ref={ref}
         />
         {errorMessage && (
-          <span className='text-accentDefaultOrange'>{errorMessage}</span>
+          <span className='absolute bottom-[-26px] left-0 text-accentDefaultOrange'>
+            {errorMessage}
+          </span>
         )}
       </label>
     );
