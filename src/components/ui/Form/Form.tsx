@@ -1,6 +1,6 @@
 'use client';
 
-// import { useState } from 'react';
+import { useState } from 'react';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
@@ -14,12 +14,20 @@ import form from '@/data/form.json';
 import { schema } from '@/utils/schema';
 
 import Button from '../Button';
+import FormModal from '../FormModal/FormModal';
 
 import { formDataType } from './Form.types';
 
 const Form = () => {
-  //   const [openErrorModal, setOpenErrorModal] = useState(false);
-  //   const [openSuccessModal, setOpenSuccessModal] = useState(false);
+  const {
+    formProps: { inputs, textarea, checkbox },
+    successMessage,
+    errorMessage,
+    modalButtonText,
+  } = form;
+
+  const [openErrorModal, setOpenErrorModal] = useState(false);
+  const [openSuccessModal, setOpenSuccessModal] = useState(false);
 
   const {
     register,
@@ -37,17 +45,13 @@ const Form = () => {
     exclude: ['privacyPolicy'],
   });
 
-  const {
-    formProps: { inputs, textarea, checkbox },
-  } = form;
-
   const onSubmit = async (data: formDataType) => {
     try {
       console.log(data);
       reset();
-      //   setOpenSuccessModal(true);
+      setOpenSuccessModal(true);
     } catch (error) {
-      //   setOpenErrorModal(true);
+      setOpenErrorModal(true);
     }
   };
 
@@ -101,7 +105,7 @@ const Form = () => {
           {form.buttonText}
         </Button>
       </form>
-      {/* <FormModal
+      <FormModal
         open={openSuccessModal}
         handleClose={() => setOpenSuccessModal(false)}
         title={successMessage.title}
@@ -115,7 +119,7 @@ const Form = () => {
         text={errorMessage.text}
         buttonText={modalButtonText}
         error={true}
-      /> */}
+      />
     </>
   );
 };
