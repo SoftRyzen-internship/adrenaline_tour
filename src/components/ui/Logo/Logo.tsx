@@ -17,6 +17,7 @@ const Logo: React.FC<ILogoProps> = ({
   height,
   toScroll,
   onClick,
+  className,
 }) => {
   return (
     <>
@@ -37,6 +38,7 @@ const Logo: React.FC<ILogoProps> = ({
             className={clsx(
               'inline-block fill-white  transition  group-hover:fill-accentDarkOrange group-hover:text-accentDarkOrange group-focus:fill-accentDarkOrange group-focus:text-accentDarkOrange',
               textWhite ? 'text-white' : 'text-darkGreen',
+              className,
             )}
           />
         </LinkScroll>
@@ -53,6 +55,7 @@ const Logo: React.FC<ILogoProps> = ({
             className={clsx(
               'inline-block fill-white  transition  group-hover:fill-accentDarkOrange group-hover:text-accentDarkOrange group-focus:fill-accentDarkOrange group-focus:text-accentDarkOrange',
               textWhite ? 'text-white' : 'text-darkGreen',
+              className,
             )}
           />
         </Link>

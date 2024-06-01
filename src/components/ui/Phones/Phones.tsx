@@ -53,7 +53,7 @@ const Phones: React.FC<IPhonesProps> = ({
       </div>
     </div>
   ) : (
-    <div className={`flex flex-col gap-[6px] ${className}`}>
+    <div className={`flex flex-col items-center gap-[6px] ${className}`}>
       {phones.tel.map(contact => (
         <div
           key={contact.id}

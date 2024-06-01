@@ -13,6 +13,7 @@ const PageConditionalRender: <T>(
   component: Component,
   trueContent,
   alternativeContent,
+  className,
 }) => {
   const pathname = usePathname();
   const shouldRender = pages.includes(pathname);
@@ -20,7 +21,11 @@ const PageConditionalRender: <T>(
   const props = shouldRender ? trueProps : alternativeProps;
   const content = shouldRender ? trueContent : alternativeContent;
 
-  return <Component {...props}>{content && content}</Component>;
+  return (
+    <Component {...props} className={className}>
+      {content && content}
+    </Component>
+  );
 };
 
 export default PageConditionalRender;

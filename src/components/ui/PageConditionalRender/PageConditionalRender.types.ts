@@ -5,4 +5,5 @@ export interface IPageConditionalRenderProps<T> {
   alternativeProps?: Partial<T>;
   trueContent?: React.ReactNode;
   alternativeContent?: React.ReactNode;
+  className?: string;
 }
