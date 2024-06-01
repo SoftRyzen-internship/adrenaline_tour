@@ -17,11 +17,10 @@ import LinkButton from '@/components/ui/LinkButton';
 import { Logo } from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
 import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
+import NavMenu from '@/components/ui/NavMenu';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
-import TourCard from '@/components/ui/TourCard';
 import form from '@/data/form.json';
-import mockdatatourCard from '@/data/mockdatatourCard.json';
 import Reviews from '@/sections/Reviews';
 
 import s from './Observer.module.css';
@@ -53,13 +52,11 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
 
         <Logo textWhite={true} width={153} height={51} />
         <Logo textWhite={false} width={252} height={80} />
+
+        <NavMenu buttonStyle='footer' />
       </div>
       <section className='section'>
-        <div className='container flex flex-wrap gap-8'>
-          <TourCard data={mockdatatourCard} />
-          <TourCard data={mockdatatourCard} />
-          <TourCard data={mockdatatourCard} />
-        </div>
+        <div className='container flex flex-wrap gap-8'></div>
       </section>
       <section className='section bg-darkBlue'>
         <MovingBanner />
@@ -244,20 +241,10 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           close={() => setIsOpenBurger(false)}
         >
           <div className='px-10 pb-10 pt-20'>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
-            corrupti corporis consequatur autem, libero omnis fugit earum natus
-            nesciunt sunt illum repellat perferendis deleniti eum sed animi
-            optio exercitationem. Perferendis molestiae est ex itaque
-            perspiciatis minus, dolorum vero? Iure doloribus quisquam culpa
-            consequatur velit adipisci quis dignissimos a. Vitae,
-            exercitationem!
-            <LinkButton
-              variant='navLink'
-              href='calendar'
-              onClick={() => setIsOpenBurger(false)}
-            >
-              Календарь
-            </LinkButton>
+            <NavMenu
+              buttonStyle='navLink'
+              onCloseMenu={() => setIsOpenBurger(false)}
+            />
           </div>
         </Modal>
       </div>
