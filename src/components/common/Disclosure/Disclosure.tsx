@@ -1,21 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
 } from '@headlessui/react';
+import clsx from 'clsx';
 
 import MinusIcon from '@/../public/icons/minus.svg';
 import PlusIcon from '@/../public/icons/plus.svg';
+import Button from '@/components/ui/Button';
 import { faq } from '@/data';
 
 interface IDisclosureProps {}
 
 const DisclosureMain: React.FC<IDisclosureProps> = () => {
   const { disclosures } = faq;
-
   const [activeDisclosurePanel, setActiveDisclosurePanel] = useState(null);
+  const [showReadMoreButton, setShowReadMoreExpandButton] = useState(false);
+  const textRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (textRef.current) {
+      if (
+        textRef.current.scrollHeight > textRef.current.clientHeight ||
+        textRef.current.scrollWidth > textRef.current.clientWidth
+      ) {
+        setShowReadMoreExpandButton(true);
+      } else {
+        setShowReadMoreExpandButton(false);
+      }
+    }
+  }, [activeDisclosurePanel]);
 
   const handleToggle = newPanel => {
     if (activeDisclosurePanel) {
@@ -31,7 +47,7 @@ const DisclosureMain: React.FC<IDisclosureProps> = () => {
   };
 
   return (
-    <div className='mx-auto w-full max-w-lg'>
+    <div className='mx-auto w-full'>
       <ul>
         {disclosures.map(disclosure => (
           <li key={disclosure.id} className='mb-8'>
@@ -70,31 +86,58 @@ const DisclosureMain: React.FC<IDisclosureProps> = () => {
                         />
                       )}
                     </DisclosureButton>
-                    <DisclosurePanel className='line-clamp-4  pl-4 pt-[42px]  font-inter text-sm font-medium text-dark'>
-                      {typeof item.answers === 'string' ? (
-                        <p className='border-l-[1px] border-blue32 pl-4 before:absolute before:left-1 before:top-1 before:mr-0.5 before:block before:size-2 before:rounded-full before:bg-dark'>
-                          {item.answers}
-                        </p>
-                      ) : (
-                        item.answers.map((answer, index) => (
-                          <div
-                            key={index}
-                            className=' border-l-[1px] border-blue32 pl-4'
-                          >
-                            <p className='font-bold'>{answer.title}</p>
-                            <ul>
-                              {answer.text.map((point, index) => (
-                                <li key={index} className='relative pl-5'>
-                                  <span className='before:absolute before:left-1 before:top-2  before:block before:size-[6px] before:rounded-full before:bg-dark'>
+                    <DisclosurePanel
+                      ref={textRef}
+                      className='pl-4 pt-[42px]  font-inter text-sm font-medium text-dark'
+                    >
+                      {item.answers.map((answer, index) => (
+                        <div
+                          key={index}
+                          className='border-l-[1px] border-blue32 pl-4'
+                        >
+                          {answer.title && (
+                            <p className='mb-2 font-bold'>{answer.title}</p>
+                          )}
+
+                          <ul className='mb-2'>
+                            {answer.text.map((point, index) => (
+                              <>
+                                <li
+                                  key={index}
+                                  className={clsx(
+                                    'relative',
+                                    item.icon && 'pl-5',
+                                  )}
+                                >
+                                  <span
+                                    className={clsx(
+                                      item.icon &&
+                                        'before:absolute before:left-1 before:top-2  before:block before:size-[6px] before:rounded-full before:bg-dark',
+                                    )}
+                                  >
                                     {point}
                                   </span>
                                 </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))
-                      )}
+                                {item.margin && (
+                                  <p className='block h-4 text-transparent'>
+                                    Пустий рядок
+                                  </p>
+                                )}
+                              </>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
                     </DisclosurePanel>
+                    {showReadMoreButton && open && (
+                      <div className='pl-4'>
+                        <div className='border-l-[1px] border-blue32 pl-4'>
+                          <Button variant='readMore-secondary' type='button'>
+                            Читати далі
+                          </Button>
+                        </div>
+                      </div>
+                    )}
                   </>
                 )}
               </Disclosure>
@@ -102,6 +145,12 @@ const DisclosureMain: React.FC<IDisclosureProps> = () => {
           </li>
         ))}
       </ul>
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
+        commodo cursus magna, vel scelerisque nisl consectetur et. &nbsp;
+        <p className='block h-4 text-transparent'></p> {/* Пустая строка */}
+        Sed posuere consectetur est at lobortis.
+      </div>
     </div>
   );
 };
