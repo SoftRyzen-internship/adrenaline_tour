@@ -1,3 +1,5 @@
+import clsx from 'clsx';
+
 import ArrowRightDownIcon from '@/../public/icons/arrow-right_up.svg';
 
 import LinkButton from '../LinkButton';
@@ -11,6 +13,7 @@ function FormModal({
   title,
   text,
   buttonText,
+  error,
 }: FormModalProps) {
   return (
     <Modal
@@ -19,7 +22,12 @@ function FormModal({
       variant='simple'
       className='px-4 pb-8 md:w-[526px] md:px-10 md:pb-10 xl:w-[677px] xl:px-[102px]'
     >
-      <h3 className='mb-4 pt-[72px] text-center font-inter text-[18px] font-bold uppercase leading-[1.15] text-[#3B433E] md:pt-[88px] md:text-lightLarge md:leading-[1.15] xl:text-3xl xl:leading-[1.15]'>
+      <h3
+        className={clsx(
+          'mb-4 pt-[72px] text-center font-inter text-[18px] font-bold uppercase leading-[1.15] text-[#3B433E] md:pt-[88px] md:text-lightLarge md:leading-[1.15] xl:text-3xl xl:leading-[1.15]',
+          error && 'text-accentDefaultOrange',
+        )}
+      >
         {title}
       </h3>
       <p className='mb-8 text-center font-inter text-light font-light tracking-[-0.02em] text-[#3B433E] xl:text-medium'>
