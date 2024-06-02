@@ -6,7 +6,7 @@ import { IPageConditionalRenderProps } from './PageConditionalRender.types';
 
 const PageConditionalRender: <T>(
   props: IPageConditionalRenderProps<T>,
-) => React.ReactElement<IPageConditionalRenderProps<T>> = ({
+) => React.ReactElement<IPageConditionalRenderProps<T>> | null = ({
   pages,
   trueProps,
   alternativeProps,
@@ -16,7 +16,13 @@ const PageConditionalRender: <T>(
   className,
 }) => {
   const pathname = usePathname();
-  const shouldRender = pages.includes(pathname);
+  const pagesWithSlash = pages.map(page => {
+    if (page === '/') {
+      return page;
+    }
+    return '/' + page;
+  });
+  const shouldRender = pagesWithSlash.includes(pathname);
 
   const props = shouldRender ? trueProps : alternativeProps;
   const content = shouldRender ? trueContent : alternativeContent;

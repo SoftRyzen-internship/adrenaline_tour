@@ -9,6 +9,7 @@ import BurgerMenuIcon from '/public/icons/burger-menu-sm.svg';
 import CalendarIcon from '/public/icons/date.svg';
 import FacebookIcon from '/public/icons/facebook.svg';
 
+import { IdForScroll } from '@/@types';
 import BurgerMenu from '@/components/common/BurgerMenu';
 import Button from '@/components/ui/Button';
 import Checkbox from '@/components/ui/Checkbox';
@@ -53,7 +54,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <div className='container flex flex-wrap gap-8'></div>
       </section>
 
-      <section className='section bg-darkBlue'>
+      <section id={IdForScroll.CONTACTS} className='section bg-darkBlue'>
         <div className='container flex xl:justify-end'>
           <div className='flex w-full flex-col gap-12 xl:w-1/2'>
             {inputs.map(

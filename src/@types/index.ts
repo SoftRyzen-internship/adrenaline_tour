@@ -4,3 +4,8 @@ export enum Pages {
   TOURS = 'tours',
   POLICY = 'policy',
 }
+
+export enum IdForScroll {
+  HEADER = 'header',
+  CONTACTS = 'contacts',
+}
