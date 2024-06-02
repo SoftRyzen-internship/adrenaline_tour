@@ -17,6 +17,7 @@ interface IDisclosureProps {}
 const DisclosureMain: React.FC<IDisclosureProps> = () => {
   const { disclosures } = faq;
   const [activeDisclosurePanel, setActiveDisclosurePanel] = useState(null);
+  console.log(activeDisclosurePanel);
   const [showReadMoreButton, setShowReadMoreExpandButton] = useState(false);
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -51,7 +52,7 @@ const DisclosureMain: React.FC<IDisclosureProps> = () => {
       <ul>
         {disclosures.map(disclosure => (
           <li key={disclosure.id} className='mb-8'>
-            <p className='mb-6 inline-block rotate-3 border-2 border-accentDefaultOrange px-4 py-3 font-unbounded text-accentDefaultOrange'>
+            <p className='mb-6 inline-block rotate-3 border-2 border-accentDefaultOrange px-4 py-3 font-unbounded text-xs/[1.3] font-bold  text-accentDefaultOrange md:text-sm/[1.3]'>
               {disclosure.label}
             </p>
             {disclosure.items.map(item => (
@@ -66,10 +67,15 @@ const DisclosureMain: React.FC<IDisclosureProps> = () => {
                     <DisclosureButton
                       className='group flex w-full items-center justify-between  text-left'
                       onClick={() => {
+                        if (!open) {
+                          // On the first click, the panel is opened but the "open" prop's value is still false. Therefore the falsey verification
+                          // This will make so the panel close itself when we click it while open
+                          close();
+                        }
                         handleToggle({ key: item.id, open, close });
                       }}
                     >
-                      <span className='max-w-[272px] font-inter text-lg/6 font-bold text-blueDefault'>
+                      <span className='max-w-[272px] font-inter text-lg/[1.3] font-bold text-blueDefault md:text-xl/[1.3]'>
                         {item.question}
                       </span>
                       {open ? (
@@ -88,7 +94,7 @@ const DisclosureMain: React.FC<IDisclosureProps> = () => {
                     </DisclosureButton>
                     <DisclosurePanel
                       ref={textRef}
-                      className='pl-4 pt-[42px]  font-inter text-sm font-medium text-dark'
+                      className='pl-4 pt-[42px]  font-inter text-sm/[1.3] font-medium text-dark  md:text-base/[1.4]'
                     >
                       {item.answers.map((answer, index) => (
                         <div
