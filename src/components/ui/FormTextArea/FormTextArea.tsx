@@ -12,7 +12,7 @@ const FormTextArea = forwardRef<HTMLTextAreaElement, IFormTextAreaProps>(
           name={name}
           ref={ref}
           {...rest}
-        ></textarea>
+        />
       </label>
     );
   },
