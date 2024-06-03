@@ -7,7 +7,7 @@ import { form } from '@/data';
 
 import s from './Contacts.module.css';
 
-const Contact = () => {
+const Contacts = () => {
   return (
     <section
       id={IdForScroll.CONTACTS}
@@ -32,4 +32,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default Contacts;
