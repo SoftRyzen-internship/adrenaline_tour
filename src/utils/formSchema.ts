@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-import { IformDataType } from '@/@types/Form.types';
+import { IFormState } from '@/@types';
 import form from '@/data/form.json';
 
 const {
@@ -17,7 +17,7 @@ const {
   },
 } = form;
 
-export const schemaForm: yup.ObjectSchema<IformDataType> = yup.object({
+export const formSchema: yup.ObjectSchema<IFormState> = yup.object({
   name: yup
     .string()
     .trim()
@@ -29,7 +29,7 @@ export const schemaForm: yup.ObjectSchema<IformDataType> = yup.object({
     .string()
     .trim()
     .required(required)
-    .min(8, phoneMin)
+    .min(12, phoneMin)
     .max(30, phoneMax)
     .matches(/^[0-9+\-\(\)\s]*$/, phonePattern),
   email: yup

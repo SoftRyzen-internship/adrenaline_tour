@@ -8,14 +8,14 @@ import useFormPersist from 'react-hook-form-persist';
 
 import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
 
-import { IformDataType } from '@/@types/Form.types';
+import { IFormState } from '@/@types';
 import Button from '@/components/ui/Button';
 import Checkbox from '@/components/ui/Checkbox';
 import FormInput from '@/components/ui/FormInput';
 import FormModal from '@/components/ui/FormModal/FormModal';
 import FormTextArea from '@/components/ui/FormTextArea';
 import form from '@/data/form.json';
-import { schemaForm } from '@/utils/schemaForm';
+import formSchema from '@/utils';
 
 const Form = () => {
   const {
@@ -36,7 +36,7 @@ const Form = () => {
     reset,
     formState: { errors },
     control,
-  } = useForm<IformDataType>({ resolver: yupResolver(schemaForm) });
+  } = useForm<IFormState>({ resolver: yupResolver(formSchema) });
 
   useFormPersist('formData', {
     watch,
@@ -44,7 +44,7 @@ const Form = () => {
     exclude: ['privacyPolicy'],
   });
 
-  const onSubmit = async (data: IformDataType) => {
+  const onSubmit = async (data: IFormState) => {
     setSendError(false);
     const sanitizedData = {
       ...data,
@@ -76,27 +76,25 @@ const Form = () => {
               label={label}
               type={type}
               placeholder={placeholder}
-              {...register(name as keyof IformDataType)}
-              errorMessage={errors[name as keyof IformDataType]?.message}
+              {...register(name as keyof IFormState)}
+              errorMessage={errors[name as keyof IFormState]?.message}
             />
           );
         })}
         <FormTextArea
           label={textarea.label}
           placeholder={textarea.placeholder}
-          {...register(textarea.name as keyof IformDataType)}
+          {...register(textarea.name as keyof IFormState)}
         />
         <Controller
-          name={checkbox.name as keyof IformDataType}
+          name={checkbox.name as keyof IFormState}
           control={control}
           render={({ field }) => (
             <Checkbox
               label={checkbox.label}
               checked={!!field.value}
               onChange={field.onChange}
-              errorMessage={
-                errors[checkbox.name as keyof IformDataType]?.message
-              }
+              errorMessage={errors[checkbox.name as keyof IFormState]?.message}
             />
           )}
         />
