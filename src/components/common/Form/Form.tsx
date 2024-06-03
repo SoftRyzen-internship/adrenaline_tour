@@ -8,15 +8,14 @@ import useFormPersist from 'react-hook-form-persist';
 
 import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
 
+import { IformDataType } from '@/@types/Form.types';
 import Button from '@/components/ui/Button';
 import Checkbox from '@/components/ui/Checkbox';
 import FormInput from '@/components/ui/FormInput';
 import FormModal from '@/components/ui/FormModal/FormModal';
 import FormTextArea from '@/components/ui/FormTextArea';
 import form from '@/data/form.json';
-import { schema } from '@/utils/schemaForm';
-
-import { IformDataType } from './Form.types';
+import { schemaForm } from '@/utils/schemaForm';
 
 const Form = () => {
   const {
@@ -37,7 +36,7 @@ const Form = () => {
     reset,
     formState: { errors },
     control,
-  } = useForm<IformDataType>({ resolver: yupResolver(schema) });
+  } = useForm<IformDataType>({ resolver: yupResolver(schemaForm) });
 
   useFormPersist('formData', {
     watch,

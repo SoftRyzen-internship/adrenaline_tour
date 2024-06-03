@@ -1,5 +1,6 @@
 import * as yup from 'yup';
 
+import { IformDataType } from '@/@types/Form.types';
 import form from '@/data/form.json';
 
 const {
@@ -16,7 +17,7 @@ const {
   },
 } = form;
 
-export const schema = yup.object({
+export const schemaForm: yup.ObjectSchema<IformDataType> = yup.object({
   name: yup
     .string()
     .required(required)
