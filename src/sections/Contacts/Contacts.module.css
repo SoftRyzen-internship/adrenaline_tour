@@ -3,9 +3,7 @@
     url('/images/contacts/contacts-bg_mob.webp');
   background-repeat: no-repeat, repeat;
   background-position: center top;
-  background-size:
-    auto,
-    100% 100%;
+  background-size: auto;
 }
 
 @media screen and (min-width: 768px) {
