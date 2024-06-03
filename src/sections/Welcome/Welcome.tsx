@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 
+import { IdForScroll } from '@/@types';
 import { welcome } from '@/data';
 
 import s from './Welcome.module.css';
@@ -25,7 +26,7 @@ const Welcome = () => {
         </p>
         <div className='flex justify-center'>
           <LinkButton
-            href='pageName'
+            toScroll={IdForScroll.CONTACTS}
             variant='main'
             iconPosition='after'
             icon={
