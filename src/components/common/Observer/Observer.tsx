@@ -11,7 +11,7 @@ import FacebookIcon from '/public/icons/facebook.svg';
 
 import { IdForScroll } from '@/@types';
 import BurgerMenu from '@/components/common/BurgerMenu';
-import SliderHero from '@/components/common/SliderHero/SliderHero';
+import SliderHero from '@/components/common/SliderHero';
 import Button from '@/components/ui/Button';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
@@ -20,7 +20,6 @@ import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 import { mainHeroImages } from '@/data';
-import { ourToursHeroCard } from '@/data';
 
 import Form from '../Form';
 
@@ -58,8 +57,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           <Form />
         </div>
       </section>
-
-      <SliderHero images={ourToursHeroCard} />
 
       {children}
       <p className='container text-center text-[24px] font-bold'>

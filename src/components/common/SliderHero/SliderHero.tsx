@@ -1,88 +1,17 @@
 'use client';
 
-import React, { useEffect, useRef, useCallback } from 'react';
-
+import Image from 'next/image';
 import { Autoplay, EffectFade } from 'swiper/modules';
-import { Swiper as SwiperComponent, SwiperSlide } from 'swiper/react';
-import { Swiper } from 'swiper/types';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
 import { ISliderHeroProps } from './SliderHero.types';
 
 const SliderHero: React.FC<ISliderHeroProps> = ({ images }) => {
-  const swiperRef = useRef<Swiper | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-
-  const getBackgroundImage = useCallback(
-    (slide: HTMLElement): string => {
-      const index = slide.getAttribute('data-index');
-      if (index === null) return '';
-      const imgData = images[parseInt(index, 10)];
-      const width = window.innerWidth;
-      const pixelRatio = window.devicePixelRatio;
-
-      if (width >= 1280) {
-        return pixelRatio >= 2 ? imgData.lg2x : imgData.lg;
-      } else if (width > 480) {
-        return pixelRatio >= 2 ? imgData.md2x : imgData.md;
-      } else {
-        return pixelRatio >= 2 ? imgData.sm2x : imgData.sm;
-      }
-    },
-    [images],
-  );
-
-  useEffect(() => {
-    const swiperInstance = swiperRef.current;
-
-    if (swiperInstance) {
-      swiperInstance.on('slideChange', () => {
-        swiperInstance.slides.forEach((slide: HTMLElement) => {
-          const bgImage = getBackgroundImage(slide);
-          slide.style.backgroundImage = `url(${bgImage})`;
-        });
-      });
-
-      swiperInstance.slides.forEach((slide: HTMLElement) => {
-        const bgImage = getBackgroundImage(slide);
-        slide.style.backgroundImage = `url(${bgImage})`;
-      });
-    }
-
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (swiperInstance) {
-            if (entry.isIntersecting) {
-              swiperInstance.autoplay.start();
-            } else {
-              swiperInstance.autoplay.stop();
-            }
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-
-    const currentContainer = containerRef.current;
-    if (currentContainer) {
-      observer.observe(currentContainer);
-    }
-
-    return () => {
-      if (currentContainer) {
-        observer.unobserve(currentContainer);
-      }
-    };
-  }, [getBackgroundImage]);
-
   return (
-    <div className='h-[640px] w-full md:h-[780px]' ref={containerRef}>
-      <SwiperComponent
-        onSwiper={swiper => {
-          swiperRef.current = swiper;
-        }}
+    <div className='h-[640px] w-full bg-darkBlue bg-cover bg-center bg-no-repeat md:h-[780px]'>
+      <Swiper
         modules={[Autoplay, EffectFade]}
         autoplay={{
           delay: 6000,
@@ -95,14 +24,23 @@ const SliderHero: React.FC<ISliderHeroProps> = ({ images }) => {
         slidesPerView={1}
         className='h-full w-full'
       >
-        {images.map((image, index) => (
-          <SwiperSlide
-            className='swiper-slide bg-darkBlue bg-cover bg-center bg-no-repeat'
-            data-index={index.toString()}
-            key={image._id}
-          ></SwiperSlide>
+        {images.map(({ _id, src, alt }) => (
+          <SwiperSlide className='swiper-slide flex items-center' key={_id}>
+            <div className='w-fill relative h-[640px] overflow-hidden md:h-[780px]'>
+              <Image
+                fill
+                src={src}
+                alt={alt}
+                priority
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: '78% 60%',
+                }}
+              />
+            </div>
+          </SwiperSlide>
         ))}
-      </SwiperComponent>
+      </Swiper>
     </div>
   );
 };

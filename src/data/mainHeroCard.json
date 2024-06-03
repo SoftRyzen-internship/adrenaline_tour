@@ -1,29 +1,17 @@
 [
   {
     "_id": "1",
-    "sm": "/images/hero/main/image1-sm.webp",
-    "md": "/images/hero/main/image1-md.webp",
-    "lg": "/images/hero/main/image1-lg.webp",
-    "sm2x": "/images/hero/main/image1-sm@2x.webp",
-    "md2x": "/images/hero/main/image1-md@2x.webp",
-    "lg2x": "/images/hero/main/image1-lg@2x.webp"    
+    "src": "/images/hero/main/image1-lg.webp",
+    "alt": "Байкер на вершині гори"   
   },
   {
     "_id": "2",
-    "sm": "/images/hero/main/image2-sm.webp",
-    "md": "/images/hero/main/image2-md.webp",
-    "lg": "/images/hero/main/image2-lg.webp",
-    "sm2x": "/images/hero/main/image2-sm@2x.webp",
-    "md2x": "/images/hero/main/image2-md@2x.webp",
-    "lg2x": "/images/hero/main/image2-lg@2x.webp"    
+    "src": "/images/hero/main/image2-lg.webp", 
+    "alt": "Альпіністи на маршруті в зимових горах"   
   },
   {
     "_id": "3",
-    "sm": "/images/hero/main/image3-sm.webp",
-    "md": "/images/hero/main/image3-md.webp",
-    "lg": "/images/hero/main/image3-lg.webp",
-    "sm2x": "/images/hero/main/image3-sm@2x.webp",
-    "md2x": "/images/hero/main/image3-md@2x.webp",
-    "lg2x": "/images/hero/main/image3-lg@2x.webp"    
+    "src": "/images/hero/main/image3-lg.webp",
+    "alt": "Туристка спускається з гори"  
   }   
 ]
