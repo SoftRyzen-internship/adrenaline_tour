@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
 
-import { FormTextAreaProps } from './FormTextArea.types';
+import { IFormTextAreaProps } from './FormTextArea.types';
 
-const FormTextArea = forwardRef<HTMLTextAreaElement, FormTextAreaProps>(
+const FormTextArea = forwardRef<HTMLTextAreaElement, IFormTextAreaProps>(
   ({ name, label, errorMessage, ...rest }, ref) => {
     return (
       <label className='flex cursor-pointer flex-col gap-4 border-b border-white32 text-medium font-medium text-white hover:border-white48 focus:border-white48 md:text-lightLarge'>

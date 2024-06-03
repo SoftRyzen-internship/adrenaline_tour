@@ -1,14 +1,14 @@
 import clsx from 'clsx';
 
 import s from './Checkbox.module.css';
-import { CheckboxProps } from './Checkbox.types';
+import { ICheckboxProps } from './Checkbox.types';
 
 const Checkbox = ({
   label,
   checked,
   onChange,
   errorMessage,
-}: CheckboxProps) => {
+}: ICheckboxProps) => {
   return (
     <label className='flex cursor-pointer gap-3  text-light font-light text-white md:text-medium'>
       <input

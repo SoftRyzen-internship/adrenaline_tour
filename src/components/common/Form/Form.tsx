@@ -16,7 +16,7 @@ import { schema } from '@/utils/schema';
 import Button from '../../ui/Button';
 import FormModal from '../../ui/FormModal/FormModal';
 
-import { formDataType } from './Form.types';
+import { IformDataType } from './Form.types';
 
 const Form = () => {
   const {
@@ -37,7 +37,7 @@ const Form = () => {
     reset,
     formState: { errors },
     control,
-  } = useForm<formDataType>({ resolver: yupResolver(schema) });
+  } = useForm<IformDataType>({ resolver: yupResolver(schema) });
 
   useFormPersist('formData', {
     watch,
@@ -45,7 +45,7 @@ const Form = () => {
     exclude: ['privacyPolicy'],
   });
 
-  const onSubmit = async (data: formDataType) => {
+  const onSubmit = async (data: IformDataType) => {
     setSendError(false);
     try {
       await console.log(data);
@@ -70,19 +70,19 @@ const Form = () => {
               label={label}
               type={type}
               placeholder={placeholder}
-              {...register(name as keyof formDataType)}
-              errorMessage={errors[name as keyof formDataType]?.message}
+              {...register(name as keyof IformDataType)}
+              errorMessage={errors[name as keyof IformDataType]?.message}
             />
           );
         })}
         <FormTextArea
           label={textarea.label}
           placeholder={textarea.placeholder}
-          {...register(textarea.name as keyof formDataType)}
-          errorMessage={errors[textarea.name as keyof formDataType]?.message}
+          {...register(textarea.name as keyof IformDataType)}
+          errorMessage={errors[textarea.name as keyof IformDataType]?.message}
         />
         <Controller
-          name={checkbox.name as keyof formDataType}
+          name={checkbox.name as keyof IformDataType}
           control={control}
           render={({ field }) => (
             <Checkbox
@@ -90,7 +90,7 @@ const Form = () => {
               checked={!!field.value}
               onChange={field.onChange}
               errorMessage={
-                errors[checkbox.name as keyof formDataType]?.message
+                errors[checkbox.name as keyof IformDataType]?.message
               }
             />
           )}

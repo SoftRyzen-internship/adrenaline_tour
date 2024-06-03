@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
 
-import { FormInputProps } from './FormInput.types';
+import { IFormInputProps } from './FormInput.types';
 
-const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
+const FormInput = forwardRef<HTMLInputElement, IFormInputProps>(
   ({ label, errorMessage, ...rest }, ref) => {
     return (
       <label className='relative flex cursor-pointer flex-col gap-4 border-b border-white32 text-medium font-medium text-white hover:border-white48 focus:border-white48 md:text-lightLarge'>
