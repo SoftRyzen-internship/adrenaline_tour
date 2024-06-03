@@ -12,13 +12,14 @@ import FacebookIcon from '/public/icons/facebook.svg';
 import { IdForScroll } from '@/@types';
 import BurgerMenu from '@/components/common/BurgerMenu';
 import Button from '@/components/ui/Button';
-import Form from '@/components/ui/Form/Form';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
+
+import Form from '../Form';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
