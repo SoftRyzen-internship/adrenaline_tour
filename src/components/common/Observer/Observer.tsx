@@ -21,7 +21,6 @@ import NavMenu from '@/components/ui/NavMenu';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 import form from '@/data/form.json';
-import Reviews from '@/sections/Reviews';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
@@ -273,7 +272,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </div>
         </Modal>
       </div>
-      <Reviews />
     </div>
   );
 };

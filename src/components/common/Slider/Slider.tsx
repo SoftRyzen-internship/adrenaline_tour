@@ -16,7 +16,7 @@ import { ISliderProps } from './Slider.types';
 
 const Slider: React.FC<ISliderProps> = ({
   slides,
-  section = 'upcomingTours',
+  section,
   className = '',
 }) => {
   const [isPrevSlide, setIsPrevSlide] = useState(true);

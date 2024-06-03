@@ -25,7 +25,8 @@ const BtnSlider: React.FC<IBtnSliderProps> = ({
         ariaLabel={btnSlider.prev}
         className={clsx(
           'btn-prev',
-          section === 'reviews' && 'xl:absolute xl:left-0 xl:top-[130px]',
+          section === 'reviews' &&
+            'xl:absolute xl:bottom-[40px] xl:left-[-516px] xl:z-10',
           section === 'reviews' && !isPrevSlide && 'fill-white',
           section === 'reviews' && isPrevSlide && 'fill-accentLightOrange',
           section === 'upcomingTours' &&
@@ -45,7 +46,8 @@ const BtnSlider: React.FC<IBtnSliderProps> = ({
         ariaLabel={btnSlider.next}
         className={clsx(
           'btn-next',
-          section === 'reviews' && 'xl:absolute xl:left-[114px] xl:top-[130px]',
+          section === 'reviews' &&
+            'xl:absolute xl:bottom-[40px] xl:left-[-402px] xl:z-10',
           section === 'reviews' && !isNextSlide && 'fill-white',
           section === 'reviews' && isNextSlide && 'fill-accentLightOrange',
           section === 'upcomingTours' &&
