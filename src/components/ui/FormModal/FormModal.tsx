@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 
-import ArrowRightDownIcon from '@/../public/icons/arrow-right_up.svg';
+import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
 
-import LinkButton from '../LinkButton';
-import Modal from '../Modal';
+import LinkButton from '@/components/ui/LinkButton';
+import Modal from '@/components/ui/Modal';
 
-import { FormModalProps } from './FormModal.types';
+import { IFormModalProps } from './FormModal.types';
 
 function FormModal({
   open,
@@ -14,7 +14,7 @@ function FormModal({
   text,
   buttonText,
   error,
-}: FormModalProps) {
+}: IFormModalProps) {
   return (
     <Modal
       isOpen={open}

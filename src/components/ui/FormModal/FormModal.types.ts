@@ -1,4 +1,4 @@
-export interface FormModalProps {
+export interface IFormModalProps {
   open: boolean;
   handleClose: () => void;
   title: string;
