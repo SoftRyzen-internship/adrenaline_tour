@@ -6,11 +6,11 @@ import Welcome from '@/sections/Welcome';
 const HomePage = () => {
   return (
     <>
+      <h1 className='bg-green-400 text-6xl'>Home Page</h1>;
       <UpcomingTours />
       <Welcome />
-      <h1 className='bg-green-400 text-6xl'>Home Page</h1>;
-      <Observer />
       <Gallery />
+      <Observer />
     </>
   );
 };

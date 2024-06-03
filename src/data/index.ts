@@ -11,3 +11,4 @@ export { default as ariaLabel } from './common.json';
 export { default as tourCardData } from './tourCard.json';
 export { default as footerData } from './footerData.json';
 export { default as welcome } from './welcome.json';
+export { default as burgerMenuData } from './burgerMenuData.json';

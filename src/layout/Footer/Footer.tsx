@@ -7,7 +7,6 @@ import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
 import NavMenu from '@/components/ui/NavMenu';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
-import PageConditionalRender from '@/components/ui/PageConditionalRender';
 import { Pages } from '@/@types';
 import { footerData } from '@/data';
 
@@ -21,6 +20,7 @@ const Footer = () => {
             width={166}
             height={53}
             className='md:h-12 md:w-[151px] xl:h-[51px] xl:w-[153px]'
+            toScroll
           />
           <Phones variant='footer' />
         </div>
@@ -31,16 +31,14 @@ const Footer = () => {
 
       <MovingBanner />
 
-      <div className='container flex flex-col gap-4 py-8 font-inter text-light text-white md:leading-[1.5] xl:flex-row xl:justify-between xl:leading-[1.4]'>
-        <PageConditionalRender
-          pages={[`/${Pages.POLICY}`]}
-          trueProps={{ href: Pages.MAIN, variant: 'footer' }}
-          alternativeProps={{ href: Pages.POLICY, variant: 'footer' }}
-          component={LinkButton}
-          trueContent={footerData.main}
-          alternativeContent={footerData.policy}
+      <div className='container flex flex-col gap-4 py-8 font-inter text-light text-white md:leading-[1.5] xl:flex-row xl:justify-between xl:pt-10 xl:leading-[1.4]'>
+        <LinkButton
+          variant='footer'
+          href={Pages.POLICY}
           className='self-center md:leading-[1.5] xl:leading-[1.4]'
-        />
+        >
+          {footerData.policy}
+        </LinkButton>
 
         <p className='text-center'>{footerData.rights}</p>
         <div className=' flex flex-wrap justify-center gap-x-4 gap-y-3 md:gap-6'>
