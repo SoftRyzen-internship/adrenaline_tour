@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 
-import ArrowRight from '@/../public/icons/arrow-right.svg';
-import Location from '@/../public/icons/location.svg';
+import ArrowRight from '/public/icons/arrow-right.svg';
+import Location from '/public/icons/location.svg';
+
 import { tourCardData } from '@/data';
 
 import LinkButton from '../LinkButton';

@@ -12,8 +12,9 @@ const config: Config = {
       sm: '480px',
       smOnly: { max: '767px' },
       md: '768px',
-      mdOnly: { max: '1279px' },
+      mdOnly: { min: '768px', max: '1279px' },
       xl: '1280px',
+      notXL: { max: '1279.98px' },
     },
     extend: {
       container: {
