@@ -1,7 +1,7 @@
 .contacts-bg {
   background-image: url('/images/contacts/mountain-bg.webp'),
     url('/images/contacts/contacts-bg_mob.webp');
-  background-repeat: no-repeat;
+  background-repeat: no-repeat, repeat;
   background-position: center top;
   background-size: auto;
 }
