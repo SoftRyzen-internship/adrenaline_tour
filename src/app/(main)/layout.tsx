@@ -1,4 +1,4 @@
-import Contacts from '@/sections/Contacts/Contacts';
+import Contacts from '@/sections/Contacts';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
