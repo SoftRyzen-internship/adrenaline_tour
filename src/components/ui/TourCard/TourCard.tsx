@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 
-import ArrowRight from '@/../public/icons/arrow-right.svg';
-import Location from '@/../public/icons/location.svg';
+import ArrowRight from '/public/icons/arrow-right.svg';
+import Location from '/public/icons/location.svg';
+
 import { tourCardData } from '@/data';
 
 import LinkButton from '../LinkButton';
@@ -38,7 +39,7 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
           <p className='px-2'>{duration}</p>
         </div>
       </div>
-      <div className='transition-all xl:opacity-0 xl:group-hover:flex xl:group-hover:opacity-100'>
+      <div className='transition-all duration-700 xl:opacity-0 xl:group-hover:flex xl:group-hover:opacity-100'>
         <LinkButton
           href={link}
           variant='secondary'
