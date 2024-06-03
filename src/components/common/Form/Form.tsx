@@ -26,8 +26,8 @@ const Form = () => {
     modalButtonText,
   } = form;
 
-  const [openErrorModal, setOpenErrorModal] = useState(false);
-  const [openSuccessModal, setOpenSuccessModal] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [sendError, setSendError] = useState(false);
 
   const {
     register,
@@ -46,12 +46,14 @@ const Form = () => {
   });
 
   const onSubmit = async (data: formDataType) => {
+    setSendError(false);
     try {
-      console.log(data);
+      await console.log(data);
       reset();
-      setOpenSuccessModal(true);
     } catch (error) {
-      setOpenErrorModal(true);
+      setSendError(true);
+    } finally {
+      setModalOpen(true);
     }
   };
 
@@ -106,19 +108,12 @@ const Form = () => {
         </Button>
       </form>
       <FormModal
-        open={openSuccessModal}
-        handleClose={() => setOpenSuccessModal(false)}
-        title={successMessage.title}
-        text={successMessage.text}
+        open={modalOpen}
+        handleClose={() => setModalOpen(false)}
+        title={sendError ? errorMessage.title : successMessage.title}
+        text={sendError ? errorMessage.text : successMessage.text}
         buttonText={modalButtonText}
-      />
-      <FormModal
-        open={openErrorModal}
-        handleClose={() => setOpenErrorModal(false)}
-        title={errorMessage.title}
-        text={errorMessage.text}
-        buttonText={modalButtonText}
-        error={true}
+        error={sendError}
       />
     </>
   );
