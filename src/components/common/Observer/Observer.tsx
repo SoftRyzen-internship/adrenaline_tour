@@ -187,6 +187,20 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </IconButton>
         </div>
       </div>
+      <div className='container mb-5 flex gap-1'>
+        <LinkButton href='#take' variant='navLink'>
+          Що брати
+        </LinkButton>
+        <LinkButton href='#know' variant='navLink'>
+          Добре знати
+        </LinkButton>
+        <LinkButton href='#price' variant='navLink'>
+          Про ціну
+        </LinkButton>
+        <LinkButton href='#safety' variant='navLink'>
+          Про безпеку
+        </LinkButton>
+      </div>
       <div className='container'>
         <DisclosureMain />
       </div>

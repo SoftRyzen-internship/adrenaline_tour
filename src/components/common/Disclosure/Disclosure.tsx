@@ -53,6 +53,7 @@ const DisclosureMain: React.FC<IDisclosureProps> = () => {
         {disclosures.map(disclosure => (
           <li
             key={disclosure.id}
+            id={disclosure.sectionId}
             className='mb-8  xl:flex  xl:justify-between '
           >
             <p className='mb-6 inline-block rotate-3 border-2 border-accentDefaultOrange px-4 py-3 font-unbounded text-xs/[1.3] font-bold text-accentDefaultOrange  md:text-base/[1.3] md:text-sm/[1.3] xl:self-baseline'>
