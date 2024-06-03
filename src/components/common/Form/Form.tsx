@@ -14,7 +14,7 @@ import FormInput from '@/components/ui/FormInput';
 import FormModal from '@/components/ui/FormModal/FormModal';
 import FormTextArea from '@/components/ui/FormTextArea';
 import form from '@/data/form.json';
-import { schema } from '@/utils/schema';
+import { schema } from '@/utils/schemaForm';
 
 import { IformDataType } from './Form.types';
 
