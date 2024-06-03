@@ -6,7 +6,8 @@ import {
 } from '@headlessui/react';
 import clsx from 'clsx';
 
-import CloseIcon from '@/../public/icons/close_24.svg';
+import CloseIcon from '/public/icons/close_24.svg';
+
 import { ariaLabel } from '@/data';
 
 import IconButton from '../IconButton';
