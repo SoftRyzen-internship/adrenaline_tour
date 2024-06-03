@@ -1,21 +1,27 @@
 'use client';
+import { useState } from 'react';
 
 import clsx from 'clsx';
 
-import ArrowRight from '@/../public/icons/arrow-right.svg';
-import ArrowRightDownIcon from '@/../public/icons/arrow-right_up.svg';
-import BurgerMenuIcon from '@/../public/icons/burger-menu-sm.svg';
-import CalendarIcon from '@/../public/icons/date.svg';
-import FacebookIcon from '@/../public/icons/facebook.svg';
+import ArrowRight from '/public/icons/arrow-right.svg';
+import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
+import BurgerMenuIcon from '/public/icons/burger-menu-sm.svg';
+import CalendarIcon from '/public/icons/date.svg';
+import FacebookIcon from '/public/icons/facebook.svg';
+
+import { IdForScroll } from '@/@types';
+import BurgerMenu from '@/components/common/BurgerMenu';
 import Button from '@/components/ui/Button';
+import Checkbox from '@/components/ui/Checkbox';
+import FormInput from '@/components/ui/FormInput';
+import FormTextArea from '@/components/ui/FormTextArea';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
-import { Logo } from '@/components/ui/Logo';
-import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
+import Logo from '@/components/ui/Logo';
+import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
-import TourCard from '@/components/ui/TourCard';
-import mockdatatourCard from '@/data/mockdatatourCard.json';
+import form from '@/data/form.json';
 
 import DisclosureMain from '../Disclosure';
 
@@ -23,6 +29,11 @@ import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
+  const {
+    formProps: { inputs, textarea, checkbox },
+  } = form;
+  const [isOpenBurger, setIsOpenBurger] = useState(false);
+  const [isOpenSimple, setIsOpenSimple] = useState(false);
   return (
     <div>
       <h1
@@ -34,25 +45,41 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         The temporary component is used for the observation of newly created
         components.
       </h1>
-
       <div className='section container bg-blueDefault'>
         <Social variant='header' />
-        <Social variant='footer' />
         <Phones variant='contacts' />
-        <Phones variant='footer' />
 
-        <Logo textWhite={true} width={153} height={51} />
         <Logo textWhite={false} width={252} height={80} />
       </div>
       <section className='section'>
-        <div className='container flex flex-wrap gap-8'>
-          <TourCard data={mockdatatourCard} />
-          <TourCard data={mockdatatourCard} />
-          <TourCard data={mockdatatourCard} />
-        </div>
+        <div className='container flex flex-wrap gap-8'></div>
       </section>
-      <section className='section'>
-        <MovingBanner />
+
+      <section id={IdForScroll.CONTACTS} className='section bg-darkBlue'>
+        <div className='container flex xl:justify-end'>
+          <div className='flex w-full flex-col gap-12 xl:w-1/2'>
+            {inputs.map(
+              ({ name, placeholder, type, label, required }, index) => {
+                return (
+                  <FormInput
+                    key={index}
+                    label={label}
+                    type={type}
+                    name={name}
+                    placeholder={placeholder}
+                    required={required}
+                  />
+                );
+              },
+            )}
+            <FormTextArea
+              label={textarea.label}
+              name={textarea.name}
+              placeholder={textarea.placeholder}
+            />
+            <Checkbox name={checkbox.name} label={checkbox.label} />
+          </div>
+        </div>
       </section>
 
       {children}
@@ -60,12 +87,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         Component LinkButton
       </p>
       <div className='container flex flex-wrap gap-2 py-4'>
-        <div>
-          <p className='p-1 text-xs'>LinkButton - variant-main</p>
-          <LinkButton href='#sectionId' variant='main'>
-            Зв’яжіться з нами
-          </LinkButton>
-        </div>
         <div>
           <p className='p-1 text-xs'>
             variant-main, iconPosition-after, icon-(Your Icon)
@@ -105,18 +126,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
             icon={<ArrowRight width={24} height={24} className='h-6 w-6' />}
           >
             Детальніше{' '}
-          </LinkButton>
-        </div>
-        <div>
-          <p className='p-1 text-xs'>LinkButton: variant - navLink</p>
-          <LinkButton href='/' variant='navLink'>
-            Головна
-          </LinkButton>
-        </div>
-        <div className='bg-darkBlue px-4 py-4'>
-          <p className='p-1 text-xs text-white'>variant - footer</p>
-          <LinkButton href='/' variant='footer'>
-            Політика конфіденціальності
           </LinkButton>
         </div>
       </div>
@@ -169,16 +178,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <div className='bg-accentGreen px-4 py-4'>
           <p className='p-1 text-xs'>icon as children with own style</p>
           <IconButton ariaLabel='Відкрити Модалку'>
-            <BurgerMenuIcon
-              width={32}
-              height={32}
-              className='h-8 w-8 stroke-white transition hover:stroke-accentDefaultOrange'
-            />
-          </IconButton>
-        </div>
-        <div className='bg-accentGreen px-4 py-4'>
-          <p className='p-1 text-xs'>icon as children with own style</p>
-          <IconButton ariaLabel='Відкрити Модалку'>
             <FacebookIcon
               width={32}
               height={32}
@@ -186,6 +185,55 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
             />
           </IconButton>
         </div>
+      </div>
+
+      <p className='container text-center text-[24px] font-bold'>
+        Component Modal
+      </p>
+      <div className='container bg-darkBlue px-4 py-4'>
+        <p className='text-white'>variant - burger</p>
+        <IconButton
+          ariaLabel='Відкрити Модалку'
+          onClick={() => setIsOpenBurger(true)}
+        >
+          <BurgerMenuIcon
+            width={32}
+            height={32}
+            className='h-8 w-8 stroke-white transition hover:stroke-accentDefaultOrange'
+          />
+        </IconButton>
+        <Modal
+          isOpen={isOpenBurger}
+          variant='burger'
+          close={() => setIsOpenBurger(false)}
+        >
+          <BurgerMenu onCloseMenu={() => setIsOpenBurger(false)} />
+        </Modal>
+      </div>
+      <div className='container bg-darkBlue px-4 py-4'>
+        <p className='text-white'>variant - simple</p>
+        <Button
+          type='button'
+          variant='readMore-main'
+          onClick={() => setIsOpenSimple(true)}
+        >
+          Читати більше
+        </Button>
+        <Modal
+          isOpen={isOpenSimple}
+          variant='simple'
+          close={() => setIsOpenSimple(false)}
+        >
+          <div className='p-10'>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
+            corrupti corporis consequatur autem, libero omnis fugit earum natus
+            nesciunt sunt illum repellat perferendis deleniti eum sed animi
+            optio exercitationem. Perferendis molestiae est ex itaque
+            perspiciatis minus, dolorum vero? Iure doloribus quisquam culpa
+            consequatur velit adipisci quis dignissimos a. Vitae,
+            exercitationem!
+          </div>
+        </Modal>
       </div>
       <div className='container mb-5 flex gap-1'>
         <LinkButton href='#take' variant='navLink'>
