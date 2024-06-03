@@ -17,7 +17,7 @@
       {
         "label": "Телефон",
         "name": "phone",
-        "type": "number",
+        "type": "text",
         "placeholder": "+380988888454"
       }
     ],

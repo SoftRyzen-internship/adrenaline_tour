@@ -46,8 +46,12 @@ const Form = () => {
 
   const onSubmit = async (data: IformDataType) => {
     setSendError(false);
+    const sanitizedData = {
+      ...data,
+      phone: data.phone.replace(/\s+/g, ''),
+    };
     try {
-      await console.log(data);
+      await console.log(sanitizedData);
       reset();
     } catch (error) {
       setSendError(true);
