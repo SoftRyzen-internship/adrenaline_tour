@@ -48,7 +48,10 @@ const Form = () => {
     setSendError(false);
     const sanitizedData = {
       ...data,
-      phone: data.phone.replace(/\s+/g, ''),
+      name: data.name.trim(),
+      phone: data.phone.replace(/[\s()-]/g, ''),
+      email: data.email.trim(),
+      message: data.message ? data.message.trim() : '',
     };
     try {
       await console.log(sanitizedData);
