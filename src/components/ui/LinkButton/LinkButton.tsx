@@ -16,6 +16,8 @@ const linkButtonStyle = {
     'inline-block font-unbounded text-[24px] font-bold leading-none text-blueDefault transition-colors hover:text-accentLightOrange focus:text-accentLightOrange active:text-accentDefaultOrange md:text-[40px] font-medium leading-[1.5]',
   footer:
     'font-inter text-sm font-normal leading-[1.3] text-white transition hover:text-accentDarkOrange focus:text-accentDarkOrange',
+  disclosure:
+    'cursor-pointer border-b-[1px] bg-transparent px-[45px] pt-6 pb-4 font-inter text-xl/[1.3] font-bold text-grey02',
 };
 
 const LinkButton: React.FC<ILinkButtonProps> = ({
@@ -25,6 +27,8 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
   variant,
   iconPosition,
   toScroll,
+  toScrollId,
+  currentDisclosure,
   className,
   ...rest
 }) => {
@@ -34,7 +38,7 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
         <LinkScroll
           {...rest}
           href='#'
-          to={toScroll}
+          to={toScrollId}
           smooth={true}
           spy={true}
           duration={500}
@@ -45,6 +49,10 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
             variant === 'secondary' && linkButtonStyle.secondary,
             variant === 'navLink' && linkButtonStyle.navLink,
             variant === 'footer' && linkButtonStyle.footer,
+            variant === 'disclosure' && linkButtonStyle.disclosure,
+            currentDisclosure &&
+              'border-b-accentDarkOrange text-accentDarkOrange',
+
             className,
           )}
         >

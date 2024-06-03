@@ -17,7 +17,6 @@ interface IDisclosureProps {}
 const DisclosureMain: React.FC<IDisclosureProps> = () => {
   const { disclosures } = faq;
   const [activeDisclosurePanel, setActiveDisclosurePanel] = useState(null);
-  console.log(activeDisclosurePanel);
   const [showReadMoreButton, setShowReadMoreExpandButton] = useState(false);
   const textRef = useRef<HTMLDivElement>(null);
 

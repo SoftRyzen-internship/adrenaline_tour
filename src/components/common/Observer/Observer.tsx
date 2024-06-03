@@ -21,19 +21,24 @@ import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
+import { faq } from '@/data';
 import form from '@/data/form.json';
 
 import DisclosureMain from '../Disclosure';
+import FaqNavMenu from '../FaqNavMenu';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
+  const { disclosures } = faq;
+  console.log(disclosures);
   const {
     formProps: { inputs, textarea, checkbox },
   } = form;
   const [isOpenBurger, setIsOpenBurger] = useState(false);
   const [isOpenSimple, setIsOpenSimple] = useState(false);
+
   return (
     <div>
       <h1
@@ -235,21 +240,11 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </div>
         </Modal>
       </div>
-      <div className='container mb-5 flex gap-1'>
-        <LinkButton href='#take' variant='navLink'>
-          Що брати
-        </LinkButton>
-        <LinkButton href='#know' variant='navLink'>
-          Добре знати
-        </LinkButton>
-        <LinkButton href='#price' variant='navLink'>
-          Про ціну
-        </LinkButton>
-        <LinkButton href='#safety' variant='navLink'>
-          Про безпеку
-        </LinkButton>
-      </div>
+
       <div className='container'>
+        <div className='mb-2 flex justify-end'>
+          <FaqNavMenu />
+        </div>
         <DisclosureMain />
       </div>
     </div>
