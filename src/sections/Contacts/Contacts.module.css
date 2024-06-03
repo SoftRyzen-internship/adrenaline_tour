@@ -17,6 +17,12 @@
   .contacts-bg {
     background-image: url('/images/contacts/mountain-bg.webp'),
       url('/images/contacts/contacts-bg_deck.webp');
+    background-size:
+      100% auto,
+      auto;
+    background-position:
+      top center,
+      center top;
   }
 }
 
