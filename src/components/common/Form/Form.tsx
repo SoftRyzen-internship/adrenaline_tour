@@ -13,8 +13,8 @@ import FormTextArea from '@/components/ui/FormTextArea';
 import form from '@/data/form.json';
 import { schema } from '@/utils/schema';
 
-import Button from '../Button';
-import FormModal from '../FormModal/FormModal';
+import Button from '../../ui/Button';
+import FormModal from '../../ui/FormModal/FormModal';
 
 import { formDataType } from './Form.types';
 
