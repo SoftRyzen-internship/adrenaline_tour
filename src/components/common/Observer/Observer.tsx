@@ -15,7 +15,6 @@ import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
-import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
 import NavMenu from '@/components/ui/NavMenu';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
@@ -50,9 +49,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <div className='container flex xl:justify-end'>
           <Form />
         </div>
-      </section>
-      <section className='section bg-darkBlue'>
-        <MovingBanner />
       </section>
 
       {children}
