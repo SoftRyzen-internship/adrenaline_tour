@@ -6,22 +6,19 @@
         "label": "Ваше імʼя",
         "name": "name",
         "type": "text",
-        "placeholder": "Яна",
-        "required": true
+        "placeholder": "Яна"
       },
       {
         "label": "Email",
         "name": "email",
         "type": "text",
-        "placeholder": "yanapetrychenko@gmail.com",
-        "required": true
+        "placeholder": "yanapetrychenko@gmail.com"
       },
       {
         "label": "Телефон",
         "name": "phone",
-        "type": "number",
-        "placeholder": "+380988888454",
-        "required": true
+        "type": "text",
+        "placeholder": "+380988888454"
       }
     ],
     "textarea": {
@@ -47,9 +44,10 @@
     "nameMin": "Це поле повинно містити більше ніж 2 символи",
     "nameMax": "Це поле не повинно містити більше ніж 30 символи",
     "namePattern": "Це поле може містити кирилицю або латиницю і тільки такі символи: - '",
-    "phoneMin": "Це поле повинно містити більше ніж 3 символи",
+    "phoneMin": "Це поле повинно містити мінімум 12 символів",
     "phoneMax": "Це поле не повинно містити більше ніж 16 символів",
     "phonePattern": "Це поле може містити тільки цифри та символ +",
+    "emailMax": "Це поле не повинно містити більше ніж 63 символи",
     "emailPattern": "Недійсна адреса",
     "required": "Це поле є обов'язковим до заповнення"
   },
