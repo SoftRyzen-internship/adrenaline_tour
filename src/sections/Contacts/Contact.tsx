@@ -1,4 +1,5 @@
 import { IdForScroll } from '@/@types';
+import Form from '@/components/common/Form';
 import Phones from '@/components/ui/Phones';
 
 const Contact = () => {
@@ -10,7 +11,7 @@ const Contact = () => {
         </h2>
         <div className='xl:flex'>
           <Phones variant='contacts' className='mb-[60px] xl:w-1/2' />
-          <div>ФОРМА</div>
+          <Form />
         </div>
       </div>
     </section>
