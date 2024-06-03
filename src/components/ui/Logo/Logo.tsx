@@ -6,7 +6,7 @@ import { Link as LinkScroll } from 'react-scroll';
 
 import LogoIcon from '/public/icons/logo.svg';
 
-import { Pages } from '@/@types';
+import { IdForScroll, Pages } from '@/@types';
 import { logo } from '@/data';
 
 import { ILogoProps } from './Logo.types';
@@ -24,7 +24,7 @@ const Logo: React.FC<ILogoProps> = ({
       {toScroll ? (
         <LinkScroll
           href='#'
-          to='hero'
+          to={IdForScroll.HEADER}
           smooth={true}
           spy={true}
           duration={500}

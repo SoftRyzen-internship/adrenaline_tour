@@ -1,5 +1,5 @@
 export interface ILogoProps {
-  textWhite: boolean;
+  textWhite?: boolean;
   width?: number;
   height?: number;
   toScroll?: boolean;

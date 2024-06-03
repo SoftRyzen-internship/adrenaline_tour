@@ -9,6 +9,8 @@ import BurgerMenuIcon from '/public/icons/burger-menu-sm.svg';
 import CalendarIcon from '/public/icons/date.svg';
 import FacebookIcon from '/public/icons/facebook.svg';
 
+import { IdForScroll } from '@/@types';
+import BurgerMenu from '@/components/common/BurgerMenu';
 import Button from '@/components/ui/Button';
 import Checkbox from '@/components/ui/Checkbox';
 import FormInput from '@/components/ui/FormInput';
@@ -17,7 +19,6 @@ import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
-import NavMenu from '@/components/ui/NavMenu';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 import form from '@/data/form.json';
@@ -52,7 +53,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <div className='container flex flex-wrap gap-8'></div>
       </section>
 
-      <section className='section bg-darkBlue'>
+      <section id={IdForScroll.CONTACTS} className='section bg-darkBlue'>
         <div className='container flex xl:justify-end'>
           <div className='flex w-full flex-col gap-12 xl:w-1/2'>
             {inputs.map(
@@ -84,12 +85,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         Component LinkButton
       </p>
       <div className='container flex flex-wrap gap-2 py-4'>
-        <div>
-          <p className='p-1 text-xs'>LinkButton - variant-main</p>
-          <LinkButton href='#sectionId' variant='main'>
-            Зв’яжіться з нами
-          </LinkButton>
-        </div>
         <div>
           <p className='p-1 text-xs'>
             variant-main, iconPosition-after, icon-(Your Icon)
@@ -210,12 +205,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           variant='burger'
           close={() => setIsOpenBurger(false)}
         >
-          <div className='px-10 pb-10 pt-20'>
-            <NavMenu
-              buttonStyle='navLink'
-              onCloseMenu={() => setIsOpenBurger(false)}
-            />
-          </div>
+          <BurgerMenu onCloseMenu={() => setIsOpenBurger(false)} />
         </Modal>
       </div>
       <div className='container bg-darkBlue px-4 py-4'>
