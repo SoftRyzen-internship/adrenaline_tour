@@ -79,7 +79,6 @@ const Form = () => {
           label={textarea.label}
           placeholder={textarea.placeholder}
           {...register(textarea.name as keyof IformDataType)}
-          errorMessage={errors[textarea.name as keyof IformDataType]?.message}
         />
         <Controller
           name={checkbox.name as keyof IformDataType}

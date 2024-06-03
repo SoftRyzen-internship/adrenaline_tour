@@ -4,5 +4,4 @@ export interface IFormTextAreaProps
   extends ComponentPropsWithoutRef<'textarea'> {
   name: string;
   label: string;
-  errorMessage?: string;
 }
