@@ -1,10 +1,11 @@
 import clsx from 'clsx';
 
 import IconButton from '@/components/ui/IconButton';
-import { btnSlider } from '@/data';
 
 import Left from '/public/icons/arrow-left.svg';
 import Right from '/public/icons/arrow-right.svg';
+
+import { btnSlider } from '@/data';
 
 import { IBtnSliderProps } from './BtnSlider.types';
 

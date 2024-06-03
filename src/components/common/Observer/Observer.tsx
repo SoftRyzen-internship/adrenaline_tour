@@ -21,7 +21,6 @@ import NavMenu from '@/components/ui/NavMenu';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 import form from '@/data/form.json';
-import Gallery from '@/sections/Gallery';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
@@ -219,8 +218,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </IconButton>
         </div>
       </div>
-
-      <Gallery />
 
       <p className='container text-center text-[24px] font-bold'>
         Component Modal
