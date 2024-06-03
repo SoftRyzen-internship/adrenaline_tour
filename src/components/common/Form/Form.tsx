@@ -8,14 +8,13 @@ import useFormPersist from 'react-hook-form-persist';
 
 import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
 
+import Button from '@/components/ui/Button';
 import Checkbox from '@/components/ui/Checkbox';
 import FormInput from '@/components/ui/FormInput';
+import FormModal from '@/components/ui/FormModal/FormModal';
 import FormTextArea from '@/components/ui/FormTextArea';
 import form from '@/data/form.json';
 import { schema } from '@/utils/schema';
-
-import Button from '../../ui/Button';
-import FormModal from '../../ui/FormModal/FormModal';
 
 import { IformDataType } from './Form.types';
 
