@@ -1,0 +1,17 @@
+[
+  {
+    "_id": "1",
+    "src": "/images/hero/main/image1-lg.webp",
+    "alt": "Байкер на вершині гори"   
+  },
+  {
+    "_id": "2",
+    "src": "/images/hero/main/image2-lg.webp", 
+    "alt": "Альпіністи на маршруті в зимових горах"   
+  },
+  {
+    "_id": "3",
+    "src": "/images/hero/main/image3-lg.webp",
+    "alt": "Туристка спускається з гори"  
+  }   
+]
