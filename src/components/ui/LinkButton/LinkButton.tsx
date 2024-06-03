@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import Link from 'next/link';
 import { Link as LinkScroll } from 'react-scroll';
 
-import { ILinkButtonProps } from './LinkButton.styles';
+import { ILinkButtonProps } from './LinkButton.types';
 
 const linkButtonStyle = {
   main: 'focus:bg-accentDarkOrange md:py-[17.5px] gap-4 bg-accentDefaultOrange px-8 py-4 font-unbounded text-sm text-white transition-colors hover:bg-accentDarkOrange  md:text-base font-medium leading-[1.5]',
@@ -32,8 +32,9 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
     <>
       {toScroll ? (
         <LinkScroll
+          {...rest}
           href='#'
-          to='to'
+          to={toScroll}
           smooth={true}
           spy={true}
           duration={500}

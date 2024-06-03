@@ -21,6 +21,7 @@ const Footer = () => {
             width={166}
             height={53}
             className='md:h-12 md:w-[151px] xl:h-[51px] xl:w-[153px]'
+            toScroll
           />
           <Phones variant='footer' />
         </div>
@@ -33,7 +34,7 @@ const Footer = () => {
 
       <div className='container flex flex-col gap-4 py-8 font-inter text-light text-white md:leading-[1.5] xl:flex-row xl:justify-between xl:leading-[1.4]'>
         <PageConditionalRender
-          pages={[`/${Pages.POLICY}`]}
+          pages={[Pages.POLICY]}
           trueProps={{ href: Pages.MAIN, variant: 'footer' }}
           alternativeProps={{ href: Pages.POLICY, variant: 'footer' }}
           component={LinkButton}

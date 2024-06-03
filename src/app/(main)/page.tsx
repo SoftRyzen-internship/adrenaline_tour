@@ -5,8 +5,8 @@ import UpcomingTours from '@/sections/UpcomingTours';
 const HomePage = () => {
   return (
     <>
-      <UpcomingTours />
       <h1 className='bg-green-400 text-6xl'>Home Page</h1>;
+      <UpcomingTours />
       <Observer />
       <Gallery />
     </>
