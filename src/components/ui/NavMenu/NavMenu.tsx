@@ -29,7 +29,8 @@ const NavMenu: React.FC<INavMenuProps> = ({
                 onClick={onCloseMenu}
                 className={clsx(
                   buttonStyle === 'navLink' && 'px-1 py-[10px]',
-                  buttonStyle === 'footer' && 'py-1',
+                  buttonStyle === 'footer' &&
+                    'py-1 md:leading-[1.5] xl:leading-[1.4]',
                 )}
               >
                 {title}

@@ -6,6 +6,7 @@ import { Link as LinkScroll } from 'react-scroll';
 
 import LogoIcon from '/public/icons/logo.svg';
 
+import { Pages } from '@/@types';
 import { logo } from '@/data';
 
 import { ILogoProps } from './Logo.types';
@@ -16,6 +17,7 @@ const Logo: React.FC<ILogoProps> = ({
   height,
   toScroll,
   onClick,
+  className,
 }) => {
   return (
     <>
@@ -27,37 +29,35 @@ const Logo: React.FC<ILogoProps> = ({
           spy={true}
           duration={500}
           offset={0}
-          className='cursor-pointer focus:outline-1'
+          className='group placeholder:backdrop:cursor-pointer'
           aria-label={logo.ariaLabel}
         >
-          <div className='inline-block'>
-            <LogoIcon
-              width={width}
-              height={height}
-              className={clsx(
-                'fill-white  transition  hover:fill-accentDarkOrange hover:text-accentDarkOrange',
-                textWhite ? 'text-white' : 'text-darkGreen',
-              )}
-            />
-          </div>
+          <LogoIcon
+            width={width}
+            height={height}
+            className={clsx(
+              'inline-block fill-white  transition  group-hover:fill-accentDarkOrange group-hover:text-accentDarkOrange group-focus:fill-accentDarkOrange group-focus:text-accentDarkOrange',
+              textWhite ? 'text-white' : 'text-darkGreen',
+              className,
+            )}
+          />
         </LinkScroll>
       ) : (
         <Link
-          href='/'
-          className='cursor-pointer focus:outline-1'
+          href={Pages.MAIN}
+          className='group cursor-pointer'
           aria-label={logo.ariaLabel}
           onClick={onClick}
         >
-          <div className='inline-block'>
-            <LogoIcon
-              width={width}
-              height={height}
-              className={clsx(
-                'fill-white  transition  hover:fill-accentDarkOrange hover:text-accentDarkOrange',
-                textWhite ? 'text-white' : 'text-darkGreen',
-              )}
-            />
-          </div>
+          <LogoIcon
+            width={width}
+            height={height}
+            className={clsx(
+              'inline-block fill-white  transition  group-hover:fill-accentDarkOrange group-hover:text-accentDarkOrange group-focus:fill-accentDarkOrange group-focus:text-accentDarkOrange',
+              textWhite ? 'text-white' : 'text-darkGreen',
+              className,
+            )}
+          />
         </Link>
       )}
     </>
