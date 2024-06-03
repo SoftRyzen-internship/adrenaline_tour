@@ -1,23 +1,24 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import clsx from 'clsx';
 
-import ArrowRight from '@/../public/icons/arrow-right.svg';
-import ArrowRightDownIcon from '@/../public/icons/arrow-right_up.svg';
-import BurgerMenuIcon from '@/../public/icons/burger-menu-sm.svg';
-import CalendarIcon from '@/../public/icons/date.svg';
-import FacebookIcon from '@/../public/icons/facebook.svg';
+import ArrowRight from '/public/icons/arrow-right.svg';
+import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
+import BurgerMenuIcon from '/public/icons/burger-menu-sm.svg';
+import CalendarIcon from '/public/icons/date.svg';
+import FacebookIcon from '/public/icons/facebook.svg';
+
+import { IdForScroll } from '@/@types';
+import BurgerMenu from '@/components/common/BurgerMenu';
 import Button from '@/components/ui/Button';
 import Checkbox from '@/components/ui/Checkbox';
 import FormInput from '@/components/ui/FormInput';
 import FormTextArea from '@/components/ui/FormTextArea';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
-import { Logo } from '@/components/ui/Logo';
+import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
-import MovingBanner from '@/components/ui/MovingBanner/MovingBanner';
-import NavMenu from '@/components/ui/NavMenu';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 import form from '@/data/form.json';
@@ -44,27 +45,19 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         The temporary component is used for the observation of newly created
         components.
       </h1>
-
       <div className='section container bg-blueDefault'>
         <HeroCard page='main' />
         <HeroCard page='tours' />
         <Social variant='header' />
-        <Social variant='footer' />
         <Phones variant='contacts' />
-        <Phones variant='footer' />
 
-        <Logo textWhite={true} width={153} height={51} />
         <Logo textWhite={false} width={252} height={80} />
-
-        <NavMenu buttonStyle='footer' />
       </div>
       <section className='section'>
         <div className='container flex flex-wrap gap-8'></div>
       </section>
-      <section className='section bg-darkBlue'>
-        <MovingBanner />
-      </section>
-      <section className='section bg-darkBlue'>
+
+      <section id={IdForScroll.CONTACTS} className='section bg-darkBlue'>
         <div className='container flex xl:justify-end'>
           <div className='flex w-full flex-col gap-12 xl:w-1/2'>
             {inputs.map(
@@ -96,12 +89,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         Component LinkButton
       </p>
       <div className='container flex flex-wrap gap-2 py-4'>
-        <div>
-          <p className='p-1 text-xs'>LinkButton - variant-main</p>
-          <LinkButton href='#sectionId' variant='main'>
-            Зв’яжіться з нами
-          </LinkButton>
-        </div>
         <div>
           <p className='p-1 text-xs'>
             variant-main, iconPosition-after, icon-(Your Icon)
@@ -141,18 +128,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
             icon={<ArrowRight width={24} height={24} className='h-6 w-6' />}
           >
             Детальніше{' '}
-          </LinkButton>
-        </div>
-        <div>
-          <p className='p-1 text-xs'>LinkButton: variant - navLink</p>
-          <LinkButton href='/' variant='navLink'>
-            Головна
-          </LinkButton>
-        </div>
-        <div className='bg-darkBlue px-4 py-4'>
-          <p className='p-1 text-xs text-white'>variant - footer</p>
-          <LinkButton href='/' variant='footer'>
-            Політика конфіденціальності
           </LinkButton>
         </div>
       </div>
@@ -205,16 +180,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <div className='bg-accentGreen px-4 py-4'>
           <p className='p-1 text-xs'>icon as children with own style</p>
           <IconButton ariaLabel='Відкрити Модалку'>
-            <BurgerMenuIcon
-              width={32}
-              height={32}
-              className='h-8 w-8 stroke-white transition hover:stroke-accentDefaultOrange'
-            />
-          </IconButton>
-        </div>
-        <div className='bg-accentGreen px-4 py-4'>
-          <p className='p-1 text-xs'>icon as children with own style</p>
-          <IconButton ariaLabel='Відкрити Модалку'>
             <FacebookIcon
               width={32}
               height={32}
@@ -223,6 +188,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </IconButton>
         </div>
       </div>
+
       <p className='container text-center text-[24px] font-bold'>
         Component Modal
       </p>
@@ -243,12 +209,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           variant='burger'
           close={() => setIsOpenBurger(false)}
         >
-          <div className='px-10 pb-10 pt-20'>
-            <NavMenu
-              buttonStyle='navLink'
-              onCloseMenu={() => setIsOpenBurger(false)}
-            />
-          </div>
+          <BurgerMenu onCloseMenu={() => setIsOpenBurger(false)} />
         </Modal>
       </div>
       <div className='container bg-darkBlue px-4 py-4'>

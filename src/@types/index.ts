@@ -1,6 +1,11 @@
 export enum Pages {
   MAIN = '/',
   CALENDAR = 'calendar',
-  OUR_TOUR = 'tours',
+  TOURS = 'tours',
   POLICY = 'policy',
+}
+
+export enum IdForScroll {
+  HEADER = 'header',
+  CONTACTS = 'contacts',
 }

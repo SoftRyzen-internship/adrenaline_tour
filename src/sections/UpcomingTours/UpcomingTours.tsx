@@ -1,10 +1,11 @@
-import CalendarIcon from '@/../public/icons/date.svg';
-import { Pages } from '@/@types';
+import CalendarIcon from '/public/icons/date.svg';
+
 import Slider from '@/components/common/Slider';
 import LinkButton from '@/components/ui/LinkButton';
 import TourCard from '@/components/ui/TourCard';
-import { upcomingTours } from '@/data';
+import { Pages } from '@/@types';
 import mockdatatourCard from '@/data/mockdatatourCard.json';
+import { upcomingTours } from '@/data';
 
 const slides = mockdatatourCard.map(item => ({
   id: item.id,
@@ -24,7 +25,7 @@ const UpcomingTours = () => {
       />
       <div className='flex justify-center'>
         <LinkButton
-          href={Pages.OUR_TOUR}
+          href={Pages.TOURS}
           variant='main'
           iconPosition='before'
           icon={
