@@ -34,6 +34,6 @@ export const schema = yup.object({
     .required(required)
     .max(63, emailMax)
     .matches(/^$|^\s*[^\s@]+@[^\s@]+\.[^\s@]+\s*$/, emailPattern),
-  message: yup.string(),
+  message: yup.string().nullable(),
   privacyPolicy: yup.boolean().oneOf([true]).required(),
 });
