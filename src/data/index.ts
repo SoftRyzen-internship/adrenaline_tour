@@ -9,6 +9,7 @@ export { default as upcomingTours } from './upcomingTours.json';
 export { default as navList } from './navMenuData.json';
 export { default as ariaLabel } from './common.json';
 export { default as tourCardData } from './tourCard.json';
+export { default as heroCardData } from './heroCardData.json';
 export { default as footerData } from './footerData.json';
 export { default as burgerMenuData } from './burgerMenuData.json';
 export { default as form } from './form.json';

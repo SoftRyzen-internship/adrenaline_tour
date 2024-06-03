@@ -18,6 +18,8 @@ import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 
+import HeroCard from '../HeroCard';
+
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
 
@@ -36,6 +38,8 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         components.
       </h1>
       <div className='section container bg-blueDefault'>
+        <HeroCard page='main' />
+        <HeroCard page='tours' />
         <Social variant='header' />
         <Phones variant='contacts' />
 
