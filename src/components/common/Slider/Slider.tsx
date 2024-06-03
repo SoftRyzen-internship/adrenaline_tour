@@ -24,7 +24,6 @@ const Slider: React.FC<ISliderProps> = ({
 
   const slidesToShowTabl = section === 'reviews' ? 1 : 2;
   const slidesToShowDesc = section === 'reviews' ? 1 : 3;
-  const slidesLoop = section === 'reviews' ? false : true;
 
   const breakpoints = {
     768: {
@@ -41,7 +40,7 @@ const Slider: React.FC<ISliderProps> = ({
       <Swiper
         modules={[Navigation]}
         wrapperTag='ul'
-        loop={slidesLoop}
+        loop={true}
         spaceBetween={8}
         grabCursor={true}
         slidesPerView={1}
