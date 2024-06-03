@@ -12,24 +12,19 @@ import FacebookIcon from '/public/icons/facebook.svg';
 import { IdForScroll } from '@/@types';
 import BurgerMenu from '@/components/common/BurgerMenu';
 import Button from '@/components/ui/Button';
-import Checkbox from '@/components/ui/Checkbox';
-import FormInput from '@/components/ui/FormInput';
-import FormTextArea from '@/components/ui/FormTextArea';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
-import form from '@/data/form.json';
+
+import Form from '../Form';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
-  const {
-    formProps: { inputs, textarea, checkbox },
-  } = form;
   const [isOpenBurger, setIsOpenBurger] = useState(false);
   const [isOpenSimple, setIsOpenSimple] = useState(false);
   return (
@@ -52,31 +47,9 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
       <section className='section'>
         <div className='container flex flex-wrap gap-8'></div>
       </section>
-
       <section id={IdForScroll.CONTACTS} className='section bg-darkBlue'>
         <div className='container flex xl:justify-end'>
-          <div className='flex w-full flex-col gap-12 xl:w-1/2'>
-            {inputs.map(
-              ({ name, placeholder, type, label, required }, index) => {
-                return (
-                  <FormInput
-                    key={index}
-                    label={label}
-                    type={type}
-                    name={name}
-                    placeholder={placeholder}
-                    required={required}
-                  />
-                );
-              },
-            )}
-            <FormTextArea
-              label={textarea.label}
-              name={textarea.name}
-              placeholder={textarea.placeholder}
-            />
-            <Checkbox name={checkbox.name} label={checkbox.label} />
-          </div>
+          <Form />
         </div>
       </section>
 

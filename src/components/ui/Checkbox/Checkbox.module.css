@@ -32,3 +32,6 @@
 .custom-checkbox:focus + span::before {
   outline: auto;
 }
+.custom-checkbox-error + span::before {
+  border: 1px solid #ff6033;
+}
