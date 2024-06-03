@@ -42,7 +42,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         The temporary component is used for the observation of newly created
         components.
       </h1>
-
       <div className='section container bg-blueDefault'>
         <Social variant='header' />
         <Social variant='footer' />
@@ -219,6 +218,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </IconButton>
         </div>
       </div>
+
       <p className='container text-center text-[24px] font-bold'>
         Component Modal
       </p>
