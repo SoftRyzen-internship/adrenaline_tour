@@ -6,7 +6,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { Controller, useForm } from 'react-hook-form';
 import useFormPersist from 'react-hook-form-persist';
 
-import ArrowRightDownIcon from '@/../public/icons/arrow-right_up.svg';
+import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
+
 import Checkbox from '@/components/ui/Checkbox';
 import FormInput from '@/components/ui/FormInput';
 import FormTextArea from '@/components/ui/FormTextArea';
