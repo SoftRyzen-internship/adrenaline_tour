@@ -75,31 +75,20 @@ const Modal: React.FC<IModalProps> = ({
               )}
             >
               {children}
-              <IconButton
-                ariaLabel={
-                  variant === 'burger'
-                    ? ariaLabel.burgerClose
-                    : ariaLabel.modalClose
-                }
-                type='button'
-                onClick={close}
-                className={clsx(
-                  'absolute  stroke-grey01 transition hover:stroke-accentDarkOrange focus:stroke-accentDarkOrange',
-                  variant === 'burger'
-                    ? 'right-4 top-8 md:right-8 md:top-9'
-                    : 'right-4 top-4 md:right-6 md:top-6',
-                )}
-              >
-                <CloseIcon
-                  width={24}
-                  height={24}
-                  className={clsx(
-                    variant === 'burger'
-                      ? 'xl:h-12 xl:w-12'
-                      : 'h-6 w-6 md:h-10 md:w-10',
-                  )}
-                />
-              </IconButton>
+              {variant === 'burger' ? null : (
+                <IconButton
+                  ariaLabel={ariaLabel.modalClose}
+                  type='button'
+                  onClick={close}
+                  className='absolute right-4 top-4 stroke-grey01 transition hover:stroke-accentDarkOrange focus:stroke-accentDarkOrange md:right-6 md:top-6'
+                >
+                  <CloseIcon
+                    width={24}
+                    height={24}
+                    className='h-6 w-6 md:h-10 md:w-10'
+                  />
+                </IconButton>
+              )}
             </DialogPanel>
           </div>
         </TransitionChild>
