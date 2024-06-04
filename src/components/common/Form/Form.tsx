@@ -16,6 +16,7 @@ import FormModal from '@/components/ui/FormModal/FormModal';
 import FormTextArea from '@/components/ui/FormTextArea';
 import { form } from '@/data';
 import formSchema from '@/utils';
+import { sendEmail } from '@/utils/send-email';
 
 const Form = () => {
   const {
@@ -54,7 +55,7 @@ const Form = () => {
       message: data.message ? data.message.trim() : '',
     };
     try {
-      await console.log(sanitizedData);
+      await sendEmail(sanitizedData);
       reset();
     } catch (error) {
       setSendError(true);
