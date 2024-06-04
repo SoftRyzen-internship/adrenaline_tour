@@ -15,8 +15,8 @@ import FormInput from '@/components/ui/FormInput';
 import FormModal from '@/components/ui/FormModal/FormModal';
 import FormTextArea from '@/components/ui/FormTextArea';
 import { form } from '@/data';
-import formSchema from '@/utils';
-import { sendingEmail } from '@/utils/send-email';
+import { formSchema } from '@/utils';
+import { sendingEmail } from '@/utils';
 
 const Form = () => {
   const {

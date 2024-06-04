@@ -17,7 +17,7 @@ const {
   },
 } = form;
 
-export const formSchema: yup.ObjectSchema<IFormState> = yup.object({
+const formSchema: yup.ObjectSchema<IFormState> = yup.object({
   name: yup
     .string()
     .trim()
@@ -40,3 +40,5 @@ export const formSchema: yup.ObjectSchema<IFormState> = yup.object({
   message: yup.string().trim().nullable(),
   privacyPolicy: yup.boolean().oneOf([true]).required(),
 });
+
+export default formSchema;
