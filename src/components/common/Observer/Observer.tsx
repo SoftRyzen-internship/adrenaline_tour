@@ -11,6 +11,7 @@ import FacebookIcon from '/public/icons/facebook.svg';
 
 import BurgerMenu from '@/components/common/BurgerMenu';
 import Button from '@/components/ui/Button';
+import CardTips from '@/components/ui/CardTips';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import Logo from '@/components/ui/Logo';
@@ -42,7 +43,9 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         <Logo textWhite={false} width={252} height={80} />
       </div>
       <section className='section'>
-        <div className='container flex flex-wrap gap-8'></div>
+        <div className='container flex flex-wrap gap-8'>
+          <CardTips />
+        </div>
       </section>
 
       {children}
