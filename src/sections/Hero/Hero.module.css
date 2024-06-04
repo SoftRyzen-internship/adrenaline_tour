@@ -1,0 +1,6 @@
+.hero_bg {
+  background-image: url(/icons/mountain-hero.svg);
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
+}

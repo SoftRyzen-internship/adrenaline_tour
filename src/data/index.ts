@@ -4,6 +4,7 @@ export { default as phones } from './phones.json';
 export { default as social } from './social.json';
 export { default as banner } from './banner.json';
 export { default as mainHeroImages } from './mainHeroCard.json';
+export { default as ourToursHeroImages } from './ourToursHeroCard.json';
 export { default as gallery } from './gallery.json';
 export { default as btnSlider } from './btnSlider.json';
 export { default as upcomingTours } from './upcomingTours.json';

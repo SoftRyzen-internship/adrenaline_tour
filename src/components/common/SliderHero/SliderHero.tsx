@@ -6,11 +6,21 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
+import { mainHeroImages } from '@/data';
+import { ourToursHeroImages } from '@/data';
+
 import { ISliderHeroProps } from './SliderHero.types';
 
-const SliderHero: React.FC<ISliderHeroProps> = ({ images }) => {
+const SliderHero: React.FC<ISliderHeroProps> = ({ page = 'main' }) => {
+  let images;
+  if (page === 'tours') {
+    images = ourToursHeroImages;
+  } else {
+    images = mainHeroImages;
+  }
+
   return (
-    <div className='h-[640px] w-full bg-darkBlue bg-cover bg-center bg-no-repeat md:h-[780px]'>
+    <div className='absolute -z-10 h-[640px] w-full bg-darkBlue bg-cover bg-center bg-no-repeat md:h-[780px]'>
       <Swiper
         modules={[Autoplay, EffectFade]}
         autoplay={{
@@ -37,6 +47,7 @@ const SliderHero: React.FC<ISliderHeroProps> = ({ images }) => {
                   objectPosition: '78% 60%',
                 }}
               />
+              <div className='absolute inset-0 bg-black opacity-30'></div>
             </div>
           </SwiperSlide>
         ))}

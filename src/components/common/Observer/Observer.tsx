@@ -10,7 +10,6 @@ import CalendarIcon from '/public/icons/date.svg';
 import FacebookIcon from '/public/icons/facebook.svg';
 
 import BurgerMenu from '@/components/common/BurgerMenu';
-import SliderHero from '@/components/common/SliderHero';
 import Button from '@/components/ui/Button';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
@@ -18,7 +17,6 @@ import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
-import { mainHeroImages } from '@/data';
 
 import HeroCard from '../HeroCard';
 
@@ -39,8 +37,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         The temporary component is used for the observation of newly created
         components.
       </h1>
-
-      <SliderHero images={mainHeroImages} />
 
       <div className='section container bg-blueDefault'>
         <HeroCard page='main' />
