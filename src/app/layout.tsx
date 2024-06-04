@@ -6,6 +6,7 @@ import { Unbounded, Inter } from 'next/font/google';
 
 import { metaData } from '@/data';
 import Footer from '@/layout/Footer';
+import Header from '@/layout/Header';
 import './globals.css';
 
 const unbounded = Unbounded({
@@ -41,7 +42,7 @@ const RootLayout = ({
           'flex h-full min-h-screen flex-col',
         )}
       >
-        <header className='bg-blue-500'>Header will be here</header>
+        <Header />
         <main className='flex-1'>{children}</main>
         <Footer />
       </body>
