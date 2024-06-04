@@ -9,7 +9,7 @@ export interface ILinkButtonProps {
     | 'footer'
     | 'disclosure';
   toScroll?: boolean;
-  toScrollId: string;
+  to?: string;
   icon?: React.ReactNode;
   iconPosition?: 'before' | 'after';
   currentDisclosure?: boolean;

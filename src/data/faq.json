@@ -8,6 +8,7 @@
         {
           "id": 1.1,
           "icon": true,
+          "margin": false,
           "question": "Що саме брати в похід?",
           "answers": [
             {
@@ -77,6 +78,7 @@
         {
           "id": 1.2,
           "icon": false,
+          "margin": false,
           "question": "Чи можу я взяти з собою камеру або дрон для зйомки пригоди?",
           "answers": [
             {
@@ -113,6 +115,7 @@
         {
           "id": 2.1,
           "icon": false,
+          "margin": false,
           "question": "Чи можуть учасники-початківці брати участь у цих активностях?",
           "answers": [
             {
@@ -126,6 +129,7 @@
         {
           "id": 2.2,
           "icon": false,
+          "margin": false,
           "question": "Наскільки фізично вимогливі ці активності?",
           "answers": [
             {
@@ -139,6 +143,7 @@
         {
           "id": 2.3,
           "icon": false,
+          "margin": false,
           "question": "Яка найкраща пора року для участі в цих активностях?",
           "answers": [
             {
@@ -152,6 +157,7 @@
         {
           "id": 2.4,
           "icon": false,
+          "margin": false,
           "question": "Чи є вікові обмеження для участі в цих активностях?",
           "answers": [
             {
@@ -172,6 +178,7 @@
         {
           "id": 3.1,
           "icon": false,
+          "margin": false,
           "question": "За що потрібно оплачувати окремо?",
           "answers": [
             {
@@ -233,6 +240,7 @@
         {
           "id": 4.2,
           "icon": false,
+          "margin": false,
           "question": "Які заходи безпеки передбачені?",
           "answers": [
             {
@@ -246,6 +254,7 @@
         {
           "id": 4.3,
           "icon": false,
+          "margin": false,
           "question": "Що робити у разі поганої погоди?",
           "answers": [
             {
@@ -259,6 +268,7 @@
         {
           "id": 4.4,
           "icon": false,
+          "margin": false,
           "question": "Що робити, якщо у мене є дієтичні обмеження або алергії?",
           "answers": [
             {

@@ -22,9 +22,11 @@ import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 import { faq } from '@/data';
+import { tourDisclosure } from '@/data';
 import form from '@/data/form.json';
 
-import DisclosureMain from '../Disclosure';
+import DisclosureFaqList from '../DisclosureFaqList';
+import DisclosureTour from '../DisclosureTour/DisclosureTour';
 import FaqNavMenu from '../FaqNavMenu';
 
 import s from './Observer.module.css';
@@ -32,7 +34,7 @@ import { IObserverProps } from './Observer.types';
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
   const { disclosures } = faq;
-  console.log(disclosures);
+
   const {
     formProps: { inputs, textarea, checkbox },
   } = form;
@@ -242,10 +244,11 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
       </div>
 
       <div className='container'>
-        <div className='mb-2 flex justify-end'>
+        <div className='mb-8 hidden justify-end xl:block xl:flex'>
           <FaqNavMenu />
         </div>
-        <DisclosureMain />
+        <DisclosureFaqList disclosures={disclosures} />
+        <DisclosureTour disclosure={tourDisclosure} />
       </div>
     </div>
   );

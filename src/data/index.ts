@@ -12,3 +12,4 @@ export { default as tourCardData } from './tourCard.json';
 export { default as footerData } from './footerData.json';
 export { default as burgerMenuData } from './burgerMenuData.json';
 export { default as faq } from './faq.json';
+export { default as tourDisclosure } from './tourDisclosure.json';

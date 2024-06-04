@@ -3,31 +3,29 @@ import { useState } from 'react';
 import LinkButton from '@/components/ui/LinkButton';
 import { faq } from '@/data';
 
-interface IFaqNavMenuProps {}
-
-const FaqNavMenu: React.FC<IFaqNavMenuProps> = () => {
+const FaqNavMenu: React.FC = () => {
   const { disclosures } = faq;
 
   const [activeDisclosure, setActiveDisclosure] = useState(
     disclosures[0].sectionId,
   );
 
-  const handleSetActive = id => {
+  const handleSetActive = (id: string) => {
     setActiveDisclosure(id);
   };
 
   return (
     <ul className='flex'>
-      {disclosures.map(disclosure => (
-        <li key={disclosure.id}>
+      {disclosures.map(({ id, sectionId, label }) => (
+        <li key={id}>
           <LinkButton
-            toScrollId={disclosure.sectionId}
+            to={sectionId}
             variant='disclosure'
             toScroll={true}
-            onClick={() => handleSetActive(disclosure.sectionId)}
-            currentDisclosure={disclosure.sectionId === activeDisclosure}
+            onClick={() => handleSetActive(sectionId)}
+            currentDisclosure={sectionId === activeDisclosure}
           >
-            {disclosure.label}
+            {label}
           </LinkButton>
         </li>
       ))}

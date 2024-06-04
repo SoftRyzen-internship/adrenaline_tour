@@ -27,7 +27,7 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
   variant,
   iconPosition,
   toScroll,
-  toScrollId,
+  to,
   currentDisclosure,
   className,
   ...rest
@@ -37,8 +37,8 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
       {toScroll ? (
         <LinkScroll
           {...rest}
+          to={to}
           href='#'
-          to={toScrollId}
           smooth={true}
           spy={true}
           duration={500}
