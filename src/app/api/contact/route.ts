@@ -23,10 +23,8 @@ export async function POST(request: Request) {
       from: from_user,
       to: to_user,
       subject: 'Нова заявка з сайту Adrenaline Tour',
-      text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`,
+      text: `Імʼя: ${name}\nТелефон: ${phone}\nEmail: ${email}\nКоментар: ${message}`,
     };
-
-    console.log(mailOptions);
 
     await transporter.sendMail(mailOptions);
 
