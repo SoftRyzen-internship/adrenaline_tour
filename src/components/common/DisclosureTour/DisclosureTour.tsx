@@ -12,7 +12,7 @@ import { IDisclosureTourProps } from './DisclosureTour.types';
 
 const DisclosureTour: React.FC<IDisclosureTourProps> = ({ disclosure }) => {
   return (
-    <div className='mx-auto w-full '>
+    <div className='mx-auto w-full'>
       <ul>
         {disclosure.map(item => (
           <Disclosure
@@ -49,12 +49,12 @@ const DisclosureTour: React.FC<IDisclosureTourProps> = ({ disclosure }) => {
                     leaveFrom='opacity-100 translate-y-0'
                     leaveTo='opacity-0 -translate-y-6'
                   >
-                    <DisclosurePanel className='pl-4 pt-[34px]  font-inter text-sm/[1.3] font-medium text-dark  md:text-base/[1.4] xl:text-lg/[1.5]'>
+                    <DisclosurePanel className='pl-4 pt-[34px] font-inter  text-sm/[1.3] font-medium text-dark md:pt-[43px] md:text-base/[1.4]  xl:pt-[51px] xl:text-lg/[1.5]'>
                       <div className='border-l-[1px] border-blue32'>
                         {item.answers.map((answer, index) => (
-                          <div key={index} className='pl-4'>
+                          <div key={index} className='mb-2 pl-4'>
                             {answer.title && (
-                              <p className='mb-2 font-bold'>{answer.title}</p>
+                              <p className='mb-1 font-bold'>{answer.title}</p>
                             )}
 
                             <ul className='mb-2'>
