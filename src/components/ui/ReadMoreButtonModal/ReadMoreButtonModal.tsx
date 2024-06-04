@@ -24,13 +24,22 @@ const ReadMoreButtonModal: React.FunctionComponent<
       >
         Читати далі
       </Button>
-      <Modal variant='simple' isOpen={isOpen} close={() => setIsOpen(false)}>
-        <div className='h-full px-4 pb-[40px] pt-[56px]'>
+      <Modal
+        variant='simple'
+        isOpen={isOpen}
+        close={() => setIsOpen(false)}
+        className='xl:max-h-[70%]'
+      >
+        <div className='h-[95%] overflow-hidden px-4 pb-[40px] pt-[56px] md:px-10 md:pb-[60px] md:pt-[88px] xl:px-[60px] xl:pt-[96px]'>
           <p className='mb-6  font-inter text-lg/[1.3] font-bold text-blueDefault  md:text-xl/[1.3]  xl:text-2xl/[1.1]'>
             {item.question}
           </p>
 
-          <div className='h-[90%] overflow-y-auto'>
+          <div
+            className={clsx(
+              'h-[95%] overflow-y-auto pr-4 scrollbar-thin scrollbar-track-grey01 scrollbar-thumb-accentDarkOrange',
+            )}
+          >
             {item.answers.map((answer, index) => (
               <div
                 key={index}
@@ -40,7 +49,7 @@ const ReadMoreButtonModal: React.FunctionComponent<
                   <p className='mb-2 font-bold'>{answer.title}</p>
                 )}
 
-                <ul className='mb-2'>
+                <ul className='mb-2 '>
                   {answer.text.map((point, index) => (
                     <>
                       <li

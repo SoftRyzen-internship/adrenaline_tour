@@ -61,8 +61,8 @@ const Modal: React.FC<IModalProps> = ({
         >
           <div
             className={clsx(
-              'fixed inset-0 flex w-screen items-center justify-end',
-              variant === 'simple' && 'justify-center p-4',
+              'fixed inset-0 flex h-screen w-screen  items-center justify-end',
+              variant === 'simple' && 'flex-col justify-center p-4',
             )}
           >
             <DialogPanel
