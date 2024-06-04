@@ -37,7 +37,7 @@ const Header = () => {
             <BurgerMenuIcon
               width={24}
               height={24}
-              className={`h-6 w-6 transition hover:stroke-accentDefaultOrange focus:stroke-accentDefaultOrange md:h-10 md:h-10 xl:w-12 xl:w-12 ${isTextWhite ? 'stroke-white' : 'stroke-darkBlue'}`}
+              className={`transition hover:stroke-accentDefaultOrange focus:stroke-accentDefaultOrange active:stroke-accentDarkOrange md:h-10 md:h-10 xl:w-12 xl:w-12 ${isTextWhite ? 'stroke-white' : 'stroke-darkBlue'}`}
             />
           </IconButton>
         </div>
