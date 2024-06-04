@@ -39,7 +39,7 @@ const RootLayout = ({
         className={clsx(
           unbounded.variable,
           inter.variable,
-          'flex h-full min-h-screen flex-col',
+          'flex h-full min-h-screen flex-col overflow-x-hidden',
         )}
       >
         <Header />

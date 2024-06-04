@@ -8,7 +8,6 @@ import Welcome from '@/sections/Welcome';
 const HomePage = () => {
   return (
     <>
-      <h1 className='bg-green-400 text-6xl'>Home Page</h1>;
       <Hero page={Pages.MAIN} />
       <UpcomingTours />
       <Welcome />

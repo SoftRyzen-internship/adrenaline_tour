@@ -18,7 +18,7 @@ const SliderHero: React.FC<IHeroProps> = ({ page = Pages.MAIN }) => {
   }
 
   return (
-    <div className='absolute -z-10 h-[640px] w-full bg-darkBlue bg-cover bg-center bg-no-repeat md:h-[780px]'>
+    <div className='absolute -z-20 h-[640px] w-full bg-darkBlue bg-cover bg-center bg-no-repeat md:h-[780px]'>
       <Swiper
         modules={[Autoplay, EffectFade]}
         autoplay={{
