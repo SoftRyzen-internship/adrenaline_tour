@@ -10,6 +10,8 @@ export async function POST(request: Request) {
   try {
     const { name, phone, email, message } = await request.json();
 
+    console.log(name, phone, email, message);
+
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       secure: true,
@@ -25,6 +27,8 @@ export async function POST(request: Request) {
       subject: 'Нова заявка з сайту Adrenaline Tour',
       text: `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nMessage: ${message}`,
     };
+
+    console.log(mailOptions);
 
     await transporter.sendMail(mailOptions);
 
