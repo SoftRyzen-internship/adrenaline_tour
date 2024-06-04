@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 
-import { IdForScroll } from '@/@types';
+import { usePathname } from 'next/navigation';
+
+import { IdForScroll, Pages } from '@/@types';
 import BurgerMenu from '@/components/common/BurgerMenu';
 import IconButton from '@/components/ui/IconButton';
 import Logo from '@/components/ui/Logo';
@@ -14,13 +16,16 @@ import { header } from '@/data';
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const pathname = usePathname();
+
+  const isTextWhite = pathname === Pages.MAIN || pathname.includes(Pages.TOURS);
 
   return (
     <>
       <header id={IdForScroll.HEADER} className='absolute w-full'>
         <div className='container flex items-center justify-between py-6 xl:py-8'>
           <Logo
-            textWhite
+            textWhite={isTextWhite}
             width={126}
             height={40}
             className='h-[40px] w-[126px] md:h-[64px] md:w-[201px] xl:h-[80px] xl:w-[252px]'
@@ -32,7 +37,7 @@ const Header = () => {
             <BurgerMenuIcon
               width={24}
               height={24}
-              className='h-6 w-6 stroke-white transition hover:stroke-accentDefaultOrange focus:stroke-accentDefaultOrange md:h-10 md:h-12 md:w-10 md:w-12'
+              className={`h-6 w-6 transition hover:stroke-accentDefaultOrange focus:stroke-accentDefaultOrange md:h-10 md:h-10 xl:w-12 xl:w-12 ${isTextWhite ? 'stroke-white' : 'stroke-darkBlue'}`}
             />
           </IconButton>
         </div>
