@@ -2,6 +2,7 @@ import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
+  Transition,
 } from '@headlessui/react';
 
 import MinusIcon from '@/../public/icons/minus.svg';
@@ -15,8 +16,8 @@ const DisclosureTour: React.FC<IDisclosureTourProps> = ({ disclosure }) => {
       <ul>
         {disclosure.map(item => (
           <Disclosure
-            as='div'
-            className='border-b-[1px] border-blue32 py-6 xl:w-[801px]'
+            as='li'
+            className='border-b-[1px] border-blue32 py-5'
             key={item.id}
           >
             {({ open }) => (
@@ -29,36 +30,46 @@ const DisclosureTour: React.FC<IDisclosureTourProps> = ({ disclosure }) => {
                     <MinusIcon
                       width={24}
                       height={24}
-                      className='size-6 stroke-accentDefaultOrange'
+                      className='size-6 stroke-accentDefaultOrange md:size-12'
                     />
                   ) : (
                     <PlusIcon
                       width={24}
                       height={24}
-                      className='size-6 stroke-accentDefaultOrange'
+                      className='size-6 stroke-accentDefaultOrange  md:size-12'
                     />
                   )}
                 </DisclosureButton>
+                <div className='overflow-hidden'>
+                  <Transition
+                    enter='duration-200 ease-out'
+                    enterFrom='opacity-0 -translate-y-6'
+                    enterTo='opacity-100 translate-y-0'
+                    leave='duration-300 ease-out'
+                    leaveFrom='opacity-100 translate-y-0'
+                    leaveTo='opacity-0 -translate-y-6'
+                  >
+                    <DisclosurePanel className='pl-4 pt-[34px]  font-inter text-sm/[1.3] font-medium text-dark  md:text-base/[1.4] xl:text-lg/[1.5]'>
+                      <div className='border-l-[1px] border-blue32'>
+                        {item.answers.map((answer, index) => (
+                          <div key={index} className='pl-4'>
+                            {answer.title && (
+                              <p className='mb-2 font-bold'>{answer.title}</p>
+                            )}
 
-                <DisclosurePanel className='pl-4 pt-[42px]  font-inter text-sm/[1.3] font-medium text-dark  md:text-base/[1.4] xl:text-lg/[1.5]'>
-                  <div className='border-l-[1px] border-blue32'>
-                    {item.answers.map((answer, index) => (
-                      <div key={index} className='pl-4'>
-                        {answer.title && (
-                          <p className='mb-2 font-bold'>{answer.title}</p>
-                        )}
-
-                        <ul className='mb-2'>
-                          {answer.text.map((point, index) => (
-                            <li key={index}>
-                              <span>{point}</span>
-                            </li>
-                          ))}
-                        </ul>
+                            <ul className='mb-2'>
+                              {answer.text.map((point, index) => (
+                                <li key={index}>
+                                  <span>{point}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </DisclosurePanel>
+                    </DisclosurePanel>
+                  </Transition>
+                </div>
               </>
             )}
           </Disclosure>

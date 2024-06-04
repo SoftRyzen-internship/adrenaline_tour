@@ -248,6 +248,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           <FaqNavMenu />
         </div>
         <DisclosureFaqList disclosures={disclosures} />
+        <p className='text-bold text-2xl'>DisclosurePageTour</p>
         <DisclosureTour disclosure={tourDisclosure} />
       </div>
     </div>
