@@ -1,6 +1,14 @@
 .hero_bg {
-  background-image: url(/icons/mountain-hero.svg);
-  background-size: contain;
-  background-position: bottom;
+  background-image: url('/images/hero/mountain-hero.webp');
   background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .hero_bg {
+    background-image: url('/images/hero/mountain-hero@2x.webp');
+  }
 }

@@ -6,14 +6,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 
+import { Pages, IHeroProps } from '@/@types';
 import { mainHeroImages } from '@/data';
 import { ourToursHeroImages } from '@/data';
 
-import { ISliderHeroProps } from './SliderHero.types';
-
-const SliderHero: React.FC<ISliderHeroProps> = ({ page = 'main' }) => {
+const SliderHero: React.FC<IHeroProps> = ({ page = Pages.MAIN }) => {
   let images;
-  if (page === 'tours') {
+  if (page === Pages.TOURS) {
     images = ourToursHeroImages;
   } else {
     images = mainHeroImages;

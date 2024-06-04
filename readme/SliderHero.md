@@ -4,5 +4,5 @@
 
 | Prop                 | Type           | Description  |
 ----------------------------------------------------------------------------------------------------------------|
-| `images`           | `string[]`    | required, array of images                              |
+| `page`           | `Pages.MAIN or Pages.TOURS`    | required, sets array of images                              |
 <hr>

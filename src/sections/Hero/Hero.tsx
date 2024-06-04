@@ -1,8 +1,8 @@
+import { IHeroProps } from '@/@types';
 import HeroCard from '@/components/common/HeroCard';
 import SliderHero from '@/components/common/SliderHero';
 
 import s from './Hero.module.css';
-import { IHeroProps } from './Hero.types';
 
 const Hero: React.FC<IHeroProps> = ({ page }) => {
   return (
