@@ -17,6 +17,7 @@ const BtnSlider: React.FC<IBtnSliderProps> = ({
   return (
     <div
       className={clsx(
+        ' w-full',
         section === 'reviews' &&
           'mt-8 flex justify-center gap-3 md:mt-[55px] md:gap-4 xl:mt-0',
         section === 'gallery' &&
@@ -33,7 +34,7 @@ const BtnSlider: React.FC<IBtnSliderProps> = ({
           section === 'reviews' && !isPrevSlide && 'fill-white',
           section === 'reviews' && isPrevSlide && 'fill-accentLightOrange',
           section === 'upcomingTours' &&
-            'absolute right-[52px] top-[-80px] h-10 w-10 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:right-[80px] md:top-[-136px] md:h-16 md:w-16 xl:right-[114px] xl:top-[-157px] xl:h-[90px] xl:w-[90px]',
+            'absolute right-[52px] top-[-80px] z-10 h-10 w-10 border-2 border-black fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:right-[80px] md:top-[-136px] md:h-16 md:w-16 xl:right-[114px] xl:top-[-157px] xl:h-[90px] xl:w-[90px]',
           section === 'worthVisiting' &&
             'absolute right-[52px] top-[-80px] h-10 w-10 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:right-[80px] md:top-[-136px] md:h-16 md:w-16 xl:right-[114px] xl:top-[-195px] xl:h-[90px] xl:w-[90px]',
           section === 'gallery' &&

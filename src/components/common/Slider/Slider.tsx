@@ -24,6 +24,7 @@ const Slider: React.FC<ISliderProps> = ({
 
   const slidesToShowTabl = section === 'reviews' ? 1 : 2;
   const slidesToShowDesc = section === 'reviews' ? 1 : 3;
+  const slidesLoop = section === 'reviews' ? false : true;
 
   const breakpoints = {
     768: {
@@ -40,7 +41,7 @@ const Slider: React.FC<ISliderProps> = ({
       <Swiper
         modules={[Navigation]}
         wrapperTag='ul'
-        loop={true}
+        loop={slidesLoop}
         spaceBetween={8}
         grabCursor={true}
         slidesPerView={1}
@@ -59,12 +60,12 @@ const Slider: React.FC<ISliderProps> = ({
             {slide.content}
           </SwiperSlide>
         ))}
+        <BtnSlider
+          section={section}
+          isPrevSlide={isPrevSlide}
+          isNextSlide={isNextSlide}
+        />
       </Swiper>
-      <BtnSlider
-        section={section}
-        isPrevSlide={isPrevSlide}
-        isNextSlide={isNextSlide}
-      />
     </div>
   );
 };

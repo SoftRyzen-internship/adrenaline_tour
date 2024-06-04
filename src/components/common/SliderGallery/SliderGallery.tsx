@@ -11,7 +11,7 @@ import { ISliderGalleryProps } from './SliderGallery.types';
 
 const SliderGallery: React.FC<ISliderGalleryProps> = ({ slides }) => {
   return (
-    <div>
+    <div className=''>
       <Swiper
         modules={[Navigation]}
         wrapperTag='ul'
@@ -29,8 +29,8 @@ const SliderGallery: React.FC<ISliderGalleryProps> = ({ slides }) => {
             {slide.content}
           </SwiperSlide>
         ))}
+        <BtnSlider section='gallery' />
       </Swiper>
-      <BtnSlider section='gallery' />
     </div>
   );
 };
