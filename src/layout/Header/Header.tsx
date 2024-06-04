@@ -22,7 +22,7 @@ const Header = () => {
 
   return (
     <>
-      <header id={IdForScroll.HEADER} className='absolute w-full'>
+      <header id={IdForScroll.HEADER} className='absolute right-0 top-0 w-full'>
         <div className='container flex items-center justify-between py-6 xl:py-8'>
           <Logo
             textWhite={isTextWhite}
