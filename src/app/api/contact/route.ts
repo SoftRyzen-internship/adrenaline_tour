@@ -10,8 +10,6 @@ export async function POST(request: Request) {
   try {
     const { name, phone, email, message } = await request.json();
 
-    console.log(name, phone, email, message);
-
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       secure: true,
