@@ -67,7 +67,7 @@ const Modal: React.FC<IModalProps> = ({
           >
             <DialogPanel
               className={clsx(
-                ' relative bg-white',
+                ' relative overflow-hidden bg-white',
                 variant === 'burger' && 'h-full w-full xl:max-w-[704px]',
                 variant === 'simple' &&
                   'max-h-[90%] min-w-[328px] sm:max-w-[480px] md:max-w-[700px] xl:max-w-[900px]',

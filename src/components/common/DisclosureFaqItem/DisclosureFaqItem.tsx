@@ -9,7 +9,7 @@ import clsx from 'clsx';
 
 import MinusIcon from '@/../public/icons/minus.svg';
 import PlusIcon from '@/../public/icons/plus.svg';
-import Button from '@/components/ui/Button';
+import ReadMoreButtonModal from '@/components/ui/ReadMoreButtonModal/ReadMoreButtonModal';
 
 import { IDisclosure } from '../DisclosureFaqList/DisclosureFaqList.types';
 
@@ -150,9 +150,7 @@ const DisclosureFaqItem: React.FunctionComponent<IDisclosureFaqItemProps> = ({
                 {showReadMoreButton && open && (
                   <div className='pl-4'>
                     <div className='border-l-[1px] border-blue32 pl-4'>
-                      <Button variant='readMore-secondary' type='button'>
-                        Читати далі
-                      </Button>
+                      <ReadMoreButtonModal item={item} />
                     </div>
                   </div>
                 )}
