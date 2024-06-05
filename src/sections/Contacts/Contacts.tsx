@@ -12,8 +12,8 @@ const Contacts = () => {
     <section
       id={IdForScroll.CONTACTS}
       className={clsx(
-        s['contacts-bg'],
-        'section bg-darkBlue pt-[124px] md:pt-[139px] xl:pt-[122px]',
+        s['contacts-main_bg'],
+        'section bg-darkBlue pt-[124px] md:pt-[139px] xl:pt-[222px]',
       )}
     >
       <div className='container'>
