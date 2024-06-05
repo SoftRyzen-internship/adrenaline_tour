@@ -14,8 +14,9 @@ import Checkbox from '@/components/ui/Checkbox';
 import FormInput from '@/components/ui/FormInput';
 import FormModal from '@/components/ui/FormModal/FormModal';
 import FormTextArea from '@/components/ui/FormTextArea';
-import form from '@/data/form.json';
-import formSchema from '@/utils';
+import { form } from '@/data';
+import { formSchema } from '@/utils';
+import { sendingEmail } from '@/utils';
 
 const Form = () => {
   const {
@@ -54,7 +55,7 @@ const Form = () => {
       message: data.message ? data.message.trim() : '',
     };
     try {
-      await console.log(sanitizedData);
+      await sendingEmail(sanitizedData);
       reset();
     } catch (error) {
       setSendError(true);
@@ -67,7 +68,7 @@ const Form = () => {
     <>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className='flex w-full flex-col gap-12 xl:w-1/2'
+        className='mx-auto flex w-full flex-col gap-12 md:w-[624px]'
       >
         {inputs.map(({ name, placeholder, type, label }, index) => {
           return (

@@ -1,0 +1,26 @@
+.contacts-main_bg {
+  background-image: url('/images/contacts/mountain-bg@1x.webp'),
+    url('/images/bg-icons@1x.webp');
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size:
+    100%,
+    auto 100%;
+}
+.contacts-tours_bg {
+  background-image: url('/images/contacts/mountain-orange-bg@1x.webp'),
+    url('/images/bg-icons@1x.webp');
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .contacts-main_bg {
+    background-image: url('/images/contacts/mountain-bg@2x.webp'),
+      url('/images/bg-icons@2x.webp');
+  }
+  .contacts-tours_bg {
+    background-image: url('/images/contacts/mountain-orange-bg@2x.webp'),
+      url('/images/bg-icons@2x.webp');
+  }
+}

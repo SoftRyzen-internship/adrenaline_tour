@@ -1,0 +1,41 @@
+.bgWelcome {
+  background-image: url('/images/welcome/mountainVector@1x.webp'), url('/images/welcome/bg@1x.webp'),
+    url('/images/welcome/sky@1x.webp');
+  background-repeat: no-repeat;
+  background-position:
+    bottom center,
+    -386px 151px;
+  background-size:
+    919px 131px,
+    1217px 419px,
+    982px;
+}
+@media screen and (min-width: 768px) {
+  .bgWelcome {
+    background-position:
+      bottom center,
+      -331px 115px;
+    background-size:
+      100% 131px,
+      1551px 563px,
+      100% 100%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bgWelcome {
+    background-position:
+      bottom center,
+      -55px 121px;
+    background-size:
+      100% 131px,
+      1664px 603px,
+      100% 100%;
+  }
+}
+
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .bgWelcome {
+    background-image: url('/images/welcome/mountainVector@2x.webp'),
+      url('/images/welcome/bg@2x.webp'), url('/images/welcome/sky@2x.webp');
+  }
+}

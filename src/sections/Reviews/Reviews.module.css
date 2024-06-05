@@ -1,0 +1,30 @@
+.bgReviews {
+  background-image: url('/images/reviews/mountainVector@1x.webp'),
+    url('/images/reviews/bgReviews@1x.webp');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size:
+    100% 44px,
+    2088px;
+}
+@media screen and (min-width: 768px) {
+  .bgReviews {
+    background-size:
+      100% 78px,
+      2728px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .bgReviews {
+    background-size:
+      100% 132px,
+      2699px;
+  }
+}
+
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .bgReviews {
+    background-image: url('/images/reviews/mountainVector@2x.webp'),
+      url('/images/reviews/bgReviews@2x.webp');
+  }
+}
