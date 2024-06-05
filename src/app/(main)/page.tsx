@@ -1,7 +1,7 @@
 import { Pages } from '@/@types';
-import Observer from '@/components/common/Observer';
 import Gallery from '@/sections/Gallery';
 import Hero from '@/sections/Hero';
+import Reviews from '@/sections/Reviews';
 import UpcomingTours from '@/sections/UpcomingTours';
 import Welcome from '@/sections/Welcome';
 
@@ -12,7 +12,7 @@ const HomePage = () => {
       <UpcomingTours />
       <Welcome />
       <Gallery />
-      <Observer />
+      <Reviews />
     </>
   );
 };

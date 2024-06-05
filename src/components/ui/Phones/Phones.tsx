@@ -2,7 +2,7 @@ import Phone from '/public/icons/phone.svg';
 import Email from '/public/icons/email.svg';
 
 import { phones } from '@/data';
-import { formatPhoneNumber } from '@/utils/formatPhoneNumber';
+import { formatPhoneNumber } from '@/utils';
 
 import { IPhonesProps } from './Phones.types';
 
