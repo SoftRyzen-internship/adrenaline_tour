@@ -11,7 +11,7 @@ import { ISliderGalleryProps } from './SliderGallery.types';
 
 const SliderGallery: React.FC<ISliderGalleryProps> = ({ slides }) => {
   return (
-    <div>
+    <div className=''>
       <Swiper
         modules={[Navigation]}
         wrapperTag='ul'
@@ -20,8 +20,8 @@ const SliderGallery: React.FC<ISliderGalleryProps> = ({ slides }) => {
         grabCursor={true}
         slidesPerView={'auto'}
         navigation={{
-          nextEl: '.btn-next',
-          prevEl: '.btn-prev',
+          nextEl: '.gallery.btn-next',
+          prevEl: '.gallery.btn-prev',
         }}
       >
         {slides.map(slide => (
