@@ -19,7 +19,7 @@ const BurgerMenu: React.FC<IBurgerMenuProps> = ({ onCloseMenu }) => {
         <Logo
           width={126}
           height={40}
-          className='h-16 w-[201px] xl:hidden'
+          className='h-16 w-[201px] xl:sr-only xl:invisible xl:left-0 xl:top-0 xl:hidden xl:h-0 xl:w-0'
           onClick={onCloseMenu}
         />
 
