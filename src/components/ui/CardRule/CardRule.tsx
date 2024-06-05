@@ -9,7 +9,12 @@ import { rules } from '@/data';
 import s from './CardRule.module.css';
 import { ICardRuleProps } from './CardRule.types';
 
-const CardRule: React.FC<ICardRuleProps> = ({ title, description, icon }) => {
+const CardRule: React.FC<ICardRuleProps> = ({
+  title,
+  description,
+  // ,
+  // icon
+}) => {
   return (
     <li
       className={clsx(
@@ -17,7 +22,7 @@ const CardRule: React.FC<ICardRuleProps> = ({ title, description, icon }) => {
         s['bgCardRule'],
       )}
     >
-      <div className='mb-4 fill-white'>{icon}</div>
+      {/* <div className='mb-4 fill-white'>{icon}</div> */}
       <h3 className='mb-4 w-[156px] font-unbounded text-[16px] font-bold leading-[1] text-white md:text-[18px] md:leading-[1.30]'>
         {title}
       </h3>

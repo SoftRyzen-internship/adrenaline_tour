@@ -1,5 +1,9 @@
 import Slider from '@/components/common/Slider';
 import CardRule from '@/components/ui/CardRule';
+// import BenefitsLightning from '/public/icons/instagram.svg';
+// import BenefitsPlant from '/public/icons/instagram.svg';
+// import BenefitsVagetables from '/public/icons/hiking.svg';
+// import BenefitsVagetables from '/public/icons/health.svg';
 import { rules } from '@/data';
 
 const slides = rules.rules.map(({ id, title, description }) => ({

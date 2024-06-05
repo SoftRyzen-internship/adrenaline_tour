@@ -1,6 +1,6 @@
 .bgWelcome {
-  background-image: url('/images/welcome/mountainVector@1x.webp'), url('/images/welcome/bg@1x.webp'),
-    url('/images/welcome/sky@1x.webp');
+  background-image: url('/images/welcome/mountainVector@1x.webp'),
+    url('/images/welcome/bg@1x.webp'), url('/images/welcome/sky@1x.webp');
   background-repeat: no-repeat;
   background-position:
     bottom center,
@@ -33,7 +33,9 @@
   }
 }
 
-@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .bgWelcome {
     background-image: url('/images/welcome/mountainVector@2x.webp'),
       url('/images/welcome/bg@2x.webp'), url('/images/welcome/sky@2x.webp');
