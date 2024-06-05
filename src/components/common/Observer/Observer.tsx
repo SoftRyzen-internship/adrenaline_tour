@@ -45,9 +45,11 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
       </div>
       <section className='section'>
         <div className='container flex flex-col gap-3'>
-          <CardTips />
-          <CardTips />
-          <CardTips />
+          <ul>
+            <CardTips />
+            <CardTips />
+            <CardTips />
+          </ul>
         </div>
       </section>
 

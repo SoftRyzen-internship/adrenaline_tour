@@ -1,5 +1,10 @@
 const CardTips = () => {
-  return <div>CardTips</div>;
+  return (
+    <li>
+      <h3></h3>
+      <p></p>
+    </li>
+  );
 };
 
 export default CardTips;
