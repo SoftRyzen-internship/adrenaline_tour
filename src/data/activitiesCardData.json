@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "width": 600,
+    "height": 480,
+    "sizes": "(max-width: 480px) 156px, (max-width: 1280px) 334px",
+
+    "src": {
+      "sm": "/images/activities/img-sm-1.jpg",
+      "lg": "/images/activities/img-1.webp"
+    },
+
+    "alt": "Пішохідні походи в гори",
+    "text": "Пішохідні походи в гори"
+  },
+  {
+    "id": 2,
+    "width": 600,
+    "height": 800,
+    "sizes": "(max-width: 480px) 140px, (max-width: 1280px) 306px, 455px",
+    "src": {
+      "sm": "/images/activities/img-sm-2.jpg",
+      "lg": "/images/activities/img-2.webp"
+    },
+    "alt": "віа-феррата",
+    "text": "віа-феррата"
+  },
+  {
+    "id": 3,
+    "width": 600,
+    "height": 480,
+    "sizes": "(max-width: 480px) 156px, (max-width: 1280px) 334px, 600px",
+    "src": {
+      "sm": "/images/activities/img-sm-3.jpg",
+      "lg": "/images/activities/img-3.webp"
+    },
+    "alt": "Каякінг",
+    "text": "Каякінг"
+  },
+  {
+    "id": 4,
+    "width": 600,
+    "height": 640,
+    "sizes": "(max-width: 480px) 140px, (max-width: 1280px) 304px",
+    "src": {
+      "sm": "/images/activities/img-sm-4.jpg",
+      "lg": "/images/activities/img-4.webp"
+    },
+    "alt": "Тури",
+    "text": "Тури"
+  },
+  {
+    "id": 5,
+    "width": 600,
+    "height": 480,
+    "sizes": "(max-width: 480px) 156px, (max-width: 1280px) 334px",
+    "src": {
+      "sm": "/images/activities/img-sm-5.jpg",
+      "lg": "/images/activities/img-5.webp"
+    },
+    "alt": "Cплави на катамаранах, каное, рафтінг",
+    "text": "Cплави на катамаранах, каное, рафтінг"
+  },
+
+  {
+    "id": 6,
+    "width": 600,
+    "height": 640,
+    "sizes": "(max-width: 480px) 140px, (max-width: 1280px) 304px, 455px",
+    "src": {
+      "sm": "/images/activities/img-sm-6.jpg",
+      "lg": "/images/activities/img-6.webp"
+    },
+    "alt": "Пізнавальні екскурсії",
+    "text": "Пізнавальні екскурсії"
+  }
+]
