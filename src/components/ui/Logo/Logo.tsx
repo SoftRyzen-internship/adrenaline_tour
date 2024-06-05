@@ -19,6 +19,12 @@ const Logo: React.FC<ILogoProps> = ({
   onClick,
   className,
 }) => {
+  const logoStyles = clsx(
+    'inline-block fill-white  transition hover:fill-accentDarkOrange hover:text-accentDarkOrange focus:fill-accentDarkOrange focus:text-accentDarkOrange',
+    textWhite ? 'text-white' : 'text-darkGreen',
+    className,
+  );
+
   return (
     <>
       {toScroll ? (
@@ -32,15 +38,7 @@ const Logo: React.FC<ILogoProps> = ({
           className='group placeholder:backdrop:cursor-pointer'
           aria-label={logo.ariaLabel}
         >
-          <LogoIcon
-            width={width}
-            height={height}
-            className={clsx(
-              'inline-block fill-white  transition  group-hover:fill-accentDarkOrange group-hover:text-accentDarkOrange group-focus:fill-accentDarkOrange group-focus:text-accentDarkOrange',
-              textWhite ? 'text-white' : 'text-darkGreen',
-              className,
-            )}
-          />
+          <LogoIcon width={width} height={height} className={logoStyles} />
         </LinkScroll>
       ) : (
         <Link
@@ -49,15 +47,7 @@ const Logo: React.FC<ILogoProps> = ({
           aria-label={logo.ariaLabel}
           onClick={onClick}
         >
-          <LogoIcon
-            width={width}
-            height={height}
-            className={clsx(
-              'inline-block fill-white  transition  group-hover:fill-accentDarkOrange group-hover:text-accentDarkOrange group-focus:fill-accentDarkOrange group-focus:text-accentDarkOrange',
-              textWhite ? 'text-white' : 'text-darkGreen',
-              className,
-            )}
-          />
+          <LogoIcon width={width} height={height} className={logoStyles} />
         </Link>
       )}
     </>

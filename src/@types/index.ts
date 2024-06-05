@@ -17,3 +17,7 @@ export interface IFormState {
   message?: string | null;
   privacyPolicy: boolean;
 }
+
+export interface IHeroProps {
+  page: Pages.MAIN | Pages.TOURS;
+}

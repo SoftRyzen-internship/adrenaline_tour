@@ -36,6 +36,7 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
         The temporary component is used for the observation of newly created
         components.
       </h1>
+
       <div className='section container bg-blueDefault'>
         <Social variant='header' />
         <Phones variant='contacts' />
