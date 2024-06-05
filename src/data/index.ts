@@ -15,5 +15,7 @@ export { default as heroCardData } from './heroCardData.json';
 export { default as footerData } from './footerData.json';
 export { default as welcome } from './welcome.json';
 export { default as burgerMenuData } from './burgerMenuData.json';
+export { default as faq } from './faq.json';
+export { default as tourDisclosure } from './tourDisclosure.json';
 export { default as form } from './form.json';
 export { default as header } from './header.json';

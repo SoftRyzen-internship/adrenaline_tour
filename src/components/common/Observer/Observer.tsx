@@ -17,13 +17,21 @@ import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
+import { faq } from '@/data';
+import { tourDisclosure } from '@/data';
+
+import DisclosureFaq from '../DisclosureFaq';
+import DisclosureTour from '../DisclosureTour/DisclosureTour';
+import FaqNavMenu from '../FaqNavMenu';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
+  const { disclosures } = faq;
   const [isOpenBurger, setIsOpenBurger] = useState(false);
   const [isOpenSimple, setIsOpenSimple] = useState(false);
+
   return (
     <div>
       <h1
@@ -198,6 +206,15 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
             exercitationem!
           </div>
         </Modal>
+      </div>
+
+      <div className='container'>
+        <div className='mb-8 hidden justify-end xl:block xl:flex'>
+          <FaqNavMenu />
+        </div>
+        <DisclosureFaq disclosures={disclosures} />
+        <p className='text-bold text-2xl'>DisclosurePageTour</p>
+        <DisclosureTour disclosure={tourDisclosure} />
       </div>
     </div>
   );
