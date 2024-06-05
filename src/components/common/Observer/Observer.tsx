@@ -11,14 +11,12 @@ import FacebookIcon from '/public/icons/facebook.svg';
 
 import BurgerMenu from '@/components/common/BurgerMenu';
 import Button from '@/components/ui/Button';
-import CardTips from '@/components/ui/CardTips';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
-import { tipsData } from '@/data';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
@@ -44,15 +42,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
 
         <Logo textWhite={false} width={252} height={80} />
       </div>
-      <section className='section'>
-        <div className='container'>
-          <ul className='flex flex-col gap-3 md:gap-4 xl:flex-row xl:items-center xl:justify-between xl:gap-4'>
-            {tipsData.cards.map(({ id, title, text }) => {
-              return <CardTips key={id} title={title} text={text} />;
-            })}
-          </ul>
-        </div>
-      </section>
 
       {children}
       <p className='container text-center text-[24px] font-bold'>
