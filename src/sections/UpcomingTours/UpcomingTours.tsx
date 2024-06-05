@@ -25,7 +25,7 @@ const UpcomingTours = () => {
       />
       <div className='flex justify-center'>
         <LinkButton
-          href={Pages.TOURS}
+          href={Pages.CALENDAR}
           variant='main'
           iconPosition='before'
           icon={
