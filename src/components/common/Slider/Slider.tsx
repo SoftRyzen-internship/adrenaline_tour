@@ -46,8 +46,8 @@ const Slider: React.FC<ISliderProps> = ({
         grabCursor={true}
         slidesPerView={1}
         navigation={{
-          nextEl: '.btn-next',
-          prevEl: '.btn-prev',
+          nextEl: `.${section}.btn-next`,
+          prevEl: `.${section}.btn-prev`,
         }}
         onSlideChange={(swiper: SwiperType) => {
           setIsPrevSlide(swiper.isBeginning);
@@ -60,12 +60,12 @@ const Slider: React.FC<ISliderProps> = ({
             {slide.content}
           </SwiperSlide>
         ))}
-        <BtnSlider
-          section={section}
-          isPrevSlide={isPrevSlide}
-          isNextSlide={isNextSlide}
-        />
       </Swiper>
+      <BtnSlider
+        section={section}
+        isPrevSlide={isPrevSlide}
+        isNextSlide={isNextSlide}
+      />
     </div>
   );
 };

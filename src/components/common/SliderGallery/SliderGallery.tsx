@@ -20,8 +20,8 @@ const SliderGallery: React.FC<ISliderGalleryProps> = ({ slides }) => {
         grabCursor={true}
         slidesPerView={'auto'}
         navigation={{
-          nextEl: '.btn-next',
-          prevEl: '.btn-prev',
+          nextEl: '.gallery.btn-next',
+          prevEl: '.gallery.btn-prev',
         }}
       >
         {slides.map(slide => (
@@ -29,8 +29,8 @@ const SliderGallery: React.FC<ISliderGalleryProps> = ({ slides }) => {
             {slide.content}
           </SwiperSlide>
         ))}
-        <BtnSlider section='gallery' />
       </Swiper>
+      <BtnSlider section='gallery' />
     </div>
   );
 };
