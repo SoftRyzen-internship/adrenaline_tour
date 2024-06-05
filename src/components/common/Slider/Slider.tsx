@@ -16,7 +16,7 @@ import { ISliderProps } from './Slider.types';
 
 const Slider: React.FC<ISliderProps> = ({
   slides,
-  section = 'upcomingTours',
+  section,
   className = '',
 }) => {
   const [isPrevSlide, setIsPrevSlide] = useState(true);
@@ -46,8 +46,8 @@ const Slider: React.FC<ISliderProps> = ({
         grabCursor={true}
         slidesPerView={1}
         navigation={{
-          nextEl: '.btn-next',
-          prevEl: '.btn-prev',
+          nextEl: `.${section}.btn-next`,
+          prevEl: `.${section}.btn-prev`,
         }}
         onSlideChange={(swiper: SwiperType) => {
           setIsPrevSlide(swiper.isBeginning);
