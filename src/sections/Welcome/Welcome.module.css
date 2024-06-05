@@ -4,20 +4,20 @@
   background-repeat: no-repeat;
   background-position:
     bottom center,
-    -386px 151px;
+    center 90px;
   background-size:
-    919px 131px,
-    1217px 419px,
+    140% 131px,
+    1217px 100%,
     982px;
 }
 @media screen and (min-width: 768px) {
   .bgWelcome {
     background-position:
       bottom center,
-      -331px 115px;
+      center 115px;
     background-size:
       100% 131px,
-      1551px 563px,
+      1551px 100%,
       100% 100%;
   }
 }
@@ -25,10 +25,10 @@
   .bgWelcome {
     background-position:
       bottom center,
-      -55px 121px;
+      center;
     background-size:
       100% 131px,
-      1664px 603px,
+      1664px 100%,
       100% 100%;
   }
 }
