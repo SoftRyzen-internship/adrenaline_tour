@@ -7,10 +7,23 @@
     auto,
     auto 100%;
 }
+.contacts-tours_bg {
+  background-image: url('/images/contacts/mountain-orangebg.webp'),
+    url('/images/contacts/contacts-bg_mob.webp');
+  background-repeat: no-repeat, repeat;
+  background-position: center top;
+  background-size:
+    auto,
+    auto 100%;
+}
 
 @media screen and (min-width: 768px) {
   .contacts-main_bg {
     background-image: url('/images/contacts/mountain-bg.webp'),
+      url('/images/contacts/contacts-bg_tab.webp');
+  }
+  .contacts-tours_bg {
+    background-image: url('/images/contacts/mountain-orangebg.webp'),
       url('/images/contacts/contacts-bg_tab.webp');
   }
 }
@@ -18,6 +31,16 @@
 @media screen and (min-width: 1280px) {
   .contacts-main_bg {
     background-image: url('/images/contacts/mountain-bg.webp'),
+      url('/images/contacts/contacts-bg_deck.webp');
+    background-size:
+      100% auto,
+      auto 100%;
+    background-position:
+      top center,
+      center top;
+  }
+  .contacts-tours_bg {
+    background-image: url('/images/contacts/mountain-orangebg.webp'),
       url('/images/contacts/contacts-bg_deck.webp');
     background-size:
       100% auto,
@@ -35,10 +58,18 @@
     background-image: url('/images/contacts/mountain-bg@x2.webp'),
       url('/images/contacts/contacts-bg_mob@x2.webp');
   }
+  .contacts-tours_bg {
+    background-image: url('/images/contacts/mountain-orangebg@x2.webp'),
+      url('/images/contacts/contacts-bg_mob@x2.webp');
+  }
 
   @media screen and (min-width: 768px) {
     .contacts-main_bg {
       background-image: url('/images/contacts/mountain-bg@x2.webp'),
+        url('/images/contacts/contacts-bg_tab@x2.webp');
+    }
+    .contacts-tours_bg {
+      background-image: url('/images/contacts/mountain-orangebg@x2.webp'),
         url('/images/contacts/contacts-bg_tab@x2.webp');
     }
   }
@@ -46,6 +77,10 @@
   @media screen and (min-width: 1280px) {
     .contacts-main_bg {
       background-image: url('/images/contacts/mountain-bg@x2.webp'),
+        url('/images/contacts/contacts-bg_deck@x2.webp');
+    }
+    .contacts-tours_bg {
+      background-image: url('/images/contacts/mountain-orangebg@x2.webp'),
         url('/images/contacts/contacts-bg_deck@x2.webp');
     }
   }
