@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState, useRef } from 'react';
 
 import {
@@ -11,24 +13,13 @@ import MinusIcon from '@/../public/icons/minus.svg';
 import PlusIcon from '@/../public/icons/plus.svg';
 import ReadMoreButtonModal from '@/components/ui/ReadMoreButtonModal/ReadMoreButtonModal';
 
-import { IDisclosure } from '../DisclosureFaqList/DisclosureFaqList.types';
-
-export interface IDisclosureFaqItemProps {
-  disclosure: IDisclosure;
-}
-
-interface INewPanel {
-  key: number;
-  open: boolean;
-  close: () => void;
-}
+import { IDisclosureFaqItemProps } from './DisclosureFaqItem.types';
 
 const DisclosureFaqItem: React.FunctionComponent<IDisclosureFaqItemProps> = ({
   disclosure,
+  activeDisclosurePanel,
+  handleToggle,
 }) => {
-  const [activeDisclosurePanel, setActiveDisclosurePanel] =
-    useState<INewPanel | null>(null);
-  console.log(activeDisclosurePanel);
   const [showReadMoreButton, setShowReadMoreExpandButton] = useState(false);
   const textRef = useRef<HTMLDivElement>(null);
 
@@ -44,19 +35,6 @@ const DisclosureFaqItem: React.FunctionComponent<IDisclosureFaqItemProps> = ({
       }
     }
   }, [activeDisclosurePanel]);
-
-  const handleToggle = (newPanel: INewPanel) => {
-    if (activeDisclosurePanel) {
-      if (activeDisclosurePanel.key !== newPanel.key) {
-        activeDisclosurePanel.close();
-      }
-    }
-
-    setActiveDisclosurePanel({
-      ...newPanel,
-      open: !newPanel.open,
-    });
-  };
 
   return (
     <li
@@ -106,45 +84,44 @@ const DisclosureFaqItem: React.FunctionComponent<IDisclosureFaqItemProps> = ({
                   )}
                 </DisclosureButton>
 
-                <DisclosurePanel
-                  ref={textRef}
-                  className='line-clamp-4 pl-4 pt-[42px]  font-inter text-sm/[1.3] font-medium text-dark  md:text-base/[1.4] xl:text-lg/[1.5]'
-                >
-                  {item.answers.map((answer, index) => (
-                    <div
-                      key={index}
-                      className='border-l-[1px] border-blue32 pl-4'
-                    >
-                      {answer.title && (
-                        <p className='mb-2 font-bold'>{answer.title}</p>
-                      )}
+                <DisclosurePanel className='line-clamp-4 pl-4 pt-[42px]  font-inter text-sm/[1.3] font-medium text-dark  md:text-base/[1.4] xl:text-lg/[1.5]'>
+                  <div ref={textRef} className='border-l-[1px] border-blue32'>
+                    {item.answers.map((answer, index) => (
+                      <div key={index} className=' pl-4'>
+                        {answer.title && (
+                          <p className='mb-2 font-bold'>{answer.title}</p>
+                        )}
 
-                      <ul className='mb-2'>
-                        {answer.text.map((point, index) => (
-                          <>
-                            <li
-                              key={index}
-                              className={clsx('relative', item.icon && 'pl-5')}
-                            >
-                              <span
+                        <ul className='mb-2'>
+                          {answer.text.map((point, index) => (
+                            <>
+                              <li
+                                key={index}
                                 className={clsx(
-                                  item.icon &&
-                                    'before:absolute before:left-1 before:top-2  before:block before:size-[6px] before:rounded-full before:bg-dark',
+                                  'relative',
+                                  item.icon && 'pl-5',
                                 )}
                               >
-                                {point}
-                              </span>
-                            </li>
-                            {item.margin && (
-                              <p className='block h-4 text-transparent'>
-                                Пустий рядок
-                              </p>
-                            )}
-                          </>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
+                                <span
+                                  className={clsx(
+                                    item.icon &&
+                                      'before:absolute before:left-1 before:top-2  before:block before:size-[6px] before:rounded-full before:bg-dark',
+                                  )}
+                                >
+                                  {point}
+                                </span>
+                              </li>
+                              {item.margin && (
+                                <p className='block h-4 text-transparent'>
+                                  Пустий рядок
+                                </p>
+                              )}
+                            </>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                  </div>
                 </DisclosurePanel>
 
                 {showReadMoreButton && open && (

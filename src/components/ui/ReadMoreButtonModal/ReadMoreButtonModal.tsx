@@ -1,9 +1,12 @@
+'use client';
+
 import { useState } from 'react';
 
 import clsx from 'clsx';
 import dynamic from 'next/dynamic';
 
 import Button from '@/components/ui/Button';
+import { faq } from '@/data';
 const Modal = dynamic(() => import('@/components/ui/Modal'), {
   ssr: false,
 });
@@ -22,7 +25,7 @@ const ReadMoreButtonModal: React.FunctionComponent<
         type='button'
         onClick={() => setIsOpen(true)}
       >
-        Читати далі
+        {faq.buttonLabel}
       </Button>
       <Modal
         variant='simple'
@@ -37,7 +40,7 @@ const ReadMoreButtonModal: React.FunctionComponent<
 
           <div
             className={clsx(
-              'h-[95%] overflow-y-auto pr-4 scrollbar-thin scrollbar-track-grey01 scrollbar-thumb-accentDarkOrange',
+              'h-[95%] overflow-y-auto pr-4 scrollbar-thin scrollbar-track-[#F2F1F1] scrollbar-thumb-accentDefaultOrange',
             )}
           >
             {item.answers.map((answer, index) => (

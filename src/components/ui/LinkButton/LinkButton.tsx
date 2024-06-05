@@ -17,7 +17,7 @@ const linkButtonStyle = {
   footer:
     'font-inter text-sm font-normal leading-[1.3] text-white transition hover:text-accentDarkOrange focus:text-accentDarkOrange',
   disclosure:
-    'cursor-pointer border-b-[1px] bg-transparent px-[45px] pt-6 pb-4 font-inter text-xl/[1.3] font-bold text-grey02',
+    'cursor-pointer border-b-[1px] bg-transparent px-[45px] pt-6 pb-4 font-inter text-xl/[1.3] font-bold',
 };
 
 const LinkButton: React.FC<ILinkButtonProps> = ({
@@ -50,8 +50,9 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
             variant === 'navLink' && linkButtonStyle.navLink,
             variant === 'footer' && linkButtonStyle.footer,
             variant === 'disclosure' && linkButtonStyle.disclosure,
-            currentDisclosure &&
-              'border-b-accentDarkOrange text-accentDarkOrange',
+            currentDisclosure
+              ? 'border-b-accentDarkOrange text-accentDarkOrange'
+              : 'text-grey02',
 
             className,
           )}

@@ -1,3 +1,9 @@
+export interface INewPanel {
+  key: number;
+  open: boolean;
+  close: () => void;
+}
+
 export interface IDisclosure {
   id: number;
   label: string;
