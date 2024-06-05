@@ -30,18 +30,18 @@ const HeroCard: React.FC<IHeroProps> = ({ page }) => {
   return (
     <div className={wrapper}>
       <div className={wrapperTitle}>
-        {page === Pages.MAIN ? (
-          <h1 className={title}>{heroCardData.main.title}</h1>
-        ) : (
-          <h1 className={title}>{heroCardData.tours.title}</h1>
-        )}
+        <h1 className={title}>
+          {page === Pages.MAIN
+            ? heroCardData.main.title
+            : heroCardData.tours.title}
+        </h1>
       </div>
       <div className={wrapperDescription}>
-        {page === Pages.MAIN ? (
-          <p className={description}>{heroCardData.main.description}</p>
-        ) : (
-          <p className={description}>{heroCardData.tours.description}</p>
-        )}
+        <p className={description}>
+          {page === Pages.MAIN
+            ? heroCardData.main.description
+            : heroCardData.tours.description}
+        </p>
       </div>
     </div>
   );
