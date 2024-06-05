@@ -1,4 +1,5 @@
 import { Pages } from '@/@types';
+import Faq from '@/sections/Faq';
 import Gallery from '@/sections/Gallery';
 import Hero from '@/sections/Hero';
 import Reviews from '@/sections/Reviews';
@@ -13,6 +14,7 @@ const HomePage = () => {
       <Welcome />
       <Gallery />
       <Reviews />
+      <Faq />
     </>
   );
 };
