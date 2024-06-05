@@ -1,6 +1,7 @@
 import { Pages } from '@/@types';
 import Gallery from '@/sections/Gallery';
 import Hero from '@/sections/Hero';
+import Reviews from '@/sections/Reviews';
 import UpcomingTours from '@/sections/UpcomingTours';
 import Welcome from '@/sections/Welcome';
 
@@ -11,6 +12,7 @@ const HomePage = () => {
       <UpcomingTours />
       <Welcome />
       <Gallery />
+      <Reviews />
     </>
   );
 };
