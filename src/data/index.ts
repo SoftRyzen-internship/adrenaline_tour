@@ -3,6 +3,7 @@ export { default as logo } from './logo.json';
 export { default as phones } from './phones.json';
 export { default as social } from './social.json';
 export { default as banner } from './banner.json';
+export { default as reviews } from './reviews.json';
 export { default as slideHeroData } from './slideHeroData.json';
 export { default as gallery } from './gallery.json';
 export { default as btnSlider } from './btnSlider.json';
