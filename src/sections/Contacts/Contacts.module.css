@@ -8,7 +8,7 @@
     auto 100%;
 }
 .contacts-tours_bg {
-  background-image: url('/images/contacts/mountain-orangebg@1x.webp'),
+  background-image: url('/images/contacts/mountain-orange-bg@1x.webp'),
     url('/images/bg-icons@1x.webp');
 }
 
@@ -27,7 +27,7 @@
       url('/images/bg-icons@2x.webp');
   }
   .contacts-tours_bg {
-    background-image: url('/images/contacts/mountain-orangebg@2x.webp'),
+    background-image: url('/images/contacts/mountain-orange-bg@2x.webp'),
       url('/images/bg-icons@2x.webp');
   }
 }
