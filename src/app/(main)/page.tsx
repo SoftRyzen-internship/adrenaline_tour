@@ -1,5 +1,4 @@
 import { Pages } from '@/@types';
-import Observer from '@/components/common/Observer';
 import Gallery from '@/sections/Gallery';
 import Hero from '@/sections/Hero';
 import Reviews from '@/sections/Reviews';
@@ -14,7 +13,6 @@ const HomePage = () => {
       <Welcome />
       <Gallery />
       <Reviews />
-      <Observer />
     </>
   );
 };
