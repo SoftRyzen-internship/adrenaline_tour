@@ -10,6 +10,9 @@ import CalendarIcon from '/public/icons/date.svg';
 import FacebookIcon from '/public/icons/facebook.svg';
 
 import BurgerMenu from '@/components/common/BurgerMenu';
+import DisclosureFaq from '@/components/common/DisclosureFaq';
+import DisclosureTour from '@/components/common/DisclosureTour/DisclosureTour';
+import FaqNavMenu from '@/components/common/FaqNavMenu';
 import Button from '@/components/ui/Button';
 import FeatureRow from '@/components/ui/FeaturesItem';
 import IconButton from '@/components/ui/IconButton';
@@ -20,10 +23,6 @@ import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 import { faq } from '@/data';
 import { tourDisclosure } from '@/data';
-
-import DisclosureFaq from '../DisclosureFaq';
-import DisclosureTour from '../DisclosureTour/DisclosureTour';
-import FaqNavMenu from '../FaqNavMenu';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
