@@ -1,12 +1,5 @@
+import { IDisclosureItem } from '@/components/common/DisclosureFaq/DisclosureFaq.types';
+
 export interface IReadMoreButtonModalProps {
-  item: {
-    id: number;
-    icon: boolean;
-    margin: boolean;
-    question: string;
-    answers: {
-      title: string;
-      text: string[];
-    }[];
-  };
+  item: IDisclosureItem;
 }

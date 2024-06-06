@@ -5,7 +5,7 @@ import ReadMoreButtonModal from '@/components/ui/ReadMoreButtonModal/ReadMoreBut
 import MinusIcon from '/public/icons/minus.svg';
 import PlusIcon from '/public/icons/plus.svg';
 
-import DisclosureFaqItemText from '../DisclosureFaqItemText/DisclosureFaqItemText';
+import DisclosureFaqItemText from '../DisclosureFaqItemText/';
 
 import { IDisclosureItemProps } from './DisclosureFaqItem.types';
 

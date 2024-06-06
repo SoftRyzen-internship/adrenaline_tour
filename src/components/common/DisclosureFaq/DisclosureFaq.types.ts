@@ -4,6 +4,7 @@ export interface IDisclosureItem {
   margin: boolean;
   question: string;
   answers: {
+    id: number;
     title: string;
     text: string[];
   }[];
