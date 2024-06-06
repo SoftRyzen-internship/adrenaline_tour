@@ -9,33 +9,27 @@ const ActivitiesCard: React.FC<IActivitiesCardProp> = ({
   position,
   src,
   alt,
-  width,
-  height,
-  sizes,
   text,
 }) => {
+  const containerClasses = clsx(
+    'relative flex',
+    (id === 1 || id === 3 || id === 5) && 'w-[156px] md:w-[334px] xl:w-[600px]',
+    (id === 2 || id === 4 || id === 6) && 'w-[140px] md:w-[306px] xl:w-[455px]',
+  );
+
   return (
-    <div key={id} className={`flex ${position}`}>
-      {/* w-[156px] sm:w-[334px] xl:w-[600px] */}
-      {/* "header640.png 640w, header960.png 960w, header1024.png 1024w" */}
-      <div
-        className={clsx('relative', {
-          'pl-[40px]': id === 2,
-          'pr-[40px]': id === 4 || id === 6,
-        })}
-      >
-        <Image
-          className='object-contain'
-          src={src.lg}
-          alt={alt}
-          width={width}
-          height={height}
-          sizes={sizes}
-        />
+    <div key={id} className={clsx('flex', position)}>
+      <div className={containerClasses}>
+        <Image className='object-cover' src={src} alt={alt} fill priority />
+
         <div
-          className={`absolute bottom-0 left-0 right-0 top-0 flex flex-col justify-end text-xl font-bold text-white ${s.gradient} xl:p-[32px]`}
+          className={clsx(
+            'absolute bottom-0 left-0 right-0 top-0 flex flex-col justify-end text-xl font-bold text-white',
+            s.gradient,
+            'p-2 md:p-[24px] xl:p-[32px]',
+          )}
         >
-          <p className='w-[140px] text-[14px] font-bold uppercase leading-[110%] text-white md:w-[286px] md:text-[24px] xl:w-[460px] xl:text-[40px]'>
+          <p className='w-[140px] text-[14px] font-bold uppercase leading-[110%] text-white md:w-[280px] md:text-[24px] xl:w-[460px] xl:text-[40px]'>
             {text}
           </p>
         </div>

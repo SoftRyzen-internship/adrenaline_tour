@@ -16,5 +16,5 @@ export { default as footerData } from './footerData.json';
 export { default as welcome } from './welcome.json';
 export { default as burgerMenuData } from './burgerMenuData.json';
 export { default as form } from './form.json';
-export { default as activities } from './activitiesCardData.json';
+export { default as activities } from './activitiesData.json';
 export { default as header } from './header.json';
