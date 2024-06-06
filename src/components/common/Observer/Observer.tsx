@@ -1,8 +1,6 @@
 'use client';
 import { useState } from 'react';
 
-import clsx from 'clsx';
-
 import ArrowRight from '/public/icons/arrow-right.svg';
 import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
 import BurgerMenuIcon from '/public/icons/burger-menu-sm.svg';
@@ -14,6 +12,7 @@ import DisclosureFaq from '@/components/common/DisclosureFaq';
 import DisclosureTour from '@/components/common/DisclosureTour/DisclosureTour';
 import FaqNavMenu from '@/components/common/FaqNavMenu';
 import Button from '@/components/ui/Button';
+import DropdownList from '@/components/ui/DropdownList';
 import FeatureRow from '@/components/ui/FeaturesItem';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
@@ -21,11 +20,12 @@ import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
-import { faq } from '@/data';
-import { tourDisclosure } from '@/data';
-
-import s from './Observer.module.css';
-import { IObserverProps } from './Observer.types';
+import {
+  faq,
+  tourDisclosure,
+  activitiesDataTemporary,
+  countryDataTemporary,
+} from '@/data';
 
 const feature = {
   id: 1,
@@ -34,22 +34,21 @@ const feature = {
   icon: 'trip',
 };
 
-const Observer: React.FC<IObserverProps> = ({ children }) => {
+const Observer = () => {
   const { disclosures } = faq;
   const [isOpenBurger, setIsOpenBurger] = useState(false);
   const [isOpenSimple, setIsOpenSimple] = useState(false);
 
   return (
     <div>
-      <h1
-        className={clsx(
-          'text-center text-2xl text-blue-800',
-          children && s['text-color'],
-        )}
-      >
+      <h1 className='mt-10'>
         The temporary component is used for the observation of newly created
         components.
       </h1>
+      <div className='bg-emerald-200'>
+        <DropdownList data={activitiesDataTemporary.data} className='' />
+        <DropdownList data={countryDataTemporary.data} className='' />
+      </div>
 
       <div className='section container bg-blueDefault'>
         <Social variant='header' />
@@ -57,8 +56,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
 
         <Logo textWhite={false} width={252} height={80} />
       </div>
-
-      {children}
       <p className='container text-center text-[24px] font-bold'>
         Component LinkButton
       </p>
@@ -162,7 +159,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </IconButton>
         </div>
       </div>
-
       <p className='container text-center text-[24px] font-bold'>
         Component Modal
       </p>
@@ -211,9 +207,8 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </div>
         </Modal>
       </div>
-
       <div className='container'>
-        <div className='mb-8 hidden justify-end xl:block xl:flex'>
+        <div className='mb-8 hidden justify-end xl:flex'>
           <FaqNavMenu />
         </div>
         <DisclosureFaq disclosures={disclosures} />
