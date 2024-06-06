@@ -50,9 +50,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
 
         <Logo textWhite={false} width={252} height={80} />
       </div>
-      <section className='section'>
-        <div className='container flex flex-wrap gap-8'></div>
-      </section>
 
       {children}
       <p className='container text-center text-[24px] font-bold'>
