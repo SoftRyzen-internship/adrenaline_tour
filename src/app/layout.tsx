@@ -32,6 +32,9 @@ export const metadata: Metadata = {
       },
     ],
   },
+  other: {
+    'color-scheme': 'light',
+  },
 };
 
 const unbounded = Unbounded({
