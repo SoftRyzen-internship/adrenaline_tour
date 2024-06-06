@@ -10,6 +10,9 @@ import CalendarIcon from '/public/icons/date.svg';
 import FacebookIcon from '/public/icons/facebook.svg';
 
 import BurgerMenu from '@/components/common/BurgerMenu';
+import DisclosureFaq from '@/components/common/DisclosureFaq';
+import DisclosureTour from '@/components/common/DisclosureTour/DisclosureTour';
+import FaqNavMenu from '@/components/common/FaqNavMenu';
 import Button from '@/components/ui/Button';
 import FeatureRow from '@/components/ui/FeaturesItem';
 import IconButton from '@/components/ui/IconButton';
@@ -18,6 +21,8 @@ import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
+import { faq } from '@/data';
+import { tourDisclosure } from '@/data';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
@@ -30,8 +35,10 @@ const feature = {
 };
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
+  const { disclosures } = faq;
   const [isOpenBurger, setIsOpenBurger] = useState(false);
   const [isOpenSimple, setIsOpenSimple] = useState(false);
+
   return (
     <div>
       <h1
@@ -204,11 +211,20 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           </div>
         </Modal>
       </div>
+
       <div className='container'>
-        <p className='mb-2 text-center text-[24px] font-bold'>
-          Component FeatureRow
-        </p>
-        <FeatureRow feature={feature} />
+        <div className='mb-8 hidden justify-end xl:block xl:flex'>
+          <FaqNavMenu />
+        </div>
+        <DisclosureFaq disclosures={disclosures} />
+        <p className='text-bold text-2xl'>DisclosurePageTour</p>
+        <DisclosureTour disclosure={tourDisclosure} />
+        <div className='container'>
+          <p className='mb-2 text-center text-[24px] font-bold'>
+            Component FeatureRow
+          </p>
+          <FeatureRow feature={feature} />
+        </div>
       </div>
     </div>
   );
