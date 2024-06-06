@@ -2,9 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 
 import clsx from 'clsx';
 
-import MinusIcon from '@/../public/icons/minus.svg';
-import PlusIcon from '@/../public/icons/plus.svg';
 import ReadMoreButtonModal from '@/components/ui/ReadMoreButtonModal/ReadMoreButtonModal';
+
+import MinusIcon from '/public/icons/minus.svg';
+import PlusIcon from '/public/icons/plus.svg';
 
 import { IDisclosureFaqListProps } from './DisclosureFaq.types';
 
@@ -86,7 +87,7 @@ const DisclosureFaqList: React.FC<IDisclosureFaqListProps> = ({
                                 <p className='mb-2 font-bold'>{answer.title}</p>
                               )}
 
-                              <ul className='mb-2'>
+                              <ul className='mb-2' key={index}>
                                 {answer.text.map((point, index) => (
                                   <>
                                     <li
