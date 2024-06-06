@@ -13,7 +13,7 @@ const BASE_APP_URL = process.env.BASE_APP_URL as string;
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_APP_URL),
-  title: metaData.title,
+  title: metaData.mainTitle,
   description: metaData.description,
   keywords: metaData.keywords,
   icons: metaData.icons,
