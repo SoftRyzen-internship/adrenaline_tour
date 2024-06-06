@@ -10,7 +10,9 @@ export async function generateMetadata({
   params,
 }: ISingleTourPageProps): Promise<Metadata> {
   const id = params.id;
-  const response = await fetch(`${BASE_APP_URL}tours/${id}`);
+  const response = await fetch(
+    `https://adrenaline-tour-admin.onrender.com/tours/${id}`,
+  );
 
   if (!response.ok) {
     throw new Error(`Failed to fetch tour data: ${response.statusText}`);
