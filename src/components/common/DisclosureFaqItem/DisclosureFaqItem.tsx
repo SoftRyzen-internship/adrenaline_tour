@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 
-import ReadMoreButtonModal from '@/components/ui/ReadMoreButtonModal/ReadMoreButtonModal';
+import ReadMoreOpenDisclosureModal from '@/components/ui/ReadMoreOpenDisclosureModal';
 
 import MinusIcon from '/public/icons/minus.svg';
 import PlusIcon from '/public/icons/plus.svg';
@@ -78,7 +78,7 @@ const DisclosureItem: React.FunctionComponent<IDisclosureItemProps> = ({
       {showReadMoreButton && panelOpenId === item.id && (
         <div className='pl-4'>
           <div className='border-l-[1px] border-blue32 pl-4'>
-            <ReadMoreButtonModal item={item} />
+            <ReadMoreOpenDisclosureModal item={item} />
           </div>
         </div>
       )}

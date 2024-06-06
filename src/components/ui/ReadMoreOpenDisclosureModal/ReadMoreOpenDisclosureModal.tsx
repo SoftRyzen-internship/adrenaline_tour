@@ -7,14 +7,12 @@ import dynamic from 'next/dynamic';
 
 import Button from '@/components/ui/Button';
 import { faq } from '@/data';
-const Modal = dynamic(() => import('@/components/ui/Modal'), {
-  ssr: false,
-});
+const Modal = dynamic(() => import('@/components/ui/Modal'));
 
-import { IReadMoreButtonModalProps } from './ReadMoreButtonModal.types';
+import { IReadMoreOpenDisclosureModalProps } from './ReadMoreButtonModal.types';
 
-const ReadMoreButtonModal: React.FunctionComponent<
-  IReadMoreButtonModalProps
+const ReadMoreOpenDisclosureModal: React.FunctionComponent<
+  IReadMoreOpenDisclosureModalProps
 > = ({ item }) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -82,4 +80,4 @@ const ReadMoreButtonModal: React.FunctionComponent<
   );
 };
 
-export default ReadMoreButtonModal;
+export default ReadMoreOpenDisclosureModal;
