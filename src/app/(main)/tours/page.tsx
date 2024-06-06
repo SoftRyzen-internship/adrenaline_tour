@@ -1,6 +1,7 @@
 import { Pages } from '@/@types';
 import Gallery from '@/sections/Gallery';
 import Hero from '@/sections/Hero';
+import Reviews from '@/sections/Reviews';
 import Rules from '@/sections/Rules';
 
 const ToursPage = () => {
@@ -9,6 +10,7 @@ const ToursPage = () => {
       <Hero page={Pages.TOURS} />
       <Rules />
       <Gallery />
+      <Reviews />
     </>
   );
 };
