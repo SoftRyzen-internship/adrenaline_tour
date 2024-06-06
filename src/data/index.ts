@@ -19,3 +19,4 @@ export { default as form } from './form.json';
 export { default as header } from './header.json';
 export { default as features } from './features.json';
 export { default as tipsData } from './tipsData.json';
+export { default as destinations } from './destinations.json';
