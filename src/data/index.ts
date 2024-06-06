@@ -18,6 +18,7 @@ export { default as burgerMenuData } from './burgerMenuData.json';
 export { default as faq } from './faq.json';
 export { default as tourDisclosure } from './tourDisclosure.json';
 export { default as form } from './form.json';
+export { default as activities } from './activitiesData.json';
 export { default as header } from './header.json';
 export { default as rules } from './rules.json';
 export { default as worthVisiting } from './worthVisiting.json';

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import DisclosureFaqItem from '../DisclosureFaqItem';
+import DisclosureFaqItem from '@/components/common/DisclosureFaqItem';
 
 import { IDisclosureFaqListProps } from './DisclosureFaq.types';
 

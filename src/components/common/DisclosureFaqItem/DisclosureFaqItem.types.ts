@@ -1,4 +1,4 @@
-import { IDisclosureItem } from '../DisclosureFaq/DisclosureFaq.types';
+import { IDisclosureItem } from '@/@types';
 
 export interface IDisclosureItemProps {
   item: IDisclosureItem;

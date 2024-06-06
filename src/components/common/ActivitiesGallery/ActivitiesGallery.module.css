@@ -1,0 +1,45 @@
+.firstColumnCards,
+.secondColumnCards {
+  display: grid;
+  grid-gap: 16px;
+}
+
+.firstColumnCards {
+  height: 545px;
+  grid-template-rows: 131px 251px 131px;
+}
+
+.secondColumnCards {
+  height: 545px;
+  grid-template-rows: 191px 131px 191px;
+}
+
+@media screen and (min-width: 768px) {
+  .firstColumnCards {
+    height: 1173px;
+    grid-template-rows: 281px 547px 281px;
+    grid-gap: 32px;
+  }
+
+  .secondColumnCards {
+    height: 1173px;
+    grid-template-rows: 414px 281px 414px;
+    grid-gap: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .firstColumnCards {
+    height: 1817px;
+    grid-template-rows: 480px 801px 480px;
+    grid-gap: 28px;
+  }
+
+  .secondColumnCards {
+    height: 1817px;
+    grid-template-rows: 640px 480px 640px;
+    grid-gap: 28px;
+  }
+}
+
+

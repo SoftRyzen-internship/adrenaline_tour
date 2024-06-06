@@ -7,6 +7,7 @@ import dynamic from 'next/dynamic';
 
 import Button from '@/components/ui/Button';
 import { faq } from '@/data';
+
 const Modal = dynamic(() => import('@/components/ui/Modal'));
 
 import { IReadMoreOpenDisclosureModalProps } from './ReadMoreButtonModal.types';

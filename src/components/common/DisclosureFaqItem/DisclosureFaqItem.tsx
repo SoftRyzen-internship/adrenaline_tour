@@ -1,11 +1,12 @@
+'use client';
+
 import { useState, useEffect, useRef } from 'react';
 
+import DisclosureFaqItemText from '@/components/common/DisclosureFaqItemText';
 import ReadMoreOpenDisclosureModal from '@/components/ui/ReadMoreOpenDisclosureModal';
 
 import MinusIcon from '/public/icons/minus.svg';
 import PlusIcon from '/public/icons/plus.svg';
-
-import DisclosureFaqItemText from '../DisclosureFaqItemText/';
 
 import { IDisclosureItemProps } from './DisclosureFaqItem.types';
 

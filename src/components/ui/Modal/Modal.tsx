@@ -8,9 +8,8 @@ import clsx from 'clsx';
 
 import CloseIcon from '/public/icons/close_24.svg';
 
+import IconButton from '@/components/ui/IconButton';
 import { ariaLabel } from '@/data';
-
-import IconButton from '../IconButton';
 
 import { IModalProps } from './Modal.types';
 

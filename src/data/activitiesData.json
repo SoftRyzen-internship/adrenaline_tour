@@ -1,0 +1,60 @@
+{
+  "title": "Наші\nактивності",
+  "images": [
+    {
+      "id": 1,
+      "width": 600,
+      "height": 480,
+      "sizes": "(max-width: 480px) 156px, (max-width: 1280px) 334px",
+      "src": "/images/activities/img-1.webp",
+      "alt": "Пішохідні походи в гори",
+      "text": "Пішохідні походи в гори"
+    },
+    {
+      "id": 2,
+      "width": 455,
+      "height": 800,
+      "sizes": "(max-width: 480px) 140px, (max-width: 1280px) 306px, 455px",
+      "src": "/images/activities/img-2.webp",
+      "alt": "віа-феррата",
+      "text": "віа-феррата"
+    },
+    {
+      "id": 3,
+      "width": 600,
+      "height": 480,
+      "sizes": "(max-width: 480px) 156px, (max-width: 1280px) 334px, 600px",
+      "src": "/images/activities/img-3.webp",
+      "alt": "Каякінг",
+      "text": "Каякінг"
+    },
+    {
+      "id": 4,
+      "width": 455,
+      "height": 640,
+      "sizes": "(max-width: 480px) 140px, (max-width: 1280px) 304px",
+      "src": "/images/activities/img-4.webp",
+      "alt": "Тури",
+      "text": "Тури"
+    },
+    {
+      "id": 5,
+      "width": 600,
+      "height": 480,
+      "sizes": "(max-width: 480px) 156px, (max-width: 1280px) 334px",
+      "src": "/images/activities/img-5.webp",
+      "alt": "Cплави на катамаранах, каное, рафтінг",
+      "text": "Cплави на катамаранах, каное, рафтінг"
+    },
+
+    {
+      "id": 6,
+      "width": 455,
+      "height": 640,
+      "sizes": "(max-width: 480px) 140px, (max-width: 1280px) 304px, 455px",
+      "src": "/images/activities/img-6.webp",
+      "alt": "Пізнавальні екскурсії",
+      "text": "Пізнавальні екскурсії"
+    }
+  ]
+}

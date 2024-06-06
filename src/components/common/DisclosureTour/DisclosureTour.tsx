@@ -5,8 +5,8 @@ import {
   Transition,
 } from '@headlessui/react';
 
-import MinusIcon from '@/../public/icons/minus.svg';
-import PlusIcon from '@/../public/icons/plus.svg';
+import MinusIcon from '/public/icons/minus.svg';
+import PlusIcon from '/public/icons/plus.svg';
 
 import { IDisclosureTourProps } from './DisclosureTour.types';
 
