@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 
+import { Pages } from '@/@types';
 import { metaData } from '@/data';
 
 export const metadata: Metadata = {
   title: metaData.calendarTitle,
   alternates: {
-    canonical: '/calendar',
+    canonical: Pages.CALENDAR,
   },
 };
 

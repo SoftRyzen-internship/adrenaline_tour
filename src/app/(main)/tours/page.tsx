@@ -10,7 +10,7 @@ import Tips from '@/sections/Tips';
 export const metadata: Metadata = {
   title: metaData.tourTitle,
   alternates: {
-    canonical: 'tours',
+    canonical: Pages.TOURS,
   },
 };
 
