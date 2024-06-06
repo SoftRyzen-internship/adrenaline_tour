@@ -9,6 +9,31 @@ import Footer from '@/layout/Footer';
 import Header from '@/layout/Header';
 import './globals.css';
 
+const BASE_APP_URL = process.env.BASE_APP_URL as string;
+
+export const metadata: Metadata = {
+  metadataBase: new URL(BASE_APP_URL),
+  title: metaData.title,
+  description: metaData.description,
+  keywords: metaData.keywords,
+  icons: metaData.icons,
+  openGraph: {
+    type: 'website',
+    url: BASE_APP_URL,
+    title: metaData.ogTitle,
+    description: metaData.ogDescription,
+    siteName: metaData.ogSiteName,
+    images: [
+      {
+        url: metaData.image.url,
+        width: 1200,
+        height: 630,
+        alt: metaData.image.alt,
+      },
+    ],
+  },
+};
+
 const unbounded = Unbounded({
   subsets: ['cyrillic', 'latin'],
   weight: ['500', '700'],
@@ -22,11 +47,6 @@ const inter = Inter({
   display: 'swap',
   variable: '--font-inter',
 });
-
-export const metadata: Metadata = {
-  title: metaData.title,
-  description: metaData.description,
-};
 
 const RootLayout = ({
   children,

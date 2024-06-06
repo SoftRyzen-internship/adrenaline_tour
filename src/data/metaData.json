@@ -1,4 +1,32 @@
 {
   "title": "ADRENALINE TOUR",
-  "description": "З нами ви відчуєте справжній адреналін, підкорюючи вершини гір, прокладаючи шлях кришталевими річками, і досліджуючи чарівність стародавніх міст."
+  "description": "З нами ви відчуєте справжній адреналін, підкорюючи вершини гір, прокладаючи шлях кришталевими річками, і досліджуючи чарівність стародавніх міст.",
+  "keywords": "тур, адреналін, активний, відпочинок",
+  "icons": [
+    {
+      "url": "/favicon/favicon.ico"
+    },
+    {
+      "url": "/favicon/favicon-16x16.png",
+      "rel": "icon",
+      "type": "image/png"
+    },
+    {
+      "url": "/favicon/favicon-32x32.png",
+      "rel": "icon",
+      "type": "image/png"
+    },
+    {
+      "url": "/favicon/favicon-96x96.png",
+      "rel": "icon",
+      "type": "image/png"
+    }
+  ],
+  "ogTitle": "ADRENALINE TOUR",
+  "ogDescription": "З нами ви відчуєте справжній адреналін, підкорюючи вершини гір, прокладаючи шлях кришталевими річками, і досліджуючи чарівність стародавніх міст.",
+  "ogSiteName": "ADRENALINE TOUR",
+  "image": {
+    "url": "/images/og-image/og-image.jpg",
+    "alt": "ADRENALINE TOUR"
+  }
 }
