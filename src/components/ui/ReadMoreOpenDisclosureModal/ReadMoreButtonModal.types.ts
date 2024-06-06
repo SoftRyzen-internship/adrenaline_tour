@@ -1,4 +1,4 @@
-import { IDisclosureItem } from '@/components/common/DisclosureFaq/DisclosureFaq.types';
+import { IDisclosureItem } from '@/@types';
 
 export interface IReadMoreOpenDisclosureModalProps {
   item: IDisclosureItem;
