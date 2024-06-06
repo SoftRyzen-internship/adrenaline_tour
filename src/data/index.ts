@@ -17,3 +17,4 @@ export { default as welcome } from './welcome.json';
 export { default as burgerMenuData } from './burgerMenuData.json';
 export { default as form } from './form.json';
 export { default as header } from './header.json';
+export { default as features } from './features.json';

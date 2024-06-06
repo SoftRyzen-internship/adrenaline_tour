@@ -11,6 +11,7 @@ import FacebookIcon from '/public/icons/facebook.svg';
 
 import BurgerMenu from '@/components/common/BurgerMenu';
 import Button from '@/components/ui/Button';
+import FeatureRow from '@/components/ui/FeaturesItem';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import Logo from '@/components/ui/Logo';
@@ -20,6 +21,13 @@ import Social from '@/components/ui/Social';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
+
+const feature = {
+  id: 1,
+  caption: 'Маршрут',
+  text: 'Прага (Чехія) - гора Траунштайн (Австрія) - озеро Траунзее (Австрія) - Прага (Чехія)',
+  icon: 'trip',
+};
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
   const [isOpenBurger, setIsOpenBurger] = useState(false);
@@ -198,6 +206,12 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
             exercitationem!
           </div>
         </Modal>
+      </div>
+      <div className='container'>
+        <p className='mb-2 text-center text-[24px] font-bold'>
+          Component FeatureRow
+        </p>
+        <FeatureRow feature={feature} />
       </div>
     </div>
   );

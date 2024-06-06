@@ -1,2 +1,2 @@
-import FeaturesItem from './FeaturesItem';
-export default FeaturesItem;
+import FeatureRow from './FeatureRow';
+export default FeatureRow;
