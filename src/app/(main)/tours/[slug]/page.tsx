@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 
 export interface ISingleTourPageProps {
-  params: { id: string };
+  params: { slug: string };
 }
 
 const BASE_APP_URL = process.env.BASE_APP_URL as string;
@@ -9,9 +9,9 @@ const BASE_APP_URL = process.env.BASE_APP_URL as string;
 export async function generateMetadata({
   params,
 }: ISingleTourPageProps): Promise<Metadata> {
-  const id = params.id;
+  const slug = params.slug;
   const response = await fetch(
-    `https://adrenaline-tour-admin.onrender.com/tours/${id}`,
+    `https://adrenaline-tour-admin.onrender.com/tours/${slug}`,
   );
 
   if (!response.ok) {
@@ -23,7 +23,7 @@ export async function generateMetadata({
   return {
     title: tour.title,
     alternates: {
-      canonical: `${BASE_APP_URL}tours/${id}`,
+      canonical: `${BASE_APP_URL}tours/${slug}`,
     },
   };
 }
@@ -31,7 +31,9 @@ export async function generateMetadata({
 const SingleTourPage: React.FC<ISingleTourPageProps> = ({ params }) => {
   return (
     <>
-      <h1 className='bg-green-400 text-6xl'>Single Tour Page - {params.id}</h1>
+      <h1 className='bg-green-400 text-6xl'>
+        Single Tour Page - {params.slug}
+      </h1>
     </>
   );
 };
