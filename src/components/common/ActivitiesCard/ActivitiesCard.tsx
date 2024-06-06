@@ -4,6 +4,14 @@ import Image from 'next/image';
 import s from './ActivitiesCard.module.css';
 import { IActivitiesCardProp } from './ActivitiesCard.types';
 
+const getContainerClasses = (id: number) => {
+  return clsx(
+    'relative flex',
+    (id === 1 || id === 3 || id === 5) && 'w-[156px] md:w-[334px] xl:w-[600px]',
+    (id === 2 || id === 4 || id === 6) && 'w-[140px] md:w-[306px] xl:w-[455px]',
+  );
+};
+
 const ActivitiesCard: React.FC<IActivitiesCardProp> = ({
   id,
   position,
@@ -11,16 +19,12 @@ const ActivitiesCard: React.FC<IActivitiesCardProp> = ({
   alt,
   text,
 }) => {
-  const containerClasses = clsx(
-    'relative flex',
-    (id === 1 || id === 3 || id === 5) && 'w-[156px] md:w-[334px] xl:w-[600px]',
-    (id === 2 || id === 4 || id === 6) && 'w-[140px] md:w-[306px] xl:w-[455px]',
-  );
+  const containerClasses = getContainerClasses(id);
 
   return (
     <div key={id} className={clsx('flex', position)}>
       <div className={containerClasses}>
-        <Image className='object-cover' src={src} alt={alt} fill priority />
+        <Image className='object-cover' src={src} alt={alt} fill sizes='50vw' />
 
         <div
           className={clsx(
