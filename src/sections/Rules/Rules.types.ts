@@ -1,3 +1,3 @@
 export interface IIconsRules {
-  [key: number]: JSX.Element;
+  [key: string]: JSX.Element;
 }
