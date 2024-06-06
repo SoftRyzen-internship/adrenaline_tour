@@ -1,5 +1,9 @@
+'use client';
+
+import DisclosureTour from '@/components/common/DisclosureTour';
 import TipsList from '@/components/ui/TipsList';
 import { tipsData } from '@/data';
+import { tourDisclosure } from '@/data';
 
 const Tips = () => {
   return (
@@ -11,6 +15,7 @@ const Tips = () => {
           {tipsData.title[1]}
         </h2>
         <TipsList />
+        <DisclosureTour disclosure={tourDisclosure} />
       </div>
     </section>
   );
