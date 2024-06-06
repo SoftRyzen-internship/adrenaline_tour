@@ -8,9 +8,8 @@ import clsx from 'clsx';
 
 import CloseIcon from '/public/icons/close_24.svg';
 
+import IconButton from '@/components/ui/IconButton';
 import { ariaLabel } from '@/data';
-
-import IconButton from '../IconButton';
 
 import { IModalProps } from './Modal.types';
 
@@ -61,13 +60,13 @@ const Modal: React.FC<IModalProps> = ({
         >
           <div
             className={clsx(
-              'fixed inset-0 flex w-screen items-center justify-end',
-              variant === 'simple' && 'justify-center p-4',
+              'fixed inset-0 flex h-screen w-screen  items-center justify-end',
+              variant === 'simple' && 'flex-col justify-center p-4',
             )}
           >
             <DialogPanel
               className={clsx(
-                ' relative bg-white',
+                ' relative overflow-hidden bg-white',
                 variant === 'burger' && 'h-full w-full xl:max-w-[704px]',
                 variant === 'simple' &&
                   'max-h-[90%] min-w-[328px] sm:max-w-[480px] md:max-w-[700px] xl:max-w-[900px]',

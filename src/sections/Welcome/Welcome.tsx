@@ -26,7 +26,8 @@ const Welcome = () => {
         </p>
         <div className='flex justify-center'>
           <LinkButton
-            toScroll={IdForScroll.CONTACTS}
+            to={IdForScroll.CONTACTS}
+            toScroll={true}
             variant='main'
             iconPosition='after'
             icon={
