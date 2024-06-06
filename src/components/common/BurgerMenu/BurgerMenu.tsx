@@ -43,7 +43,8 @@ const BurgerMenu: React.FC<IBurgerMenuProps> = ({ onCloseMenu }) => {
           }}
           alternativeProps={{
             variant: 'main',
-            toScroll: IdForScroll.CONTACTS,
+            toScroll: true,
+            to: IdForScroll.CONTACTS,
             onClick: onCloseMenu,
           }}
           component={LinkButton}
