@@ -27,7 +27,7 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
   variant,
   iconPosition,
   toScroll,
-  to,
+  to = '',
   currentDisclosure,
   className,
   ...rest
