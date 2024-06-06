@@ -1,23 +1,19 @@
-export interface INewPanel {
-  key: number;
-  open: boolean;
-  close: () => void;
+export interface IDisclosureItem {
+  id: number;
+  icon: boolean;
+  margin: boolean;
+  question: string;
+  answers: {
+    title: string;
+    text: string[];
+  }[];
 }
 
 export interface IDisclosure {
   id: number;
   label: string;
   sectionId: string;
-  items: {
-    id: number;
-    icon: boolean;
-    margin: boolean;
-    question: string;
-    answers: {
-      title: string;
-      text: string[];
-    }[];
-  }[];
+  items: IDisclosureItem[];
 }
 
 export interface IDisclosureFaqListProps {

@@ -43,9 +43,9 @@ const ReadMoreButtonModal: React.FunctionComponent<
               'h-[95%] overflow-y-auto pr-4 scrollbar-thin scrollbar-track-[#F2F1F1] scrollbar-thumb-accentDefaultOrange',
             )}
           >
-            {item.answers.map((answer, index) => (
+            {item.answers.map(answer => (
               <div
-                key={index}
+                key={answer.id}
                 className='font-inter text-sm/[1.3] font-medium  text-dark md:text-base/[1.4] xl:text-lg/[1.5]'
               >
                 {answer.title && (
@@ -54,11 +54,8 @@ const ReadMoreButtonModal: React.FunctionComponent<
 
                 <ul className='mb-2 '>
                   {answer.text.map((point, index) => (
-                    <>
-                      <li
-                        key={index}
-                        className={clsx('relative', item.icon && 'pl-5')}
-                      >
+                    <div key={index}>
+                      <li className={clsx('relative', item.icon && 'pl-5')}>
                         <span
                           className={clsx(
                             item.icon &&
@@ -73,7 +70,7 @@ const ReadMoreButtonModal: React.FunctionComponent<
                           Пустий рядок
                         </p>
                       )}
-                    </>
+                    </div>
                   ))}
                 </ul>
               </div>
