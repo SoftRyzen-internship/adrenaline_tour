@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect } from 'react';
 
+import clsx from 'clsx';
+
 import Button from '@/components/ui/Button';
 import Modal from '@/components/ui/Modal';
 import ReviewModalContent from '@/components/ui/ReviewModalContent';
@@ -37,7 +39,10 @@ const ReviewCard: React.FC<IReviewCardProps> = ({
     <>
       <div className='md:h-[497px] md:pt-[45px] xl:h-[504px]'>
         <div
-          className={`mx-auto flex h-[396px] w-[298px] flex-col justify-between bg-white px-4 pb-6 pt-12 transition md:h-[441px] md:w-[431px] md:px-8 md:pt-16 xl:ml-auto xl:mr-[97px] xl:h-[446px] xl:w-[500px] xl:px-10 xl:pb-8 ${rotationClass}`}
+          className={clsx(
+            'mx-auto flex h-[396px] w-[298px] flex-col justify-between bg-white px-4 pb-6 pt-12 transition md:h-[441px] md:w-[431px] md:px-8 md:pt-16 xl:ml-auto xl:mr-[97px] xl:h-[446px] xl:w-[500px] xl:px-10 xl:pb-8',
+            rotationClass,
+          )}
         >
           <div>
             <h3 className='mb-4 text-center font-inter text-light font-bold text-dark md:text-large'>
