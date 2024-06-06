@@ -8,8 +8,8 @@ const ToursPage = () => {
   return (
     <>
       <Hero page={Pages.TOURS} />
-      <Gallery />
       <Tips />
+      <Gallery />
       <Reviews />
     </>
   );
