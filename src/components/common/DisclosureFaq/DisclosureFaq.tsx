@@ -14,7 +14,9 @@ import { IDisclosureFaqListProps } from './DisclosureFaq.types';
 const DisclosureFaqList: React.FC<IDisclosureFaqListProps> = ({
   disclosures,
 }) => {
-  const [panelOpenId, setPanelOpenId] = useState<number | null>(1.1);
+  const panelStartId = disclosures[0].items[0].id;
+
+  const [panelOpenId, setPanelOpenId] = useState<number | null>(panelStartId);
 
   const [showReadMoreButton, setShowReadMoreExpandButton] = useState(false);
   const textRef = useRef<HTMLDivElement>(null);
