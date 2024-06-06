@@ -11,7 +11,7 @@ import FacebookIcon from '/public/icons/facebook.svg';
 
 import BurgerMenu from '@/components/common/BurgerMenu';
 import Button from '@/components/ui/Button';
-import FeatureRow from '@/components/ui/FeaturesItem';
+import FeatureRow from '@/components/ui/FeatureRow';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import Logo from '@/components/ui/Logo';
