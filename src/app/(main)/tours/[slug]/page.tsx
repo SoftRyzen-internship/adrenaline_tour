@@ -11,18 +11,46 @@ export async function generateMetadata({
   params,
 }: ISingleTourPageProps): Promise<Metadata> {
   const slug = params.slug;
-  const response = await fetch(`${BASE_DATA_URL}graphql${slug}`);
+  const query = `
+    query getTourBySlug($slug: String!) {
+      tour(where: { slug: $slug }) {
+        title
+        description
+      }
+    }
+  `;
+
+  const variables = {
+    slug: slug,
+  };
+
+  const response = await fetch(`${BASE_DATA_URL}/graphql`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      query: query,
+      variables: variables,
+    }),
+  });
 
   if (!response.ok) {
     throw new Error(`Failed to fetch tour data: ${response.statusText}`);
   }
 
-  const tour = await response.json();
+  const result = await response.json();
+
+  if (result.errors) {
+    throw new Error(`Failed to fetch tour data: ${result.errors[0].message}`);
+  }
+
+  const tour = result.data.tour;
 
   return {
     title: tour.title,
     alternates: {
-      canonical: `${BASE_APP_URL}tours/${slug}`,
+      canonical: `${BASE_APP_URL}/tours/${slug}`,
     },
   };
 }
