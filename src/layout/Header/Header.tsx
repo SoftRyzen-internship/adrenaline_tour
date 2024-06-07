@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 
+import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 
 import { IdForScroll, Pages } from '@/@types';
@@ -11,8 +12,9 @@ import Logo from '@/components/ui/Logo';
 
 import BurgerMenuIcon from '/public/icons/burger-menu-sm.svg';
 
-import Modal from '@/components/ui/Modal';
 import { header } from '@/data';
+
+const Modal = dynamic(() => import('@/components/ui/Modal'));
 
 const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

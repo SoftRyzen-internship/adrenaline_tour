@@ -1,25 +1,16 @@
-'use client';
-import { useState } from 'react';
-
 import ArrowRight from '/public/icons/arrow-right.svg';
 import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
-import BurgerMenuIcon from '/public/icons/burger-menu-sm.svg';
 import CalendarIcon from '/public/icons/date.svg';
 import FacebookIcon from '/public/icons/facebook.svg';
 
-import BurgerMenu from '@/components/common/BurgerMenu';
 import DisclosureFaq from '@/components/common/DisclosureFaq';
-import DisclosureTour from '@/components/common/DisclosureTour/DisclosureTour';
+import DisclosureTour from '@/components/common/DisclosureTour';
 import FaqNavMenu from '@/components/common/FaqNavMenu';
 import Button from '@/components/ui/Button';
 import DropdownList from '@/components/ui/DropdownList';
 import FeatureRow from '@/components/ui/FeaturesItem';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
-import Logo from '@/components/ui/Logo';
-import Modal from '@/components/ui/Modal';
-import Phones from '@/components/ui/Phones';
-import Social from '@/components/ui/Social';
 import {
   faq,
   tourDisclosure,
@@ -36,8 +27,6 @@ const feature = {
 
 const Observer = () => {
   const { disclosures } = faq;
-  const [isOpenBurger, setIsOpenBurger] = useState(false);
-  const [isOpenSimple, setIsOpenSimple] = useState(false);
 
   return (
     <div>
@@ -45,17 +34,11 @@ const Observer = () => {
         The temporary component is used for the observation of newly created
         components.
       </h1>
-      <div className='bg-emerald-200'>
+      <div className='border-2 border-emerald-200 p-5 smOnly:space-y-3 md:space-x-4 xl:space-x-3'>
         <DropdownList data={activitiesDataTemporary.data} className='' />
         <DropdownList data={countryDataTemporary.data} className='' />
       </div>
 
-      <div className='section container bg-blueDefault'>
-        <Social variant='header' />
-        <Phones variant='contacts' />
-
-        <Logo textWhite={false} width={252} height={80} />
-      </div>
       <p className='container text-center text-[24px] font-bold'>
         Component LinkButton
       </p>
@@ -159,54 +142,7 @@ const Observer = () => {
           </IconButton>
         </div>
       </div>
-      <p className='container text-center text-[24px] font-bold'>
-        Component Modal
-      </p>
-      <div className='container bg-darkBlue px-4 py-4'>
-        <p className='text-white'>variant - burger</p>
-        <IconButton
-          ariaLabel='Відкрити Модалку'
-          onClick={() => setIsOpenBurger(true)}
-        >
-          <BurgerMenuIcon
-            width={32}
-            height={32}
-            className='h-8 w-8 stroke-white transition hover:stroke-accentDefaultOrange'
-          />
-        </IconButton>
-        <Modal
-          isOpen={isOpenBurger}
-          variant='burger'
-          close={() => setIsOpenBurger(false)}
-        >
-          <BurgerMenu onCloseMenu={() => setIsOpenBurger(false)} />
-        </Modal>
-      </div>
-      <div className='container bg-darkBlue px-4 py-4'>
-        <p className='text-white'>variant - simple</p>
-        <Button
-          type='button'
-          variant='readMore-main'
-          onClick={() => setIsOpenSimple(true)}
-        >
-          Читати більше
-        </Button>
-        <Modal
-          isOpen={isOpenSimple}
-          variant='simple'
-          close={() => setIsOpenSimple(false)}
-        >
-          <div className='p-10'>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
-            corrupti corporis consequatur autem, libero omnis fugit earum natus
-            nesciunt sunt illum repellat perferendis deleniti eum sed animi
-            optio exercitationem. Perferendis molestiae est ex itaque
-            perspiciatis minus, dolorum vero? Iure doloribus quisquam culpa
-            consequatur velit adipisci quis dignissimos a. Vitae,
-            exercitationem!
-          </div>
-        </Modal>
-      </div>
+
       <div className='container'>
         <div className='mb-8 hidden justify-end xl:flex'>
           <FaqNavMenu />
