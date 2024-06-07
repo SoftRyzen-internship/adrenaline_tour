@@ -1,0 +1,61 @@
+{
+  "title": "Наші\nактивності",
+  "button": "Переглянути всі активності",
+  "images": [
+    {
+      "id": 1,
+      "width": 600,
+      "height": 480,
+      "sizes": "(max-width: 480px) 156px, (max-width: 1280px) 334px",
+      "src": "/images/activities/img-1.webp",
+      "alt": "Пара закоханих туристів з вершини дивляться на захід сонця",
+      "text": "Пішохідні походи в гори"
+    },
+    {
+      "id": 2,
+      "width": 455,
+      "height": 800,
+      "sizes": "(max-width: 480px) 140px, (max-width: 1280px) 306px, 455px",
+      "src": "/images/activities/img-2.webp",
+      "alt": "Туристи піднімаються в гору по віа-феррата",
+      "text": "віа-феррата"
+    },
+    {
+      "id": 3,
+      "width": 600,
+      "height": 480,
+      "sizes": "(max-width: 480px) 156px, (max-width: 1280px) 334px, 600px",
+      "src": "/images/activities/img-3.webp",
+      "alt": "Каякери на воді",
+      "text": "Каякінг"
+    },
+    {
+      "id": 4,
+      "width": 455,
+      "height": 640,
+      "sizes": "(max-width: 480px) 140px, (max-width: 1280px) 304px",
+      "src": "/images/activities/img-4.webp",
+      "alt": "Туристи йдуть по пішохідному мосту над прірвою",
+      "text": "Тури"
+    },
+    {
+      "id": 5,
+      "width": 600,
+      "height": 480,
+      "sizes": "(max-width: 480px) 156px, (max-width: 1280px) 334px",
+      "src": "/images/activities/img-5.webp",
+      "alt": "Туристи на рафті в бурхливому порозі гірської річки",
+      "text": "Cплави на катамаранах, каное, рафтінг"
+    },
+
+    {
+      "id": 6,
+      "width": 455,
+      "height": 640,
+      "sizes": "(max-width: 480px) 140px, (max-width: 1280px) 304px, 455px",
+      "src": "/images/activities/img-6.webp",
+      "alt": "Затишна вулиця старого европейського міста",
+      "text": "Пізнавальні екскурсії"
+    }
+  ]
+}
