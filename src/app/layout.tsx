@@ -8,6 +8,33 @@ import { metaData } from '@/data';
 import Footer from '@/layout/Footer';
 import Header from '@/layout/Header';
 import './globals.css';
+import { configuration } from '@/utils';
+
+export const metadata: Metadata = {
+  metadataBase: new URL(configuration.BASE_APP_URL as string),
+  title: metaData.mainTitle,
+  description: metaData.description,
+  keywords: metaData.keywords,
+  icons: metaData.icons,
+  openGraph: {
+    type: 'website',
+    url: configuration.BASE_APP_URL,
+    title: metaData.ogTitle,
+    description: metaData.ogDescription,
+    siteName: metaData.ogSiteName,
+    images: [
+      {
+        url: metaData.image.url,
+        width: 1200,
+        height: 630,
+        alt: metaData.image.alt,
+      },
+    ],
+  },
+  other: {
+    'color-scheme': 'light',
+  },
+};
 
 const unbounded = Unbounded({
   subsets: ['cyrillic', 'latin'],
@@ -22,11 +49,6 @@ const inter = Inter({
   display: 'swap',
   variable: '--font-inter',
 });
-
-export const metadata: Metadata = {
-  title: metaData.title,
-  description: metaData.description,
-};
 
 const RootLayout = ({
   children,
