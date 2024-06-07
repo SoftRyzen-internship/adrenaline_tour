@@ -54,6 +54,7 @@ const config: Config = {
         accentGreen: '#18D790',
         grey01: '#D3D3D3',
         grey02: '#9D9D9D',
+        grey03: 'rgba(0, 54, 84, 0.16)',
         red: '#DD4B4B',
         backdrop: 'rgba(0, 0, 0, 0.65)',
       },

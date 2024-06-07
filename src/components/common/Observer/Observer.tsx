@@ -10,6 +10,7 @@ import CalendarIcon from '/public/icons/date.svg';
 import FacebookIcon from '/public/icons/facebook.svg';
 
 import BurgerMenu from '@/components/common/BurgerMenu';
+import FeaturesTable from '@/components/common/FeaturesTable';
 import Button from '@/components/ui/Button';
 import FeatureRow from '@/components/ui/FeatureRow';
 import IconButton from '@/components/ui/IconButton';
@@ -18,6 +19,7 @@ import Logo from '@/components/ui/Logo';
 import Modal from '@/components/ui/Modal';
 import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
+import { featuresData } from '@/data';
 
 import s from './Observer.module.css';
 import { IObserverProps } from './Observer.types';
@@ -30,6 +32,8 @@ const feature = {
 };
 
 const Observer: React.FC<IObserverProps> = ({ children }) => {
+  const { features } = featuresData;
+
   const [isOpenBurger, setIsOpenBurger] = useState(false);
   const [isOpenSimple, setIsOpenSimple] = useState(false);
   return (
@@ -209,6 +213,12 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
           Component FeatureRow
         </p>
         <FeatureRow feature={feature} />
+      </div>
+      <div className='container'>
+        <p className='mb-2 text-center text-[24px] font-bold'>
+          Component FeatureTable
+        </p>
+        <FeaturesTable features={features} />
       </div>
     </div>
   );
