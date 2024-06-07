@@ -4,9 +4,8 @@ import Image from 'next/image';
 import ArrowRight from '/public/icons/arrow-right.svg';
 import Location from '/public/icons/location.svg';
 
+import LinkButton from '@/components/ui/LinkButton';
 import { tourCardData } from '@/data';
-
-import LinkButton from '../LinkButton';
 
 import s from './TourCard.module.css';
 import { ITourCardProps } from './TourCard.types';

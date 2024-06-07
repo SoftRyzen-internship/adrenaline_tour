@@ -3,8 +3,18 @@
 import { useEffect } from 'react';
 
 import axios from 'axios';
+import type { Metadata } from 'next';
 
+import { Pages } from '@/@types';
 import Observer from '@/components/common/Observer';
+import { metaData } from '@/data';
+
+export const metadata: Metadata = {
+  title: metaData.policyTitle,
+  alternates: {
+    canonical: Pages.POLICY,
+  },
+};
 
 const API_URL = 'https://adrenaline-tour-admin.onrender.com/graphql';
 
