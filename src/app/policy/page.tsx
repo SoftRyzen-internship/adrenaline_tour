@@ -1,20 +1,19 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import axios from 'axios';
-import type { Metadata } from 'next';
+// import type { Metadata } from 'next';
 
-import { Pages } from '@/@types';
-import Observer from '@/components/common/Observer';
-import { metaData } from '@/data';
+// import { Pages } from '@/@types';
+// import { metaData } from '@/data';
 
-export const metadata: Metadata = {
-  title: metaData.policyTitle,
-  alternates: {
-    canonical: Pages.POLICY,
-  },
-};
+// export const metadata: Metadata = {
+//   title: metaData.policyTitle,
+//   alternates: {
+//     canonical: Pages.POLICY,
+//   },
+// };
 
 const API_URL = 'https://adrenaline-tour-admin.onrender.com/graphql';
 
@@ -41,18 +40,24 @@ export const getPolicyData = async () => {
 };
 
 const PolicyPage = () => {
+  const [policy, setPolicy] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       const policyData = await getPolicyData();
-      console.log(policyData); // Виводить дані в консоль
+      console.log(policyData);
+      setPolicy(policyData);
     };
 
     fetchData();
   }, []);
   return (
     <>
-      <h1 className='text-6xl'>PolicyPage will be here</h1>
-      <Observer />
+      {policy && (
+        <>
+          <h1>{policy.title}</h1>
+          <p>{policy.text}</p>
+        </>
+      )}
     </>
   );
 };
