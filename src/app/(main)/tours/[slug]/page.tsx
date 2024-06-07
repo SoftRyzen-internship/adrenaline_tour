@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
 
+import { Pages } from '@/@types';
+import { configuration } from '@/utils';
+
 export interface ISingleTourPageProps {
   params: { slug: string };
 }
-
-const BASE_APP_URL = process.env.BASE_APP_URL as string;
-const BASE_DATA_URL = process.env.BASE_DATA_URL as string;
 
 export async function generateMetadata({
   params,
@@ -19,12 +19,10 @@ export async function generateMetadata({
       }
     }
   `;
-
   const variables = {
     slug: slug,
   };
-
-  const response = await fetch(`${BASE_DATA_URL}/graphql`, {
+  const response = await fetch(`${configuration.BASE_DATA_URL}}/graphql`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -39,19 +37,13 @@ export async function generateMetadata({
   if (!response.ok) {
     throw new Error(`Failed to fetch tour data: ${response.statusText}`);
   }
-
   const result = await response.json();
-
-  if (result.errors) {
-    throw new Error(`Failed to fetch tour data: ${result.errors[0].message}`);
-  }
-
   const tour = result.data.tour;
 
   return {
     title: tour.title,
     alternates: {
-      canonical: `${BASE_APP_URL}/tours/${slug}`,
+      canonical: `${configuration.BASE_APP_URL}${Pages.TOURS}/${slug}`,
     },
   };
 }
