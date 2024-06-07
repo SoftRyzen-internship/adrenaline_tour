@@ -5,14 +5,13 @@ export interface ISingleTourPageProps {
 }
 
 const BASE_APP_URL = process.env.BASE_APP_URL as string;
+const BASE_DATA_URL = process.env.BASE_DATA_URL as string;
 
 export async function generateMetadata({
   params,
 }: ISingleTourPageProps): Promise<Metadata> {
   const slug = params.slug;
-  const response = await fetch(
-    `https://adrenaline-tour-admin.onrender.com/tours/${slug}`,
-  );
+  const response = await fetch(`${BASE_DATA_URL}graphql${slug}`);
 
   if (!response.ok) {
     throw new Error(`Failed to fetch tour data: ${response.statusText}`);
