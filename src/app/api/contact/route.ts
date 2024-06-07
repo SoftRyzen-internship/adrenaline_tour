@@ -1,10 +1,7 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-const user = process.env.MAIL_USER;
-const pass = process.env.MAIL_PASSWORD;
-const from_user = process.env.MAIL_FROM;
-const to_user = process.env.MAIL_TO;
+import { configuration } from '@/utils';
 
 export async function POST(request: Request) {
   try {
@@ -14,14 +11,14 @@ export async function POST(request: Request) {
       service: 'gmail',
       secure: true,
       auth: {
-        user,
-        pass,
+        user: configuration.apiMailUser,
+        pass: configuration.apiMailPass,
       },
     });
 
     const mailOptions = {
-      from: from_user,
-      to: to_user,
+      from: configuration.apiMailFrom,
+      to: configuration.apiMailTo,
       subject: 'Нова заявка з сайту Adrenaline Tour',
       text: `Імʼя: ${name}\nТелефон: ${phone}\nEmail: ${email}\nКоментар: ${message}`,
     };
