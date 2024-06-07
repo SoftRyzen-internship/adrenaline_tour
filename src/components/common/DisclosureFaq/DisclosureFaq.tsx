@@ -26,7 +26,7 @@ const DisclosureFaqList: React.FC<IDisclosureFaqListProps> = ({
           <li
             key={disclosure.id}
             id={disclosure.sectionId}
-            className='mb-8 md:mb-14 xl:mb-12 xl:flex xl:justify-between xl:py-8'
+            className='mb-8 md:mb-14 xl:mb-12 xl:flex xl:justify-between xl:py-8 xl:pl-1'
           >
             <p
               className={clsx(

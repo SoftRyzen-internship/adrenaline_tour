@@ -42,7 +42,7 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
           smooth={true}
           spy={true}
           duration={500}
-          offset={0}
+          offset={variant === 'disclosure' ? -70 : 0}
           className={clsx(
             'inline-flex items-center justify-center',
             variant === 'main' && linkButtonStyle.main,
