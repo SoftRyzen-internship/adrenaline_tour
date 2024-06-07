@@ -7,8 +7,9 @@ import { IActivitiesCardProp } from './ActivitiesCard.types';
 const getContainerClasses = (id: number) => {
   return clsx(
     'relative flex',
-    (id === 1 || id === 3 || id === 5) && 'w-[156px] md:w-[334px] xl:w-[600px]',
-    (id === 2 || id === 4 || id === 6) && 'w-[140px] md:w-[306px] xl:w-[455px]',
+    id % 2 !== 0
+      ? 'w-[156px] md:w-[334px] xl:w-[600px]'
+      : 'w-[140px] md:w-[306px] xl:w-[455px]',
   );
 };
 
