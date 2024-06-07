@@ -25,7 +25,8 @@ const FeaturesTable: React.FunctionComponent<IFeaturesTableProps> = ({
       </ul>
       <div className='items-center md:flex md:gap-8'>
         <LinkButton
-          toScroll={IdForScroll.CONTACTS}
+          toScroll={true}
+          to={IdForScroll.CONTACTS}
           variant='main'
           iconPosition='after'
           icon={
