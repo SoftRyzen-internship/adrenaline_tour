@@ -12,7 +12,7 @@ export async function generateMetadata({
 }: ISingleTourPageProps): Promise<Metadata> {
   const slug = params.slug;
   const query = `
-    query getTourBySlug($slug: String!) {
+    query getTourBySlug($slug) {
       tour(where: { slug: $slug }) {
         title
         description
@@ -33,6 +33,7 @@ export async function generateMetadata({
       query: query,
       variables: variables,
     }),
+    cache: 'no-store',
   });
 
   if (!response.ok) {
