@@ -4,19 +4,13 @@ import CalendarIcon from '/public/icons/date.svg';
 import FacebookIcon from '/public/icons/facebook.svg';
 
 import DisclosureFaq from '@/components/common/DisclosureFaq';
-import DisclosureTour from '@/components/common/DisclosureTour';
 import FaqNavMenu from '@/components/common/FaqNavMenu';
 import Button from '@/components/ui/Button';
 import DropdownList from '@/components/ui/DropdownList';
 import FeatureRow from '@/components/ui/FeaturesItem';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
-import {
-  faq,
-  tourDisclosure,
-  activitiesDataTemporary,
-  countryDataTemporary,
-} from '@/data';
+import { faq, activitiesDataTemporary, countryDataTemporary } from '@/data';
 
 const feature = {
   id: 1,
@@ -148,8 +142,6 @@ const Observer = () => {
           <FaqNavMenu />
         </div>
         <DisclosureFaq disclosures={disclosures} />
-        <p className='text-bold text-2xl'>DisclosurePageTour</p>
-        <DisclosureTour disclosure={tourDisclosure} />
         <div className='container'>
           <p className='mb-2 text-center text-[24px] font-bold'>
             Component FeatureRow
