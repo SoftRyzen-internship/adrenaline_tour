@@ -26,11 +26,11 @@ const DisclosureFaqList: React.FC<IDisclosureFaqListProps> = ({
           <li
             key={disclosure.id}
             id={disclosure.sectionId}
-            className='mb-8  md:mb-14  xl:mb-12 xl:flex xl:justify-between xl:py-8'
+            className='mb-8 md:mb-14 xl:mb-12 xl:flex xl:justify-between xl:py-8'
           >
             <p
               className={clsx(
-                'mb-6 inline-block  border-2 border-accentDefaultOrange px-4 py-3 font-unbounded text-xs/[1.3] font-bold text-accentDefaultOrange  md:mb-8  md:text-light xl:self-baseline xl:px-8 xl:py-4 xl:text-medium',
+                'mb-6 inline-block border-2 border-accentDefaultOrange px-4 py-3 text-xs/[1.3] font-bold text-accentDefaultOrange  md:mb-8  md:text-light xl:self-baseline xl:px-8 xl:py-4 xl:text-medium',
                 disclosure.id % 2 === 0
                   ? '-rotate-2 xl:rotate-2'
                   : 'rotate-2 xl:-rotate-2',

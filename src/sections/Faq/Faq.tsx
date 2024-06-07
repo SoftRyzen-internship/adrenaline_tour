@@ -1,4 +1,5 @@
 import DisclosureFaq from '@/components/common/DisclosureFaq';
+import FaqNavMenu from '@/components/common/FaqNavMenu';
 import { faq } from '@/data';
 
 const Faq: React.FC = () => {
@@ -6,7 +7,13 @@ const Faq: React.FC = () => {
   return (
     <section className='section'>
       <div className='container'>
-        <h2 className='section-title mb-10 text-center md:mb-14'>FAQ</h2>
+        <div className='xl:mb- xl:mb-16 xl:flex xl:justify-between'>
+          <h2 className='section-title mb-10 text-center md:mb-14 xl:mb-0'>
+            FAQ
+          </h2>
+          <FaqNavMenu />
+        </div>
+
         <DisclosureFaq disclosures={disclosures} />
       </div>
     </section>
