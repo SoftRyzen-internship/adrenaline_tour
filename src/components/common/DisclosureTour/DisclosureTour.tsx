@@ -1,3 +1,5 @@
+'use client';
+
 import {
   Disclosure,
   DisclosureButton,
@@ -5,16 +7,16 @@ import {
   Transition,
 } from '@headlessui/react';
 
+import { tourDisclosure } from '@/data';
+
 import MinusIcon from '/public/icons/minus.svg';
 import PlusIcon from '/public/icons/plus.svg';
 
-import { IDisclosureTourProps } from './DisclosureTour.types';
-
-const DisclosureTour: React.FC<IDisclosureTourProps> = ({ disclosure }) => {
+const DisclosureTour = () => {
   return (
     <div className='mx-auto w-full'>
       <ul>
-        {disclosure.map(item => (
+        {tourDisclosure.map(item => (
           <Disclosure
             as='li'
             className='border-b-[1px] border-blue32 py-5'
@@ -56,7 +58,6 @@ const DisclosureTour: React.FC<IDisclosureTourProps> = ({ disclosure }) => {
                             {answer.title && (
                               <p className='mb-1 font-bold'>{answer.title}</p>
                             )}
-
                             <ul className='mb-2'>
                               {answer.text.map((point, index) => (
                                 <li key={index}>
