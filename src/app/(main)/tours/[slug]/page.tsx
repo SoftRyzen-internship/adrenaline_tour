@@ -1,17 +1,18 @@
 import { Metadata } from 'next';
 
+import { Pages } from '@/@types';
+import { configuration } from '@/utils';
+
 export interface ISingleTourPageProps {
   params: { slug: string };
 }
-
-const BASE_APP_URL = process.env.BASE_APP_URL as string;
 
 export async function generateMetadata({
   params,
 }: ISingleTourPageProps): Promise<Metadata> {
   const slug = params.slug;
   const response = await fetch(
-    `https://adrenaline-tour-admin.onrender.com/tours/${slug}`,
+    `${configuration.BASE_DATA_URL}${Pages.TOURS}/${slug}`,
   );
 
   if (!response.ok) {
@@ -23,7 +24,7 @@ export async function generateMetadata({
   return {
     title: tour.title,
     alternates: {
-      canonical: `${BASE_APP_URL}tours/${slug}`,
+      canonical: `${configuration.BASE_APP_URL}tours/${slug}`,
     },
   };
 }
