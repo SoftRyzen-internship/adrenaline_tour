@@ -29,8 +29,16 @@ const Observer = () => {
         components.
       </h1>
       <div className='border-2 border-emerald-200 p-5 smOnly:space-y-3 md:space-x-4 xl:space-x-3'>
-        <DropdownList data={activitiesDataTemporary.data} className='' />
-        <DropdownList data={countryDataTemporary.data} className='' />
+        <DropdownList
+          data={activitiesDataTemporary.data}
+          defaultOptionLabel='Всі активності'
+          className=''
+        />
+        <DropdownList
+          data={countryDataTemporary.data}
+          defaultOptionLabel='Всі країни'
+          className=''
+        />
       </div>
 
       <p className='container text-center text-[24px] font-bold'>

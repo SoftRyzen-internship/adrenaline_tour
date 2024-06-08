@@ -7,5 +7,6 @@ export interface DataList {
 
 export interface IDropdownListProps {
   data: DataList[];
+  defaultOptionLabel: string;
   className?: string;
 }

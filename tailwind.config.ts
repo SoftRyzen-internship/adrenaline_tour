@@ -57,6 +57,7 @@ const config: Config = {
         red: '#DD4B4B',
         backdrop: 'rgba(0, 0, 0, 0.65)',
         greyBorder: 'rgba(21, 67, 67, 0.40)',
+        orangeBorder: 'rgba(255, 96, 51, 0.4)',
       },
     },
   },
