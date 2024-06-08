@@ -1,1 +1,0 @@
-export { CustomComponent } from './CustomComponent';
