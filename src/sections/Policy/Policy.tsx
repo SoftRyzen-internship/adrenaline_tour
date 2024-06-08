@@ -1,10 +1,12 @@
-// import { PortableText } from '@portabletext/react';
+import { PortableText } from '@portabletext/react';
 
 import { fetchPrivacyPolicy } from '@/actions/requests/fetchPrivacyPolicy';
-// import { CustomComponent } from '@/components/common/CustomComponent';
+import { CustomComponent } from '@/components/common/CustomComponent';
 
 const Policy = async () => {
   const policy = await fetchPrivacyPolicy();
+
+  console.log(policy.text);
 
   return (
     <section className='section pt-[148px] md:pt-[172px] xl:pt-[224px]'>
@@ -15,7 +17,7 @@ const Policy = async () => {
               {policy.title}
             </h1>
             <p>{policy.text}</p>
-            {/* <PortableText value={policy.text} components={CustomComponent} /> */}
+            <PortableText value={policy.text} components={CustomComponent} />
           </>
         )}
       </div>
