@@ -1,28 +1,51 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
 import clsx from 'clsx';
 
+import { fetchReviews } from '@/actions';
 import Slider from '@/components/common/Slider';
 import ReviewCard from '@/components/ui/ReviewCard';
 import { reviews } from '@/data';
 
 import s from './Reviews.module.css';
-
-const slides = reviews.reviews.map(
-  ({ id, title, description, name, date }, index) => ({
-    id: id,
-    content: (
-      <ReviewCard
-        key={id}
-        index={index}
-        title={title}
-        description={description}
-        name={name}
-        date={date}
-      />
-    ),
-  }),
-);
+import { IReview } from './Reviews.types';
 
 const Reviews = () => {
+  const [dataReviews, setDataReviews] = useState<IReview[]>([]);
+
+  useEffect(() => {
+    const getReviews = async () => {
+      try {
+        const data = await fetchReviews();
+        if (data) {
+          setDataReviews(data);
+        }
+      } catch (error) {
+        return null;
+      }
+    };
+
+    getReviews();
+  }, []);
+
+  const slides = dataReviews.map(
+    ({ id, title, text, author, date }, index) => ({
+      id: id,
+      content: (
+        <ReviewCard
+          key={id}
+          index={index}
+          title={title}
+          description={text}
+          name={author}
+          date={date}
+        />
+      ),
+    }),
+  );
+
   return (
     <section
       className={clsx(

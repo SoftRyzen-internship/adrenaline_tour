@@ -1,5 +1,6 @@
 .bgCardRule {
-  background-image: url('/images/rules/mountain@1x.webp'), url('/images/rules/bg@1x.webp');
+  background-image: url('/images/rules/mountain@1x.webp'),
+    url('/images/rules/bg@1x.webp');
   background-repeat: no-repeat;
   background-position: top center;
   background-size:
@@ -15,7 +16,9 @@
   }
 }
 
-@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
   .bgCardRule {
     background-image: url('/images/rules/mountain@2x.webp'),
       url('/images/reviews/bgReviews@2x.webp');

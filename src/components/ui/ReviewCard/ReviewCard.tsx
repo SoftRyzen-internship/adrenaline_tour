@@ -8,6 +8,7 @@ import Button from '@/components/ui/Button';
 import Modal from '@/components/ui/Modal';
 import ReviewModalContent from '@/components/ui/ReviewModalContent';
 import { reviews } from '@/data';
+import { formatDate } from '@/utils';
 
 import { IReviewCardProps } from './ReviewCard.types';
 
@@ -71,7 +72,7 @@ const ReviewCard: React.FC<IReviewCardProps> = ({
               {name}
             </h4>
             <p className='text-center font-inter text-[12px] font-medium leading-[1.30] text-darkGreen'>
-              {date}
+              {formatDate(date)}
             </p>
           </div>
         </div>

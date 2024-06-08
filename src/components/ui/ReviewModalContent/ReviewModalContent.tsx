@@ -1,3 +1,5 @@
+import { formatDate } from '@/utils';
+
 import { IReviewModalContentProps } from './ReviewModalContent.types';
 
 const ReviewModalContent: React.FC<IReviewModalContentProps> = ({
@@ -18,7 +20,7 @@ const ReviewModalContent: React.FC<IReviewModalContentProps> = ({
         {name}
       </h4>
       <p className='text-center font-inter text-[12px] font-medium leading-[1.30] text-darkGreen'>
-        {date}
+        {formatDate(date)}
       </p>
     </div>
   );

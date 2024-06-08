@@ -1,13 +1,59 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
+import { fetchGallery } from '@/actions';
 import SliderGallery from '@/components/common/SliderGallery';
 import CardGallery from '@/components/ui/CardGallery';
 import { gallery } from '@/data';
 
-const slides = gallery.images.map(({ id, src, alt }) => ({
-  id: id,
-  content: <CardGallery key={id} src={src} alt={alt} />,
-}));
+import { IGallery } from './Gallery.types';
 
 const Gallery = () => {
+  const [dataGallery, setDataGallery] = useState<IGallery[]>([]);
+
+  useEffect(() => {
+    const getReviews = async () => {
+      try {
+        const data = await fetchGallery();
+        if (data) {
+          setDataGallery(data);
+        }
+      } catch (error) {
+        return null;
+      }
+    };
+
+    getReviews();
+  }, []);
+
+  const shouldShowSlider = dataGallery.length >= 4;
+
+  const galleryContent = shouldShowSlider ? (
+    <SliderGallery
+      slides={dataGallery.map(({ attributes }, index) => ({
+        id: index,
+        content: (
+          <CardGallery
+            key={index}
+            src={attributes.url}
+            alt={attributes.alternativeText}
+          />
+        ),
+      }))}
+    />
+  ) : (
+    <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
+      {dataGallery.map(({ attributes }, index) => (
+        <CardGallery
+          key={index}
+          src={attributes.url}
+          alt={attributes.alternativeText}
+        />
+      ))}
+    </div>
+  );
+
   return (
     <section className='section'>
       <div className='container'>
@@ -15,7 +61,7 @@ const Gallery = () => {
           {gallery.title}
         </h2>
       </div>
-      <SliderGallery slides={slides} />
+      {galleryContent}
     </section>
   );
 };
