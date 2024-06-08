@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 
+import clsx from 'clsx';
+
 import DisclosureFaqItem from '@/components/common/DisclosureFaqItem';
 
 import { IDisclosureFaqListProps } from './DisclosureFaq.types';
@@ -26,7 +28,14 @@ const DisclosureFaqList: React.FC<IDisclosureFaqListProps> = ({
             id={disclosure.sectionId}
             className='mb-8  md:mb-14  xl:mb-12 xl:flex xl:justify-between xl:py-8'
           >
-            <p className='mb-6 inline-block rotate-3 border-2 border-accentDefaultOrange px-4 py-3 font-unbounded text-xs/[1.3] font-bold text-accentDefaultOrange  md:text-base/[1.3] md:text-sm/[1.3] xl:self-baseline'>
+            <p
+              className={clsx(
+                'mb-6 inline-block  border-2 border-accentDefaultOrange px-4 py-3 font-unbounded text-xs/[1.3] font-bold text-accentDefaultOrange  md:mb-8  md:text-light xl:self-baseline xl:px-8 xl:py-4 xl:text-medium',
+                disclosure.id % 2 === 0
+                  ? '-rotate-2 xl:rotate-2'
+                  : 'rotate-2 xl:-rotate-2',
+              )}
+            >
               {disclosure.label}
             </p>
             <ul>
