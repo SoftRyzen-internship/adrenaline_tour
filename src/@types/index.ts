@@ -40,3 +40,46 @@ export interface IDisclosure {
   sectionId: string;
   items: IDisclosureItem[];
 }
+
+export interface IActivity {
+  id: string;
+  attributes: {
+    name: string;
+  };
+}
+
+export interface ICountry {
+  id: string;
+  attributes: {
+    name: string;
+  };
+}
+
+export interface IImage {
+  attributes: {
+    url: string;
+    alternativeText: string;
+  };
+}
+
+export interface IToursAttributes {
+  activities: {
+    data: IActivity[];
+  };
+  countries: {
+    data: ICountry[];
+  };
+  date: string;
+  duration: string;
+  img: {
+    data: IImage;
+  };
+  recommended: boolean;
+  slug: string;
+  title: string;
+}
+
+export interface ITours {
+  id: string;
+  attributes: IToursAttributes;
+}

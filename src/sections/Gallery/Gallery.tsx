@@ -13,7 +13,7 @@ const Gallery = () => {
   const [dataGallery, setDataGallery] = useState<IGallery[]>([]);
 
   useEffect(() => {
-    const getReviews = async () => {
+    const getGallery = async () => {
       try {
         const data = await fetchGallery();
         if (data) {
@@ -24,7 +24,7 @@ const Gallery = () => {
       }
     };
 
-    getReviews();
+    getGallery();
   }, []);
 
   const shouldShowSlider = dataGallery.length >= 4;
