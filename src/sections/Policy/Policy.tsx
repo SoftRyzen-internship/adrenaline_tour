@@ -6,12 +6,17 @@ import { CustomComponent } from '@/components/common/CustomComponent';
 const Policy = async () => {
   const policy = await fetchPrivacyPolicy();
 
+  console.log(policy.text);
+
   return (
-    <section className='section'>
+    <section className='section pt-[148px] md:pt-[172px] xl:pt-[224px]'>
       <div className='container'>
         {policy && (
           <>
-            <h1 className=''>{policy.title}</h1>
+            <h1 className='mb-10 text-center font-inter text-lightLarge font-bold uppercase text-blueDefault md:mb-14 md:text-extraLarge xl:mb-16 xl:text-[40px] xl:leading-[44px]'>
+              {policy.title}
+            </h1>
+            <p>{policy.text}</p>
             <PortableText value={policy.text} components={CustomComponent} />
           </>
         )}
