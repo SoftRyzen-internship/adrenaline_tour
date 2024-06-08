@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 
 import { Pages } from '@/@types';
+import { getTour } from '@/actions/query';
 import { configuration } from '@/utils';
 
 export interface ISingleTourPageProps {
@@ -11,14 +12,7 @@ export async function generateMetadata({
   params,
 }: ISingleTourPageProps): Promise<Metadata> {
   const slug = params.slug;
-  const query = `
-    query getTourBySlug($slug) {
-      tour(where: { slug: $slug }) {
-        title
-        description
-      }
-    }
-  `;
+  const query = getTour;
   const variables = {
     slug: slug,
   };
