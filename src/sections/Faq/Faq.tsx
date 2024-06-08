@@ -5,17 +5,17 @@ import { faq } from '@/data';
 const Faq: React.FC = () => {
   const { disclosures } = faq;
   return (
-    <section className='section'>
-      <div className='container'>
-        <div className='sticky top-0 z-10 bg-white xl:mb-16 xl:flex xl:justify-between xl:pb-5'>
+    <section className='section container'>
+      <div className='top-0 z-10 pb-4 xl:sticky xl:bg-white/40'>
+        <div className='bg-white xl:mb-10 xl:flex xl:justify-between'>
           <h2 className='section-title mb-10 text-center md:mb-14 xl:mb-0'>
             FAQ
           </h2>
           <FaqNavMenu />
         </div>
-
-        <DisclosureFaq disclosures={disclosures} />
       </div>
+
+      <DisclosureFaq disclosures={disclosures} />
     </section>
   );
 };

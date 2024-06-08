@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useRef } from 'react';
 
+import clsx from 'clsx';
+
 import DisclosureFaqItemText from '@/components/common/DisclosureFaqItemText';
 import ReadMoreOpenDisclosureModal from '@/components/ui/ReadMoreOpenDisclosureModal';
 
@@ -35,7 +37,7 @@ const DisclosureItem: React.FunctionComponent<IDisclosureItemProps> = ({
     <>
       <button
         type='button'
-        className='group flex w-full items-center justify-between  text-left'
+        className='group flex w-full items-center justify-between text-left'
         onClick={handleClick}
       >
         <span className='max-w-[272px] font-inter text-lg/[1.3] font-bold text-blueDefault md:max-w-[644px] md:text-xl/[1.3] xl:max-w-[745px] xl:text-2xl/[1.1]'>
@@ -55,7 +57,15 @@ const DisclosureItem: React.FunctionComponent<IDisclosureItemProps> = ({
           />
         )}
       </button>
-      {panelOpenId === item.id && (
+
+      <div
+        className={clsx(
+          'overflow-hidden transition-all duration-500',
+          panelOpenId === item.id
+            ? 'max-h-60 opacity-100'
+            : 'max-h-0 opacity-0',
+        )}
+      >
         <div className='line-clamp-4 pl-4 pt-[42px]  font-inter text-sm/[1.3] font-medium text-dark  md:text-base/[1.4] xl:text-lg/[1.5]'>
           <ul ref={textRef} className='border-l-[1px] border-blue32'>
             {item.answers.map(answer => (
@@ -75,14 +85,20 @@ const DisclosureItem: React.FunctionComponent<IDisclosureItemProps> = ({
             ))}
           </ul>
         </div>
-      )}
-      {showReadMoreButton && panelOpenId === item.id && (
-        <div className='pl-4'>
+
+        <div
+          className={clsx(
+            'pl-4 transition-all duration-500',
+            showReadMoreButton && panelOpenId === item.id
+              ? 'max-h-60 opacity-100'
+              : 'max-h-0 opacity-0',
+          )}
+        >
           <div className='border-l-[1px] border-blue32 pl-4'>
             <ReadMoreOpenDisclosureModal item={item} />
           </div>
         </div>
-      )}
+      </div>
     </>
   );
 };
