@@ -16,7 +16,7 @@ const OurActivities = () => {
       <div className='mt-14 flex w-full justify-center'>
         <LinkButton
           href={Pages.TOURS}
-          className='w-full px-[16px] md:w-[381px] md:px-[28px]'
+          className='w-full text-nowrap px-[16px] md:w-[381px] md:px-[28px]'
           variant='main'
           iconPosition='after'
           icon={
@@ -27,7 +27,7 @@ const OurActivities = () => {
             />
           }
         >
-          Переглянути всі активності{' '}
+          {activities.button}{' '}
         </LinkButton>
       </div>
     </section>
