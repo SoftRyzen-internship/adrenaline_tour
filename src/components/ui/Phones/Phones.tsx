@@ -8,13 +8,13 @@ import Email from '/public/icons/email.svg';
 import fetchGetContacts from '@/actions/fetchContacts';
 import { formatPhoneNumber } from '@/utils';
 
-import { IPhonesProps } from './Phones.types';
+import { IContact, IPhonesProps } from './Phones.types';
 
 const Phones: React.FC<IPhonesProps> = ({
   variant = 'contacts',
   className = '',
 }) => {
-  const [contacts, setContacts] = useState(null);
+  const [contacts, setContacts] = useState<IContact | null>(null);
 
   useEffect(() => {
     const getContacts = async () => {
