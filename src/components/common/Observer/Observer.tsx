@@ -7,7 +7,7 @@ import DisclosureFaq from '@/components/common/DisclosureFaq';
 import FaqNavMenu from '@/components/common/FaqNavMenu';
 import Button from '@/components/ui/Button';
 import DropdownList from '@/components/ui/DropdownList';
-import FeatureRow from '@/components/ui/FeaturesItem';
+import FeatureRow from '@/components/ui/FeaturesRow';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import { faq, activitiesDataTemporary, countryDataTemporary } from '@/data';

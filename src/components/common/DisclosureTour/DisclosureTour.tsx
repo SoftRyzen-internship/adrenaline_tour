@@ -60,9 +60,7 @@ const DisclosureTour = () => {
                             )}
                             <ul className='mb-2'>
                               {answer.text.map((point, index) => (
-                                <li key={index}>
-                                  <span>{point}</span>
-                                </li>
+                                <li key={index}>{point}</li>
                               ))}
                             </ul>
                           </div>
