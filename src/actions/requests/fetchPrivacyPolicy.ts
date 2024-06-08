@@ -1,18 +1,9 @@
+import { getPolicy } from '../query';
+
 const API_URL = 'https://adrenaline-tour-admin.onrender.com/graphql';
 
 export const fetchPrivacyPolicy = async () => {
-  const query = `
-    query getPolicy {
-      policy {
-        data {
-          attributes {
-            title
-            text
-          }
-        }
-      }
-    }
-  `;
+  const query = getPolicy;
 
   try {
     const response = await fetch(API_URL, {
@@ -28,7 +19,7 @@ export const fetchPrivacyPolicy = async () => {
     const result = await response.json();
     return result.data.policy.data.attributes;
   } catch (error) {
-    // console.error('Error fetching policy data:', error);
+    console.error('Error fetching policy data:', error);
     return null;
   }
 };
