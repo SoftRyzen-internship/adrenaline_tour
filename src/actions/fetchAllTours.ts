@@ -1,9 +1,6 @@
-import { ITours } from '@/@types';
-
-// import { configuration } from '@/utils';
 const API_URL = 'https://adrenaline-tour-admin.onrender.com/graphql';
 
-const fetchUpcomingTours = async () => {
+const fetchAllTours = async () => {
   const query = `query getAllTours {
   tours {
     data {
@@ -55,19 +52,10 @@ const fetchUpcomingTours = async () => {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const res = await response.json();
-    const currentDate = new Date();
-    const data: ITours[] = res.data.tours.data.slice(0, 10);
-    const upcomingTours = data
-      .filter(item => new Date(item.attributes.date) >= currentDate)
-      .sort(
-        (a, b) =>
-          new Date(a.attributes.date).getTime() -
-          new Date(b.attributes.date).getTime(),
-      );
-    return upcomingTours;
+    return res.data.tours.data.slice(0, 10);
   } catch (error) {
     return null;
   }
 };
 
-export default fetchUpcomingTours;
+export default fetchAllTours;

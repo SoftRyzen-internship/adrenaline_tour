@@ -1,4 +1,5 @@
 import { Pages } from '@/@types';
+import { fetchAllTours } from '@/actions';
 import Gallery from '@/sections/Gallery';
 import Hero from '@/sections/Hero';
 import OurActivities from '@/sections/OurActivities';
@@ -6,11 +7,13 @@ import Reviews from '@/sections/Reviews';
 import UpcomingTours from '@/sections/UpcomingTours';
 import Welcome from '@/sections/Welcome';
 
-const HomePage = () => {
+const HomePage = async () => {
+  const dataAllTours = await fetchAllTours();
+
   return (
     <>
       <Hero page={Pages.MAIN} />
-      <UpcomingTours />
+      <UpcomingTours dataAllTours={dataAllTours} />
       <Welcome />
       <OurActivities />
       <Gallery />

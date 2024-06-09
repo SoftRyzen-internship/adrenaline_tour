@@ -83,3 +83,7 @@ export interface ITours {
   id: string;
   attributes: IToursAttributes;
 }
+
+export interface IAllToursProps {
+  dataAllTours: ITours[];
+}

@@ -1,4 +1,3 @@
-// import { configuration } from '@/utils';
 const API_URL = 'https://adrenaline-tour-admin.onrender.com/graphql';
 
 const fetchReviews = async () => {

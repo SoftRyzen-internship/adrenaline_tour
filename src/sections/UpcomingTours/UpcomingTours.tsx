@@ -1,33 +1,20 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-
 import CalendarIcon from '/public/icons/date.svg';
 
-import { ITours, Pages } from '@/@types';
-import { fetchUpcomingTours } from '@/actions';
+import { IAllToursProps, Pages } from '@/@types';
 import Slider from '@/components/common/Slider';
 import LinkButton from '@/components/ui/LinkButton';
 import TourCard from '@/components/ui/TourCard';
 import { upcomingTours } from '@/data';
 
-const UpcomingTours = () => {
-  const [dataUpcomingTours, setDataUpcomingTours] = useState<ITours[]>([]);
-
-  useEffect(() => {
-    const getUpcomingTours = async () => {
-      try {
-        const data = await fetchUpcomingTours();
-        if (data) {
-          setDataUpcomingTours(data);
-        }
-      } catch (error) {
-        return null;
-      }
-    };
-
-    getUpcomingTours();
-  }, []);
+const UpcomingTours: React.FC<IAllToursProps> = ({ dataAllTours }) => {
+  const currentDate = new Date();
+  const dataUpcomingTours = dataAllTours
+    .filter(item => new Date(item.attributes.date) >= currentDate)
+    .sort(
+      (a, b) =>
+        new Date(a.attributes.date).getTime() -
+        new Date(b.attributes.date).getTime(),
+    );
 
   const shouldShowSlider = dataUpcomingTours.length >= 4;
 

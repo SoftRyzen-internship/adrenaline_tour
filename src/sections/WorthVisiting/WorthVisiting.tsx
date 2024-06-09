@@ -1,44 +1,26 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-
-import { ITours } from '@/@types';
-import { fetchWorthVisiting } from '@/actions';
+import { IAllToursProps } from '@/@types';
 import Slider from '@/components/common/Slider';
 import TourCard from '@/components/ui/TourCard';
 import { worthVisiting } from '@/data';
 
-const WorthVisiting = () => {
-  const [dataWorthVisiting, setDataWorthVisiting] = useState<ITours[]>([]);
+const WorthVisiting: React.FC<IAllToursProps> = ({ dataAllTours }) => {
+  const recommendedData = dataAllTours.filter(
+    item => item.attributes.recommended,
+  );
 
-  useEffect(() => {
-    const getWorthVisiting = async () => {
-      try {
-        const data = await fetchWorthVisiting();
-        if (data) {
-          setDataWorthVisiting(data);
-        }
-      } catch (error) {
-        return null;
-      }
-    };
-
-    getWorthVisiting();
-  }, []);
-
-  const shouldShowSlider = dataWorthVisiting.length >= 4;
+  const shouldShowSlider = recommendedData.length >= 4;
 
   const worthVisitingContent = shouldShowSlider ? (
     <Slider
       section='worthVisiting'
-      slides={dataWorthVisiting.map(item => ({
+      slides={recommendedData.map(item => ({
         id: item.id,
         content: <TourCard key={item.id} data={item} />,
       }))}
     />
   ) : (
     <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3'>
-      {dataWorthVisiting.map(item => (
+      {recommendedData.map(item => (
         <TourCard key={item.id} data={item} />
       ))}
     </div>
