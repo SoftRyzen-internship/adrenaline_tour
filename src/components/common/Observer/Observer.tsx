@@ -1,16 +1,32 @@
+'use client';
+import { useState } from 'react';
+
+import { ISelectState } from '@/@types';
+
 import ArrowRight from '/public/icons/arrow-right.svg';
 import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
 import CalendarIcon from '/public/icons/date.svg';
 import FacebookIcon from '/public/icons/facebook.svg';
 
 import DisclosureFaq from '@/components/common/DisclosureFaq';
+import DropdownList from '@/components/common/DropdownList';
 import FaqNavMenu from '@/components/common/FaqNavMenu';
 import Button from '@/components/ui/Button';
-import DropdownList from '@/components/ui/DropdownList';
+import CustomSelect from '@/components/ui/CustomSelect';
 import FeatureRow from '@/components/ui/FeaturesRow';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
-import { faq, activitiesDataTemporary, countryDataTemporary } from '@/data';
+import { faq, activitiesDataTemporary, countriesDataTemporary } from '@/data';
+import { createDataSelectOptions } from '@/utils';
+
+const activitiesData = createDataSelectOptions(
+  activitiesDataTemporary.data,
+  'Всі активності',
+);
+const countriesData = createDataSelectOptions(
+  countriesDataTemporary.data,
+  'Всі країни',
+);
 
 const feature = {
   id: 1,
@@ -22,23 +38,33 @@ const feature = {
 const Observer = () => {
   const { disclosures } = faq;
 
+  const [selectedActivitiesItem, setSelectedActivitiesItem] =
+    useState<ISelectState>(activitiesData.at(-1) as ISelectState);
+
+  const [selectedCountryItem, setSelectedCountryItem] = useState<ISelectState>(
+    countriesData.at(-1) as ISelectState,
+  );
+
   return (
     <div>
       <h1 className='mt-10'>
         The temporary component is used for the observation of newly created
         components.
       </h1>
-      <div className='border-2 border-emerald-200 p-5 smOnly:space-y-3 md:space-x-4 xl:space-x-3'>
-        <DropdownList
-          data={activitiesDataTemporary.data}
-          defaultOptionLabel='Всі активності'
-          className=''
-        />
-        <DropdownList
-          data={countryDataTemporary.data}
-          defaultOptionLabel='Всі країни'
-          className=''
-        />
+      <p className='text-center text-[24px] font-bold'>Дропдаун фільтрів</p>
+      <div className='container py-5'>
+        <DropdownList>
+          <CustomSelect
+            data={activitiesData}
+            selectedItem={selectedActivitiesItem}
+            onChange={setSelectedActivitiesItem}
+          />
+          <CustomSelect
+            data={countriesData}
+            selectedItem={selectedCountryItem}
+            onChange={setSelectedCountryItem}
+          />
+        </DropdownList>
       </div>
 
       <p className='container text-center text-[24px] font-bold'>

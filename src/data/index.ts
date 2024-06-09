@@ -1,5 +1,5 @@
 export { default as activitiesDataTemporary } from './activitiesDataTemporary.json';
-export { default as countryDataTemporary } from './countryDataTemporary.json';
+export { default as countriesDataTemporary } from './countriesDataTemporary.json';
 
 export { default as metaData } from './metaData.json';
 export { default as logo } from './logo.json';

@@ -1,7 +1,3 @@
-'use client';
-
-import { useState } from 'react';
-
 import {
   Listbox,
   ListboxButton,
@@ -14,20 +10,15 @@ import clsx from 'clsx';
 import ArrowIcon from '/public/icons/arrow-scndry.svg';
 import CheckIcon from '/public/icons/check-mark.svg';
 
-import { DataList, IDropdownListProps } from './DropdownList.types';
-// import s from "./DropdownList.module.css"
+import { ICustomSelectProps } from './CustomSelect.types';
 
-const DropdownList: React.FC<IDropdownListProps> = ({
+const CustomSelect: React.FC<ICustomSelectProps> = ({
   data,
-  defaultOptionLabel,
+  selectedItem,
+  onChange,
   className,
 }) => {
-  const allSelectOption: DataList = {
-    id: -1,
-    attributes: { name: defaultOptionLabel },
-  };
-  const options = [...data, allSelectOption];
-  const [selectedItems, setSelectedItems] = useState<DataList>(allSelectOption);
+  const pickedValue = selectedItem.attributes.name;
 
   return (
     <div
@@ -36,33 +27,30 @@ const DropdownList: React.FC<IDropdownListProps> = ({
         className,
       )}
     >
-      <Listbox value={selectedItems} onChange={setSelectedItems}>
+      <Listbox defaultValue={selectedItem} onChange={onChange}>
         <ListboxButton
           className={clsx(
             'group inline-flex w-full items-center justify-between border-2 border-greyBorder px-4 py-3 text-left transition data-[open]:border-orangeBorder data-[open]:text-accentDarkOrange hover:border-orangeBorder hover:text-accentDarkOrange focus:border-orangeBorder focus:text-accentDarkOrange md:py-4',
           )}
         >
-          {selectedItems.attributes.name}
+          {pickedValue}
           <ArrowIcon
             className='pointer-events-none size-[18px] fill-current transition group-data-[open]:rotate-180'
             aria-hidden='true'
           />
         </ListboxButton>
         <Transition
-          enter='transition ease-in duration-200 origin-top'
-          enterFrom='opacity-50 scale-y-0'
-          enterTo='opacity-100 scale-y-100'
           leave='transition ease-in duration-500 origin-top'
           leaveFrom='opacity-100 scale-y-100'
           leaveTo='opacity-50 scale-y-0'
         >
           <ListboxOptions
-            anchor={{ to: 'bottom end', gap: 12 }}
+            anchor={{ to: 'bottom start', gap: 12 }}
             modal={false}
             as='ul'
             className='w-[var(--button-width)] space-y-1 overflow-y-auto border-2 border-accentDefaultOrange bg-white [--anchor-max-height:280px] focus:outline-none'
           >
-            {options.map(item => (
+            {data.map(item => (
               <ListboxOption
                 as='li'
                 key={item.id}
@@ -82,4 +70,4 @@ const DropdownList: React.FC<IDropdownListProps> = ({
   );
 };
 
-export default DropdownList;
+export default CustomSelect;
