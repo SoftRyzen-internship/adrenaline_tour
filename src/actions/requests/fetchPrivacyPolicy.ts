@@ -21,7 +21,6 @@ export const fetchPrivacyPolicy = async () => {
     const result = await response.json();
     return result.data.policy.data.attributes;
   } catch (error) {
-    console.error('Error fetching policy data:', error);
     return null;
   }
 };
