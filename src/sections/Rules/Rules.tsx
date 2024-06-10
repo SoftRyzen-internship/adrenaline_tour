@@ -2,8 +2,6 @@
 
 import { useState } from 'react';
 
-import clsx from 'clsx';
-
 import Slider from '@/components/common/Slider';
 import CardRule from '@/components/ui/CardRule';
 
@@ -45,19 +43,22 @@ const Rules = () => {
       <h2 className='section-title mb-8 w-[194px] md:mb-14 md:w-[478px] xl:mb-20 xl:w-[573px]'>
         {rules.title}
       </h2>
-      {!isDesktop && <Slider slides={slides} section='upcomingTours' />}
-      <ul className={clsx('gap-8', { flex: isDesktop, hidden: !isDesktop })}>
-        {rules.rules.map(({ id, title, description }, index) => (
-          <CardRule
-            key={id}
-            title={title}
-            description={description}
-            icon={IconsRules[id]}
-            isActive={index === activeIndex}
-            onClick={() => setActiveIndex(index)}
-          />
-        ))}
-      </ul>
+      {isDesktop ? (
+        <ul className='flex gap-8'>
+          {rules.rules.map(({ id, title, description }, index) => (
+            <CardRule
+              key={id}
+              title={title}
+              description={description}
+              icon={IconsRules[id]}
+              isActive={index === activeIndex}
+              onClick={() => setActiveIndex(index)}
+            />
+          ))}
+        </ul>
+      ) : (
+        <Slider slides={slides} section='upcomingTours' />
+      )}
     </section>
   );
 };
