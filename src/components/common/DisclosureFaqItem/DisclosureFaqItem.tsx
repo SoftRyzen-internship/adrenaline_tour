@@ -86,18 +86,20 @@ const DisclosureItem: React.FunctionComponent<IDisclosureItemProps> = ({
           </ul>
         </div>
 
-        <div
-          className={clsx(
-            'pl-4 transition-all duration-500',
-            showReadMoreButton && panelOpenId === item.id
-              ? 'max-h-60 opacity-100'
-              : 'max-h-0 opacity-0',
-          )}
-        >
-          <div className='border-l-[1px] border-blue32 pl-4'>
-            <ReadMoreOpenDisclosureModal item={item} />
+        {showReadMoreButton && panelOpenId === item.id && (
+          <div
+            className={clsx(
+              'pl-4 transition-all duration-500',
+              showReadMoreButton && panelOpenId === item.id
+                ? 'max-h-20 opacity-100'
+                : 'max-h-0 opacity-100',
+            )}
+          >
+            <div className='border-l-[1px] border-blue32 pl-4'>
+              <ReadMoreOpenDisclosureModal item={item} />
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </>
   );
