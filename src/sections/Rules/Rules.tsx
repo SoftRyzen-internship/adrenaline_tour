@@ -11,6 +11,7 @@ import Hiking from '/public/icons/hiking.svg';
 import Health from '/public/icons/health.svg';
 
 import { rules } from '@/data';
+import useScreenSize from '@/hooks/useScreenSize';
 
 import { IIconsRules } from './Rules.types';
 
@@ -35,23 +36,29 @@ const slides = rules.rules.map(({ id, title, description }) => ({
 
 const Rules = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const isDesktop = useScreenSize('(min-width: 1280px)');
 
   return (
     <section className='section container'>
-      <h2 className='section-title mb-8 w-[194px]'>{rules.title}</h2>
-      <Slider slides={slides} section='upcomingTours' className={'xl:hidden'} />
-      <ul className='flex gap-8 smOnly:hidden mdOnly:hidden'>
-        {rules.rules.map(({ id, title, description }, index) => (
-          <CardRule
-            key={id}
-            title={title}
-            description={description}
-            icon={IconsRules[id]}
-            isActive={index === activeIndex}
-            onClick={() => setActiveIndex(index)}
-          />
-        ))}
-      </ul>
+      <h2 className='section-title mb-8 w-[194px] md:mb-14 md:w-[478px] xl:mb-20 xl:w-[573px]'>
+        {rules.title}
+      </h2>
+      {isDesktop ? (
+        <ul className='flex gap-8'>
+          {rules.rules.map(({ id, title, description }, index) => (
+            <CardRule
+              key={id}
+              title={title}
+              description={description}
+              icon={IconsRules[id]}
+              isActive={index === activeIndex}
+              onClick={() => setActiveIndex(index)}
+            />
+          ))}
+        </ul>
+      ) : (
+        <Slider slides={slides} section='upcomingTours' />
+      )}
     </section>
   );
 };
