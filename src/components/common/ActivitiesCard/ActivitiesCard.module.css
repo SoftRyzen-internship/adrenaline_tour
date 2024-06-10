@@ -1,8 +1,4 @@
 .gradient {
-  background-image: linear-gradient(
-    to top,
-    rgba(0, 54, 84, 0.4),
-    rgba(3, 11, 76, 0.08),
-    rgba(3, 11, 76, 0)
-  );
+  background-image: linear-gradient(to top, rgba(0, 54, 84, 0.4), rgba(3, 11, 76, 0.08), rgba(3, 11, 76, 0)  );
 }
+
