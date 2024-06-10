@@ -7,8 +7,10 @@ import TourCard from '@/components/ui/TourCard';
 import { upcomingTours } from '@/data';
 
 const UpcomingTours: React.FC<IAllToursProps> = ({ dataAllTours }) => {
+  const tours = dataAllTours ?? [];
+
   const currentDate = new Date();
-  const dataUpcomingTours = dataAllTours
+  const dataUpcomingTours = tours
     .filter(item => new Date(item.attributes.date) >= currentDate)
     .sort(
       (a, b) =>

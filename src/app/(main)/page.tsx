@@ -1,5 +1,5 @@
 import { Pages } from '@/@types';
-import { fetchAllTours } from '@/actions';
+import { fetchAllTours } from '@/actions/requests';
 import Gallery from '@/sections/Gallery';
 import Hero from '@/sections/Hero';
 import OurActivities from '@/sections/OurActivities';

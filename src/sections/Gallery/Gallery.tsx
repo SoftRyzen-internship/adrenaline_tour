@@ -1,37 +1,19 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-
-import { fetchGallery } from '@/actions';
+import { fetchGallery } from '@/actions/requests';
 import SliderGallery from '@/components/common/SliderGallery';
 import CardGallery from '@/components/ui/CardGallery';
 import { gallery } from '@/data';
 
 import { IGallery } from './Gallery.types';
 
-const Gallery = () => {
-  const [dataGallery, setDataGallery] = useState<IGallery[]>([]);
+const Gallery = async () => {
+  const dataGallery: IGallery[] = await fetchGallery();
+  const data = dataGallery ?? [];
 
-  useEffect(() => {
-    const getGallery = async () => {
-      try {
-        const data = await fetchGallery();
-        if (data) {
-          setDataGallery(data);
-        }
-      } catch (error) {
-        return null;
-      }
-    };
-
-    getGallery();
-  }, []);
-
-  const shouldShowSlider = dataGallery.length >= 4;
+  const shouldShowSlider = data.length >= 4;
 
   const galleryContent = shouldShowSlider ? (
     <SliderGallery
-      slides={dataGallery.map(({ attributes }, index) => ({
+      slides={data.map(({ attributes }, index) => ({
         id: index,
         content: (
           <CardGallery
@@ -44,7 +26,7 @@ const Gallery = () => {
     />
   ) : (
     <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
-      {dataGallery.map(({ attributes }, index) => (
+      {data.map(({ attributes }, index) => (
         <CardGallery
           key={index}
           src={attributes.url}

@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import { Pages } from '@/@types';
-import { fetchAllTours } from '@/actions';
+import { fetchAllTours } from '@/actions/requests';
 import { metaData } from '@/data';
 import Gallery from '@/sections/Gallery';
 import Hero from '@/sections/Hero';

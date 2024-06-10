@@ -1,21 +1,9 @@
+import { getContact } from '../query';
+
 const API_URL = 'https://adrenaline-tour-admin.onrender.com/graphql';
 
-const fetchReviews = async () => {
-  const query = `query getReviews {
-    review {
-      data {
-        attributes{
-          reviews {
-            id
-            title
-            text
-            author
-            date
-          }
-        }
-      }
-    }
-  }`;
+const fetchContacts = async () => {
+  const query = getContact;
 
   try {
     const response = await fetch(API_URL, {
@@ -28,11 +16,11 @@ const fetchReviews = async () => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    const res = await response.json();
-    return res.data.review.data.attributes.reviews;
+    const result = await response.json();
+    return result.data.contact.data.attributes;
   } catch (error) {
     return null;
   }
 };
 
-export default fetchReviews;
+export default fetchContacts;

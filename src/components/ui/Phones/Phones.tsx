@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Phone from '/public/icons/phone.svg';
 import Email from '/public/icons/email.svg';
 
-import fetchGetContacts from '@/actions/fetchContacts';
+import { fetchContacts } from '@/actions/requests';
 import { formatPhoneNumber } from '@/utils';
 
 import { IContact, IPhonesProps } from './Phones.types';
@@ -19,7 +19,7 @@ const Phones: React.FC<IPhonesProps> = ({
   useEffect(() => {
     const getContacts = async () => {
       try {
-        const data = await fetchGetContacts();
+        const data = await fetchContacts();
         if (data) {
           setContacts(data);
         }
