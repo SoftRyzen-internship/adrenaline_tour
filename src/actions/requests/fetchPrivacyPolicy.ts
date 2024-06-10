@@ -1,6 +1,8 @@
+import { configuration } from '@/utils';
+
 import { getPolicy } from '../query';
 
-const API_URL = 'https://adrenaline-tour-admin.onrender.com/graphql';
+const API_URL = `${configuration.BASE_DATA_URL}graphql`;
 
 export const fetchPrivacyPolicy = async () => {
   const query = getPolicy;
