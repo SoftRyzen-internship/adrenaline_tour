@@ -1,7 +1,7 @@
 export interface ICardRuleProps {
   title: string;
   description: string;
-  icon: React.ReactNode;
+  icon: JSX.Element;
   isActive?: boolean;
   onClick?: () => void;
 }

@@ -1,5 +1,6 @@
 .bgReviews {
-  background-image: url('/images/reviews/mountainVector@1x.webp'), url('/images/bg-icons@1x.webp');
+  background-image: url('/images/reviews/mountainVector@1x.webp'),
+    url('/images/reviews/bgReviews@1x.webp');
   background-repeat: no-repeat;
   background-position: top center;
   background-size:
@@ -23,6 +24,7 @@
 
 @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
   .bgReviews {
-    background-image: url('/images/reviews/mountainVector@2x.webp'), url('/images/bg-icons@2x.webp');
+    background-image: url('/images/reviews/mountainVector@2x.webp'),
+      url('/images/reviews/bgReviews@2x.webp');
   }
 }

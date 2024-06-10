@@ -1,3 +1,3 @@
 export interface IIconsRules {
-  [key: string]: React.ReactNode;
+  [key: string]: JSX.Element;
 }
