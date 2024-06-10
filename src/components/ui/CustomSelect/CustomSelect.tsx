@@ -40,15 +40,18 @@ const CustomSelect: React.FC<ICustomSelectProps> = ({
           />
         </ListboxButton>
         <Transition
+          enter='transition ease-in duration-500 origin-top'
+          enterFrom='opacity-50 scale-y-0'
+          enterTo='opacity-100 scale-y-100'
           leave='transition ease-in duration-500 origin-top'
           leaveFrom='opacity-100 scale-y-100'
           leaveTo='opacity-50 scale-y-0'
         >
           <ListboxOptions
-            anchor={{ to: 'bottom start', gap: 12 }}
             modal={false}
+            static={true}
             as='ul'
-            className='w-[var(--button-width)] space-y-1 overflow-y-auto border-2 border-accentDefaultOrange bg-white [--anchor-max-height:280px] focus:outline-none'
+            className='absolute z-50 mt-3 max-h-[280px] w-[var(--button-width)] space-y-1 overflow-y-auto border-2 border-accentDefaultOrange bg-white focus:outline-none'
           >
             {data.map(item => (
               <ListboxOption
