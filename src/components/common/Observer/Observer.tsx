@@ -13,7 +13,7 @@ import DropdownList from '@/components/common/DropdownList';
 import FaqNavMenu from '@/components/common/FaqNavMenu';
 import Button from '@/components/ui/Button';
 import CustomSelect from '@/components/ui/CustomSelect';
-import FeatureRow from '@/components/ui/FeaturesRow';
+import FeatureRow from '@/components/ui/FeatureRow';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import { faq, activitiesDataTemporary, countriesDataTemporary } from '@/data';
