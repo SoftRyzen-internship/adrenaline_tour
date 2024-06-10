@@ -1,3 +1,6 @@
+export { default as activitiesDataTemporary } from './activitiesDataTemporary.json';
+export { default as countriesDataTemporary } from './countriesDataTemporary.json';
+
 export { default as metaData } from './metaData.json';
 export { default as logo } from './logo.json';
 export { default as phones } from './phones.json';
