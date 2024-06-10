@@ -17,7 +17,7 @@ const FaqNavMenu: React.FC = () => {
   };
 
   return (
-    <ul className='flex'>
+    <ul className='hidden xl:flex'>
       {disclosures.map(({ id, sectionId, label }) => (
         <li key={id}>
           <LinkButton
