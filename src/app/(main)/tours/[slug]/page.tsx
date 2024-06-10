@@ -16,7 +16,7 @@ export async function generateMetadata({
   const variables = {
     slug: slug,
   };
-  const response = await fetch(`${configuration.BASE_DATA_URL}graphql`, {
+  const response = await fetch(`${configuration.BASE_DATA_URL}}/graphql`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
