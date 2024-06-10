@@ -59,6 +59,10 @@ const config: Config = {
         greyBorder: 'rgba(21, 67, 67, 0.40)',
         orangeBorder: 'rgba(255, 96, 51, 0.4)',
       },
+      boxShadow: {
+        'bottom-md':
+          '0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12)',
+      },
     },
   },
   plugins: [require('tailwind-scrollbar'), require('@tailwindcss/typography')],
