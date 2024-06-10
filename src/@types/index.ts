@@ -41,6 +41,13 @@ export interface IDisclosure {
   items: IDisclosureItem[];
 }
 
+export interface ISelectState {
+  id: number;
+  attributes: {
+    name: string;
+  };
+}
+
 export interface IActivity {
   id: string;
   attributes: {

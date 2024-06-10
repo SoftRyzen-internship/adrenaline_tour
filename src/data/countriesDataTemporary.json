@@ -1,0 +1,57 @@
+{
+  "data": [
+    {
+      "id": 2,
+      "attributes": {
+        "name": "Україна",
+        "createdAt": "2024-06-03T13:50:00.486Z",
+        "updatedAt": "2024-06-03T13:50:00.486Z",
+        "publishedAt": "2024-06-03T13:51:32.419Z"
+      }
+    },
+    {
+      "id": 3,
+      "attributes": {
+        "name": "Чехія",
+        "createdAt": "2024-06-03T13:50:20.838Z",
+        "updatedAt": "2024-06-03T13:50:20.838Z",
+        "publishedAt": "2024-06-03T13:51:32.419Z"
+      }
+    },
+    {
+      "id": 4,
+      "attributes": {
+        "name": "Австрія",
+        "createdAt": "2024-06-03T13:50:35.101Z",
+        "updatedAt": "2024-06-03T13:50:35.101Z",
+        "publishedAt": "2024-06-03T13:51:32.419Z"
+      }
+    },
+    {
+      "id": 5,
+      "attributes": {
+        "name": "Румунія",
+        "createdAt": "2024-06-03T13:50:47.470Z",
+        "updatedAt": "2024-06-03T13:50:47.470Z",
+        "publishedAt": "2024-06-03T13:51:32.419Z"
+      }
+    },
+    {
+      "id": 6,
+      "attributes": {
+        "name": "Італія",
+        "createdAt": "2024-06-03T13:51:00.118Z",
+        "updatedAt": "2024-06-03T13:51:00.118Z",
+        "publishedAt": "2024-06-03T13:51:32.419Z"
+      }
+    }
+  ],
+  "meta": {
+    "pagination": {
+      "page": 1,
+      "pageSize": 25,
+      "pageCount": 1,
+      "total": 5
+    }
+  }
+}

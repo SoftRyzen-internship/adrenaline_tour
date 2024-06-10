@@ -1,29 +1,32 @@
 'use client';
 import { useState } from 'react';
 
-import clsx from 'clsx';
+import { ISelectState } from '@/@types';
 
 import ArrowRight from '/public/icons/arrow-right.svg';
 import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
-import BurgerMenuIcon from '/public/icons/burger-menu-sm.svg';
 import CalendarIcon from '/public/icons/date.svg';
 import FacebookIcon from '/public/icons/facebook.svg';
 
-import BurgerMenu from '@/components/common/BurgerMenu';
 import DisclosureFaq from '@/components/common/DisclosureFaq';
+import DropdownList from '@/components/common/DropdownList';
 import FaqNavMenu from '@/components/common/FaqNavMenu';
 import Button from '@/components/ui/Button';
-import FeatureRow from '@/components/ui/FeaturesRow';
+import CustomSelect from '@/components/ui/CustomSelect';
+import FeatureRow from '@/components/ui/FeatureRow';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
-import Logo from '@/components/ui/Logo';
-import Modal from '@/components/ui/Modal';
-import Phones from '@/components/ui/Phones';
-import Social from '@/components/ui/Social';
-import { faq } from '@/data';
+import { faq, activitiesDataTemporary, countriesDataTemporary } from '@/data';
+import { createDataSelectOptions } from '@/utils';
 
-import s from './Observer.module.css';
-import { IObserverProps } from './Observer.types';
+const activitiesData = createDataSelectOptions(
+  activitiesDataTemporary.data,
+  'Всі активності',
+);
+const countriesData = createDataSelectOptions(
+  countriesDataTemporary.data,
+  'Всі країни',
+);
 
 const feature = {
   id: 1,
@@ -32,31 +35,38 @@ const feature = {
   icon: 'trip',
 };
 
-const Observer: React.FC<IObserverProps> = ({ children }) => {
+const Observer = () => {
   const { disclosures } = faq;
-  const [isOpenBurger, setIsOpenBurger] = useState(false);
-  const [isOpenSimple, setIsOpenSimple] = useState(false);
+
+  const [selectedActivitiesItem, setSelectedActivitiesItem] =
+    useState<ISelectState>(activitiesData.at(-1) as ISelectState);
+
+  const [selectedCountryItem, setSelectedCountryItem] = useState<ISelectState>(
+    countriesData.at(-1) as ISelectState,
+  );
 
   return (
     <div>
-      <h1
-        className={clsx(
-          'text-center text-2xl text-blue-800',
-          children && s['text-color'],
-        )}
-      >
+      <h1 className='mt-10'>
         The temporary component is used for the observation of newly created
         components.
       </h1>
-
-      <div className='section container bg-blueDefault'>
-        <Social variant='header' />
-        <Phones variant='contacts' />
-
-        <Logo textWhite={false} width={252} height={80} />
+      <p className='text-center text-[24px] font-bold'>Дропдаун фільтрів</p>
+      <div className='container py-5'>
+        <DropdownList>
+          <CustomSelect
+            data={activitiesData}
+            selectedItem={selectedActivitiesItem}
+            onChange={setSelectedActivitiesItem}
+          />
+          <CustomSelect
+            data={countriesData}
+            selectedItem={selectedCountryItem}
+            onChange={setSelectedCountryItem}
+          />
+        </DropdownList>
       </div>
 
-      {children}
       <p className='container text-center text-[24px] font-bold'>
         Component LinkButton
       </p>
@@ -159,55 +169,6 @@ const Observer: React.FC<IObserverProps> = ({ children }) => {
             />
           </IconButton>
         </div>
-      </div>
-
-      <p className='container text-center text-[24px] font-bold'>
-        Component Modal
-      </p>
-      <div className='container bg-darkBlue px-4 py-4'>
-        <p className='text-white'>variant - burger</p>
-        <IconButton
-          ariaLabel='Відкрити Модалку'
-          onClick={() => setIsOpenBurger(true)}
-        >
-          <BurgerMenuIcon
-            width={32}
-            height={32}
-            className='h-8 w-8 stroke-white transition hover:stroke-accentDefaultOrange'
-          />
-        </IconButton>
-        <Modal
-          isOpen={isOpenBurger}
-          variant='burger'
-          close={() => setIsOpenBurger(false)}
-        >
-          <BurgerMenu onCloseMenu={() => setIsOpenBurger(false)} />
-        </Modal>
-      </div>
-      <div className='container bg-darkBlue px-4 py-4'>
-        <p className='text-white'>variant - simple</p>
-        <Button
-          type='button'
-          variant='readMore-main'
-          onClick={() => setIsOpenSimple(true)}
-        >
-          Читати більше
-        </Button>
-        <Modal
-          isOpen={isOpenSimple}
-          variant='simple'
-          close={() => setIsOpenSimple(false)}
-        >
-          <div className='p-10'>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Distinctio
-            corrupti corporis consequatur autem, libero omnis fugit earum natus
-            nesciunt sunt illum repellat perferendis deleniti eum sed animi
-            optio exercitationem. Perferendis molestiae est ex itaque
-            perspiciatis minus, dolorum vero? Iure doloribus quisquam culpa
-            consequatur velit adipisci quis dignissimos a. Vitae,
-            exercitationem!
-          </div>
-        </Modal>
       </div>
 
       <div className='container'>

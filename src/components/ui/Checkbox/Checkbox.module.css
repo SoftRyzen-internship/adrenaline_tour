@@ -25,6 +25,7 @@
 }
 .custom-checkbox:checked + span::before {
   background: white url('/icons/check-mark.svg');
+  color: #022c43;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 13px 13px;

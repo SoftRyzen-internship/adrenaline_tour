@@ -1,23 +1,37 @@
 import { IdForScroll, Pages } from '@/@types';
+import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import { ILinkButtonProps } from '@/components/ui/LinkButton/LinkButton.types';
 import Logo from '@/components/ui/Logo';
 import NavMenu from '@/components/ui/NavMenu';
 import PageConditionalRender from '@/components/ui/PageConditionalRender';
 import Social from '@/components/ui/Social';
-import { burgerMenuData } from '@/data';
+import { ariaLabel, burgerMenuData } from '@/data';
+
+import CloseIcon from '/public/icons/close_24.svg';
 
 import { IBurgerMenuProps } from './BurgerMenu.types';
 
 const BurgerMenu: React.FC<IBurgerMenuProps> = ({ onCloseMenu }) => {
   return (
-    <div className='container flex min-h-full flex-col justify-between pb-11 pt-6 md:pb-[100px] xl:pl-20'>
-      <Logo
-        width={126}
-        height={40}
-        className='h-16 w-[201px] xl:sr-only xl:invisible xl:left-0 xl:top-0 xl:h-0 xl:w-0'
-        onClick={onCloseMenu}
-      />
+    <div className='container flex min-h-full flex-col justify-between pb-11 pt-6 md:pb-[100px] xl:pl-20 xl:pr-28'>
+      <div className='flex items-center justify-between xl:pt-6'>
+        <Logo
+          width={126}
+          height={40}
+          className='h-16 w-[201px] xl:sr-only xl:invisible xl:left-0 xl:top-0 xl:hidden xl:h-0 xl:w-0'
+          onClick={onCloseMenu}
+        />
+
+        <IconButton
+          type='button'
+          ariaLabel={ariaLabel.burgerClose}
+          onClick={onCloseMenu}
+          className='stroke-grey01 transition hover:stroke-accentDarkOrange focus:stroke-accentDarkOrange'
+        >
+          <CloseIcon width={24} height={24} className='xl:h-12 xl:w-12' />
+        </IconButton>
+      </div>
       <NavMenu buttonStyle='navLink' onCloseMenu={onCloseMenu} />
       <div className='smOnly:space-y-8 md:space-x-12 notXL:text-center'>
         <PageConditionalRender<ILinkButtonProps>

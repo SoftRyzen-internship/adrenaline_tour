@@ -1,11 +1,15 @@
 import showdown from 'showdown';
 
 import { fetchPrivacyPolicy } from '@/actions/requests/fetchPrivacyPolicy';
+import ErrorComponent from '@/components/ui/ErrorComponent';
 
 const converter = new showdown.Converter();
 
 const Policy = async () => {
   const policy = await fetchPrivacyPolicy();
+  if (!policy) {
+    return <ErrorComponent />;
+  }
 
   const htmlContent = converter.makeHtml(policy.text);
 
