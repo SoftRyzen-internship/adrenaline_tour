@@ -1,15 +1,7 @@
 import clsx from 'clsx';
 
 import s from './FeatureRow.module.css';
-
-interface IFeatureRowProps {
-  feature: {
-    id: number;
-    caption: string;
-    text: string | null;
-    icon: string;
-  };
-}
+import { IFeatureRowProps } from './FeatureRow.types';
 
 const FeatureRow: React.FC<IFeatureRowProps> = ({ feature }) => {
   return (

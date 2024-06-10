@@ -8,18 +8,17 @@ import { metaData } from '@/data';
 import Footer from '@/layout/Footer';
 import Header from '@/layout/Header';
 import './globals.css';
-
-const BASE_APP_URL = process.env.BASE_APP_URL as string;
+import { configuration } from '@/utils';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(BASE_APP_URL),
+  metadataBase: new URL(configuration.BASE_APP_URL as string),
   title: metaData.mainTitle,
   description: metaData.description,
   keywords: metaData.keywords,
   icons: metaData.icons,
   openGraph: {
     type: 'website',
-    url: BASE_APP_URL,
+    url: configuration.BASE_APP_URL,
     title: metaData.ogTitle,
     description: metaData.ogDescription,
     siteName: metaData.ogSiteName,
