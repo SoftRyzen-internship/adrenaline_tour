@@ -25,5 +25,5 @@ export { default as activities } from './activitiesData.json';
 export { default as header } from './header.json';
 export { default as rules } from './rules.json';
 export { default as worthVisiting } from './worthVisiting.json';
-export { default as features } from './features.json';
+export { default as featuresData } from './featuresData.json';
 export { default as tipsData } from './tipsData.json';

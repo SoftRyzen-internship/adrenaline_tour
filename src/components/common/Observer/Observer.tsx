@@ -11,12 +11,14 @@ import FacebookIcon from '/public/icons/facebook.svg';
 import DisclosureFaq from '@/components/common/DisclosureFaq';
 import DropdownList from '@/components/common/DropdownList';
 import FaqNavMenu from '@/components/common/FaqNavMenu';
+import FeaturesTable from '@/components/common/FeaturesTable';
 import Button from '@/components/ui/Button';
 import CustomSelect from '@/components/ui/CustomSelect';
 import FeatureRow from '@/components/ui/FeatureRow';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import { faq, activitiesDataTemporary, countriesDataTemporary } from '@/data';
+import { featuresData } from '@/data';
 import { createDataSelectOptions } from '@/utils';
 
 const activitiesData = createDataSelectOptions(
@@ -36,6 +38,7 @@ const feature = {
 };
 
 const Observer = () => {
+  const { features } = featuresData;
   const { disclosures } = faq;
 
   const [selectedActivitiesItem, setSelectedActivitiesItem] =
@@ -181,6 +184,12 @@ const Observer = () => {
             Component FeatureRow
           </p>
           <FeatureRow feature={feature} />
+        </div>
+        <div className='container'>
+          <p className='mb-2 text-center text-[24px] font-bold'>
+            Component FeatureTable
+          </p>
+          <FeaturesTable features={features} />
         </div>
       </div>
     </div>
