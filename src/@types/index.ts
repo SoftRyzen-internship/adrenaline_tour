@@ -40,3 +40,10 @@ export interface IDisclosure {
   sectionId: string;
   items: IDisclosureItem[];
 }
+
+export interface ISelectState {
+  id: number;
+  attributes: {
+    name: string;
+  };
+}

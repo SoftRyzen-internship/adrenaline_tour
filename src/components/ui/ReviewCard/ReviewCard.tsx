@@ -3,13 +3,15 @@
 import { useState, useRef, useEffect } from 'react';
 
 import clsx from 'clsx';
+import dynamic from 'next/dynamic';
 
 import Button from '@/components/ui/Button';
-import Modal from '@/components/ui/Modal';
 import ReviewModalContent from '@/components/ui/ReviewModalContent';
 import { reviews } from '@/data';
 
 import { IReviewCardProps } from './ReviewCard.types';
+
+const Modal = dynamic(() => import('@/components/ui/Modal'));
 
 const ReviewCard: React.FC<IReviewCardProps> = ({
   title,

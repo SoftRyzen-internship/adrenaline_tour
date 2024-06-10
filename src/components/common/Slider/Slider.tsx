@@ -39,7 +39,6 @@ const Slider: React.FC<ISliderProps> = ({
   return (
     <div className={clsx('relative', className)}>
       <Swiper
-        // className="group"
         modules={[Navigation]}
         wrapperTag='ul'
         loop={slidesLoop}
