@@ -17,3 +17,27 @@
 #### The remark
 
 If you want an extra item in data for a definite start value, You'll use `createDataSelectOptions(data, defaultValue)`. It's helped function with two required arguments.
+
+### For instance
+
+```
+const activitiesData = createDataSelectOptions(activitiesDataTemporary.data, 'Всі активності');
+const countriesData = createDataSelectOptions(countriesDataTemporary.data, Всі країни');
+
+const [selectedActivitiesItem, setSelectedActivitiesItem] = useState<ISelectState>(activitiesData.at(-1) as ISelectState);
+const [selectedCountryItem, setSelectedCountryItem] = useState<ISelectState>(countriesData.at(-1) as ISelectState,);
+
+<DropdownList>
+   <CustomSelect
+    data={activitiesData}
+    selectedItem={selectedActivitiesItem}
+    onChange={setSelectedActivitiesItem}
+  />
+  <CustomSelect
+    data={countriesData}
+    selectedItem={selectedCountryItem}
+    onChange={setSelectedCountryItem}
+  />
+</DropdownList>
+
+```
