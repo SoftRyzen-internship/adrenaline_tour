@@ -1,11 +1,9 @@
-'use client';
-
 import CalendarIcon from '/public/icons/date.svg';
 
-import { IAllToursProps, Pages } from '@/@types';
 import Slider from '@/components/common/Slider';
 import LinkButton from '@/components/ui/LinkButton';
 import TourCard from '@/components/ui/TourCard';
+import { IAllToursProps, Pages } from '@/@types';
 import { upcomingTours } from '@/data';
 
 const UpcomingTours: React.FC<IAllToursProps> = ({ dataAllTours }) => {
