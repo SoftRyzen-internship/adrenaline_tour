@@ -1,8 +1,8 @@
 <h1 align="center">ADRENALIN TOUR</h1>
 
-<p align="center">Our business covers the entire cycle — from site selection and variety selection to processing and crop storage. We also provide services for the production of processed products, such as juice, wine, and raisins.</p>
+<p align="center">Discover the thrill of adventure with ADRENALIN TOUR! Experience the rush as we scale mountain peaks, navigate pristine rivers, and unravel the mysteries of ancient cities.</p>
 
-<p align="center">Additionally, we offer grape tourism with tasting elements. Our company successfully operates in the Kharkiv region, Ukraine, and abroad, meeting the needs of our clients.</p>
+<p align="center">Immerse yourself in our unforgettable adventure routes, curated to include visits to captivating destinations and thrilling experiences tailored for the adventurous traveler. Let us be your guide as you explore new horizons and embrace the excitement of the unknown.</p>
 
 The "Adrenalin Tour" website was developed according to the design. You can view the design at the following link. [Link to the design](<https://www.figma.com/design/SiSQIfp61anqvulVVihX6o/Adrenaline-Tour!-(Copy)?t=kmjzMl34CFh85CQm-0>)
 
@@ -31,22 +31,6 @@ To run the application locally, follow these steps:
 
 - React DOM is a package that serves as the entry point to the DOM and server renderers for React. It provides DOM-specific methods that can be used to interact with the DOM during React component lifecycle.
 
-#### `sanity`:
-
-- A headless CMS (Content Management System) that provides a convenient way to structure and manage content. Sanity has a powerful content editing platform, a flexible API for fetching data, and the ability to easily integrate with various front-end frameworks like React.
-
-#### `@sanity/client`:
-
-- The official Sanity library for interacting with the Sanity API and fetching data from your Sanity content management platform. It provides a convenient and type-safe way to query and manipulate data.
-
-#### `@sanity/vision`:
-
-- A Sanity plugin that provides data structure visualization and allows you to preview content directly in the Sanity studio. This helps developers and content editors better understand and manage the data structure.
-
-#### `@sanity/ui`:
-
-- A UI component library for Sanity, providing a set of pre-styled components that make it easier to develop custom interfaces for editing content in Sanity.
-
 #### `swiper`:
 
 - A library for creating sliders and carousels in web applications. It provides smooth animations, touch gesture support for mobile devices, and many configuration options and customization possibilities.
@@ -74,10 +58,6 @@ To run the application locally, follow these steps:
 #### `@headlessui/react`:
 
 - A UI component library for React, providing a set of ready-made and accessible components such as menus, modals, dropdowns, and more.
-
-#### `sharp`:
-
-- A Node.js library for processing images on the server-side. It provides powerful tools for transforming, compressing, resizing, and manipulating images, which is useful for optimizing images before sending them to the client.
 
 <h2 align="center">Components that the application consists of:</h2>
 
