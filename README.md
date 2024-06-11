@@ -63,186 +63,91 @@ To run the application locally, follow these steps:
 
 <h3 align="center">Header and Hero</h3>
 
-<div align="center"><img src="/public/images/readme/header-hero.webp" alt="hero images" width="800" align="center"></div>
+<div align="center"><img src="/public/images/readme/hero-main.webp" alt="hero images" width="800" align="center"></div>
 
 - #### component Logo
 
 | Prop | Type | Description |
 | --- | --- | --- |
-| `theme` | `"white" or "green"` | Depending on the value, a company's logo of a certain size and color is rendered. |
-| `size` | `"small" or "big"` | For example, for Footer: `<Logo theme='green' size='big' />`. By default theme === "white" size="small". |
+| `textWhite?` | `boolean` | Depending on the value, a company's logo of a certain color of text is rendered. |
+| `width?` | `number` | sets the width of the logo |
+| `height?` | `number` | sets the height of the logo |
+| `toScroll?` | `boolean` | optional, sets scroll or not after click |
+| `onClick?` | `() => void` | optional, adds the scroll to section Hero |
+| `className?` | `string` | optional, adds the styles |
 
 <hr>
 
 - #### component NavMenu
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `onClick` | `() => void` | optional, add the function of closing the burger menu |
-| `className` | `string` | optional, props for providing additional styles. |
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `buttonStyle` | yes | string | 'navLink' for NavBar, "footer" for footer links |
+| `onCloseMenu` | not | function | The function to control the value into the state in the parent component (needed for close Burger-menu) |
+| `className` | not | string | optional, the style can be passed to manage placing the component next to others in the section |
 
 <hr>
 
-- #### component ButtonMain
+- #### component Button
 
-**ButtonMain** - for Header & Burger menu & About Us section with name `Зв'язатись з нами`, for cards with name `Замовити` and for modal window with name `На головну`;
-
-| Prop        | Type         | Description                                   |
-| ----------- | ------------ | --------------------------------------------- | ------- | ------------------------------------------------- |
-| `to`        | `string`     | anchor for react-scroll [name of the section] |
-| `chapter`   | `string`     | one of the value `'header'                    | 'about' | 'card'`, depending on where the button is located |
-| `className` | `string`     | the `string of styles` if it needed           |
-| `children`  | `ReactNode`  | name of the button                            |
-| `onClick`   | `() => void` | optional, function callback if it needed      |
-
-<hr>
-
-- #### component ButtonLess
-
-**ButtonLess** - for Contact form with name `Надіслати заявку` and for Slider's and Video player's buttons with svg arrows icons;
-
-| Prop | Type | Description |
-| --- | --- | --- | --- | --- | --- | --- |
-| `type` | `string` | one of the value `'button' | 'submit'`, depending on what type of button |
-| `purpose` | `string` | one of the value `'form' | 'slider' | 'video' | 'burger' | 'modal'`, depending on where the button is used |
-| `disabled` | `boolean` | optional, accept the value `true` or `false` for button disabled state |
-| `aria` | `string` | optional, accept value of aria-label if it needed |
-| `className` | `string` | optional, the `string of styles` if it needed |
-| `children` | `ReactNode` | optional, name of the button or svg icon |
-| `onClick` | `() => void` | optional, unction callback if it needed |
-
-<hr>
-
-- #### component BurgerMenu
-
-| Prop | Type | Description |
-| --- | --- | --- |
-| `onClick` | `() => void` | required, add the function of closing the burger menu |
-
-<hr>
-
-- #### component Hero
-
-| Prop | Type | Description |
-| --- | --- | --- |
-|  |  | Include background image with a torn effect, main title and text-description. |
-
-<hr>
-
-<h3 align="center">Our History</h3>
-
-<div align="center"><img src="/public/images/readme/history.webp" alt="history images" width="800" align="center"></div>
-
-- #### component AnimationContainer
-
-**AnimationContainer** – a reusable component for animating certain components.
-
-| Prop | Type | Description |
-| --- | --- | --- |
-| `className` | `string` | required, you need to pass the class `lg:[--x-hidden:-80px]` or `lg:[--x-hidden:80px]` depending on how you want to animate from left to right or right to left. Other classes can also be transferred. |
-| `children` | `ReactNode` | required, components & JSX-markup |
-
-<hr>
-
-- #### component Section
-
-**Section** - reusable component for all sections on the project, include adaptive container
-
-| Prop | Type | Description |
-| --- | --- | --- |
-| `id` | `string` | required, for anchor links [name of the section] |
-| `sectionStyles` | `string` | optional, string of styles for section if it needed |
-| `containerStyles` | `string` | optional, string of styles for container if it needed |
-| `children` | `ReactNode` | required, components & JSX-markup |
-| `render` | `ReactNode` | optional, components & JSX-markup |
-
-<hr>
-
-- #### component Title
-
-**Title** - reusable component for all titles on the project, includes h1 & h2 & h3
-
-| Prop        | Type        | Description                             |
-| ----------- | ----------- | --------------------------------------- | --------------------------------------------------------------------- |
-| `chapter`   | `string`    | optional, 'hero'                        | 'chapter', for h1 & h3 accordingly, and for h2 this prop don't needed |
-| `className` | `string`    | optional, string of styles if it needed |
-| `children`  | `ReactNode` | required, title of the section          |
-
-<hr>
-
-- #### component HistoryFrame
-
-| Prop | Type | Description |
-| --- | --- | --- |
-| `onClick` | `() => void` | required, includes a photo frame and a Play button to open a modal window with a video |
-
-Also include the use of components: [ButtonLess](#component-buttonless)
-
-<hr>
-
-- #### component HistoryContent
-
-| Prop | Type | Description |
-| --- | --- | --- |
-|  |  | includes a title and a brief description of the services offered by the business |
-
-Also include the use of components: [ButtonMain](#component-buttonmain)
-
-<hr>
-
-- #### component HistoryVideo
-
-| Prop | Type | Description |
-| --- | --- | --- |
-| `onClick` | `() => void` | includes a modal window component in which the children transmits an iframe video with the history of the establishment of the business |
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `children` | yes | ReactNode | required, label of the button |
+| `variant` | yes | string | required, 'main', 'secondary' - see UiKIt (Buttons), 'readMore-main', 'readMore-secondary' - see the layout |
+| `icon` | not | ReactNode | optional, your icon (example <YourIcon/>) |
+| `iconPosition` | not | string | optional, 'before' or 'after' - position of your icon |
+| `onClick` | not | () => void | optional, function callback if it needed |
+| `className` | not | string | optional, the string of styles if it needed |
 
 <hr>
 
 - #### component Modal
 
-1. Create state for control showing modal `const [modalOpen, setModalOpen] = useState<boolean>(false);`
-2. The application example - `<Modal>...</Modal>`
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `children` | yes | ReactNode | ==content of the modal window with own styles |
+| `isOpen` | yes | boolean | current state of modal |
+| `close` | yes | () => void | add the function for closeModal |
+| `variant` | yes | string | "burger" - for burgerMenu, "simple" - for other modals |
+| `className` | not | string | the string of styles if it needed |
 
-##### Importantly
+<hr>
 
-- for control sizes for Modal - transfer sizes into your component
-- to increase padding internal Modal - transfer your padding minus the default ones with your component:
+- #### section Hero
 
-| Screen | Top  | Right | Bottom | Left |
-| ------ | ---- | ----- | ------ | ---- |
-| `mob`  | 16px | 16px  | 32px   | 16px |
-| `tab`  | 24px | 24px  | 32px   | 24px |
-| `desk` | 24px | 24px  | 32px   | 24px |
+Contains background (Slider with auto scrolling), title, description.
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `show` | `boolean` | required, give created state `show={modalOpen}` |
-| `onClose` | `() => void` | required, callback with false for your components state `onClose={() => setModalOpen(false)}` |
-| `whiteBg` | `string` | optional, for white modal`s background` |
-| `title` | `string` | optional, text for the Title Modal |
-| `errorMessage` | `boolean` | optional, for title text color |
-| `children` | `ReactNode` | required, your component for showing in Modal |
+<hr>
+
+<h3 align="center">Upcoming tours</h3>
+
+<div align="center"><img src="/public/images/readme/upcoming-tours.webp" alt="history images" width="800" align="center"></div>
+
+- #### component TourCard
+
+| Prop   | Required | Type   | Description          |
+| ------ | -------- | ------ | -------------------- |
+| `data` | yes      | object | received from strapi |
+
+<hr>
+
+- #### component Slider
+
+**Slider** - component is implemented using Swiper, an open-source, free JavaScript library for creating touch-enabled sliders with hardware-accelerated transitions and modern touch interaction on mobile devices, as well as modern slide-shows and animated carousels. It is widely used for building websites and web applications, including mobile ones. You need to write to use: `'use client'` and `import { SwiperSlide } from 'swiper/react'`. The data is obtained from the sanity admin.
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `slides` | yes | [ id: number or string; |  |
+|  |  | content: ReactNode;] |  |
+| `section` | yes | string | 'upcomingTours' or 'reviews' or 'worthVisiting' |
+|  |  |  | 'upcomingTours' suitable for правила безпеки |
+| `className` | not | string | styles can be passed for the component wrapper |
 
 <hr>
 
 <h3 align="center">Our Services</h3>
 
 <div align="center"><img src="/public/images/readme/services.webp" alt="services images" width="800" align="center"></div>
-
-- #### component Slider
-
-**Slider** - component is implemented using Swiper, an open-source, free JavaScript library for creating touch-enabled sliders with hardware-accelerated transitions and modern touch interaction on mobile devices, as well as modern slide-shows and animated carousels. It is widely used for building websites and web applications, including mobile ones. You need to write to use: `'use client'` and `import { SwiperSlide } from 'swiper/react'`. The data is obtained from the sanity admin.
-
-| Prop | Type | Description |
-| --- | --- | --- |
-| `prevEl` | `special value` | required, "servicesBtnBack" or "productsBtnBack" or "reviewsBtnBack", sets the css class for the prevEl button |
-| `nextEl` | `special value` | required, "servicesBtnNext" or "productsBtnNext" or "reviewsBtnNext", sets the css class for the nextEl button |
-| `loop` | `boolean` | optional, sets the slider type. By default loop = false |
-| `desktopSpaceBetween` | `number` | optional, sets the distance between slides on the desktop. By default desktopSpaceBetween = 174 |
-| `children` | `ReactNode` | required, list of slides |
-| `btnConteinerStyle` | `string` | optional, sets an additional css class for the button container |
-
-<hr>
 
 - #### component SlideCardGeneration
 
