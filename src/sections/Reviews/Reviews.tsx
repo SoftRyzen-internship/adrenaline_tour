@@ -1,32 +1,35 @@
 import clsx from 'clsx';
 
+import { fetchReviews } from '@/actions/requests';
 import Slider from '@/components/common/Slider';
 import ReviewCard from '@/components/ui/ReviewCard';
 import { reviews } from '@/data';
 
 import s from './Reviews.module.css';
+import { IReview } from './Reviews.types';
 
-const slides = reviews.reviews.map(
-  ({ id, title, description, name, date }, index) => ({
+const Reviews = async () => {
+  const dataReviews: IReview[] = await fetchReviews();
+  const data = dataReviews ?? [];
+
+  const slides = data.map(({ id, title, text, author, date }, index) => ({
     id: id,
     content: (
       <ReviewCard
         key={id}
         index={index}
         title={title}
-        description={description}
-        name={name}
+        description={text}
+        name={author}
         date={date}
       />
     ),
-  }),
-);
+  }));
 
-const Reviews = () => {
   return (
     <section
       className={clsx(
-        'section bg-accentDefaultOrange pt-[84px] md:pt-[138px] xl:pt-[216px]',
+        'section bg-accentDefaultOrange pt-[84px] md:pt-[138px] xl:h-[800px] xl:pt-[216px]',
         s['bgReviews'],
       )}
     >
