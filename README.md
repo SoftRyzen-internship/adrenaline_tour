@@ -1,36 +1,324 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">ADRENALIN TOUR</h1>
+
+<p align="center">Discover the thrill of adventure with ADRENALIN TOUR! Experience the rush as we scale mountain peaks, navigate pristine rivers, and unravel the mysteries of ancient cities.</p>
+
+<p align="center">Immerse yourself in our unforgettable adventure routes, curated to include visits to captivating destinations and thrilling experiences tailored for the adventurous traveler. Let us be your guide as you explore new horizons and embrace the excitement of the unknown.</p>
+
+The "Adrenalin Tour" website was developed according to the design. You can view the design at the following link. [Link to the design](<https://www.figma.com/design/SiSQIfp61anqvulVVihX6o/Adrenaline-Tour!-(Copy)?t=kmjzMl34CFh85CQm-0>)
+
+<hr>
 
 ## Getting Started
 
-First, run the development server:
+To run the application locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Clone the repository: `git clone https://github.com/SoftRyzen-internship/adrenaline_tour`
+2. Install dependencies: `npm install`
+3. Run the app: `npm run dev`
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+#### `NEXT`:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- This is a Next.js project bootstrapped with `create-next-app`. Next.js is a React framework for building server-side rendered (SSR) and statically generated web applications. It provides features like automatic code splitting, hot module replacement, and server-side rendering out of the box.
 
-## Learn More
+#### `react`:
 
-To learn more about Next.js, take a look at the following resources:
+- React is a JavaScript library for building user interfaces. It enables developers to create reusable UI components and manage the application's state efficiently.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+#### `react-dom`:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- React DOM is a package that serves as the entry point to the DOM and server renderers for React. It provides DOM-specific methods that can be used to interact with the DOM during React component lifecycle.
 
-## Deploy on Vercel
+#### `swiper`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- A library for creating sliders and carousels in web applications. It provides smooth animations, touch gesture support for mobile devices, and many configuration options and customization possibilities.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### `react-fast-marquee`:
+
+- A lightweight and easy-to-use React component for creating marquee or scrolling text effects. It is optimized for smooth animations and high performance.
+
+#### `react-hook-form`:
+
+- A popular library for managing forms in React, using hooks to handle form state and validation. It provides a convenient and flexible way to work with forms.
+
+#### `react-hook-form-persist`:
+
+- A plugin for react-hook-form that allows persisting form state in the browser's local storage. This is useful for maintaining form state across page refreshes or sessions.
+
+#### `react-scroll`:
+
+- A library for adding smooth scrolling to web pages. It provides convenient methods for scrolling to specific elements or positions on the page with customizable animation parameters.
+
+#### `clsx`:
+
+- A tiny utility for conditionally joining CSS classNames together. It makes it easier to dynamically create strings of classes in React based on certain conditions or component state.
+
+#### `@headlessui/react`:
+
+- A UI component library for React, providing a set of ready-made and accessible components such as menus, modals, dropdowns, and more.
+
+<h2 align="center">Components that the application consists of:</h2>
+
+<h3 align="center">Header and Hero</h3>
+
+<div align="center"><img src="/public/images/readme/hero-main.webp" alt="hero images" width="800" align="center"></div>
+
+- #### component Logo
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `textWhite?` | `boolean` | Depending on the value, a company's logo of a certain color of text is rendered. |
+| `width?` | `number` | sets the width of the logo |
+| `height?` | `number` | sets the height of the logo |
+| `toScroll?` | `boolean` | optional, sets scroll or not after click |
+| `onClick?` | `() => void` | optional, adds the scroll to section Hero |
+| `className?` | `string` | optional, adds the styles |
+
+<hr>
+
+- #### component NavMenu
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `buttonStyle` | yes | string | 'navLink' for NavBar, "footer" for footer links |
+| `onCloseMenu` | not | function | The function to control the value into the state in the parent component (needed for close Burger-menu) |
+| `className` | not | string | optional, the style can be passed to manage placing the component next to others in the section |
+
+<hr>
+
+- #### component Button
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `children` | yes | ReactNode | required, label of the button |
+| `variant` | yes | string | required, 'main', 'secondary' - see UiKIt (Buttons), 'readMore-main', 'readMore-secondary' - see the layout |
+| `icon` | not | ReactNode | optional, your icon (example <YourIcon/>) |
+| `iconPosition` | not | string | optional, 'before' or 'after' - position of your icon |
+| `onClick` | not | () => void | optional, function callback if it needed |
+| `className` | not | string | optional, the string of styles if it needed |
+
+<hr>
+
+- #### component Modal
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `children` | yes | ReactNode | ==content of the modal window with own styles |
+| `isOpen` | yes | boolean | current state of modal |
+| `close` | yes | () => void | add the function for closeModal |
+| `variant` | yes | string | "burger" - for burgerMenu, "simple" - for other modals |
+| `className` | not | string | the string of styles if it needed |
+
+<hr>
+
+- #### section Hero
+
+Contains background (Slider with auto scrolling), title, description.
+
+<hr>
+
+<h3 align="center">Upcoming tours</h3>
+
+<div align="center"><img src="/public/images/readme/upcoming-tours.webp" alt="history images" width="800" align="center"></div>
+
+- #### component TourCard
+
+| Prop   | Required | Type   | Description          |
+| ------ | -------- | ------ | -------------------- |
+| `data` | yes      | object | received from strapi |
+
+<hr>
+
+- #### component Slider
+
+**Slider** - component is implemented using Swiper, an open-source, free JavaScript library for creating touch-enabled sliders with hardware-accelerated transitions and modern touch interaction on mobile devices, as well as modern slide-shows and animated carousels. It is widely used for building websites and web applications, including mobile ones. You need to write to use: `'use client'` and `import { SwiperSlide } from 'swiper/react'`. The data is obtained from the sanity admin.
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `slides` | yes | [ id: number or string; |  |
+|  |  | content: ReactNode;] |  |
+| `section` | yes | string | 'upcomingTours' or 'reviews' or 'worthVisiting' |
+|  |  |  | 'upcomingTours' suitable for правила безпеки |
+| `className` | not | string | styles can be passed for the component wrapper |
+
+<hr>
+
+<h3 align="center">Welcome section</h3>
+
+<div align="center"><img src="/public/images/readme/welcome-section.webp" alt="services images" width="800" align="center"></div>
+
+- #### Welcome section
+
+Contains background, title, description, Button component.
+
+<hr>
+
+<h3 align="center">Our activities</h3>
+
+<div align="center"><img src="/public/images/readme/our-activities.webp" alt="advantages images" width="800" align="center"></div>
+
+- #### section Our Activities
+
+Contains the title, activity cards and the "View all activities" button, which will take you to the Our Tours page.
+
+<hr>
+
+<h3 align="center">Gallery</h3>
+
+<div align="center"><img src="/public/images/readme/gallery.webp" alt="product images" width="800" align="center"></div>
+
+- #### section Gallery
+
+Contains the title and Slider component.
+
+<hr>
+
+<h3 align="center">Reviews</h3>
+
+<div align="center"><img src="/public/images/readme/review.webp" alt="review images" width="800" align="center"></div>
+
+- #### component Slider
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `slides` | yes | [ id: number or string; |  |
+|  |  | content: ReactNode;] |  |
+| `section` | yes | string | 'upcomingTours' or 'reviews' or 'worthVisiting' |
+|  |  |  | 'upcomingTours' suitable for правила безпеки |
+| `className` | not | string | styles can be passed for the component wrapper |
+
+<hr>
+
+- #### component BtnSlider
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `section` | yes | string | 'upcomingTours' or 'reviews' or 'worthVisiting' or 'gallery' |
+| `isNextSlide` | not | boolean |  |
+|  |  |  |  |
+| `isPrevSlide` | not | boolean |
+
+<hr>
+
+- #### component SlideCardReviews
+
+**The SlideCardReviews component** is designed to display a review card with the review text. If the text overflows the designated area, a "Read More" button appears. When clicked, this button opens a modal displaying the full review text.
+
+**Features:**
+
+- Displays a review card with text.
+- Shows a "Read More" button if the text overflows.
+- Opens a modal with the full review text when "Read More" is clicked.
+
+Also include the use of components: [Modal](#component-modal)
+
+<hr>
+
+<h3 align="center">FAQ</h3>
+
+<div align="center"><img src="/public/images/readme/faq.webp" alt="contacts images" width="800" align="center"></div>
+
+- #### section Gallery
+
+Contains the title and Accordion component.
+
+<hr>
+
+<h3 align="center">Contacts & Form</h3>
+
+<div align="center"><img src="/public/images/readme/contacts.webp" alt="contacts images" width="800" align="center"></div>
+
+**Contacts** includes the address semantic tag, which indicates the location of the business and the contact phone number (link)
+
+**FormBlock** includes a form assembly that includes custom inputs, textareas, and checkboxes
+
+**The remark:** To apply with React-Hook-Form using the library's component - <Controller />
+
+- #### component FormInput
+
+| Prop          | Required | Type   | Description                     |
+| ------------- | -------- | ------ | ------------------------------- |
+| `placeholder` | yes      | string | required, text for placeholder  |
+| `type`        | yes      | string | required, input type            |
+| `name`        | yes      | string | required, for using in the form |
+| `label`       | yes      | string | required                        |
+
+<hr>
+
+- #### component FormTextarea
+
+| Prop          | Required | Type   | Description                     |
+| ------------- | -------- | ------ | ------------------------------- |
+| `placeholder` | yes      | string | required, text for placeholder  |
+| `name`        | yes      | string | required, for using in the form |
+| `label`       | yes      | string | required                        |
+
+<hr>
+
+- #### component Checkbox
+
+| Prop    | Required | Type   | Description                     |
+| ------- | -------- | ------ | ------------------------------- |
+| `name`  | yes      | string | required, for using in the form |
+| `label` | yes      | string | required                        |
+
+<hr>
+
+<h3 align="center">Footer</h3>
+
+<div align="center"><img src="/public/images/readme/footer.webp" alt="footer images" width="800" align="center"></div>
+
+- #### component Logo
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| `textWhite?` | `boolean` | Depending on the value, a company's logo of a certain color of text is rendered. |
+| `width?` | `number` | sets the width of the logo |
+| `height?` | `number` | sets the height of the logo |
+| `toScroll?` | `boolean` | optional, sets scroll or not after click |
+| `onClick?` | `() => void` | optional, adds the scroll to section Hero |
+| `className?` | `string` | optional, adds the styles |
+
+<hr>
+
+- #### component MovingLine
+
+The MovingLine component utilizes the React Fast Marquee library - a lightweight and easy-to-use React component for creating smooth and performant marquee or scrolling text effects. A marquee is a horizontal scrolling animation, commonly used for displaying news tickers, announcements, or displaying a long piece of text in a limited space. |
+
+<hr>
+
+- #### component Social
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `variant` | yes | string | 'header' or 'footer' |
+| `className` | not | string | styles can be passed for the component wrapper |
+
+<hr>
+
+- #### component Phones
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `variant` | yes | string | 'contacts' or 'footer' |
+| `className` | not | string | styles can be passed for the component wrapper |
+
+<hr>
+
+<h3 align="center">Our Destinations Page</h3>
+
+<hr>
+
+<h3 align="center">Calendar</h3>
+
+<hr>
+
+<h3 align="center">Policy</h3>
+
+<div align="center"><img src="/public/images/readme/policy.webp" alt="policy images" width="800" align="center"></div>
+
+A separate page. Data obtained from strapi admin. Using showdown library for parsing text.
+
+<hr>
