@@ -145,46 +145,23 @@ Contains background (Slider with auto scrolling), title, description.
 
 <hr>
 
-<h3 align="center">Our Services</h3>
+<h3 align="center">Welcome section</h3>
 
-<div align="center"><img src="/public/images/readme/services.webp" alt="services images" width="800" align="center"></div>
+<div align="center"><img src="/public/images/readme/welcome-section.webp" alt="services images" width="800" align="center"></div>
 
-- #### component SlideCardGeneration
+- #### Welcome section
 
-The component is designed to create a product, service card, etc.
-
-| Prop | Type | Description |
-| --- | --- | --- |
-| `title` | `string` | required, sets the title |
-| `src` | `string` | required, sets the src of image |
-| `alt` | `string` | required, sets the alt of image |
-| `description` | `string` | optional, sets the description a product, service, etc. |
-| `children` | `ReactNode` | required, list of slides |
-| `slide` | `special value` | required, "service" or "product", sets the css styles for card |
-
-Also include the use of components: [Section](#component-section), [Title](#component-title)
+Contains background, title, description, Button component.
 
 <hr>
 
-- #### component MovingLine
+<h3 align="center">Our activities</h3>
 
-| Prop | Type | Description |
-| --- | --- | --- |
-|  |  | The MovingLine component utilizes the React Fast Marquee library - a lightweight and easy-to-use React component for creating smooth and performant marquee or scrolling text effects. A marquee is a horizontal scrolling animation, commonly used for displaying news tickers, announcements, or displaying a long piece of text in a limited space. |
+<div align="center"><img src="/public/images/readme/our-activities.webp" alt="advantages images" width="800" align="center"></div>
 
-Also include the use of components: [Section](#component-section), [Title](#component-title), [Slider](#component-slider), [SlideCardGeneration](#component-slidecardgeneration), [ButtonMain](#component-buttonmain)
+- #### section Our Activities
 
-<hr>
-
-<h3 align="center">Advantages</h3>
-
-<div align="center"><img src="/public/images/readme/advantages.webp" alt="advantages images" width="800" align="center"></div>
-
-- #### component AdvantagesCard
-
-| Prop | Type | Description |
-| --- | --- | --- |
-|  |  | The "Advantages" component is a part of a web application and is designed to display the benefits or features of a product and service. It provides users with a convenient way to learn about the key advantages offered by the company. |
+Contains the title, activity cards and the "View all activities" button, which will take you to the Our Tours page.
 
 <hr>
 
@@ -295,6 +272,16 @@ Also include the use of components: [Modal](#component-modal)
 |  |  | The Footer includes links to the homepage (Logo) and the privacy policy page. Additionally, it contains links to the partners involved in the creation of this application |
 
 Also include the use of components: [Logo](#component-logo)
+
+<hr>
+
+- #### component MovingLine
+
+| Prop | Type | Description |
+| --- | --- | --- |
+|  |  | The MovingLine component utilizes the React Fast Marquee library - a lightweight and easy-to-use React component for creating smooth and performant marquee or scrolling text effects. A marquee is a horizontal scrolling animation, commonly used for displaying news tickers, announcements, or displaying a long piece of text in a limited space. |
+
+Also include the use of components: [Section](#component-section), [Title](#component-title), [Slider](#component-slider), [SlideCardGeneration](#component-slidecardgeneration), [ButtonMain](#component-buttonmain)
 
 <hr>
 
