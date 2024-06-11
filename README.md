@@ -307,6 +307,14 @@ The MovingLine component utilizes the React Fast Marquee library - a lightweight
 
 <hr>
 
+<h3 align="center">Our Destinations Page</h3>
+
+<hr>
+
+<h3 align="center">Calendar</h3>
+
+<hr>
+
 <h3 align="center">Policy</h3>
 
 <div align="center"><img src="/public/images/readme/policy.webp" alt="policy images" width="800" align="center"></div>
