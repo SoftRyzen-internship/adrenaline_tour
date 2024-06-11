@@ -236,44 +236,33 @@ Contains the title and Accordion component.
 
 **The remark:** To apply with React-Hook-Form using the library's component - <Controller />
 
-- #### component FormBlock
+- #### component FormInput
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `className` | `string` | optional, the style can be passed to manage placing the component next to others in the section |
-
-<hr>
-
-- #### component CustomInput
-
-| Prop | Type | Description |
-| --- | --- | --- |
-| `label` | `string` | optional, can pass text displaying for a label |
-| `errorMessage` | `string` | optional, can pass text displaying for a error message |
-| `className` | `string` | optional, styles can be passed for the component wrapper |
-| `{...data}` | `string` | optional, any other attributes that are characteristic of the input (type, placeholder, etc) |
+| Prop          | Required | Type   | Description                     |
+| ------------- | -------- | ------ | ------------------------------- |
+| `placeholder` | yes      | string | required, text for placeholder  |
+| `type`        | yes      | string | required, input type            |
+| `name`        | yes      | string | required, for using in the form |
+| `label`       | yes      | string | required                        |
 
 <hr>
 
-- #### component CustomTextarea
+- #### component FormTextarea
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `label` | `string` | optional, can pass text displaying for a label |
-| `className` | `string` | optional, styles can be passed for the component wrapper |
-| `{...data}` | `string` | optional, any other attributes that are characteristic of the textarea (placeholder, rows, cols, etc) |
+| Prop          | Required | Type   | Description                     |
+| ------------- | -------- | ------ | ------------------------------- |
+| `placeholder` | yes      | string | required, text for placeholder  |
+| `name`        | yes      | string | required, for using in the form |
+| `label`       | yes      | string | required                        |
 
 <hr>
 
-- #### component CustomCheckbox
+- #### component Checkbox
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `checked` | `boolean` | required, starting value for checked |
-| `handleChange` | `function` | required, the function to control the value into state in the parent component |
-| `className` | `string` | optional, styles can be passed for the component wrapper |
-| `definition` | `string` | optional, text for the checkbox |
-| `{...data}` | `string` | optional, any other attributes that are characteristic of the checkbox (checked, type, etc) |
+| Prop    | Required | Type   | Description                     |
+| ------- | -------- | ------ | ------------------------------- |
+| `name`  | yes      | string | required, for using in the form |
+| `label` | yes      | string | required                        |
 
 <hr>
 
@@ -281,23 +270,40 @@ Contains the title and Accordion component.
 
 <div align="center"><img src="/public/images/readme/footer.webp" alt="footer images" width="800" align="center"></div>
 
-- #### component Footer
+- #### component Logo
 
 | Prop | Type | Description |
 | --- | --- | --- |
-|  |  | The Footer includes links to the homepage (Logo) and the privacy policy page. Additionally, it contains links to the partners involved in the creation of this application |
-
-Also include the use of components: [Logo](#component-logo)
+| `textWhite?` | `boolean` | Depending on the value, a company's logo of a certain color of text is rendered. |
+| `width?` | `number` | sets the width of the logo |
+| `height?` | `number` | sets the height of the logo |
+| `toScroll?` | `boolean` | optional, sets scroll or not after click |
+| `onClick?` | `() => void` | optional, adds the scroll to section Hero |
+| `className?` | `string` | optional, adds the styles |
 
 <hr>
 
 - #### component MovingLine
 
-| Prop | Type | Description |
-| --- | --- | --- |
-|  |  | The MovingLine component utilizes the React Fast Marquee library - a lightweight and easy-to-use React component for creating smooth and performant marquee or scrolling text effects. A marquee is a horizontal scrolling animation, commonly used for displaying news tickers, announcements, or displaying a long piece of text in a limited space. |
+The MovingLine component utilizes the React Fast Marquee library - a lightweight and easy-to-use React component for creating smooth and performant marquee or scrolling text effects. A marquee is a horizontal scrolling animation, commonly used for displaying news tickers, announcements, or displaying a long piece of text in a limited space. |
 
-Also include the use of components: [Section](#component-section), [Title](#component-title), [Slider](#component-slider), [SlideCardGeneration](#component-slidecardgeneration), [ButtonMain](#component-buttonmain)
+<hr>
+
+- #### component Social
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `variant` | yes | string | 'header' or 'footer' |
+| `className` | not | string | styles can be passed for the component wrapper |
+
+<hr>
+
+- #### component Phones
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `variant` | yes | string | 'contacts' or 'footer' |
+| `className` | not | string | styles can be passed for the component wrapper |
 
 <hr>
 
@@ -305,25 +311,6 @@ Also include the use of components: [Section](#component-section), [Title](#comp
 
 <div align="center"><img src="/public/images/readme/policy.webp" alt="policy images" width="800" align="center"></div>
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `data` | `sanity` | A separate page. Header and Footer are common. Contains the title and text of the privacy policy. Data obtained from sanity admin. |
+A separate page. Data obtained from strapi admin. Using showdown library for parsing text.
 
 <hr>
-
-- #### component PortableText
-
-**The PortableText component** is part of the `@portabletext/react` library, which provides a convenient way to render structured portable text data in React. It accepts an array of portable text blocks or objects and renders them according to the specified components. It is designed for integration with content management systems that use the portable text format for structured data, allowing you to flexibly and conveniently render this content using React with full customization capabilities.
-
-| Prop         | Type          | Description                                |
-| ------------ | ------------- | ------------------------------------------ |
-| `value`      | `string`      | required, Privacy Policy Title             |
-| `components` | `JSX.Element` | required, an array of portable text blocks |
-
-<hr>
-
-- #### component CustomComponents
-
-| Prop | Type | Description |
-| --- | --- | --- |
-|  |  | This code defines several custom React components for rendering different elements of structured portable text data. |
