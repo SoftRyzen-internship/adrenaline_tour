@@ -165,15 +165,13 @@ Contains the title, activity cards and the "View all activities" button, which w
 
 <hr>
 
-<h3 align="center">Our Goods</h3>
+<h3 align="center">Gallery</h3>
 
-<div align="center"><img src="/public/images/readme/product.webp" alt="product images" width="800" align="center"></div>
+<div align="center"><img src="/public/images/readme/gallery.webp" alt="product images" width="800" align="center"></div>
 
-- #### component ProductsSlides
+- #### section Gallery
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `data` | `sanity` | Contains a title and slider with product card. Navigates with arrows and swipe gestures. The slider is infinite. The data is obtained from the sanity admin |
+Contains the title and Slider component.
 
 <hr>
 
@@ -181,13 +179,26 @@ Contains the title, activity cards and the "View all activities" button, which w
 
 <div align="center"><img src="/public/images/readme/review.webp" alt="review images" width="800" align="center"></div>
 
-- #### component ReviewsSlider
+- #### component Slider
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `data` | `sanity` | Contains a title and slider with product card. Navigates with arrows and swipe gestures. The slider is infinite. The data is obtained from the sanity admin |
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `slides` | yes | [ id: number or string; |  |
+|  |  | content: ReactNode;] |  |
+| `section` | yes | string | 'upcomingTours' or 'reviews' or 'worthVisiting' |
+|  |  |  | 'upcomingTours' suitable for правила безпеки |
+| `className` | not | string | styles can be passed for the component wrapper |
 
-Also include the use of components: [Section](#component-section), [Title](#component-title), [Slider](#component-slider), [ButtonMain](#component-buttonmain)
+<hr>
+
+- #### component BtnSlider
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `section` | yes | string | 'upcomingTours' or 'reviews' or 'worthVisiting' or 'gallery' |
+| `isNextSlide` | not | boolean |  |
+|  |  |  |  |
+| `isPrevSlide` | not | boolean |
 
 <hr>
 
@@ -201,12 +212,17 @@ Also include the use of components: [Section](#component-section), [Title](#comp
 - Shows a "Read More" button if the text overflows.
 - Opens a modal with the full review text when "Read More" is clicked.
 
-| Prop | Type | Description |
-| --- | --- | --- |
-| `text` | `string` | required, the author's comment is transmitted by props |
-| `author` | `string` | required, the full name of the author is transferred to the props |
-
 Also include the use of components: [Modal](#component-modal)
+
+<hr>
+
+<h3 align="center">FAQ</h3>
+
+<div align="center"><img src="/public/images/readme/faq.webp" alt="contacts images" width="800" align="center"></div>
+
+- #### section Gallery
+
+Contains the title and Accordion component.
 
 <hr>
 
