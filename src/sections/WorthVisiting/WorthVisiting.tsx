@@ -5,7 +5,7 @@ import { worthVisiting } from '@/data';
 
 const WorthVisiting: React.FC<IAllToursProps> = ({ dataAllTours }) => {
   const recommendedData = dataAllTours.filter(
-    item => item.attributes.recommended,
+    item => item.attributes.recommended === false,
   );
 
   const shouldShowSlider = recommendedData.length >= 4;

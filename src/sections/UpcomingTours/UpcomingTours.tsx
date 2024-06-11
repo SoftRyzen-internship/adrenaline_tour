@@ -1,3 +1,5 @@
+'use client';
+
 import CalendarIcon from '/public/icons/date.svg';
 
 import { IAllToursProps, Pages } from '@/@types';
@@ -7,6 +9,7 @@ import TourCard from '@/components/ui/TourCard';
 import { upcomingTours } from '@/data';
 
 const UpcomingTours: React.FC<IAllToursProps> = ({ dataAllTours }) => {
+  console.log(dataAllTours);
   const tours = dataAllTours ?? [];
 
   const currentDate = new Date();
