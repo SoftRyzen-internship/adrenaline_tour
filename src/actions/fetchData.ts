@@ -1,21 +1,20 @@
+import { GraphQLClient, gql } from 'graphql-request';
+
 import { configuration } from '@/utils';
 
 const API_URL = `${configuration.BASE_DATA_URL}graphql`;
 
+const client = new GraphQLClient(API_URL);
+
 const fetchData = async (query: string, variables: object = {}) => {
   try {
-    const response = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ query, variables }),
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    const result = await response.json();
-    return result.data;
+    const data = await client.request(
+      gql`
+        ${query}
+      `,
+      variables,
+    );
+    return data;
   } catch (error) {
     return null;
   }

@@ -5,3 +5,17 @@ export interface IReview {
   author: string;
   date: string;
 }
+
+interface ReviewAttributes {
+  reviews: IReview[];
+}
+
+interface ReviewData {
+  attributes: ReviewAttributes;
+}
+
+export interface IReviewResponse {
+  review: {
+    data: ReviewData;
+  };
+}

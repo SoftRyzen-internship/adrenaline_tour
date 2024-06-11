@@ -9,3 +9,13 @@ export interface IContact {
     [country: string]: string;
   };
 }
+
+interface ContactData {
+  attributes: IContact;
+}
+
+export interface IContactResponse {
+  contact: {
+    data: ContactData;
+  };
+}

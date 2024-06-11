@@ -94,3 +94,9 @@ export interface ITours {
 export interface IAllToursProps {
   dataAllTours: ITours[];
 }
+
+export interface ITourResponse {
+  tours: {
+    data: ITours[];
+  };
+}
