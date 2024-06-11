@@ -1,13 +1,17 @@
 import Image from 'next/image';
 
+import { gallery } from '@/data';
+
 import { ICardGalleryProps } from './CardGallery.types';
 
 const CardGallery: React.FC<ICardGalleryProps> = ({ src, alt }) => {
+  const altText = alt || gallery.altAlternative;
+
   return (
     <div className='relative h-[281px] overflow-hidden md:h-[347px] xl:h-[506px]'>
       <Image
         src={src}
-        alt={alt}
+        alt={altText}
         fill
         quality={80}
         className='h-auto w-full object-cover'
