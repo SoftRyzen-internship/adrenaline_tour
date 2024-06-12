@@ -1,5 +1,5 @@
 // запит для сторінки політики КОНФІДЕНЦІЙНОСТІ
-export const getPolicy = `query getPolicy {
+`query getPolicy {
     policy {
       data {
         attributes{
@@ -8,78 +8,52 @@ export const getPolicy = `query getPolicy {
         }
       }
     }
-  }`;
-
-// запит за країнами
-export const getCountries = `query getCountries {
+  }`
+  
+  // запит за країнами
+`query getCountries {
   countries {
     data {
       id
-      attributes {
-        name        
-      }
-    }
-  }
-}
-`;
-
-export const getToursByOption = `query GetToursByMonth($country: String, $activities: String ) {
-  tours(
-    filters: { country: { name: $country }, activities: { name: $activities }, }
-    sort: "date:asc"
-  ) {
-    data {
-      id
-      attributes {
-        img {
+      attributes{
+        name
+ ------------- // додавши наступне можна дізнатись які тури мають цю країну, якщо немає, то data === null
+        tour {
           data {
             attributes {
-              alternativeText
-              url
-            }
-          }
-        }
-        date
-        title
-        duration
-        slug
-        recommended
-        activities {
-          data {
-            id
-            attributes {
-              name
-            }
-          }
-        }
-        countries {
-          data {
-            id
-            attributes {
-              name
+              title
+              slug
             }
           }
         }
       }
     }
   }
-}`;
-
-// запит за активностями
-export const getActivities = `query getActivities {
+}`
+  
+  // запит за активностями
+`query getActivities {
     activities {
       data {
         id
-        attributes {
-          name          
+        attributes{
+          name
+ ------------- // додавши наступне можна дізнатись які тури мають цю активність, якщо немає, то data === null
+          tour {
+            data {
+              attributes {
+                title
+                slug
+              }
+            }
+          }
         }
       }
     }
-  }
-`;
-
-// запит за відгуками
-export const getReviews = `query getReviews {
+  }`
+  
+  // запит за відгуками
+`query getReviews {
     review {
       data {
         attributes{
@@ -93,10 +67,10 @@ export const getReviews = `query getReviews {
         }
       }
     }
-  }`;
-
-// запит за контактами
-export const getContact = `query getContact {
+  }`
+  
+  // запит за контактами
+`query getContact {
     contact {
       data {
         attributes{
@@ -108,10 +82,10 @@ export const getContact = `query getContact {
         }
       }
     }
-  }`;
-
-// запит за галиреєю
-export const getGallery = `query getGallery {
+  }`
+  
+  // запит за галиреєю
+`query getGallery {
     gallery {
       data {
         attributes{
@@ -127,10 +101,10 @@ export const getGallery = `query getGallery {
         }
       }
     }
-  }`;
+  }`
 
-// запит за всіма (масив карток) турами
-export const getAllTours = `query getAllTours {
+  // запит за всіма (масив карток) турами
+`query getAllTours {
   tours {
     data {
       id
@@ -167,11 +141,11 @@ export const getAllTours = `query getAllTours {
       }
     }
   }
-}`;
-
+}`
+  
 // запит карток по місяцям. потрібно передавати 2 параметра: "startOfMonth": "2024-06-01",
 // та "endOfMonth": "2024-06-30". в такому випадку сервер поверне усі картки за поточний відрізок часу
-export const getToursByMonth = `query GetToursByMonth($startOfMonth: Date!, $endOfMonth: Date!) {
+`query GetToursByMonth($startOfMonth: Date!, $endOfMonth: Date!) {
   tours(
     filters: { date: { gte: $startOfMonth, lte: $endOfMonth } }
     sort: "date:asc"
@@ -211,10 +185,10 @@ export const getToursByMonth = `query GetToursByMonth($startOfMonth: Date!, $end
       }
     }
   }
-}`;
-
-// запит за карткою Tour за slug ПОВНА КАРТКА
-export const getTour = `query getTour($slug: String!) {
+}`
+  
+  // запит за карткою Tour за slug ПОВНА КАРТКА
+`query getTour($slug: String!) {
   tours(filters: { slug: { eq: $slug } }) {
     data {
       id
@@ -305,7 +279,7 @@ export const getTour = `query getTour($slug: String!) {
 }`;
 
 // запит за карткою Tour за slug ФОТО HERO
-export const getTourImg = `query getTourImg($slug: String!) {
+`query getTourImg($slug: String!) {
   tours(filters: { slug: { eq: $slug } }) {
     data {
       id
@@ -322,10 +296,10 @@ export const getTourImg = `query getTourImg($slug: String!) {
       }
     }
   }
-}`;
+}`
 
 // запит за карткою Tour за slug ОСНОВНА ІНФОРМАЦІЯ
-export const getTourMainInfo = `query getTourMainInfo($slug: String!) {
+`query getTourMainInfo($slug: String!) {
   tours(filters: { slug: { eq: $slug } }) {
     data {
       id
@@ -352,10 +326,10 @@ export const getTourMainInfo = `query getTourMainInfo($slug: String!) {
       }
     }
   }
-}`;
+}`
 
 // запит за карткою Tour за slug СЕКЦІЯ ЧИМ МИ ЗАЙМЕМОСЬ
-export const getTourPlans = `query getTourPlans($slug: String!) {
+`query getTourPlans($slug: String!) {
   tours(filters: { slug: { eq: $slug } }) {
     data {
       id
@@ -367,10 +341,10 @@ export const getTourPlans = `query getTourPlans($slug: String!) {
       }
     }
   }
-}`;
+}`
 
 // запит за карткою Tour за slug СЕКЦІЯ Що входить у вартість туру?
-export const getTourServices = `query getTourServices($slug: String!) {
+`query getTourServices($slug: String!) {
   tours(filters: { slug: { eq: $slug } }) {
     data {
       attributes {
@@ -385,10 +359,10 @@ export const getTourServices = `query getTourServices($slug: String!) {
       }
     }
   }
-}`;
+}`
 
 // запит за карткою Tour за slug СЕКЦІЯ Оренда обладнання:
-export const getTourRent = `query getTourRent($slug: String!) {
+`query getTourRent($slug: String!) {
   tours(filters: { slug: { eq: $slug } }) {
     data {
       attributes {
@@ -399,10 +373,10 @@ export const getTourRent = `query getTourRent($slug: String!) {
       }
     }
   }
-}`;
+}`
 
 // запит за карткою Tour за slug СЕКЦІЯ деталей (description string | null):
-export const getTourDetails = `query getTourDetails($slug: String!) {
+`query getTourDetails($slug: String!) {
   tours(filters: { slug: { eq: $slug } }) {
     data {
       id
@@ -434,10 +408,10 @@ export const getTourDetails = `query getTourDetails($slug: String!) {
       }
     }
   }
-}`;
+}`
 
 // запит за карткою Tour за slug СЕКЦІЯ індивідуальної галиреї туру:
-export const getTourGallery = `query getTourGallery($slug: String!) {
+`query getTourGallery($slug: String!) {
   tours(filters: { slug: { eq: $slug } }) {
     data {
       id
@@ -454,4 +428,4 @@ export const getTourGallery = `query getTourGallery($slug: String!) {
       }
     }
   }
-}`;
+}`

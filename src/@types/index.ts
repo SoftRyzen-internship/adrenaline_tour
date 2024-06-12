@@ -100,3 +100,15 @@ export interface ITourResponse {
     data: ITours[];
   };
 }
+
+export interface ICountryResponse {
+  countries: {
+    data: ICountry[];
+  };
+}
+
+export interface IActivitiesResponse {
+  activities: {
+    data: IActivity[];
+  };
+}

@@ -1,3 +1,16 @@
+export interface ICountry {
+  id: string;
+  attributes: {
+    name: string;
+  };
+}
+
+export interface ICountryResponse {
+  countries: {
+    data: ICountry[];
+  };
+}
+
 export interface ITour {
   id: string;
   attributes: {
@@ -33,20 +46,8 @@ export interface ITour {
   };
 }
 
-export interface IResponseData {
+export interface ITourResponse {
   tours: {
     data: ITour[];
   };
-}
-
-export interface IFormattedTour {
-  id: string;
-  imgSrc: string;
-  alt: string;
-  title: string;
-  date: string;
-  location: string[];
-  type: string[];
-  duration: string;
-  link: string;
 }

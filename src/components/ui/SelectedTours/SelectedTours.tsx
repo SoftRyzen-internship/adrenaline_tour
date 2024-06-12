@@ -2,66 +2,27 @@
 
 import React, { useEffect, useState } from 'react';
 
-import { request, gql } from 'graphql-request';
+import { ISelectState } from '@/@types';
+import {
+  fetchAllTours,
+  fetchCountries,
+  fetchActivities,
+} from '@/actions/requests';
 
 import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
 
-import { ISelectState } from '@/@types';
 import Button from '@/components/ui/Button';
 import CustomSelect from '@/components/ui/CustomSelect';
 import LinkButton from '@/components/ui/LinkButton';
 import TourCard from '@/components/ui/TourCard';
 import { selectedTours } from '@/data';
 
-import { ITour, IResponseData, IFormattedTour } from './SelectedTours.types';
-
-const endpoint = 'https://adrenaline-tour-admin.onrender.com/graphql';
-
-const query = gql`
-  query getAllTours {
-    tours {
-      data {
-        id
-        attributes {
-          img {
-            data {
-              attributes {
-                alternativeText
-                url
-              }
-            }
-          }
-          date
-          title
-          duration
-          slug
-          recommended
-          activities {
-            data {
-              id
-              attributes {
-                name
-              }
-            }
-          }
-          countries {
-            data {
-              id
-              attributes {
-                name
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+import { ITour } from './SelectedTours.types';
 
 const SelectedTours = () => {
   const [visibleTours, setVisibleTours] = useState(6);
   const [tours, setTours] = useState<ITour[]>([]);
-  const [filteredTours, setFilteredTours] = useState<IFormattedTour[]>([]);
+  const [filteredTours, setFilteredTours] = useState<ITour[]>([]);
   const [selectedCountry, setSelectedCountry] = useState<ISelectState>({
     id: 0,
     attributes: { name: 'Всі країни' },
@@ -77,142 +38,73 @@ const SelectedTours = () => {
     [],
   );
 
-  const fetchTours = async () => {
+  const fetchTheTours = async () => {
     try {
-      const data: IResponseData = await request(endpoint, query);
-      if (data && data.tours) {
-        const {
-          tours: { data: toursData },
-        } = data;
-        setTours(toursData);
-        const formattedTours = formatTours(toursData);
-        setFilteredTours(formattedTours);
+      const data = await fetchAllTours();
+      if (data) {
+        setTours(data);
+        setFilteredTours(data);
       } else {
         throw new Error('Invalid response structure');
-        gql;
       }
     } catch (error) {
       console.error('Error fetching tours:', error);
     }
   };
 
+  const fetchData = async () => {
+    try {
+      const fetchedCountries = await fetchCountries();
+      const fetchedActivities = await fetchActivities();
+
+      const countryNames = fetchedCountries.map(
+        country => country.attributes.name,
+      );
+      const updatedCountries = countryNames.map((name, index) => ({
+        id: index + 1,
+        attributes: { name },
+      }));
+      updatedCountries.unshift({ id: 0, attributes: { name: 'Всі країни' } });
+      setFilteredCountries(updatedCountries);
+
+      const activitieNames = fetchedActivities.map(
+        activity => activity.attributes.name,
+      );
+      const updatedActivities = activitieNames.map((name, index) => ({
+        id: index + 1,
+        attributes: { name },
+      }));
+      updatedActivities.unshift({
+        id: 0,
+        attributes: { name: 'Всі активності' },
+      });
+      setFilteredActivities(updatedActivities);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  const filterToursByActivity = async (activity: string) => {
+    const filteredTours = tours.filter(tour =>
+      tour.attributes.activities.data.some(
+        act => act.attributes.name === activity,
+      ),
+    );
+    setFilteredTours(filteredTours);
+  };
+
   useEffect(() => {
-    fetchTours();
+    fetchTheTours();
+    fetchData();
   }, []);
 
   useEffect(() => {
-    const formattedTours = formatTours(tours);
-    setFilteredTours(filterTours(formattedTours));
-    updateFilteredActivities();
-    updateFilteredCountries();
-  }, [selectedCountry, selectedActivity, tours]);
-
-  const formatTours = (tours: ITour[]): IFormattedTour[] => {
-    return tours.map(tour => ({
-      id: tour.id.toString(),
-      imgSrc: tour.attributes.img.data.attributes.url,
-      alt: tour.attributes.img.data.attributes.alternativeText,
-      title: tour.attributes.title,
-      date: tour.attributes.date,
-      location: tour.attributes.countries.data.map(
-        country => country.attributes.name,
-      ),
-      type: tour.attributes.activities.data.map(
-        activity => activity.attributes.name,
-      ),
-      duration: tour.attributes.duration,
-      link: tour.attributes.slug,
-    }));
-  };
-
-  const updateFilteredActivities = () => {
-    let activities: string[] = [];
-
-    if (selectedCountry.attributes.name === 'Всі країни') {
-      activities = tours.flatMap(tour =>
-        tour.attributes.activities.data.map(
-          activity => activity.attributes.name,
-        ),
-      );
-    } else {
-      const toursInSelectedCountry = tours.filter(tour =>
-        tour.attributes.countries.data.some(
-          country =>
-            country.attributes.name === selectedCountry.attributes.name,
-        ),
-      );
-      activities = toursInSelectedCountry.flatMap(tour =>
-        tour.attributes.activities.data.map(
-          activity => activity.attributes.name,
-        ),
-      );
-    }
-
-    const uniqueActivities = Array.from(new Set(activities)).sort((a, b) =>
-      a.localeCompare(b),
-    );
-    const updatedActivities = uniqueActivities.map((name, index) => ({
-      id: index + 1,
-      attributes: { name },
-    }));
-
-    updatedActivities.unshift({
-      id: 0,
-      attributes: { name: 'Всі активності' },
-    });
-
-    setFilteredActivities(updatedActivities);
-  };
-
-  const updateFilteredCountries = () => {
-    let countries: string[] = [];
-
-    if (selectedActivity.attributes.name === 'Всі активності') {
-      countries = tours.flatMap(tour =>
-        tour.attributes.countries.data.map(country => country.attributes.name),
-      );
-    } else {
-      const toursWithSelectedActivity = tours.filter(tour =>
-        tour.attributes.activities.data.some(
-          activity =>
-            activity.attributes.name === selectedActivity.attributes.name,
-        ),
-      );
-      countries = toursWithSelectedActivity.flatMap(tour =>
-        tour.attributes.countries.data.map(country => country.attributes.name),
-      );
-    }
-
-    const uniqueCountries = Array.from(new Set(countries)).sort((a, b) =>
-      a.localeCompare(b),
-    );
-    const updatedCountries = uniqueCountries.map((name, index) => ({
-      id: index + 1,
-      attributes: { name },
-    }));
-
-    updatedCountries.unshift({ id: 0, attributes: { name: 'Всі країни' } });
-
-    setFilteredCountries(updatedCountries);
-  };
-
-  const filterTours = (formattedTours: IFormattedTour[]): IFormattedTour[] => {
-    let newFilteredTours = [...formattedTours];
-
-    if (selectedCountry.attributes.name !== 'Всі країни') {
-      newFilteredTours = newFilteredTours.filter(tour =>
-        tour.location.includes(selectedCountry.attributes.name),
-      );
-    }
-
     if (selectedActivity.attributes.name !== 'Всі активності') {
-      newFilteredTours = newFilteredTours.filter(tour =>
-        tour.type.includes(selectedActivity.attributes.name),
-      );
+      filterToursByActivity(selectedActivity.attributes.name);
+    } else {
+      fetchTheTours();
     }
-
-    return newFilteredTours;
-  };
+  }, [selectedActivity]);
 
   const loadMore = () => {
     setVisibleTours(prev => prev + 6);
@@ -221,6 +113,7 @@ const SelectedTours = () => {
   const resetVisibleTours = () => {
     setVisibleTours(6);
   };
+
   return (
     <>
       <div className='right-8 top-[118px] mb-4 flex flex-col gap-3 md:flex-row md:gap-4 xl:absolute xl:mb-0 xl:gap-3'>
