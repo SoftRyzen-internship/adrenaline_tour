@@ -100,3 +100,10 @@ export interface ITourResponse {
     data: ITours[];
   };
 }
+
+export interface IFeatureRow {
+  id: number;
+  caption: string;
+  text: string | null;
+  icon: string;
+}
