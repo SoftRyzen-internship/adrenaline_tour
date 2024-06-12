@@ -1,22 +1,20 @@
 import CalendarIcon from '/public/icons/date.svg';
 
+import { fetchAllTours } from '@/actions/requests';
 import Slider from '@/components/common/Slider';
 import LinkButton from '@/components/ui/LinkButton';
 import TourCard from '@/components/ui/TourCard';
-import { IAllToursProps, Pages } from '@/@types';
+import { Pages } from '@/@types';
 import { upcomingTours } from '@/data';
 
-const UpcomingTours: React.FC<IAllToursProps> = ({ dataAllTours }) => {
+const UpcomingTours = async () => {
+  const dataAllTours = await fetchAllTours();
   const tours = dataAllTours ?? [];
 
   const currentDate = new Date();
-  const dataUpcomingTours = tours
-    .filter(item => new Date(item.attributes.date) >= currentDate)
-    .sort(
-      (a, b) =>
-        new Date(a.attributes.date).getTime() -
-        new Date(b.attributes.date).getTime(),
-    );
+  const dataUpcomingTours = tours.filter(
+    item => new Date(item.attributes.date) >= currentDate,
+  );
 
   const shouldShowSlider = dataUpcomingTours.length >= 4;
 

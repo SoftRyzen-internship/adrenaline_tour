@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 
 import fetchToursByMonth from '@/actions/requests/fetchToursByMonth';
-import MonthBar from '@/components/ui/MonthSlider';
+import MonthSlider from '@/components/ui/MonthSlider';
 import TourCard from '@/components/ui/TourCard';
 
 const getStartAndEndOfMonth = date => {
@@ -27,8 +27,6 @@ interface ICalendarProps {}
 const Calendar: React.FC<ICalendarProps> = () => {
   const [tours, setTours] = useState(null);
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  console.log(currentMonth);
-  console.log(tours);
 
   const { startOfMonth, endOfMonth } = getStartAndEndOfMonth(currentMonth);
 
@@ -48,7 +46,7 @@ const Calendar: React.FC<ICalendarProps> = () => {
   return (
     <section className='section pt-[104px]'>
       <div className='container'>
-        <MonthBar
+        <MonthSlider
           currentMonth={currentMonth}
           onMonthChange={handleMonthChange}
         />
