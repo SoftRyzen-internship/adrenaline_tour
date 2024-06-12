@@ -5,7 +5,7 @@ export interface ITourCardProps {
     alt: string;
     title: string;
     date: string;
-    location: string;
+    location: string[];
     type: string[];
     duration: string;
     link: string;
