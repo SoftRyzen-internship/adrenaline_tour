@@ -55,11 +55,7 @@ const Rules = () => {
           ))}
         </ul>
       ) : (
-        <Slider
-          slides={slides}
-          section='upcomingTours'
-          className={'xl:hidden'}
-        />
+        <Slider slides={slides} section='upcomingTours' />
       )}
     </section>
   );
