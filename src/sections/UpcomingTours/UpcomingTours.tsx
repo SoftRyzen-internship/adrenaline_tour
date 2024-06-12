@@ -4,7 +4,7 @@ import { fetchAllTours } from '@/actions/requests';
 import Slider from '@/components/common/Slider';
 import LinkButton from '@/components/ui/LinkButton';
 import TourCard from '@/components/ui/TourCard';
-import { Pages } from '@/@types';
+import { Pages, SLIDER_THRESHOLD } from '@/@types';
 import { upcomingTours } from '@/data';
 
 const UpcomingTours = async () => {
@@ -16,7 +16,7 @@ const UpcomingTours = async () => {
     item => new Date(item.attributes.date) >= currentDate,
   );
 
-  const shouldShowSlider = dataUpcomingTours.length >= 4;
+  const shouldShowSlider = dataUpcomingTours.length >= SLIDER_THRESHOLD;
 
   const upcomingToursContent = shouldShowSlider ? (
     <Slider
