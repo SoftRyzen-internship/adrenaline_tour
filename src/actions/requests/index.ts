@@ -6,3 +6,4 @@ export { default as fetchPrivacyPolicy } from './fetchPrivacyPolicy';
 export { default as fetchCountries } from './fetchCountries';
 export { default as fetchActivities } from './fetchActivities';
 export { default as fetchDataForSelected } from './fetchDataForSelected';
+export { default as fetchRecommendedTours } from './fetchRecommendedTours';

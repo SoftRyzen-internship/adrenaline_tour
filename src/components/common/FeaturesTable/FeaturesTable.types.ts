@@ -1,8 +1,5 @@
+import { IFeatureRow } from '@/@types';
+
 export interface IFeaturesTableProps {
-  features: {
-    id: number;
-    caption: string;
-    text: string | null;
-    icon: string;
-  }[];
+  features: IFeatureRow[];
 }

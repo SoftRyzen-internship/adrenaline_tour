@@ -112,3 +112,10 @@ export interface IActivitiesResponse {
     data: IActivity[];
   };
 }
+
+export interface IFeatureRow {
+  id: number;
+  caption: string;
+  text: string | null;
+  icon: string;
+}

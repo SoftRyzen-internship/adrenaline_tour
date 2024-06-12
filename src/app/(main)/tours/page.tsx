@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 
 import { Pages } from '@/@types';
-import { fetchAllTours } from '@/actions/requests';
 import { metaData } from '@/data';
 import Destinations from '@/sections/Destinations';
 import Gallery from '@/sections/Gallery';
@@ -18,14 +17,12 @@ export const metadata: Metadata = {
   },
 };
 
-const ToursPage = async () => {
-  const dataAllTours = await fetchAllTours();
-
+const ToursPage = () => {
   return (
     <>
       <Hero page={Pages.TOURS} />
       <Destinations />
-      <WorthVisiting dataAllTours={dataAllTours} />
+      <WorthVisiting />
       <Tips />
       <Rules />
       <Gallery />
