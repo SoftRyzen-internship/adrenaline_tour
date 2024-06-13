@@ -4,6 +4,7 @@ import Image from 'next/image';
 import ArrowRight from '/public/icons/arrow-right.svg';
 import Location from '/public/icons/location.svg';
 
+import { Pages } from '@/@types';
 import LinkButton from '@/components/ui/LinkButton';
 import { tourCardData } from '@/data';
 import { formatDateTours } from '@/utils';
@@ -52,7 +53,7 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
       </div>
       <div className='transition-all duration-700 xl:opacity-0 xl:group-hover:flex xl:group-hover:opacity-100'>
         <LinkButton
-          href={slug}
+          href={`${Pages.TOURS}/${slug}`}
           variant='secondary'
           iconPosition='after'
           icon={<ArrowRight width={24} height={24} className='h-6 w-6' />}
