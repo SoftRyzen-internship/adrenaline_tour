@@ -317,3 +317,75 @@ export const getTourGallery = `query getTourGallery($slug: String!) {
     }
   }
 }`;
+
+// запит за картками туру, активностями та країнами з можливостью фільтрації на сервері
+// запит за всіма (масив карток) турами повертається з сортуванням по даті
+// за замовчуванням приходить 10 карток, щоб вказати кількість карток для сторінки (для пагінації - "pageSize": 6 - ЗНАЧЕННЯ NUMBER)
+// для отримання наступної сторінки - передаємо "page": 2 та "pageSize": 6 - ЗНАЧЕННЯ NUMBER
+// для запиту карток по місяцям. потрібно передавати 2 параметра: "startOfMonth": "2024-06-01",
+// та "endOfMonth": "2024-06-30". в такому випадку сервер поверне усі картки за поточний відрізок часу
+// для фільтрації по типах відпочинку і країні потрібно передати countryName та/або activityName
+export const getFilteredTours = `query getFilteredTours($countryName: String, $activityName: String, $startOfMonth: Date, $endOfMonth: Date, $page: Int = 1, $pageSize: Int = 10) {
+  tours(
+    filters: {
+      date: { gte: $startOfMonth, lte: $endOfMonth }
+      countries: { name: { eq: $countryName } }
+      activities: { name: { eq: $activityName } }
+    }
+    pagination: { page: $page, pageSize: $pageSize }
+    sort: "date:asc"
+  ) {
+    data {
+      id
+      attributes {
+        img {
+          data {
+            attributes {
+              url
+              alternativeText
+            }
+          }
+        }
+        title
+        date
+        slug
+        duration
+        activities {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+        countries {
+          data {
+            attributes {
+              name
+            }
+          }
+        }
+      }
+    }
+    meta {
+      pagination {
+        pageCount
+      }
+    }
+  }
+  countries {
+    data {
+      id
+      attributes {
+        name
+      }
+    }
+  }
+  activities {
+    data {
+      id
+      attributes {
+        name
+      }
+    }
+  }
+}`;
