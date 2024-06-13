@@ -14,11 +14,9 @@ import FaqNavMenu from '@/components/common/FaqNavMenu';
 import FeaturesTable from '@/components/common/FeaturesTable';
 import Button from '@/components/ui/Button';
 import CustomSelect from '@/components/ui/CustomSelect';
-import FeatureRow from '@/components/ui/FeatureRow';
 import IconButton from '@/components/ui/IconButton';
 import LinkButton from '@/components/ui/LinkButton';
 import { faq, activitiesDataTemporary, countriesDataTemporary } from '@/data';
-import { featuresData } from '@/data';
 import { createDataSelectOptions } from '@/utils';
 
 const activitiesData = createDataSelectOptions(
@@ -30,15 +28,7 @@ const countriesData = createDataSelectOptions(
   'Всі країни',
 );
 
-const feature = {
-  id: 1,
-  caption: 'Маршрут',
-  text: 'Прага (Чехія) - гора Траунштайн (Австрія) - озеро Траунзее (Австрія) - Прага (Чехія)',
-  icon: 'trip',
-};
-
 const Observer = () => {
-  const { features } = featuresData;
   const { disclosures } = faq;
 
   const [selectedActivitiesItem, setSelectedActivitiesItem] =
@@ -181,15 +171,9 @@ const Observer = () => {
         <DisclosureFaq disclosures={disclosures} />
         <div className='container'>
           <p className='mb-2 text-center text-[24px] font-bold'>
-            Component FeatureRow
-          </p>
-          <FeatureRow feature={feature} />
-        </div>
-        <div className='container'>
-          <p className='mb-2 text-center text-[24px] font-bold'>
             Component FeatureTable
           </p>
-          <FeaturesTable features={features} />
+          <FeaturesTable slug='skaj-bridzh-lite' />
         </div>
       </div>
     </div>
