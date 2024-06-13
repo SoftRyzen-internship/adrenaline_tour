@@ -1,4 +1,4 @@
-import { formatDateReview } from '@/utils';
+import { formatDateYearMonthDay } from '@/utils';
 
 import { IReviewModalContentProps } from './ReviewModalContent.types';
 
@@ -20,7 +20,7 @@ const ReviewModalContent: React.FC<IReviewModalContentProps> = ({
         {name}
       </h4>
       <p className='text-center font-inter text-[12px] font-medium leading-[1.30] text-darkGreen'>
-        {formatDateReview(date)}
+        {formatDateYearMonthDay(date)}
       </p>
     </div>
   );

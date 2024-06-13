@@ -8,7 +8,7 @@ const converter = new showdown.Converter();
 const Policy = async () => {
   const policy = await fetchPrivacyPolicy();
   if (!policy) {
-    return <ErrorComponent />;
+    return <ErrorComponent isLoadingError />;
   }
 
   const htmlContent = converter.makeHtml(policy.text);

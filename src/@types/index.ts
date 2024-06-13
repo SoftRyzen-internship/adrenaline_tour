@@ -10,6 +10,8 @@ export enum IdForScroll {
   CONTACTS = 'contacts',
 }
 
+export const SLIDER_THRESHOLD = 4;
+
 export interface IFormState {
   name: string;
   email: string;
@@ -129,5 +131,55 @@ export interface ITourDetails {
 export interface ITourDetailsResponse {
   tours: {
     data: ITourDetails[];
+  };
+}
+
+export interface IGalleryAttributes {
+  url: string;
+  alternativeText: string;
+}
+
+export interface IGallery {
+  id: string;
+  attributes: IGalleryAttributes;
+}
+
+interface GalleryImages {
+  data: IGallery[];
+}
+
+interface GalleryAttributes {
+  images: GalleryImages;
+}
+
+interface GalleryData {
+  attributes: GalleryAttributes;
+}
+
+export interface IGalleryResponse {
+  gallery: {
+    data: GalleryData;
+  };
+}
+
+export interface IReview {
+  id: string;
+  title: string;
+  text: string;
+  author: string;
+  date: string;
+}
+
+interface ReviewAttributes {
+  reviews: IReview[];
+}
+
+interface ReviewData {
+  attributes: ReviewAttributes;
+}
+
+export interface IReviewResponse {
+  review: {
+    data: ReviewData;
   };
 }
