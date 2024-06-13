@@ -1,0 +1,24 @@
+.bgTorn {
+  background-image: url('/images/error/vector@1x.webp');
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100%;
+}
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .bgTorn {
+    background-image: url('/images/error/vector@2x.webp');
+  }
+}
+
+.bgTorn::before {
+  content: '';
+  width: 64px;
+  height: 64px;
+  margin-bottom: 28px;
+  display: inline-block;
+  background-size: cover;
+  background-image: url('/icons/bonfire.svg');
+}

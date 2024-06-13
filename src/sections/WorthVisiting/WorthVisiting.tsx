@@ -1,3 +1,4 @@
+import { SLIDER_THRESHOLD } from '@/@types';
 import { fetchRecommendedTours } from '@/actions/requests';
 import Slider from '@/components/common/Slider';
 import TourCard from '@/components/ui/TourCard';
@@ -7,7 +8,7 @@ const WorthVisiting = async () => {
   const dataAllTours = await fetchRecommendedTours();
   const data = dataAllTours ?? [];
 
-  const shouldShowSlider = data.length >= 4;
+  const shouldShowSlider = data.length >= SLIDER_THRESHOLD;
 
   const worthVisitingContent = shouldShowSlider ? (
     <Slider

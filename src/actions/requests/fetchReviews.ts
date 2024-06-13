@@ -1,13 +1,12 @@
-import { IReviewResponse } from '@/sections/Reviews/Reviews.types';
+import { IReviewResponse } from '@/@types';
 
 import fetchData from '../fetchData';
-import { getReviews } from '../query';
+import { getReviews as query } from '../query';
 
 const fetchReviews = async () => {
-  const query = getReviews;
   const result = (await fetchData(query)) as IReviewResponse;
 
-  return result.review.data.attributes.reviews.slice(0, 10);
+  return result.review.data.attributes.reviews;
 };
 
 export default fetchReviews;

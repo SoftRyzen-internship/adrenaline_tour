@@ -4,32 +4,27 @@ import { fetchAllTours } from '@/actions/requests';
 import Slider from '@/components/common/Slider';
 import LinkButton from '@/components/ui/LinkButton';
 import TourCard from '@/components/ui/TourCard';
-import { Pages } from '@/@types';
+import { Pages, SLIDER_THRESHOLD } from '@/@types';
 import { upcomingTours } from '@/data';
 
 const UpcomingTours = async () => {
   const dataAllTours = await fetchAllTours();
   const tours = dataAllTours ?? [];
 
-  const currentDate = new Date();
-  const dataUpcomingTours = tours.filter(
-    item => new Date(item.attributes.date) >= currentDate,
-  );
-
-  const shouldShowSlider = dataUpcomingTours.length >= 4;
+  const shouldShowSlider = tours.length >= SLIDER_THRESHOLD;
 
   const upcomingToursContent = shouldShowSlider ? (
     <Slider
       section='upcomingTours'
       className={'mb-8 md:mb-14'}
-      slides={dataUpcomingTours.map(item => ({
+      slides={tours.map(item => ({
         id: item.id,
         content: <TourCard key={item.id} data={item} />,
       }))}
     />
   ) : (
     <div className='mb-8 grid grid-cols-1 gap-2 sm:grid-cols-2 md:mb-14 xl:grid-cols-3'>
-      {dataUpcomingTours.map(item => (
+      {tours.map(item => (
         <TourCard key={item.id} data={item} />
       ))}
     </div>
