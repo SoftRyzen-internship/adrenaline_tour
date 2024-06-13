@@ -1,14 +1,3 @@
-const countriesAndActivitiesFields = `
-  name
-  tour {
-    data {
-      attributes(sort: "title:asc") {
-        title
-        slug
-      }
-    }
-  }
-`;
 const imagesFields = `
   data {
     id
@@ -93,32 +82,6 @@ export const getPolicy = `query getPolicy {
         attributes{
           title
           text
-        }
-      }
-    }
-  }`;
-
-// запит за країнами
-// додавши об'єкт tour можна дізнатись які тури мають цю країну, якщо немає, то data === null якщо ця інформація не потрібна то прибрати об'єкт tour
-export const getCountries = `query getCountries {
-  countries(sort: "name:asc") {
-    data {
-      id
-      attributes{
-        ${countriesAndActivitiesFields}
-      }
-    }
-  }
-}`;
-
-// запит за активностями
-// додавши об'єкт tour можна дізнатись які тури мають цю країну, якщо немає, то data === null якщо ця інформація не потрібна то прибрати об'єкт tour
-export const getActivities = `query getActivities {
-    activities(sort: "name:asc") {
-      data {
-        id
-        attributes{
-          ${countriesAndActivitiesFields}
         }
       }
     }
@@ -338,32 +301,7 @@ export const getFilteredTours = `query getFilteredTours($countryName: String, $a
     data {
       id
       attributes {
-        img {
-          data {
-            attributes {
-              url
-              alternativeText
-            }
-          }
-        }
-        title
-        date
-        slug
-        duration
-        activities {
-          data {
-            attributes {
-              name
-            }
-          }
-        }
-        countries {
-          data {
-            attributes {
-              name
-            }
-          }
-        }
+        ${toursAttributesDataFields}
       }
     }
     meta {
@@ -373,19 +311,9 @@ export const getFilteredTours = `query getFilteredTours($countryName: String, $a
     }
   }
   countries {
-    data {
-      id
-      attributes {
-        name
-      }
-    }
+    ${countriesAndActivitiesSmallFields}
   }
   activities {
-    data {
-      id
-      attributes {
-        name
-      }
-    }
+    ${countriesAndActivitiesSmallFields}
   }
 }`;
