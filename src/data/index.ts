@@ -28,3 +28,4 @@ export { default as featuresData } from './featuresData.json';
 export { default as tipsData } from './tipsData.json';
 export { default as destinations } from './destinations.json';
 export { default as selectedTours } from './selectedTours.json';
+export { default as errorData } from './errorData.json';
