@@ -45,7 +45,11 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
           {title}
         </h2>
         <div className='flex flex-wrap pt-[6px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue md:text-[12px] md:leading-[16px]'>
-          <Location width={10} height={14} />
+          <Location
+            width={12}
+            height={12}
+            className='h-[16px] fill-darkBlue md:w-[16px]'
+          />
           <p className='pl-1 pr-2'>{countryNames}</p>
           <p className={clsx('type flex px-2', s['type'])}>{activitiesNames}</p>
           <p className='px-2'>{duration}</p>

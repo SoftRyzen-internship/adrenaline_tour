@@ -10,7 +10,7 @@ const fetchTourMainInfo = async (slug: string) => {
     variables,
   )) as ITourMainInfoQueryResponse;
 
-  return result.tours.data[0]?.attributes;
+  return result?.tours?.data[0]?.attributes ?? null;
 };
 
 export default fetchTourMainInfo;

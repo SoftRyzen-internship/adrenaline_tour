@@ -7,7 +7,7 @@ const fetchTourImg = async (slug: string) => {
   const variables = { slug };
   const result = (await fetchData(query, variables)) as ITourImgQueryResponse;
 
-  return result.tours.data[0]?.attributes.img.data.attributes;
+  return result?.tours?.data[0]?.attributes?.img?.data?.attributes ?? null;
 };
 
 export default fetchTourImg;

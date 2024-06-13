@@ -7,19 +7,19 @@ import { fetchTourServices } from '@/actions/requests';
 const TourServices: React.FC<ITourProps> = async ({ slug }) => {
   const data = await fetchTourServices(slug);
 
-  const sortedFeatures = [...data.features].sort((a, b) => {
+  const sortedFeatures = data?.features.sort((a, b) => {
     return Number(b.included) - Number(a.included);
   });
 
   return (
     <div className='container'>
       {data && (
-        <div className='mb-6 md:mb-8 xl:mb-10'>
+        <div>
           <h2 className='mb-8 font-unbounded text-[18px] font-bold leading-[1.30] text-additionalBlue md:text-[24px] md:leading-[1] xl:mb-10 xl:text-[32px]'>
             {data.title}
           </h2>
           <ul className='flex flex-col gap-3 xl:gap-4'>
-            {sortedFeatures.map(({ id, name, included }) => (
+            {sortedFeatures?.map(({ id, name, included }) => (
               <li key={id} className='flex items-center gap-[6px] md:gap-2'>
                 {included ? (
                   <Check

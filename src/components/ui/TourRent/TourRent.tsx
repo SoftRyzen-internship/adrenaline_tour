@@ -6,8 +6,8 @@ const TourRent: React.FC<ITourProps> = async ({ slug }) => {
 
   return (
     <div className='container'>
-      {data && (
-        <div>
+      {data.equipment && (
+        <div className='mt-6 md:mt-8 xl:mt-10'>
           <h3 className='mb-3 font-inter text-[16px] font-bold leading-[1.30] text-blueDefault md:mb-4 md:text-[20px] xl:mb-6 xl:text-[28px] xl:leading-[1.10]'>
             {data.title}
           </h3>

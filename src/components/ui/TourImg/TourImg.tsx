@@ -6,7 +6,7 @@ import { ariaLabel } from '@/data';
 
 const TourImg: React.FC<ITourProps> = async ({ slug }) => {
   const data = await fetchTourImg(slug);
-  const altText = data.alternativeText || ariaLabel.altAlternative;
+  const altText = data?.alternativeText || ariaLabel.altAlternative;
 
   return (
     <div className='mb-10 md:container md:mb-[54px] xl:mb-[64px]'>

@@ -10,7 +10,7 @@ const fetchTourServices = async (slug: string) => {
     variables,
   )) as ITourServicesQueryResponse;
 
-  return result.tours.data[0]?.attributes.services;
+  return result?.tours?.data[0]?.attributes?.services ?? null;
 };
 
 export default fetchTourServices;
