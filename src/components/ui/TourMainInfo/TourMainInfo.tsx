@@ -17,7 +17,7 @@ const TourMainInfo: React.FC<ITourProps> = async ({ slug }) => {
     .join(', ');
 
   return (
-    <div className='container'>
+    <div className='notXL:container'>
       {data && (
         <div className='xl:w-[652px]'>
           <h1 className='mb-3 font-unbounded text-[28px] font-bold leading-[1] text-additionalBlue md:mb-4 md:text-[32px] xl:text-[40px]'>

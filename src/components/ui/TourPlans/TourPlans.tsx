@@ -11,7 +11,7 @@ const TourPlans: React.FC<ITourProps> = async ({ slug }) => {
   const htmlContent = converter.makeHtml(data?.description);
 
   return (
-    <div className='container'>
+    <div className='mt-12 notXL:container'>
       {data && (
         <div className='mb-12 xl:mb-16 xl:w-[652px]'>
           <h2 className='mb-8 font-unbounded text-[18px] font-bold leading-[1.30] text-additionalBlue md:text-[24px] md:leading-[1] xl:mb-10 xl:text-[32px]'>
