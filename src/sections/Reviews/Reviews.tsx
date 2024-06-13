@@ -1,12 +1,12 @@
 import clsx from 'clsx';
 
+import { IReview } from '@/@types';
 import { fetchReviews } from '@/actions/requests';
 import Slider from '@/components/common/Slider';
 import ReviewCard from '@/components/ui/ReviewCard';
 import { reviews } from '@/data';
 
 import s from './Reviews.module.css';
-import { IReview } from './Reviews.types';
 
 const Reviews = async () => {
   const dataReviews: IReview[] = await fetchReviews();

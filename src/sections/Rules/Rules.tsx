@@ -42,7 +42,7 @@ const Rules = () => {
     <section className='section container'>
       <h2 className='section-title mb-8 w-[194px]'>{rules.title}</h2>
       {isDesktop ? (
-        <ul className='flex gap-8 smOnly:hidden mdOnly:hidden'>
+        <ul className='flex gap-8'>
           {rules.rules.map(({ id, title, description }, index) => (
             <CardRule
               key={id}
@@ -55,11 +55,7 @@ const Rules = () => {
           ))}
         </ul>
       ) : (
-        <Slider
-          slides={slides}
-          section='upcomingTours'
-          className={'xl:hidden'}
-        />
+        <Slider slides={slides} section='upcomingTours' />
       )}
     </section>
   );

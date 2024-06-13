@@ -1,15 +1,14 @@
+import { IGallery, SLIDER_THRESHOLD } from '@/@types';
 import { fetchGallery } from '@/actions/requests';
 import SliderGallery from '@/components/common/SliderGallery';
 import CardGallery from '@/components/ui/CardGallery';
 import { gallery } from '@/data';
 
-import { IGallery } from './Gallery.types';
-
 const Gallery = async () => {
   const dataGallery: IGallery[] = await fetchGallery();
   const data = dataGallery ?? [];
 
-  const shouldShowSlider = data.length >= 4;
+  const shouldShowSlider = data.length >= SLIDER_THRESHOLD;
 
   const galleryContent = shouldShowSlider ? (
     <SliderGallery
