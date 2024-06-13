@@ -20,7 +20,7 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
     .map(country => country.attributes.name)
     .join(', ');
   const activitiesNames = activities.data
-    .map(activit => activit.attributes.name)
+    .map(activity => activity.attributes.name)
     .join(', ');
 
   const altText = img.data.attributes.alternativeText || title;
