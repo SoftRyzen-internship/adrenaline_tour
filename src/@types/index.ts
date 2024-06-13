@@ -103,11 +103,35 @@ export interface ITourResponse {
   };
 }
 
-export interface IFeatureRow {
-  id: number;
-  caption: string;
-  text: string | null;
-  icon: string;
+export interface IDetailWithDescription {
+  title: string;
+  description: string;
+}
+
+export interface IDetailWithLocation {
+  title: string;
+  location: { place: string }[];
+}
+
+export interface ITourDetailsAttributes {
+  details: {
+    difficult: IDetailWithDescription;
+    meet: IDetailWithLocation;
+    price: IDetailWithDescription;
+    route: IDetailWithDescription;
+    seasons: IDetailWithDescription;
+  };
+}
+
+export interface ITourDetails {
+  id: string;
+  attributes: ITourDetailsAttributes;
+}
+
+export interface ITourDetailsResponse {
+  tours: {
+    data: ITourDetails[];
+  };
 }
 
 export interface IGalleryAttributes {
