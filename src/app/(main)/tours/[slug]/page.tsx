@@ -1,5 +1,8 @@
 // import { Metadata } from 'next';
 
+import Gallery from '@/sections/Gallery';
+import Tour from '@/sections/Tour';
+
 // import { Pages } from '@/@types';
 // import { getTour } from '@/actions/query';
 // import { configuration } from '@/utils';
@@ -45,9 +48,8 @@ export interface ISingleTourPageProps {
 const SingleTourPage: React.FC<ISingleTourPageProps> = ({ params }) => {
   return (
     <>
-      <h1 className='bg-green-400 text-6xl'>
-        Single Tour Page - {params.slug}
-      </h1>
+      <Tour slug={params.slug} />
+      <Gallery />
     </>
   );
 };

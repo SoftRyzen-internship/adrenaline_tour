@@ -1,8 +1,12 @@
+import { ITourProps } from '@/@types';
+
 import Location from '/public/icons/location.svg';
 
-import { ITourMainInfo } from './TourMainInfo.types';
+import { fetchTourMainInfo } from '@/actions/requests';
 
-const TourMainInfo: React.FC<ITourMainInfo> = ({ dataMainInfo }) => {
+const TourMainInfo: React.FC<ITourProps> = async ({ slug }) => {
+  const data = await fetchTourMainInfo(slug);
+  const dataMainInfo = data ?? [];
   const { title, duration, description, countries, activities } = dataMainInfo;
 
   const countryNames = countries.data

@@ -107,3 +107,127 @@ export interface IFeatureRow {
   text: string | null;
   icon: string;
 }
+
+export interface ITourProps {
+  slug: string;
+}
+
+interface IImgAttributes {
+  alternativeText: string;
+  url: string;
+}
+
+interface IImgData {
+  id: string;
+  attributes: IImgAttributes;
+}
+
+interface ITourImgAttributes {
+  img: {
+    data: IImgData;
+  };
+}
+
+interface ITourImg {
+  id: string;
+  attributes: ITourImgAttributes;
+}
+
+export interface ITourImgQueryResponse {
+  tours: {
+    data: ITourImg[];
+  };
+}
+
+export interface IActivityMainInfo {
+  id: string;
+  attributes: {
+    name: string;
+  };
+}
+
+export interface ICountryMainInfo {
+  id: string;
+  attributes: {
+    name: string;
+  };
+}
+
+export interface ITourAttributesMainInfo {
+  activities: {
+    data: IActivityMainInfo[];
+  };
+  countries: {
+    data: ICountryMainInfo[];
+  };
+  description: string;
+  duration: string;
+  title: string;
+}
+
+export interface ITourMainInfo {
+  attributes: ITourAttributesMainInfo;
+}
+
+export interface ITourMainInfoQueryResponse {
+  tours: {
+    data: ITourMainInfo[];
+  };
+}
+
+export interface ITourAttributesTourPlans {
+  plans: {
+    description: string;
+    title: string;
+  };
+}
+
+export interface ITourPlans {
+  attributes: ITourAttributesTourPlans;
+}
+
+export interface ITourPlansQueryResponse {
+  tours: {
+    data: ITourPlans[];
+  };
+}
+
+export interface ITourAttributesTourRent {
+  rent: {
+    equipment: string;
+    title: string;
+  };
+}
+
+export interface ITourRent {
+  attributes: ITourAttributesTourRent;
+}
+
+export interface ITourRentQueryResponse {
+  tours: {
+    data: ITourRent[];
+  };
+}
+
+export interface IFeatures {
+  id: string;
+  name: string;
+  included: boolean;
+}
+
+export interface ITourAttributesTourServices {
+  services: {
+    features: IFeatures[];
+    title: string;
+  };
+}
+
+export interface ITourServices {
+  attributes: ITourAttributesTourServices;
+}
+
+export interface ITourServicesQueryResponse {
+  tours: {
+    data: ITourServices[];
+  };
+}
