@@ -7,21 +7,25 @@ import NavMenu from '@/components/ui/NavMenu';
 import PageConditionalRender from '@/components/ui/PageConditionalRender';
 import Social from '@/components/ui/Social';
 import { ariaLabel, burgerMenuData } from '@/data';
+import { useScreenSize } from '@/hooks';
 
 import CloseIcon from '/public/icons/close_24.svg';
 
 import { IBurgerMenuProps } from './BurgerMenu.types';
 
 const BurgerMenu: React.FC<IBurgerMenuProps> = ({ onCloseMenu }) => {
+  const isDesktop = useScreenSize('(min-width: 1280px)');
   return (
     <div className='container flex min-h-full flex-col justify-between pb-11 pt-6 md:pb-[100px] xl:pl-20 xl:pr-28'>
-      <div className='flex items-center justify-between xl:pt-6'>
-        <Logo
-          width={126}
-          height={40}
-          className='h-16 w-[201px] xl:sr-only xl:invisible xl:left-0 xl:top-0 xl:hidden xl:h-0 xl:w-0'
-          onClick={onCloseMenu}
-        />
+      <div className='flex items-center justify-between xl:justify-end xl:pt-6'>
+        {isDesktop ? null : (
+          <Logo
+            width={126}
+            height={40}
+            className='h-16 w-[201px] xl:sr-only xl:invisible xl:left-0 xl:top-0 xl:hidden xl:h-0 xl:w-0'
+            onClick={onCloseMenu}
+          />
+        )}
 
         <IconButton
           type='button'

@@ -8,6 +8,7 @@ import dynamic from 'next/dynamic';
 import Button from '@/components/ui/Button';
 import ReviewModalContent from '@/components/ui/ReviewModalContent';
 import { reviews } from '@/data';
+import { formatDateYearMonthDay } from '@/utils';
 
 import { IReviewCardProps } from './ReviewCard.types';
 
@@ -73,7 +74,7 @@ const ReviewCard: React.FC<IReviewCardProps> = ({
               {name}
             </h4>
             <p className='text-center font-inter text-[12px] font-medium leading-[1.30] text-darkGreen'>
-              {date}
+              {formatDateYearMonthDay(date)}
             </p>
           </div>
         </div>

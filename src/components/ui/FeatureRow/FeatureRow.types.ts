@@ -1,8 +1,8 @@
+import { ITourDetailsAttributes } from '@/@types';
+
 export interface IFeatureRowProps {
   feature: {
-    id: number;
-    caption: string;
-    text: string;
     icon: string;
+    details: ITourDetailsAttributes['details'][keyof ITourDetailsAttributes['details']];
   };
 }

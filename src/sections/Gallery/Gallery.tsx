@@ -1,13 +1,40 @@
+import { IGallery, SLIDER_THRESHOLD } from '@/@types';
+import { fetchGallery } from '@/actions/requests';
 import SliderGallery from '@/components/common/SliderGallery';
 import CardGallery from '@/components/ui/CardGallery';
 import { gallery } from '@/data';
 
-const slides = gallery.images.map(({ id, src, alt }) => ({
-  id: id,
-  content: <CardGallery key={id} src={src} alt={alt} />,
-}));
+const Gallery = async () => {
+  const dataGallery: IGallery[] = await fetchGallery();
+  const data = dataGallery ?? [];
 
-const Gallery = () => {
+  const shouldShowSlider = data.length >= SLIDER_THRESHOLD;
+
+  const galleryContent = shouldShowSlider ? (
+    <SliderGallery
+      slides={data.map(({ attributes }, index) => ({
+        id: index,
+        content: (
+          <CardGallery
+            key={index}
+            src={attributes.url}
+            alt={attributes.alternativeText}
+          />
+        ),
+      }))}
+    />
+  ) : (
+    <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4'>
+      {data.map(({ attributes }, index) => (
+        <CardGallery
+          key={index}
+          src={attributes.url}
+          alt={attributes.alternativeText}
+        />
+      ))}
+    </div>
+  );
+
   return (
     <section className='section'>
       <div className='container'>
@@ -15,7 +42,7 @@ const Gallery = () => {
           {gallery.title}
         </h2>
       </div>
-      <SliderGallery slides={slides} />
+      {galleryContent}
     </section>
   );
 };

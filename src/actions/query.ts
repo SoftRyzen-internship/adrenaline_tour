@@ -1,3 +1,80 @@
+const imagesFields = `
+  data {
+    id
+    attributes {
+      url
+      alternativeText
+    }
+  }
+`;
+const countriesAndActivitiesSmallFields = `
+  data {
+    id
+    attributes {
+      name
+    }
+  }
+`;
+const toursAttributesDataFields = `
+  img {
+    ${imagesFields}
+  }
+  date
+  title
+  duration
+  slug
+  recommended
+  activities {
+    ${countriesAndActivitiesSmallFields}
+  }
+  countries {
+    ${countriesAndActivitiesSmallFields}
+  }
+`;
+const titleAndDescriptionFields = `
+  title
+  description
+`;
+
+const rentField = `
+  rent {
+    title
+    equipment
+  }
+`;
+
+const servicesFields = `
+  services {
+    title
+    features {
+      id
+      name
+      included
+    }
+  }
+`;
+
+const tourDataDetailsField = `
+  route {
+    ${titleAndDescriptionFields}
+  }
+  seasons {
+    ${titleAndDescriptionFields}
+  }
+  difficult {
+    ${titleAndDescriptionFields}
+  }
+  meet {
+    title
+    location {
+      place
+    }
+  }
+  price {
+    ${titleAndDescriptionFields}
+  }
+`;
+
 // запит для сторінки політики КОНФІДЕНЦІЙНОСТІ
 export const getPolicy = `query getPolicy {
     policy {
@@ -10,54 +87,12 @@ export const getPolicy = `query getPolicy {
     }
   }`;
 
-// запит за країнами
-export const getCountries = `query getCountries {
-  countries {
-    data {
-      id
-      attributes{
-        name
- ------------- // додавши наступне можна дізнатись які тури мають цю країну, якщо немає, то data === null
-        tour {
-          data {
-            attributes {
-              title
-              slug
-            }
-          }
-        }
-      }
-    }
-  }
-}`;
-
-// запит за активностями
-export const getActivities = `query getActivities {
-    activities {
-      data {
-        id
-        attributes{
-          name
- ------------- // додавши наступне можна дізнатись які тури мають цю активність, якщо немає, то data === null
-          tour {
-            data {
-              attributes {
-                title
-                slug
-              }
-            }
-          }
-        }
-      }
-    }
-  }`;
-
 // запит за відгуками
 export const getReviews = `query getReviews {
     review {
       data {
         attributes{
-          reviews {
+          reviews(sort: "date:asc") {
             id
             title
             text
@@ -74,7 +109,7 @@ export const getContact = `query getContact {
     contact {
       data {
         attributes{
-          email 
+          email
           numbers {
             ua
             cz
@@ -84,104 +119,42 @@ export const getContact = `query getContact {
     }
   }`;
 
-// запит за галиреєю
+// запит за галереєю
 export const getGallery = `query getGallery {
     gallery {
       data {
         attributes{
           images {
-            data {
-              id
-              attributes {
-                url
-                alternativeText
-              }
-            }
+            ${imagesFields}
           }
         }
       }
     }
   }`;
 
-// запит за всіма (масив карток) турами
-export const getAllTours = `query getAllTours {
-  tours {
-    data {
-      id
-      attributes {
-        img {
-          data {
-            attributes {
-              alternativeText
-              url
-            }
-          }
-        }
-        date
-        title
-        duration
-        slug
-        recommended
-        activities {
-          data {
-            id
-            attributes {
-              name
-            }
-          }
-        }
-        countries {
-          data {
-            id
-            attributes {
-              name
-            }
-          }
-        }
-      }
-    }
-  }
-}`;
-
-// запит карток по місяцям. потрібно передавати 2 параметра: "startOfMonth": "2024-06-01",
+// запит за всіма (масив карток) турами повертається з сортуванням по даті
+// за замовчуванням приходить 10 карток, щоб вказати кількість карток для сторінки (для пагінації - "pageSize": 6 - ЗНАЧЕННЯ NUMBER)
+// для отримання наступної сторінки - передаємо "page": 2 та "pageSize": 6 - ЗНАЧЕННЯ NUMBER
+// для запиту карток по місяцям. потрібно передавати 2 параметра: "startOfMonth": "2024-06-01",
 // та "endOfMonth": "2024-06-30". в такому випадку сервер поверне усі картки за поточний відрізок часу
-export const getToursByMonth = `query GetToursByMonth($startOfMonth: Date!, $endOfMonth: Date!) {
+export const getAllTours = `query getAllTours($page: Int = 1, $pageSize: Int = 10, $recommended: Boolean, $startOfMonth: Date, $endOfMonth: Date) {
   tours(
-    filters: { date: { gte: $startOfMonth, lte: $endOfMonth } }
-    sort: "date:asc"
+  pagination: { page: $page, pageSize: $pageSize }
+  filters: {
+    recommended: { eq: $recommended },
+    date: { gte: $startOfMonth, lte: $endOfMonth }
+  }
+  sort: "date:asc"
   ) {
     data {
       id
       attributes {
-        img {
-          data {
-            attributes {
-              alternativeText
-              url
-            }
-          }
-        }
-        date
-        title
-        duration
-        slug
-        recommended
-        activities {
-          data {
-            id
-            attributes {
-              name
-            }
-          }
-        }
-        countries {
-          data {
-            id
-            attributes {
-              name
-            }
-          }
-        }
+        ${toursAttributesDataFields}
+      }
+    }
+  meta {
+      pagination {
+        pageCount
       }
     }
   }
@@ -193,85 +166,18 @@ export const getTour = `query getTour($slug: String!) {
     data {
       id
       attributes {
-        img {
-          data {
-            id
-            attributes {
-              alternativeText
-              url
-            }
-          }
-        }
-        title
-        duration
-        date
-        slug
+        ${toursAttributesDataFields}
         description
-        recommended
-        activities {
-          data {
-            id
-            attributes {
-              name
-            }
-          }
-        }
-        countries {
-          data {
-            id
-            attributes {
-              name
-            }
-          }
-        }
         plans {
-          title
-          description
+          ${titleAndDescriptionFields}
         }
-        services {
-          title
-          features {
-            id
-            name
-            included
-          }
-        }
-        rent {
-          title
-          equipment
-        }
+        ${servicesFields}
+        ${rentField}
         details {
-          route {
-            title
-            description
-          }
-          seasons {
-            title
-            description
-          }
-          difficult {
-            title
-            description
-          }
-          meet {
-            title
-            location {
-              place
-            }
-          }
-          price {
-            title
-            description
-          }
+          ${tourDataDetailsField}
         }
         gallery {
-          data {
-            id
-            attributes {
-              alternativeText
-              url
-            }
-          }
+          ${imagesFields}
         }
       }
     }
@@ -285,13 +191,7 @@ export const getTourImg = `query getTourImg($slug: String!) {
       id
       attributes {
         img {
-          data {
-            id
-            attributes {
-              alternativeText
-              url
-            }
-          }
+          ${imagesFields}
         }
       }
     }
@@ -304,24 +204,13 @@ export const getTourMainInfo = `query getTourMainInfo($slug: String!) {
     data {
       id
       attributes {
-        title
+        ${titleAndDescriptionFields}
         duration
-        description
         activities {
-          data {
-            id
-            attributes {
-              name
-            }
-          }
+          ${countriesAndActivitiesSmallFields}
         }
         countries {
-          data {
-            id
-            attributes {
-              name
-            }
-          }
+          ${countriesAndActivitiesSmallFields}
         }
       }
     }
@@ -335,8 +224,7 @@ export const getTourPlans = `query getTourPlans($slug: String!) {
       id
       attributes {
         plans {
-          title
-          description
+          ${titleAndDescriptionFields}
         }
       }
     }
@@ -348,14 +236,7 @@ export const getTourServices = `query getTourServices($slug: String!) {
   tours(filters: { slug: { eq: $slug } }) {
     data {
       attributes {
-        services {
-          title
-          features {
-            id
-            name
-            included
-          }
-        }
+        ${servicesFields}
       }
     }
   }
@@ -366,10 +247,7 @@ export const getTourRent = `query getTourRent($slug: String!) {
   tours(filters: { slug: { eq: $slug } }) {
     data {
       attributes {
-        rent {
-          title
-          equipment
-        }
+        ${rentField}
       }
     }
   }
@@ -382,50 +260,60 @@ export const getTourDetails = `query getTourDetails($slug: String!) {
       id
       attributes {
         details {
-          route {
-            title
-            description 
-          }
-          seasons {
-            title
-            description
-          }
-          difficult {
-            title
-            description
-          }
-          meet {
-            title
-            location {
-              place
-            }
-          }
-          price {
-            title
-            description
-          }
+          ${tourDataDetailsField}
         }
       }
     }
   }
 }`;
 
-// запит за карткою Tour за slug СЕКЦІЯ індивідуальної галиреї туру:
+// запит за карткою Tour за slug СЕКЦІЯ індивідуальної галереї туру:
 export const getTourGallery = `query getTourGallery($slug: String!) {
   tours(filters: { slug: { eq: $slug } }) {
     data {
       id
       attributes {
         gallery {
-          data {
-            id
-            attributes {
-              alternativeText
-              url
-            }
-          }
+          ${imagesFields}
         }
       }
     }
+  }
+}`;
+
+// запит за картками туру, активностями та країнами з можливостью фільтрації на сервері
+// запит за всіма (масив карток) турами повертається з сортуванням по даті
+// за замовчуванням приходить 10 карток, щоб вказати кількість карток для сторінки (для пагінації - "pageSize": 6 - ЗНАЧЕННЯ NUMBER)
+// для отримання наступної сторінки - передаємо "page": 2 та "pageSize": 6 - ЗНАЧЕННЯ NUMBER
+// для запиту карток по місяцям. потрібно передавати 2 параметра: "startOfMonth": "2024-06-01",
+// та "endOfMonth": "2024-06-30". в такому випадку сервер поверне усі картки за поточний відрізок часу
+// для фільтрації по типах відпочинку і країні потрібно передати countryName та/або activityName
+export const getFilteredTours = `query getFilteredTours($countryName: String, $activityName: String, $startOfMonth: Date, $endOfMonth: Date, $page: Int = 1, $pageSize: Int = 10) {
+  tours(
+    filters: {
+      date: { gte: $startOfMonth, lte: $endOfMonth }
+      countries: { name: { eq: $countryName } }
+      activities: { name: { eq: $activityName } }
+    }
+    pagination: { page: $page, pageSize: $pageSize }
+    sort: "date:asc"
+  ) {
+    data {
+      id
+      attributes {
+        ${toursAttributesDataFields}
+      }
+    }
+    meta {
+      pagination {
+        pageCount
+      }
+    }
+  }
+  countries {
+    ${countriesAndActivitiesSmallFields}
+  }
+  activities {
+    ${countriesAndActivitiesSmallFields}
   }
 }`;
