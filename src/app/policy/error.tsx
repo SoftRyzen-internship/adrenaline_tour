@@ -7,7 +7,7 @@ export interface IErrorPageProps {
 
 const ErrorPage: React.FC<IErrorPageProps> = ({ error }) => {
   console.error('error -', error.message);
-  return <ErrorComponent />;
+  return <ErrorComponent isLoadingError />;
 };
 
 export default ErrorPage;
