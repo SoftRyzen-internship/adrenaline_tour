@@ -1,5 +1,3 @@
-'use client';
-
 import SelectedTours from '@/components/ui/SelectedTours';
 import { destinations } from '@/data';
 
@@ -10,7 +8,7 @@ const Destinations = () => {
         {destinations.title}
       </h2>
 
-      <SelectedTours />
+      <SelectedTours pageSize={6} />
     </section>
   );
 };

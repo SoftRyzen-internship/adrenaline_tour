@@ -70,20 +70,33 @@ export interface IImage {
 }
 
 export interface IToursAttributes {
+  img: {
+    data: {
+      attributes: {
+        url: string;
+        alternativeText: string | null;
+      };
+    };
+  };
+  title: string;
+  date: string;
+  slug: string;
+  duration: string;
+  recommended: boolean;
   activities: {
-    data: IActivity[];
+    data: {
+      attributes: {
+        name: string;
+      };
+    }[];
   };
   countries: {
-    data: ICountry[];
+    data: {
+      attributes: {
+        name: string;
+      };
+    }[];
   };
-  date: string;
-  duration: string;
-  img: {
-    data: IImage;
-  };
-  recommended: boolean;
-  slug: string;
-  title: string;
 }
 
 export interface ITours {
