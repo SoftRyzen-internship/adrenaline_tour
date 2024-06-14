@@ -215,3 +215,7 @@ export interface IReviewResponse {
     data: ReviewData;
   };
 }
+
+export interface IErrorProps {
+  isLoadingError?: boolean;
+}
