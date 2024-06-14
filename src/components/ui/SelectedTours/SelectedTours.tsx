@@ -79,7 +79,6 @@ const SelectedTours: React.FC<ISelectedTours> = ({
         page,
         pageSize,
       );
-      setIsLoading(false);
 
       if (data) {
         if (fetchType === 'countries') {
@@ -131,8 +130,9 @@ const SelectedTours: React.FC<ISelectedTours> = ({
         throw new Error('Invalid response structure');
       }
     } catch (error) {
-      setIsLoading(false);
       console.error('Error fetching tours:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
