@@ -1,13 +1,12 @@
-import { IGalleryResponse } from '@/sections/Gallery/Gallery.types';
+import { IGalleryResponse } from '@/@types';
 
 import fetchData from '../fetchData';
-import { getGallery } from '../query';
+import { getGallery as query } from '../query';
 
 const fetchGallery = async () => {
-  const query = getGallery;
   const result = (await fetchData(query)) as IGalleryResponse;
 
-  return result.gallery.data.attributes.images.data.slice(0, 10);
+  return result.gallery.data.attributes.images.data;
 };
 
 export default fetchGallery;

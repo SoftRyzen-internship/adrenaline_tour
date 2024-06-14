@@ -61,7 +61,7 @@ const Footer = () => {
             target='_blank'
             rel='noopener noreferrer nofollow'
             aria-label={footerData.ariaSoftRyzen}
-            className='brightness-0 invert transition hover:brightness-100 hover:invert-0 focus:brightness-100 focus:invert-0 md:-ml-2'
+            className='brightness-0 invert transition-filter duration-500 ease-out hover:brightness-100 hover:invert-0 focus:brightness-100 focus:invert-0 md:-ml-2'
           >
             <SoftRyzenIcon width={131} height={19} className='transition' />
           </a>
