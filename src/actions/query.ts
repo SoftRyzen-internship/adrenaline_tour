@@ -24,10 +24,10 @@ const toursAttributesDataFields = `
   duration
   slug
   recommended
-  activities {
+  activities(sort: "name:asc") {
     ${countriesAndActivitiesSmallFields}
   }
-  countries {
+  countries(sort: "name:asc") {
     ${countriesAndActivitiesSmallFields}
   }
 `;
@@ -310,10 +310,10 @@ export const getFilteredTours = `query getFilteredTours($countryName: String, $a
       }
     }
   }
-  countries {
+  countries(sort: "name:asc") {
     ${countriesAndActivitiesSmallFields}
   }
-  activities {
+  activities(sort: "name:asc") {
     ${countriesAndActivitiesSmallFields}
   }
 }`;
