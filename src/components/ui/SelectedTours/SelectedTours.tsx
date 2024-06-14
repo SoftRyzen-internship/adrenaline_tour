@@ -247,7 +247,7 @@ const SelectedTours: React.FC<ISelectedTours> = ({
         />
       </div>
       {filteredTours.length > 0 ? (
-        <div className='my-10 grid gap-[32px] md:my-14 md:grid-cols-2 md:gap-x-[32px] md:gap-y-[40px] xl:my-16 xl:grid-cols-3'>
+        <div className='mb-10 grid gap-[32px] md:mb-14 md:grid-cols-2  md:gap-x-[32px] md:gap-y-[40px] xl:mb-16  xl:grid-cols-3'>
           {filteredTours.slice(0, visibleTours).map((tour, index) => (
             <div key={index} className='col-span-1'>
               <TourCard data={tour} />
