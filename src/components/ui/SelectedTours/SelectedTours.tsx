@@ -212,7 +212,7 @@ const SelectedTours: React.FC<ISelectedTours> = ({
   useEffect(() => {
     setCurrentPage(1);
     fetchTheTours(1);
-  }, [selectedCountry, selectedActivity]);
+  }, [selectedCountry, selectedActivity, startDate, endDate]);
 
   const loadMore = () => {
     fetchTheTours(currentPage + 1);
