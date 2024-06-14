@@ -1,5 +1,5 @@
 'use client';
-import ErrorComponent from '@/components/ui/ErrorComponent';
+import ErrorSection from '@/components/ui/ErrorSection';
 
 export interface IErrorPageProps {
   error: Error;
@@ -7,7 +7,7 @@ export interface IErrorPageProps {
 
 const ErrorPage: React.FC<IErrorPageProps> = ({ error }) => {
   console.error('error -', error.message);
-  return <ErrorComponent isLoadingError />;
+  return <ErrorSection isLoadingError />;
 };
 
 export default ErrorPage;

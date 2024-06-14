@@ -22,7 +22,7 @@ const BurgerMenu: React.FC<IBurgerMenuProps> = ({ onCloseMenu }) => {
           <Logo
             width={126}
             height={40}
-            className='h-16 w-[201px] xl:sr-only xl:invisible xl:left-0 xl:top-0 xl:hidden xl:h-0 xl:w-0'
+            className='h-16 w-[201px]'
             onClick={onCloseMenu}
           />
         )}
@@ -33,7 +33,7 @@ const BurgerMenu: React.FC<IBurgerMenuProps> = ({ onCloseMenu }) => {
           onClick={onCloseMenu}
           className='stroke-grey01 transition hover:stroke-accentDarkOrange focus:stroke-accentDarkOrange'
         >
-          <CloseIcon width={24} height={24} className='xl:h-12 xl:w-12' />
+          <CloseIcon className='h-6 w-6 md:h-12 md:w-12 ' />
         </IconButton>
       </div>
       <NavMenu buttonStyle='navLink' onCloseMenu={onCloseMenu} />
