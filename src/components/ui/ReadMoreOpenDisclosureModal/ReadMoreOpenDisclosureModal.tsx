@@ -37,11 +37,7 @@ const ReadMoreOpenDisclosureModal: React.FunctionComponent<
             {item.question}
           </p>
 
-          <div
-            className={clsx(
-              'h-[95%] overflow-y-auto pr-4 scrollbar-thin scrollbar-track-[#F2F1F1] scrollbar-thumb-accentDefaultOrange',
-            )}
-          >
+          <div className='scroll-bar-custom h-[95%] pr-4'>
             {item.answers.map(answer => (
               <div
                 key={answer.id}

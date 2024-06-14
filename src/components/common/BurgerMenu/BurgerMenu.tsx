@@ -16,7 +16,7 @@ import { IBurgerMenuProps } from './BurgerMenu.types';
 const BurgerMenu: React.FC<IBurgerMenuProps> = ({ onCloseMenu }) => {
   const isDesktop = useScreenSize('(min-width: 1280px)');
   return (
-    <div className='container flex min-h-full flex-col justify-between pb-11 pt-6 md:pb-[100px] xl:pl-20 xl:pr-28'>
+    <div className='scroll-bar-custom container flex h-full flex-col justify-between pb-11 pt-6 md:pb-[100px] xl:pl-20 xl:pr-28'>
       <div className='flex items-center justify-between xl:justify-end xl:pt-6'>
         {isDesktop ? null : (
           <Logo
@@ -37,7 +37,7 @@ const BurgerMenu: React.FC<IBurgerMenuProps> = ({ onCloseMenu }) => {
         </IconButton>
       </div>
       <NavMenu buttonStyle='navLink' onCloseMenu={onCloseMenu} />
-      <div className='smOnly:space-y-8 md:space-x-12 notXL:text-center'>
+      <div className='mt-8 smOnly:space-y-8 md:mt-10 md:space-x-12 notXL:text-center'>
         <PageConditionalRender<ILinkButtonProps>
           pages={[Pages.POLICY]}
           trueProps={{
