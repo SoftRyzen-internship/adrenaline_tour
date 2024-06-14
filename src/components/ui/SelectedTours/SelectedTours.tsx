@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 
+import CircleIcon from '/public/icons/circle.svg';
+
 import { ISelectState, ITours } from '@/@types';
 import { fetchFilteredTours } from '@/actions/requests';
 
@@ -51,6 +53,7 @@ const SelectedTours: React.FC<ISelectedTours> = ({
     useState<ISelectState>(defaultActivities);
   const [filteredActivities, setFilteredActivities] = useState<ISelect[]>([]);
   const [filteredCountries, setFilteredCountries] = useState<ISelect[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchData = async (
     page: number,
@@ -67,6 +70,7 @@ const SelectedTours: React.FC<ISelectedTours> = ({
         : selectedActivity.attributes.name;
 
     try {
+      setIsLoading(true);
       const data = await fetchFilteredTours(
         country,
         activity,
@@ -75,6 +79,7 @@ const SelectedTours: React.FC<ISelectedTours> = ({
         page,
         pageSize,
       );
+      setIsLoading(false);
 
       if (data) {
         if (fetchType === 'countries') {
@@ -126,6 +131,7 @@ const SelectedTours: React.FC<ISelectedTours> = ({
         throw new Error('Invalid response structure');
       }
     } catch (error) {
+      setIsLoading(false);
       console.error('Error fetching tours:', error);
     }
   };
@@ -142,6 +148,7 @@ const SelectedTours: React.FC<ISelectedTours> = ({
         ? undefined
         : selectedActivity.attributes.name;
     try {
+      setIsLoading(true);
       const data = await fetchFilteredTours(
         country,
         activity,
@@ -150,6 +157,7 @@ const SelectedTours: React.FC<ISelectedTours> = ({
         page,
         pageSize,
       );
+      setIsLoading(false);
 
       if (data) {
         if (page === 1) {
@@ -205,6 +213,7 @@ const SelectedTours: React.FC<ISelectedTours> = ({
         throw new Error('Invalid response structure');
       }
     } catch (error) {
+      setIsLoading(false);
       console.error('Error fetching tours:', error);
     }
   };
@@ -257,13 +266,22 @@ const SelectedTours: React.FC<ISelectedTours> = ({
             type='button'
             iconPosition='after'
             icon={
-              <ArrowRightDownIcon
-                width={24}
-                height={24}
-                className='h-6 w-6 md:h-8 md:w-8'
-              />
+              isLoading ? (
+                <CircleIcon
+                  width={24}
+                  height={24}
+                  className='h-6 w-6 animate-spin'
+                />
+              ) : (
+                <ArrowRightDownIcon
+                  width={24}
+                  height={24}
+                  className='h-6 w-6 md:h-8 md:w-8'
+                />
+              )
             }
             onClick={loadMore}
+            disabled={isLoading}
           >
             {selectedTours.buttonMore}
           </Button>
