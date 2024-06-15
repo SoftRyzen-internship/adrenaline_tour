@@ -184,6 +184,19 @@ export interface IReviewResponse {
   };
 }
 
+export interface IEmailAndPhone {
+  email: string;
+  numbers: {
+    [country: string]: string;
+  };
+}
+
 export interface IErrorProps {
   isLoadingError?: boolean;
+}
+
+export interface IContactResponse {
+  contact: {
+    data: { attributes: IEmailAndPhone };
+  };
 }
