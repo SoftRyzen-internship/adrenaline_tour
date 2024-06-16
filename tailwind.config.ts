@@ -44,6 +44,7 @@ const config: Config = {
         darkBlue: '#022C43',
         additionalBlue: '#10425D',
         white: '#FFFFFF',
+        blueWhite: '#F5FAFD',
         white32: 'rgba(255, 255, 255, 0.32)',
         white48: 'rgba(255, 255, 255, 0.48)',
         dark: '#4D4D4D',
