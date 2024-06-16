@@ -4,6 +4,10 @@ import { fetchTourRent } from '@/actions/requests';
 const TourRent: React.FC<ITourProps> = async ({ slug }) => {
   const data = await fetchTourRent(slug);
 
+  if (!data) {
+    return;
+  }
+
   return (
     <div className='notXL:container'>
       {data.equipment && (

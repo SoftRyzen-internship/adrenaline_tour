@@ -7,6 +7,10 @@ import { fetchTourServices } from '@/actions/requests';
 const TourServices: React.FC<ITourProps> = async ({ slug }) => {
   const data = await fetchTourServices(slug);
 
+  if (!data) {
+    return;
+  }
+
   const sortedFeatures = data?.features.sort((a, b) => {
     return Number(b.included) - Number(a.included);
   });

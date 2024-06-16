@@ -1,49 +1,28 @@
-// import { Metadata } from 'next';
+import { Metadata } from 'next';
 
+import { Pages } from '@/@types';
+import { fetchTourMainInfo } from '@/actions/requests';
 import Gallery from '@/sections/Gallery';
 import Tour from '@/sections/Tour';
-
-// import { Pages } from '@/@types';
-// import { getTour } from '@/actions/query';
-// import { configuration } from '@/utils';
+import { configuration } from '@/utils';
 
 export interface ISingleTourPageProps {
   params: { slug: string };
 }
 
-// export async function generateMetadata({
-//   params,
-// }: ISingleTourPageProps): Promise<Metadata> {
-//   const slug = params.slug;
-//   const query = getTour;
-//   const variables = {
-//     slug: slug,
-//   };
-//   const response = await fetch(`${configuration.BASE_DATA_URL}graphql`, {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//     body: JSON.stringify({
-//       query: query,
-//       variables: variables,
-//     }),
-//     cache: 'no-store',
-//   });
+export async function generateMetadata({
+  params,
+}: ISingleTourPageProps): Promise<Metadata> {
+  const { slug } = params;
+  const { title } = await fetchTourMainInfo(slug);
 
-//   if (!response.ok) {
-//     throw new Error(`Failed to fetch tour data: ${response.statusText}`);
-//   }
-//   const result = await response.json();
-//   const tour = result.data.tour;
-
-//   return {
-//     title: tour.title,
-//     alternates: {
-//       canonical: `${configuration.BASE_APP_URL}${Pages.TOURS}/${slug}`,
-//     },
-//   };
-// }
+  return {
+    title: title,
+    alternates: {
+      canonical: `${configuration.BASE_APP_URL}${Pages.TOURS}/${slug}`,
+    },
+  };
+}
 
 const SingleTourPage: React.FC<ISingleTourPageProps> = ({ params }) => {
   return (

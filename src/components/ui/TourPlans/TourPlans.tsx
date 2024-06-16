@@ -8,6 +8,10 @@ const converter = new showdown.Converter();
 const TourPlans: React.FC<ITourProps> = async ({ slug }) => {
   const data = await fetchTourPlans(slug);
 
+  if (!data) {
+    return;
+  }
+
   const htmlContent = converter.makeHtml(data?.description);
 
   return (
