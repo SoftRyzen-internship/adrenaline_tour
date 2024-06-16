@@ -1,8 +1,8 @@
 import { ISingleTourPageProps } from '@/@types';
-import TourImg from '@/components/ui/TourImg';
+import TourMainInfo from '@/components/ui/TourMainInfo';
 
 const Page: React.FC<ISingleTourPageProps> = ({ params }) => {
-  return <TourImg slug={params.slug} />;
+  return <TourMainInfo slug={params.slug} />;
 };
 
 export default Page;

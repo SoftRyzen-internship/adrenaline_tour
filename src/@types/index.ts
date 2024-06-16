@@ -324,3 +324,7 @@ export interface IContactResponse {
     data: { attributes: IEmailAndPhone };
   };
 }
+
+export interface ISingleTourPageProps {
+  params: { slug: string };
+}
