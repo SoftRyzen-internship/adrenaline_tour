@@ -1,7 +1,7 @@
-import { ITourResponse } from '@/components/ui/SelectedTours/SelectedTours.types';
-
 import fetchData from '../fetchData';
 import { getFilteredTours as query } from '../query';
+
+import { ITourResponse } from '@/components/ui/SelectedTours/SelectedTours.types';
 
 const fetchFilteredTours = async (
   countryName?: string,
@@ -12,12 +12,12 @@ const fetchFilteredTours = async (
   pageSize?: number,
 ): Promise<ITourResponse> => {
   const variables = {
-    countryName: countryName,
-    activityName: activityName,
-    startOfMonth: startOfMonth,
-    endOfMonth: endOfMonth,
-    page: page,
-    pageSize: pageSize,
+    countryName,
+    activityName,
+    startOfMonth,
+    endOfMonth,
+    page,
+    pageSize,
   };
 
   const result = (await fetchData(query, variables)) as ITourResponse;

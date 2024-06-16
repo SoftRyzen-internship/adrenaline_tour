@@ -5,3 +5,6 @@ export { default as sendingEmail } from './send-email';
 export { default as formatDateYearMonthDay } from './formatDateYearMonthDay';
 export { default as formatDateDayMonthUk } from './formatDateDayMonthUk';
 export { default as createDataSelectOptions } from './createDataSelectOptions';
+export { default as getParamsForSelectedTours } from './getParamsForSelectedTours';
+export { default as getFilteringForSelect } from './getFilteringForSelect';
+export { default as mapDataToSelectItems } from './mapDataToSelectItems';
