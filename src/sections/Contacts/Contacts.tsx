@@ -5,12 +5,11 @@ import { usePathname } from 'next/navigation';
 
 import { IdForScroll } from '@/@types';
 import Form from '@/components/common/Form';
-import Phones from '@/components/ui/Phones';
 import { form } from '@/data';
 
 import s from './Contacts.module.css';
 
-const Contacts = () => {
+const Contacts = ({ children }: { children: React.ReactNode }) => {
   const pathname = usePathname();
   const isTourPage = pathname === '/tours';
 
@@ -28,10 +27,8 @@ const Contacts = () => {
           {form.title}
         </h2>
         <div className='xl:flex'>
-          <Phones
-            variant='contacts'
-            className='smOnly:pl-[10px] xl:w-1/2 notXL:mb-[60px]'
-          />
+          {children}
+
           <Form />
         </div>
       </div>

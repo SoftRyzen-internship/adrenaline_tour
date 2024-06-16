@@ -1,6 +1,6 @@
 import { GraphQLClient, gql } from 'graphql-request';
 
-import { IContactResponse } from '@/components/ui/Phones/Phones.types';
+import { IEmailAndPhone, IContactResponse } from '@/@types';
 
 import { getContact } from '../query';
 
@@ -8,7 +8,7 @@ const API_URL = 'https://adrenaline-tour-admin.onrender.com/graphql';
 
 const client = new GraphQLClient(API_URL);
 
-const fetchContacts = async () => {
+const fetchContacts = async (): Promise<IEmailAndPhone | null> => {
   const query = gql`
     ${getContact}
   `;
