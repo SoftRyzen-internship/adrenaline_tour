@@ -30,9 +30,9 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
       <span className='absolute right-4 top-4 z-10 bg-white px-3 py-[11px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue transition group-hover:text-accentDefaultOrange md:px-[11px] md:py-4 md:text-[12px] md:leading-[16px]'>
         {formatDateDayMonthUk(date)}
       </span>
-      <div className='relative mb-2 h-[291px] w-full md:mb-3 xl:mb-4 xl:h-[333px]'>
+      <div className='relative mb-2 h-[291px] w-full  overflow-hidden md:mb-3 xl:mb-4 xl:h-[333px]'>
         <Image
-          className='object-cover'
+          className='object-cover transition-all duration-700 group-hover:scale-110'
           src={img.data.attributes.url}
           fill
           sizes='(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw'
