@@ -1,5 +1,5 @@
-import { ITours } from '@/@types';
+import { ITours, ITour } from '@/@types';
 
 export interface ITourCardProps {
-  data: ITours;
+  data: ITours | ITour;
 }

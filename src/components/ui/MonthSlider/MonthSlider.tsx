@@ -1,29 +1,13 @@
+import { getMonthName } from '@/utils';
+
+import { IMonthSliderProps } from './MonthSlider.types';
+
 import IconButton from '../IconButton';
 
 import LeftArrowIcon from '/public/icons/arrow-left.svg';
 import RightArrowIcon from '/public/icons/arrow-right.svg';
 
-interface IMonthBarProps {}
-
-const getMonthName = date => {
-  const monthNames = [
-    'Січень',
-    'Лютий',
-    'Березень',
-    'Квітень',
-    'Травень',
-    'Червень',
-    'Липень',
-    'Серпень',
-    'Вересень',
-    'Жовтень',
-    'Листопад',
-    'Грудень',
-  ];
-  return monthNames[date.getMonth()];
-};
-
-const MonthBar: React.FunctionComponent<IMonthBarProps> = ({
+const MonthSlider: React.FunctionComponent<IMonthSliderProps> = ({
   currentMonth,
   onMonthChange,
 }) => {
@@ -56,7 +40,7 @@ const MonthBar: React.FunctionComponent<IMonthBarProps> = ({
   };
 
   return (
-    <div className='flex items-center justify-center gap-4 pb-6 pt-8'>
+    <div className='mb-6 flex items-center justify-center gap-4 border-b-[0.5px] border-accentDarkOrange pb-6 pt-4 md:pb-8 md:pt-6 xl:mb-0 xl:border-b-0'>
       <IconButton
         type='button'
         ariaLabel='Test'
@@ -69,11 +53,11 @@ const MonthBar: React.FunctionComponent<IMonthBarProps> = ({
         <LeftArrowIcon
           width={24}
           height={24}
-          className='size-6 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange'
+          className='size-6 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:size-12 xl:size-16'
         />
       </IconButton>
 
-      <span className='font-unbounded font-bold text-blueDefault'>{`${monthName} ${year}`}</span>
+      <span className='font-unbounded font-bold text-blueDefault md:text-2xl xl:text-[32px]'>{`${monthName} ${year}`}</span>
 
       <IconButton
         type='button'
@@ -87,11 +71,11 @@ const MonthBar: React.FunctionComponent<IMonthBarProps> = ({
         <RightArrowIcon
           width={24}
           height={24}
-          className='size-6 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange'
+          className='size-6 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:size-12 xl:size-16'
         />
       </IconButton>
     </div>
   );
 };
 
-export default MonthBar;
+export default MonthSlider;

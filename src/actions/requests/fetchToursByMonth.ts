@@ -1,18 +1,24 @@
-import { ITourResponse } from '@/@types';
+import { IToursByMonthResponse } from '@/@types';
 
 import fetchData from '../fetchData';
-import { getAllTours as query } from '../query';
+import { getFilteredTours as query } from '../query';
 
-const fetchToursByMonth = async (startOfMonth: string, endOfMonth: string) => {
+const fetchToursByMonth = async (
+  startOfMonth: string,
+  endOfMonth: string,
+  filters: object,
+) => {
   const variables = {
     startOfMonth,
     endOfMonth,
     pageSize: 9,
+    ...filters,
   };
 
-  const result = (await fetchData(query, variables)) as ITourResponse;
+  const result = (await fetchData(query, variables)) as IToursByMonthResponse;
+  console.log(result);
 
-  return result.tours.data;
+  return result;
 };
 
 export default fetchToursByMonth;

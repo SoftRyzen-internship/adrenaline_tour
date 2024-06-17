@@ -64,6 +64,13 @@ export interface ICountry {
   };
 }
 
+export interface ITour {
+  id: string;
+  attributes: {
+    name: string;
+  };
+}
+
 export interface IImage {
   attributes: {
     url: string;
@@ -181,5 +188,20 @@ interface ReviewData {
 export interface IReviewResponse {
   review: {
     data: ReviewData;
+  };
+}
+
+export interface IToursByMonthResponse {
+  activities: {
+    data: ISelectState[];
+  };
+  countries: {
+    data: ISelectState[];
+  };
+  tours: {
+    data: ITour[];
+    meta: {
+      pagination: { pageCount: number };
+    };
   };
 }
