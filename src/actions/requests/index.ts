@@ -9,3 +9,5 @@ export { default as fetchTourMainInfo } from './fetchTourMainInfo';
 export { default as fetchTourPlans } from './fetchTourPlans';
 export { default as fetchTourRent } from './fetchTourRent';
 export { default as fetchTourServices } from './fetchTourServices';
+export { default as fetchTourTitle } from './fetchTourTitle';
+export { default as fetchTourGallery } from './fetchTourGallery';

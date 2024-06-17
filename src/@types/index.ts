@@ -113,14 +113,16 @@ export interface IDetailWithLocation {
   location: { place: string }[];
 }
 
+export interface ITourDetailsAttributesDetails {
+  difficult: IDetailWithDescription;
+  meet: IDetailWithLocation;
+  price: IDetailWithDescription;
+  route: IDetailWithDescription;
+  seasons: IDetailWithDescription;
+}
+
 export interface ITourDetailsAttributes {
-  details: {
-    difficult: IDetailWithDescription;
-    meet: IDetailWithLocation;
-    price: IDetailWithDescription;
-    route: IDetailWithDescription;
-    seasons: IDetailWithDescription;
-  };
+  details: ITourDetailsAttributesDetails;
 }
 
 export interface ITourDetails {
@@ -128,22 +130,20 @@ export interface ITourDetails {
   attributes: ITourDetailsAttributes;
 }
 
+export interface ITourDetailsData {
+  data: ITourDetails[];
+}
+
 export interface ITourDetailsResponse {
-  tours: {
-    data: ITourDetails[];
-  };
+  tours: ITourDetailsData;
 }
 
-export interface ITourProps {
-  slug: string;
-}
-
-interface IImgAttributes {
+export interface IImgAttributes {
   alternativeText: string;
   url: string;
 }
 
-interface IImgData {
+export interface IImgData {
   id: string;
   attributes: IImgAttributes;
 }
@@ -201,11 +201,13 @@ export interface ITourMainInfoQueryResponse {
   };
 }
 
+export interface ITourAttributesPlans {
+  description: string;
+  title: string;
+}
+
 export interface ITourAttributesTourPlans {
-  plans: {
-    description: string;
-    title: string;
-  };
+  plans: ITourAttributesPlans;
 }
 
 export interface ITourPlans {
@@ -218,11 +220,13 @@ export interface ITourPlansQueryResponse {
   };
 }
 
+export interface ITourAttributesRent {
+  equipment: string;
+  title: string;
+}
+
 export interface ITourAttributesTourRent {
-  rent: {
-    equipment: string;
-    title: string;
-  };
+  rent: ITourAttributesRent;
 }
 
 export interface ITourRent {
@@ -241,11 +245,13 @@ export interface IFeatures {
   included: boolean;
 }
 
+export interface ITourAttributesServices {
+  features: IFeatures[];
+  title: string;
+}
+
 export interface ITourAttributesTourServices {
-  services: {
-    features: IFeatures[];
-    title: string;
-  };
+  services: ITourAttributesServices;
 }
 
 export interface ITourServices {
@@ -268,15 +274,15 @@ export interface IGallery {
   attributes: IGalleryAttributes;
 }
 
-interface GalleryImages {
+export interface GalleryImages {
   data: IGallery[];
 }
 
-interface GalleryAttributes {
+export interface GalleryAttributes {
   images: GalleryImages;
 }
 
-interface GalleryData {
+export interface GalleryData {
   attributes: GalleryAttributes;
 }
 
@@ -327,4 +333,47 @@ export interface IContactResponse {
 
 export interface ISingleTourPageProps {
   params: { slug: string };
+}
+
+export interface ITourTitle {
+  title: string;
+}
+
+export interface ITourTitleAttributes {
+  attributes: ITourTitle;
+}
+
+export interface ITourTitleQueryResponse {
+  tours: {
+    data: ITourTitleAttributes[];
+  };
+}
+
+export interface ITourGalleryAttribut {
+  url: string;
+  alternativeText: string;
+}
+
+export interface ITourGalleryData {
+  id: string;
+  attributes: ITourGalleryAttribut;
+}
+
+export interface ITourGalleryGallery {
+  data: ITourGalleryData[];
+}
+
+export interface ITourGalleryAttributes {
+  gallery: ITourGalleryGallery;
+}
+
+export interface ITourGallery {
+  id: string;
+  attributes: ITourGalleryAttributes;
+}
+
+export interface ITourGalleryQueryResponse {
+  tours: {
+    data: ITourGallery[];
+  };
 }

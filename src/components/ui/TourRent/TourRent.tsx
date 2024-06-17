@@ -1,8 +1,9 @@
-import { ITourProps } from '@/@types';
-import { fetchTourRent } from '@/actions/requests';
+import { ITourRentProps } from './TourRent.types';
 
-const TourRent: React.FC<ITourProps> = async ({ slug }) => {
-  const data = await fetchTourRent(slug);
+const TourRent: React.FC<ITourRentProps> = ({ data }) => {
+  if (!data) {
+    return;
+  }
 
   return (
     <div className='notXL:container'>

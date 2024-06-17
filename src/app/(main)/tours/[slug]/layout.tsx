@@ -1,21 +1,21 @@
 export interface LayoutProps {
-  children: React.ReactNode;
   img: React.ReactNode;
   mainInfo: React.ReactNode;
   plans: React.ReactNode;
   rent: React.ReactNode;
   services: React.ReactNode;
   details: React.ReactNode;
+  gallery: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({
-  children,
   img,
   mainInfo,
   plans,
   rent,
   services,
   details,
+  gallery,
 }) => {
   return (
     <>
@@ -37,11 +37,11 @@ const Layout: React.FC<LayoutProps> = ({
               {services}
               {rent}
             </div>
-            {details}
+            <div>{details}</div>
           </div>
         </div>
       </section>
-      {children}
+      <section className='section'>{gallery}</section>
     </>
   );
 };
