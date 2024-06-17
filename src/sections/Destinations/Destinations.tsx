@@ -87,6 +87,8 @@ const Destinations: React.FC = () => {
       } else {
         throw new Error('Invalid fetchType');
       }
+    } catch (error) {
+      console.error('Error fetching tours:', error);
     } finally {
       setIsLoading(false);
     }
@@ -152,6 +154,8 @@ const Destinations: React.FC = () => {
       } else {
         throw new Error('Invalid response structure');
       }
+    } catch (error) {
+      console.error('Error fetching tours:', error);
     } finally {
       setIsLoading(false);
     }
