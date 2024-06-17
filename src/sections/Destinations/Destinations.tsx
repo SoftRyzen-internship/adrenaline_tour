@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { ISelectState, ITours } from '@/@types';
 import { fetchFilteredTours } from '@/actions/requests';
@@ -86,77 +86,67 @@ const Destinations: React.FC = () => {
     }
   };
 
-  const fetchTheTours = useCallback(
-    async (page: number) => {
-      try {
-        setIsLoading(true);
-        const data = await fetchFilteredTours({
-          countryName: country,
-          activityName: activity,
-          page: page,
-          pageSize: quantityPerPage,
-        });
+  const fetchTheTours = async (page: number) => {
+    try {
+      setIsLoading(true);
+      const data = await fetchFilteredTours({
+        countryName: country,
+        activityName: activity,
+        page: page,
+        pageSize: quantityPerPage,
+      });
 
-        if (data) {
-          if (page === 1) {
-            setTours(data.tours.data);
-            setTotalPages(data.tours.meta.pagination.pageCount);
-          } else {
-            setTours(prevTours => [...prevTours, ...data.tours.data]);
-          }
-
-          let countriesForSelect: ISelect[] = [];
-          if (
-            selectedCountry.attributes.name !== selectedTours.defaultCountries
-          ) {
-            await fetchData('countries');
-          } else {
-            const dataCountries = data.countries.data;
-            countriesForSelect = mapDataToSelectItems(
-              dataCountries,
-              defaultCountries,
-            );
-            setFilteredCountries(countriesForSelect);
-          }
-
-          let activitiesForSelect: ISelect[] = [];
-          if (
-            selectedActivity.attributes.name !== selectedTours.defaultActivities
-          ) {
-            await fetchData('activities');
-          } else {
-            const dataActivities = data.activities.data;
-            activitiesForSelect = mapDataToSelectItems(
-              dataActivities,
-              defaultActivities,
-            );
-            setFilteredActivities(activitiesForSelect);
-          }
-
-          setCurrentPage(page);
+      if (data) {
+        if (page === 1) {
+          setTours(data.tours.data);
+          setTotalPages(data.tours.meta.pagination.pageCount);
         } else {
-          throw new Error('Invalid response structure');
+          setTours(prevTours => [...prevTours, ...data.tours.data]);
         }
-      } catch (error) {
-        console.error('Помилка під час отримання турів:', error);
-      } finally {
-        setIsLoading(false);
+        let countriesForSelect: ISelect[] = [];
+        if (
+          selectedCountry.attributes.name !== selectedTours.defaultCountries
+        ) {
+          fetchData('countries');
+        } else {
+          const dataCountries = data.countries.data;
+          countriesForSelect = mapDataToSelectItems(
+            dataCountries,
+            defaultCountries,
+          );
+        }
+        setFilteredCountries(countriesForSelect);
+
+        let activitiesForSelect: ISelect[] = [];
+        if (
+          selectedActivity.attributes.name !== selectedTours.defaultActivities
+        ) {
+          fetchData('activities');
+        } else {
+          const dataActivities = data.activities.data;
+          activitiesForSelect = mapDataToSelectItems(
+            dataActivities,
+            defaultActivities,
+          );
+        }
+
+        setFilteredActivities(activitiesForSelect);
+
+        setCurrentPage(page);
+      } else {
+        throw new Error('Invalid response structure');
       }
-    },
-    [
-      country,
-      activity,
-      quantityPerPage,
-      selectedCountry,
-      selectedActivity,
-      fetchData,
-    ],
-  );
+    } catch (error) {
+      console.error('Error fetching tours:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
     setCurrentPage(1);
     fetchTheTours(1);
-  }, [fetchTheTours]);
+  }, [selectedCountry, selectedActivity]);
 
   const loadMore = () => {
     fetchTheTours(currentPage + 1);
