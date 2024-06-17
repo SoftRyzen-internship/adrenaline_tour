@@ -35,6 +35,7 @@ const Calendar: React.FC<ICalendarProps> = () => {
   const [selectedCountryItem, setSelectedCountryItem] =
     useState<ISelectState>(defaultCountry);
 
+  console.log(tours);
   console.log(activities);
   console.log(selectedActivitiesItem);
 
@@ -56,23 +57,8 @@ const Calendar: React.FC<ICalendarProps> = () => {
   );
 
   useEffect(() => {
-    console.log('Первый useEffect');
     fetchData();
   }, [startOfMonth, endOfMonth, fetchData]);
-
-  useEffect(() => {
-    if (activities && !selectedActivitiesItem) {
-      const activitiesData = createDataSelectOptions(
-        activities,
-        'Всі активності',
-      );
-      setSelectedActivitiesItem(activitiesData.at(-1) as ISelectState);
-    }
-    if (countries && !selectedCountryItem) {
-      const countriesData = createDataSelectOptions(countries, 'Всі країни');
-      setSelectedCountryItem(countriesData.at(-1) as ISelectState);
-    }
-  }, [activities, countries, selectedActivitiesItem, selectedCountryItem]);
 
   useEffect(() => {
     const filters: IFilters = {};
@@ -85,6 +71,7 @@ const Calendar: React.FC<ICalendarProps> = () => {
 
     if (selectedActivitiesItem || selectedCountryItem) {
       fetchData(filters);
+      // tours?.map(tour=>)
     }
   }, [selectedActivitiesItem, selectedCountryItem, fetchData]);
 
