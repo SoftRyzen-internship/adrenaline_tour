@@ -25,7 +25,7 @@ const defaultActivities: ISelect = {
   attributes: { name: selectedTours.defaultActivities },
 };
 
-const pageSize = 6;
+const quantityPerPage = 6;
 
 const Destinations: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -39,37 +39,29 @@ const Destinations: React.FC = () => {
   const [filteredCountries, setFilteredCountries] = useState<ISelect[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const { country, activity, startDate, endDate } = getParamsForSelectedTours(
+  const { country, activity } = getParamsForSelectedTours(
     selectedCountry,
     selectedActivity,
     selectedTours.defaultCountries,
     selectedTours.defaultActivities,
   );
 
-  const fetchData: IFetchData = async ({
-    defaultSelected,
-    selected,
-    page,
-    pageSize,
-    fetchType,
-  }) => {
+  const allQuantity = totalPages * quantityPerPage;
+  const fetchData: IFetchData = async fetchType => {
     try {
       setIsLoading(true);
-      const data = await fetchFilteredTours(
-        country,
-        activity,
-        startDate,
-        endDate,
-        page,
-        pageSize,
-      );
+      const data = await fetchFilteredTours({
+        countryName: country,
+        activityName: activity,
+        page: currentPage,
+        pageSize: allQuantity,
+      });
 
       if (data) {
-        const selectedForSelected = [selected, defaultSelected];
         if (fetchType === 'countries') {
-          setFilteredCountries(selectedForSelected);
+          setFilteredCountries(filteredCountries);
         } else {
-          setFilteredActivities(selectedForSelected);
+          setFilteredActivities(filteredActivities);
         }
 
         const filteringForSelect = getFilteringForSelect(
@@ -97,14 +89,12 @@ const Destinations: React.FC = () => {
   const fetchTheTours = async (page: number) => {
     try {
       setIsLoading(true);
-      const data = await fetchFilteredTours(
-        country,
-        activity,
-        startDate,
-        endDate,
-        page,
-        pageSize,
-      );
+      const data = await fetchFilteredTours({
+        countryName: country,
+        activityName: activity,
+        page: page,
+        pageSize: quantityPerPage,
+      });
 
       if (data) {
         if (page === 1) {
@@ -114,14 +104,10 @@ const Destinations: React.FC = () => {
           setTours(prevTours => [...prevTours, ...data.tours.data]);
         }
         let countriesForSelect: ISelect[] = [];
-        if (country) {
-          fetchData({
-            defaultSelected: defaultCountries,
-            selected: selectedCountry,
-            page: 1,
-            pageSize: totalPages * pageSize,
-            fetchType: 'countries',
-          });
+        if (
+          selectedCountry.attributes.name !== selectedTours.defaultCountries
+        ) {
+          fetchData('countries');
         } else {
           const dataCountries = data.countries.data;
           countriesForSelect = mapDataToSelectItems(
@@ -132,14 +118,10 @@ const Destinations: React.FC = () => {
         setFilteredCountries(countriesForSelect);
 
         let activitiesForSelect: ISelect[] = [];
-        if (activity) {
-          fetchData({
-            defaultSelected: defaultActivities,
-            selected: selectedActivity,
-            page: 1,
-            pageSize: totalPages * pageSize,
-            fetchType: 'activities',
-          });
+        if (
+          selectedActivity.attributes.name !== selectedTours.defaultActivities
+        ) {
+          fetchData('activities');
         } else {
           const dataActivities = data.activities.data;
           activitiesForSelect = mapDataToSelectItems(
@@ -164,7 +146,7 @@ const Destinations: React.FC = () => {
   useEffect(() => {
     setCurrentPage(1);
     fetchTheTours(1);
-  }, [selectedCountry, selectedActivity]);
+  }, [selectedCountry, selectedActivity, fetchTheTours]);
 
   const loadMore = () => {
     fetchTheTours(currentPage + 1);
@@ -200,7 +182,7 @@ const Destinations: React.FC = () => {
         tours={tours}
         totalPages={totalPages}
         currentPage={currentPage}
-        pageSize={pageSize}
+        quantityPerPage={quantityPerPage}
         loadMore={loadMore}
         resetVisibleTours={resetVisibleTours}
       />

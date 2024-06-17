@@ -1,4 +1,4 @@
-import { ISelectState, ITours } from '@/@types';
+import { ITours } from '@/@types';
 
 export interface ISelect {
   id: number;
@@ -17,7 +17,7 @@ export interface ITourResponse {
   };
   countries: {
     data: {
-      id: string;
+      id: number;
       attributes: {
         name: string;
       };
@@ -25,7 +25,7 @@ export interface ITourResponse {
   };
   activities: {
     data: {
-      id: string;
+      id: number;
       attributes: {
         name: string;
       };
@@ -40,18 +40,10 @@ export interface ISelectedTours {
 }
 
 export interface IFilterParams {
-  startDate: Date | undefined;
-  endDate: Date | undefined;
   country: string | undefined;
   activity: string | undefined;
 }
 
 export interface IFetchData {
-  (params: {
-    defaultSelected: ISelect;
-    selected: ISelectState;
-    page: number;
-    pageSize: number;
-    fetchType: 'activities' | 'countries';
-  }): Promise<void>;
+  (params: 'countries' | 'activities'): Promise<void>;
 }

@@ -1,27 +1,21 @@
+import { ITourResponse } from '@/sections/Destinations/Destinations.types';
+
 import fetchData from '../fetchData';
 import { getFilteredTours as query } from '../query';
 
-import { ITourResponse } from '@/components/ui/SelectedTours/SelectedTours.types';
+interface IFetchFilteredTours {
+  countryName?: string;
+  activityName?: string;
+  startOfMonth?: Date;
+  endOfMonth?: Date;
+  page?: number;
+  pageSize?: number;
+}
 
 const fetchFilteredTours = async (
-  countryName?: string,
-  activityName?: string,
-  startOfMonth?: Date,
-  endOfMonth?: Date,
-  page?: number,
-  pageSize?: number,
+  variables: IFetchFilteredTours,
 ): Promise<ITourResponse> => {
-  const variables = {
-    countryName,
-    activityName,
-    startOfMonth,
-    endOfMonth,
-    page,
-    pageSize,
-  };
-
   const result = (await fetchData(query, variables)) as ITourResponse;
-
   return result;
 };
 

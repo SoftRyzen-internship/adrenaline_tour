@@ -16,7 +16,7 @@ const SelectedTours: React.FC<ISelectedTours> = ({
   tours,
   totalPages,
   currentPage,
-  pageSize,
+  quantityPerPage,
   loadMore,
   resetVisibleTours,
 }) => {
@@ -66,7 +66,7 @@ const SelectedTours: React.FC<ISelectedTours> = ({
             {selectedTours.buttonMore}
           </Button>
         ) : (
-          tours.length > pageSize && (
+          tours.length > quantityPerPage && (
             <LinkButton
               className='w-full px-[16px] md:w-[199px] md:px-[28px]'
               variant='main'

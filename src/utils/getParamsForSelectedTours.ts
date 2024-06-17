@@ -7,8 +7,6 @@ const getParamsForSelectedTours = (
   defaultCountry: string,
   defaultActivity: string,
 ): IFilterParams => {
-  const startDate: Date | undefined = undefined;
-  const endDate: Date | undefined = undefined;
   const country: string | undefined =
     selectedCountry.attributes.name === defaultCountry
       ? undefined
@@ -18,7 +16,7 @@ const getParamsForSelectedTours = (
       ? undefined
       : selectedActivity.attributes.name;
 
-  return { startDate, endDate, country, activity };
+  return { country, activity };
 };
 
 export default getParamsForSelectedTours;

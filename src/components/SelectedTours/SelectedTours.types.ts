@@ -4,7 +4,7 @@ export interface ISelectedTours {
   isLoading: boolean;
   tours: ITours[];
   totalPages: number;
-  pageSize: number;
+  quantityPerPage: number;
   currentPage: number;
   loadMore: () => void;
   resetVisibleTours: () => void;
