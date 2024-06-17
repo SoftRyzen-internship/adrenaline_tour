@@ -9,9 +9,9 @@ import TourCard from '../ui/TourCard';
 import Button from '@/components/ui/Button';
 import LinkButton from '@/components/ui/LinkButton';
 
-import { ISelectedTours } from './SelectedTours.types';
+import { IToursGrid } from './ToursGrid.types';
 
-const SelectedTours: React.FC<ISelectedTours> = ({
+const ToursGrid: React.FC<IToursGrid> = ({
   isLoading,
   tours,
   totalPages,
@@ -29,9 +29,7 @@ const SelectedTours: React.FC<ISelectedTours> = ({
       ) : tours.length > 0 ? (
         <div className='mb-10 grid gap-[32px] md:mb-14 md:grid-cols-2  md:gap-x-[32px] md:gap-y-[40px] xl:mb-16  xl:grid-cols-3'>
           {tours.map((tour, index) => (
-            <div key={index} className='col-span-1'>
-              <TourCard data={tour} />
-            </div>
+            <TourCard key={index} data={tour} />
           ))}
         </div>
       ) : (
@@ -91,4 +89,4 @@ const SelectedTours: React.FC<ISelectedTours> = ({
   );
 };
 
-export default SelectedTours;
+export default ToursGrid;

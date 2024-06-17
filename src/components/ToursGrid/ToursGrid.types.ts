@@ -1,6 +1,6 @@
 import { ITours } from '@/@types';
 
-export interface ISelectedTours {
+export interface IToursGrid {
   isLoading: boolean;
   tours: ITours[];
   totalPages: number;

@@ -33,12 +33,6 @@ export interface ITourResponse {
   };
 }
 
-export interface ISelectedTours {
-  pageSize: number;
-  startDate?: Date;
-  endDate?: Date;
-}
-
 export interface IFilterParams {
   country: string | undefined;
   activity: string | undefined;

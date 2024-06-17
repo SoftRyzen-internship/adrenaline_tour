@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { ISelectState, ITours } from '@/@types';
 import { fetchFilteredTours } from '@/actions/requests';
 import DropdownList from '@/components/common/DropdownList';
-import SelectedTours from '@/components/SelectedTours';
+import ToursGrid from '@/components/ToursGrid';
 import CustomSelect from '@/components/ui/CustomSelect';
 import { selectedTours, destinations } from '@/data';
 import {
@@ -177,7 +177,7 @@ const Destinations: React.FC = () => {
         </DropdownList>
       </div>
 
-      <SelectedTours
+      <ToursGrid
         isLoading={isLoading}
         tours={tours}
         totalPages={totalPages}
