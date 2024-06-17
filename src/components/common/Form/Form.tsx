@@ -110,6 +110,7 @@ const Form = () => {
           type='submit'
           iconPosition='after'
           className='md:max-w-[286px]'
+          disabled={isSending}
           icon={
             isSending ? (
               <CircleIcon
