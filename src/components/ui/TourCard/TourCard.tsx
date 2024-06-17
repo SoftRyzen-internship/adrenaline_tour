@@ -27,12 +27,12 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
 
   return (
     <div className='group relative flex h-[411px] w-full flex-col md:h-[439px] md:w-[334px] xl:h-[485px] xl:w-[384px]'>
-      <span className='absolute right-4 top-4 z-10 bg-white px-3 py-[11px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue transition group-hover:text-accentDefaultOrange md:px-[11px] md:py-4 md:text-[12px] md:leading-[16px]'>
+      <span className='absolute right-4 top-4 z-10 bg-white px-3 py-[11px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue transition group-hover:text-accentDefaultOrange group-focus:text-accentDefaultOrange md:px-[11px] md:py-4 md:text-[12px] md:leading-[16px]'>
         {formatDateDayMonthUk(date)}
       </span>
       <div className='relative mb-2 h-[291px] w-full  overflow-hidden md:mb-3 xl:mb-4 xl:h-[333px]'>
         <Image
-          className='object-cover transition-all duration-700 group-hover:scale-110'
+          className='object-cover transition-all duration-700 group-hover:scale-110 group-focus:scale-110'
           src={img.data.attributes.url}
           fill
           sizes='(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw'
@@ -50,7 +50,7 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
           <p className='px-2'>{duration}</p>
         </div>
       </div>
-      <div className='transition-all duration-700 xl:opacity-0 xl:group-hover:flex xl:group-hover:opacity-100'>
+      <div className='transition-all duration-700 group-hover:scale-110 group-focus:scale-110 xl:opacity-0 xl:group-hover:opacity-100 xl:group-focus:opacity-100'>
         <LinkButton
           href={slug}
           variant='secondary'
