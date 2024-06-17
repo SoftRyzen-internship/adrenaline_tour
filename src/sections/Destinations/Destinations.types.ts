@@ -41,3 +41,11 @@ export interface IFilterParams {
 export interface IFetchData {
   (params: 'countries' | 'activities'): Promise<void>;
 }
+
+export interface ISetSelectsList {
+  (
+    data: ITourResponse,
+    country: string | undefined,
+    activity: string | undefined,
+  ): void;
+}

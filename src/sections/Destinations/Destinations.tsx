@@ -14,7 +14,7 @@ import {
   mapDataToSelectItems,
 } from '@/utils';
 
-import { ISelect, IFetchData } from './Destinations.types';
+import { ISelect, IFetchData, ISetSelectsList } from './Destinations.types';
 
 const defaultCountries: ISelect = {
   id: 0,
@@ -47,6 +47,7 @@ const Destinations: React.FC = () => {
   );
 
   const allQuantity = totalPages * quantityPerPage;
+
   const fetchSelectsList: IFetchData = async fetchType => {
     try {
       setIsLoading(true);
@@ -82,6 +83,39 @@ const Destinations: React.FC = () => {
     }
   };
 
+  const setSelectsList: ISetSelectsList = (data, country, activity) => {
+    console.log(
+      `data, country, activity ${JSON.stringify(data)} ${country} ${activity}`,
+    );
+
+    let countriesForSelect: ISelect[] = [];
+    if (country) {
+      setIsLoading(true);
+      fetchSelectsList('countries');
+    } else {
+      const dataCountries = data.countries.data;
+      countriesForSelect = mapDataToSelectItems(
+        dataCountries,
+        defaultCountries,
+      );
+    }
+    setFilteredCountries(countriesForSelect);
+
+    let activitiesForSelect: ISelect[] = [];
+    if (activity) {
+      fetchSelectsList('activities');
+    } else {
+      const dataActivities = data.activities.data;
+      activitiesForSelect = mapDataToSelectItems(
+        dataActivities,
+        defaultActivities,
+      );
+    }
+
+    setFilteredActivities(activitiesForSelect);
+    setIsLoading(false);
+  };
+
   const fetchTheTours = async (page: number) => {
     try {
       setIsLoading(true);
@@ -93,34 +127,13 @@ const Destinations: React.FC = () => {
       });
 
       if (data) {
-        setTotalPages(data.tours.meta.pagination.pageCount);
-        setTours(prevTours =>
-          page === 1 ? data.tours.data : [...prevTours, ...data.tours.data],
-        );
-        let countriesForSelect: ISelect[] = [];
-        if (country) {
-          fetchSelectsList('countries');
+        if (page === 1) {
+          setTours(data.tours.data);
+          setTotalPages(data.tours.meta.pagination.pageCount);
+          setSelectsList(data, country, activity);
         } else {
-          const dataCountries = data.countries.data;
-          countriesForSelect = mapDataToSelectItems(
-            dataCountries,
-            defaultCountries,
-          );
+          setTours(prevTours => [...prevTours, ...data.tours.data]);
         }
-        setFilteredCountries(countriesForSelect);
-
-        let activitiesForSelect: ISelect[] = [];
-        if (activity) {
-          fetchSelectsList('activities');
-        } else {
-          const dataActivities = data.activities.data;
-          activitiesForSelect = mapDataToSelectItems(
-            dataActivities,
-            defaultActivities,
-          );
-        }
-
-        setFilteredActivities(activitiesForSelect);
 
         setCurrentPage(page);
       } else {
