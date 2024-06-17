@@ -47,7 +47,7 @@ const Destinations: React.FC = () => {
   );
 
   const allQuantity = totalPages * quantityPerPage;
-  const fetchData: IFetchData = async fetchType => {
+  const fetchSelectsList: IFetchData = async fetchType => {
     try {
       setIsLoading(true);
       const data = await fetchFilteredTours({
@@ -58,11 +58,9 @@ const Destinations: React.FC = () => {
       });
 
       if (data) {
-        if (fetchType === 'countries') {
-          setFilteredCountries(filteredCountries);
-        } else {
-          setFilteredActivities(filteredActivities);
-        }
+        fetchType === 'countries'
+          ? setFilteredCountries(filteredCountries)
+          : setFilteredActivities(filteredActivities);
 
         const filteringForSelect = getFilteringForSelect(
           data,
@@ -71,11 +69,9 @@ const Destinations: React.FC = () => {
           defaultCountries,
         );
 
-        if (fetchType === 'countries') {
-          setFilteredActivities(filteringForSelect);
-        } else {
-          setFilteredCountries(filteringForSelect);
-        }
+        fetchType === 'countries'
+          ? setFilteredActivities(filteringForSelect)
+          : setFilteredCountries(filteringForSelect);
       } else {
         throw new Error('Invalid fetchType');
       }
@@ -97,17 +93,13 @@ const Destinations: React.FC = () => {
       });
 
       if (data) {
-        if (page === 1) {
-          setTours(data.tours.data);
-          setTotalPages(data.tours.meta.pagination.pageCount);
-        } else {
-          setTours(prevTours => [...prevTours, ...data.tours.data]);
-        }
+        setTotalPages(data.tours.meta.pagination.pageCount);
+        setTours(prevTours =>
+          page === 1 ? data.tours.data : [...prevTours, ...data.tours.data],
+        );
         let countriesForSelect: ISelect[] = [];
-        if (
-          selectedCountry.attributes.name !== selectedTours.defaultCountries
-        ) {
-          fetchData('countries');
+        if (country) {
+          fetchSelectsList('countries');
         } else {
           const dataCountries = data.countries.data;
           countriesForSelect = mapDataToSelectItems(
@@ -118,10 +110,8 @@ const Destinations: React.FC = () => {
         setFilteredCountries(countriesForSelect);
 
         let activitiesForSelect: ISelect[] = [];
-        if (
-          selectedActivity.attributes.name !== selectedTours.defaultActivities
-        ) {
-          fetchData('activities');
+        if (activity) {
+          fetchSelectsList('activities');
         } else {
           const dataActivities = data.activities.data;
           activitiesForSelect = mapDataToSelectItems(

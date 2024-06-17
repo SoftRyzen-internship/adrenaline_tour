@@ -48,7 +48,7 @@ const ToursGrid: React.FC<IToursGrid> = ({
                 <CircleIcon
                   width={24}
                   height={24}
-                  className='h-6 w-6 animate-spin md:h-8 md:w-8'
+                  className='h-6 w-6 animate-spin md:mr-2 md:h-8 md:w-8'
                 />
               ) : (
                 <ArrowRightDownIcon
