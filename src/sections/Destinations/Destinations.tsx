@@ -14,13 +14,13 @@ import {
   mapDataToSelectItems,
 } from '@/utils';
 
-import { ISelect, IFetchData, ISetSelectsList } from './Destinations.types';
+import { IFetchData, ISetSelectsList } from './Destinations.types';
 
-const defaultCountries: ISelect = {
+const defaultCountries: ISelectState = {
   id: 0,
   attributes: { name: selectedTours.defaultCountries },
 };
-const defaultActivities: ISelect = {
+const defaultActivities: ISelectState = {
   id: 0,
   attributes: { name: selectedTours.defaultActivities },
 };
@@ -35,8 +35,12 @@ const Destinations: React.FC = () => {
     useState<ISelectState>(defaultCountries);
   const [selectedActivity, setSelectedActivity] =
     useState<ISelectState>(defaultActivities);
-  const [filteredActivities, setFilteredActivities] = useState<ISelect[]>([]);
-  const [filteredCountries, setFilteredCountries] = useState<ISelect[]>([]);
+  const [filteredActivities, setFilteredActivities] = useState<ISelectState[]>(
+    [],
+  );
+  const [filteredCountries, setFilteredCountries] = useState<ISelectState[]>(
+    [],
+  );
   const [isLoading, setIsLoading] = useState(true);
 
   const { country, activity } = getParamsForSelectedTours(
@@ -84,7 +88,7 @@ const Destinations: React.FC = () => {
   };
 
   const setSelectsList: ISetSelectsList = (data, country, activity) => {
-    let countriesForSelect: ISelect[] = [];
+    let countriesForSelect: ISelectState[] = [];
     if (country) {
       fetchSelectsList('countries');
     } else {
@@ -96,7 +100,7 @@ const Destinations: React.FC = () => {
     }
     setFilteredCountries(countriesForSelect);
 
-    let activitiesForSelect: ISelect[] = [];
+    let activitiesForSelect: ISelectState[] = [];
     if (activity) {
       fetchSelectsList('activities');
     } else {
@@ -155,7 +159,7 @@ const Destinations: React.FC = () => {
   };
 
   return (
-    <section id='destinations' className='section container relative'>
+    <section id='destinations' className='section container'>
       <div className='mb-10 items-center justify-between md:mb-14 xl:mb-16 xl:flex'>
         <h2 className='section-title mb-10 whitespace-break-spaces xl:mb-0'>
           {destinations.title}

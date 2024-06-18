@@ -1,11 +1,5 @@
 import { ITours } from '@/@types';
 
-export interface ISelect {
-  id: number;
-  attributes: {
-    name: string;
-  };
-}
 export interface ITourResponse {
   tours: {
     data: ITours[];
