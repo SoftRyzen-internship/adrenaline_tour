@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Link as LinkScroll } from 'react-scroll';
 
 import LogoIcon from '/public/icons/logo.svg';
+import LogoIconFooter from '/public/icons/logo_footer.svg';
 
 import { IdForScroll, Pages } from '@/@types';
 import { logo } from '@/data';
@@ -38,7 +39,11 @@ const Logo: React.FC<ILogoProps> = ({
           className='group placeholder:backdrop:cursor-pointer'
           aria-label={logo.ariaLabel}
         >
-          <LogoIcon width={width} height={height} className={logoStyles} />
+          <LogoIconFooter
+            width={width}
+            height={height}
+            className={logoStyles}
+          />
         </LinkScroll>
       ) : (
         <Link
