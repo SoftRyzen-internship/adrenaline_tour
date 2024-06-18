@@ -1,4 +1,4 @@
-- #### component ToursGrid
+- #### component ToursList
 
 | Prop | Type | Description |
 | --- | --- | --- |
@@ -8,6 +8,6 @@
 | `quantityPerPage` | `number` | The number of tours returned by the request. |
 | `loadMore` | `() => void` | The function that is called when the "More" button is clicked. |
 | `resetVisibleTours` | `() => void` | The function that is called when the "Less" button is clicked. |
-
+| `filtersChanged` | `boolean` | Sets the state of presence of values ​​in selects. |
 <hr>
 
