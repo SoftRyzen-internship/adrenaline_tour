@@ -55,7 +55,7 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
           <p className='px-2'>{duration}</p>
         </div>
       </div>
-      <div className='transition-all duration-700 group-hover:scale-110 group-focus:scale-110 xl:opacity-0 xl:group-hover:opacity-100 xl:group-focus:opacity-100'>
+      <div className='transition-all duration-700 xl:opacity-0 xl:group-hover:flex xl:group-hover:opacity-100 xl:group-focus:flex xl:group-focus:opacity-100'>
         <LinkButton
           href={`${Pages.TOURS}/${slug}`}
           variant='secondary'
