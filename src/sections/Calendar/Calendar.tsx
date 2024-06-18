@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
 
-import { ISelectState, ITours, IActivity, ICountry } from '@/@types';
+import { ISelectState, ITours } from '@/@types';
 import fetchToursByMonth from '@/actions/requests/fetchToursByMonth';
 import DropdownList from '@/components/common/DropdownList';
 import CustomSelect from '@/components/ui/CustomSelect';
@@ -28,17 +28,12 @@ const defaultCountry: ISelectState = {
 const Calendar: React.FC<ICalendarProps> = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [tours, setTours] = useState<ITours[] | null>(null);
-  const [countries, setCountries] = useState<IActivity[] | null>(null);
-  const [activities, setActivities] = useState<ICountry[] | null>(null);
+  const [countries, setCountries] = useState<ISelectState[] | null>(null);
+  const [activities, setActivities] = useState<ISelectState[] | null>(null);
   const [selectedActivitiesItem, setSelectedActivitiesItem] =
     useState<ISelectState>(defaultActivity);
   const [selectedCountryItem, setSelectedCountryItem] =
     useState<ISelectState>(defaultCountry);
-
-  // console.log(tours);
-  // console.log(activities);
-  // console.log(countries);
-  // console.log(selectedActivitiesItem);
 
   const { startOfMonth, endOfMonth } =
     createStartAndEndDayOfMonth(currentMonth);
@@ -76,13 +71,9 @@ const Calendar: React.FC<ICalendarProps> = () => {
     }
   }, [selectedActivitiesItem, selectedCountryItem, fetchData]);
 
-  const handleMonthChange = (newMonth: Date) => {
-    setCurrentMonth(newMonth);
-  };
-
   useEffect(() => {
     if (selectedActivitiesItem.id !== -1 && tours) {
-      const filteredCountryArray: ICountry[] = tours?.flatMap(
+      const filteredCountryArray: ISelectState[] = tours?.flatMap(
         tour => tour.attributes.countries.data,
       );
       const uniqueCountries = Array.from(
@@ -93,7 +84,7 @@ const Calendar: React.FC<ICalendarProps> = () => {
     }
 
     if (selectedCountryItem.id !== -1 && tours) {
-      const filteredActivityArray: ICountry[] = tours?.flatMap(
+      const filteredActivityArray: ISelectState[] = tours?.flatMap(
         tour => tour.attributes.activities.data,
       );
       const uniqueActivity = [
@@ -102,6 +93,10 @@ const Calendar: React.FC<ICalendarProps> = () => {
       setActivities(uniqueActivity);
     }
   }, [tours, selectedActivitiesItem, selectedCountryItem]);
+
+  const handleMonthChange = (newMonth: Date) => {
+    setCurrentMonth(newMonth);
+  };
 
   return (
     <section className='section pt-[104px] md:pt-[128px] xl:pt-[160px]'>

@@ -80,10 +80,10 @@ export interface IImage {
 
 export interface IToursAttributes {
   activities: {
-    data: IActivity[];
+    data: ISelectState[];
   };
   countries: {
-    data: ICountry[];
+    data: ISelectState[];
   };
   date: string;
   duration: string;
@@ -193,10 +193,10 @@ export interface IReviewResponse {
 
 export interface IToursByMonthResponse {
   activities: {
-    data: IActivity[];
+    data: ISelectState[];
   };
   countries: {
-    data: ICountry[];
+    data: ISelectState[];
   };
   tours: {
     data: ITours[];
