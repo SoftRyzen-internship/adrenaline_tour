@@ -9,16 +9,28 @@ export async function generateMetadata({
   params,
 }: ISingleTourPageProps): Promise<Metadata> {
   const { slug } = params;
-  const { title } = await fetchTourTitle(slug);
+  try {
+    const { title } = await fetchTourTitle(slug);
 
-  return {
-    title: title,
-    alternates: {
-      canonical: `${configuration.BASE_APP_URL}${Pages.TOURS}/${slug}`,
-    },
-  };
+    if (!title) {
+      throw new Error('Сторінка не знайдена');
+    }
+
+    return {
+      title: title,
+      alternates: {
+        canonical: `${configuration.BASE_APP_URL}${Pages.TOURS}/${slug}`,
+      },
+    };
+  } catch (error) {
+    return {
+      title: 'Сторінка не знайдена',
+      alternates: {
+        canonical: `${configuration.BASE_APP_URL}/404`,
+      },
+    };
+  }
 }
-
 const SingleTourPage = () => {
   return <></>;
 };

@@ -12,7 +12,7 @@ const fetchTourServices = async (
     variables,
   )) as ITourServicesQueryResponse;
 
-  return result.tours.data[0].attributes.services;
+  return result.tours.data[0]?.attributes.services;
 };
 
 export default fetchTourServices;
