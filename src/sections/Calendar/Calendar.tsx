@@ -2,22 +2,13 @@
 import { useState, useEffect, useCallback } from 'react';
 
 import { ISelectState, ITours } from '@/@types';
+import { Pages, IFilters } from '@/@types';
 import { fetchFilteredTours } from '@/actions/requests';
 import DropdownList from '@/components/common/DropdownList';
 import CustomSelect from '@/components/ui/CustomSelect';
 import MonthSlider from '@/components/ui/MonthSlider';
 import ToursList from '@/components/ui/ToursList';
 import { createDataSelectOptions, createStartAndEndDayOfMonth } from '@/utils';
-
-interface ICalendarProps {}
-interface IFilters {
-  startOfMonth?: string;
-  endOfMonth?: string;
-  activityName?: string;
-  countryName?: string;
-  pageSize?: number;
-  page?: number;
-}
 
 const defaultActivity: ISelectState = {
   id: -1,
@@ -30,7 +21,7 @@ const defaultCountry: ISelectState = {
 
 const PER_PAGE = 6;
 
-const Calendar: React.FC<ICalendarProps> = () => {
+const Calendar = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -123,7 +114,7 @@ const Calendar: React.FC<ICalendarProps> = () => {
   return (
     <section
       className='section pt-[104px] md:pt-[128px] xl:pt-[160px]'
-      id='calendar'
+      id={Pages.CALENDAR}
     >
       <div className='container'>
         <div className='items-center justify-between xl:mb-12 xl:flex xl:border-b-[0.5px] xl:border-accentDarkOrange'>
