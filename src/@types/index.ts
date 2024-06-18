@@ -193,13 +193,13 @@ export interface IReviewResponse {
 
 export interface IToursByMonthResponse {
   activities: {
-    data: ISelectState[];
+    data: IActivity[];
   };
   countries: {
-    data: ISelectState[];
+    data: ICountry[];
   };
   tours: {
-    data: ITour[];
+    data: ITours[];
     meta: {
       pagination: { pageCount: number };
     };

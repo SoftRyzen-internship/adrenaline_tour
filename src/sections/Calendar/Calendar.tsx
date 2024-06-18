@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
 
-import { ISelectState, ITour } from '@/@types';
+import { ISelectState, ITours, IActivity, ICountry } from '@/@types';
 import fetchToursByMonth from '@/actions/requests/fetchToursByMonth';
 import DropdownList from '@/components/common/DropdownList';
 import CustomSelect from '@/components/ui/CustomSelect';
@@ -27,17 +27,18 @@ const defaultCountry: ISelectState = {
 
 const Calendar: React.FC<ICalendarProps> = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [tours, setTours] = useState<ITour[] | null>(null);
-  const [countries, setCountries] = useState<ISelectState[] | null>(null);
-  const [activities, setActivities] = useState<ISelectState[] | null>(null);
+  const [tours, setTours] = useState<ITours[] | null>(null);
+  const [countries, setCountries] = useState<IActivity[] | null>(null);
+  const [activities, setActivities] = useState<ICountry[] | null>(null);
   const [selectedActivitiesItem, setSelectedActivitiesItem] =
     useState<ISelectState>(defaultActivity);
   const [selectedCountryItem, setSelectedCountryItem] =
     useState<ISelectState>(defaultCountry);
 
-  console.log(tours);
-  console.log(activities);
-  console.log(selectedActivitiesItem);
+  // console.log(tours);
+  // console.log(activities);
+  // console.log(countries);
+  // console.log(selectedActivitiesItem);
 
   const { startOfMonth, endOfMonth } =
     createStartAndEndDayOfMonth(currentMonth);
@@ -57,6 +58,7 @@ const Calendar: React.FC<ICalendarProps> = () => {
   );
 
   useEffect(() => {
+    console.log('First useEffect');
     fetchData();
   }, [startOfMonth, endOfMonth, fetchData]);
 
@@ -71,13 +73,35 @@ const Calendar: React.FC<ICalendarProps> = () => {
 
     if (selectedActivitiesItem || selectedCountryItem) {
       fetchData(filters);
-      // tours?.map(tour=>)
     }
   }, [selectedActivitiesItem, selectedCountryItem, fetchData]);
 
   const handleMonthChange = (newMonth: Date) => {
     setCurrentMonth(newMonth);
   };
+
+  useEffect(() => {
+    if (selectedActivitiesItem.id !== -1 && tours) {
+      const filteredCountryArray: ICountry[] = tours?.flatMap(
+        tour => tour.attributes.countries.data,
+      );
+      const uniqueCountries = Array.from(
+        new Map(filteredCountryArray.map(item => [item.id, item])).values(),
+      );
+
+      setCountries(uniqueCountries);
+    }
+
+    if (selectedCountryItem.id !== -1 && tours) {
+      const filteredActivityArray: ICountry[] = tours?.flatMap(
+        tour => tour.attributes.activities.data,
+      );
+      const uniqueActivity = [
+        new Map(filteredActivityArray.map(item => [item.id, item])).values(),
+      ];
+      setActivities(uniqueActivity);
+    }
+  }, [tours, selectedActivitiesItem, selectedCountryItem]);
 
   return (
     <section className='section pt-[104px] md:pt-[128px] xl:pt-[160px]'>
