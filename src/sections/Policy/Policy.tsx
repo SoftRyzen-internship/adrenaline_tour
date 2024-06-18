@@ -1,6 +1,6 @@
 import { fetchPrivacyPolicy } from '@/actions/requests';
 import ErrorSection from '@/components/ui/ErrorSection';
-import { markdownToHtml } from '@/utils/formatPocityText';
+import { markdownToHtml } from '@/utils/formatPolicyText';
 
 const PolicySection = async () => {
   const policy = await fetchPrivacyPolicy();

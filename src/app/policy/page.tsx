@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { Pages } from '@/@types';
 import { metaData } from '@/data';
-import PolicySection from '@/sections/PolicySection';
+import Policy from '@/sections/Policy';
 
 export const metadata: Metadata = {
   title: metaData.policyTitle,
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 };
 
 const PolicyPage = () => {
-  return <PolicySection />;
+  return <Policy />;
 };
 
 export default PolicyPage;
