@@ -2,7 +2,7 @@ import { fetchPrivacyPolicy } from '@/actions/requests';
 import ErrorSection from '@/components/ui/ErrorSection';
 import { markdownToHtml } from '@/utils/formatPocityText';
 
-const Policy = async () => {
+const PolicySection = async () => {
   const policy = await fetchPrivacyPolicy();
   if (!policy) {
     return <ErrorSection isLoadingError />;
@@ -29,4 +29,4 @@ const Policy = async () => {
   );
 };
 
-export default Policy;
+export default PolicySection;

@@ -1,4 +1,4 @@
-import { IPolicyResponse } from '@/sections/Policy/Policy.types';
+import { IPolicyResponse } from '@/sections/PolicySection/PolicySection.types';
 
 import fetchData from '../fetchData';
 import { getPolicy } from '../query';
