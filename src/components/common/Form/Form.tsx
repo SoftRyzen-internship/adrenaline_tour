@@ -8,6 +8,7 @@ import { Controller, useForm } from 'react-hook-form';
 import useFormPersist from 'react-hook-form-persist';
 
 import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
+import CircleIcon from '/public/icons/circle.svg';
 
 import { IFormState } from '@/@types';
 import Button from '@/components/ui/Button';
@@ -30,6 +31,7 @@ const Form = () => {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [sendError, setSendError] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const {
     register,
@@ -57,12 +59,14 @@ const Form = () => {
       message: data.message ? data.message.trim() : '',
     };
     try {
+      setIsSending(true);
       await sendingEmail(sanitizedData);
       reset();
     } catch (error) {
       setSendError(true);
     } finally {
       setModalOpen(true);
+      setIsSending(false);
     }
   };
 
@@ -106,8 +110,17 @@ const Form = () => {
           type='submit'
           iconPosition='after'
           className='md:max-w-[286px]'
+          disabled={isSending}
           icon={
-            <ArrowRightDownIcon width={24} height={24} className='h-6 w-6' />
+            isSending ? (
+              <CircleIcon
+                width={24}
+                height={24}
+                className='h-6 w-6 animate-spin'
+              />
+            ) : (
+              <ArrowRightDownIcon width={24} height={24} className='h-6 w-6' />
+            )
           }
         >
           {form.buttonText}

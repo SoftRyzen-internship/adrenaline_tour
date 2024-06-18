@@ -51,7 +51,7 @@ const CustomSelect: React.FC<ICustomSelectProps> = ({
             modal={false}
             static={true}
             as='ul'
-            className='absolute z-50 mt-3 max-h-[280px] w-[var(--button-width)] space-y-1 overflow-y-auto border-2 border-accentDefaultOrange bg-white focus:outline-none'
+            className='scroll-bar-custom absolute z-50 mt-3 max-h-[280px] w-[var(--button-width)] space-y-1 border-2 border-accentDefaultOrange bg-white focus:outline-none'
           >
             {data.map(item => (
               <ListboxOption

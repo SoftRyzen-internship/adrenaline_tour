@@ -4,7 +4,7 @@ import { tipsData } from '@/data';
 
 const Tips = () => {
   return (
-    <section className='section bg-[#F5FAFD]'>
+    <section className='section bg-blueWhite'>
       <div className='container'>
         <h2 className='section-title mb-8 text-blueDefault md:mb-12 xl:mb-16'>
           {tipsData.title[0]}

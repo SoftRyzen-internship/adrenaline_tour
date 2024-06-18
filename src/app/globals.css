@@ -18,6 +18,10 @@ html {
   .section-title {
     @apply font-unbounded text-[28px] font-bold leading-[1] text-blueDefault md:text-[48px] xl:text-[64px];
   }
+
+  .scroll-bar-custom {
+    @apply overflow-y-auto scrollbar-thin scrollbar-track-lightBlue scrollbar-thumb-accentDefaultOrange;
+  }
 }
 
 @layer utilities {
