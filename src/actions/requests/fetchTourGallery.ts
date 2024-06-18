@@ -10,7 +10,7 @@ const fetchTourGallery = async (slug: string): Promise<ITourGalleryData[]> => {
     variables,
   )) as ITourGalleryQueryResponse;
 
-  return result.tours.data[0].attributes.gallery.data;
+  return result.tours.data[0]?.attributes.gallery.data;
 };
 
 export default fetchTourGallery;

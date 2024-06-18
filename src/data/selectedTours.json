@@ -1,6 +1,11 @@
 {
   "buttonMore": "Більше",
   "buttonLess": "Меньше",
+<<<<<<< HEAD
   "defaultActivities": "Всі активності",
   "defaultCountries": "Всі країни"
+=======
+  "defaultActivity": "Всі активності",
+  "defaultCountry": "Всі країни"
+>>>>>>> dev
 }

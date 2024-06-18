@@ -64,6 +64,13 @@ export interface ICountry {
   };
 }
 
+export interface ITour {
+  id: string;
+  attributes: {
+    name: string;
+  };
+}
+
 export interface IImage {
   attributes: {
     url: string;
@@ -86,18 +93,10 @@ export interface IToursAttributes {
   duration: string;
   recommended: boolean;
   activities: {
-    data: {
-      attributes: {
-        name: string;
-      };
-    }[];
+    data: ISelectState[];
   };
   countries: {
-    data: {
-      attributes: {
-        name: string;
-      };
-    }[];
+    data: ISelectState[];
   };
 }
 
