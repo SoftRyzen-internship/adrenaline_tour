@@ -1,42 +1,18 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-
 import Phone from '/public/icons/phone.svg';
 import Email from '/public/icons/email.svg';
 
 import { fetchContacts } from '@/actions/requests';
 import { formatPhoneNumber } from '@/utils';
 
-import { IContact, IPhonesProps } from './Phones.types';
+import { IPhonesProps } from './Phones.types';
 
-const Phones: React.FC<IPhonesProps> = ({
+const Phones: React.FC<IPhonesProps> = async ({
   variant = 'contacts',
   className = '',
 }) => {
-  const [contacts, setContacts] = useState<IContact | null>(null);
-
-  useEffect(() => {
-    const getContacts = async () => {
-      try {
-        const data = await fetchContacts();
-        if (data) {
-          setContacts(data);
-        }
-      } catch (error) {
-        return null;
-      }
-    };
-
-    getContacts();
-  }, []);
-
-  if (!contacts) {
-    return (
-      <div className='font-inter text-[16px] leading-[1.30] text-white md:text-lightLarge md:font-medium xl:text-extraLarge'>
-        Завантаження...
-      </div>
-    );
+  const data = await fetchContacts();
+  if (!data) {
+    return null;
   }
 
   return variant === 'contacts' ? (
@@ -49,10 +25,10 @@ const Phones: React.FC<IPhonesProps> = ({
         />
         <div className='cursor-pointer font-inter text-[16px] leading-[1.30] text-white md:text-lightLarge md:font-medium xl:text-extraLarge'>
           <a
-            href={`mailto:${contacts.email}`}
+            href={`mailto:${data.email}`}
             className='transition hover:text-accentDarkOrange focus:text-accentDarkOrange'
           >
-            {contacts.email}
+            {data.email}
           </a>
         </div>
       </div>
@@ -63,7 +39,7 @@ const Phones: React.FC<IPhonesProps> = ({
           height={32}
         />
         <div className='flex flex-col gap-2 md:gap-3 xl:gap-4'>
-          {Object.entries(contacts.numbers).map(([country, number]) => (
+          {Object.entries(data.numbers).map(([country, number]) => (
             <div
               key={country}
               className='flex cursor-pointer font-inter text-[16px] leading-[1.30] text-white md:text-lightLarge md:font-medium xl:text-extraLarge'
@@ -85,7 +61,7 @@ const Phones: React.FC<IPhonesProps> = ({
     </div>
   ) : (
     <div className={`flex flex-col items-center gap-[6px] ${className}`}>
-      {Object.entries(contacts.numbers).map(([country, number]) => (
+      {Object.entries(data.numbers).map(([country, number]) => (
         <div
           key={country}
           className='flex cursor-pointer font-inter text-light text-white md:leading-[1.50] xl:text-[16px]'

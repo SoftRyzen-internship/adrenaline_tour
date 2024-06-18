@@ -317,3 +317,14 @@ export const getFilteredTours = `query getFilteredTours($countryName: String, $a
     ${countriesAndActivitiesSmallFields}
   }
 }`;
+
+// запит за карткою Tour за slug Metadata:
+export const getTourTitle = `query getTourTitle($slug: String!) {
+  tours(filters: { slug: { eq: $slug } }) {
+    data {
+      attributes {
+        title
+      }
+    }
+  }
+}`;

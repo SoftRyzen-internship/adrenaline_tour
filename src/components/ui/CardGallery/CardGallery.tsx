@@ -1,11 +1,11 @@
 import Image from 'next/image';
 
-import { gallery } from '@/data';
+import { ariaLabel } from '@/data';
 
 import { ICardGalleryProps } from './CardGallery.types';
 
 const CardGallery: React.FC<ICardGalleryProps> = ({ src, alt }) => {
-  const altText = alt || gallery.altAlternative;
+  const altText = alt || ariaLabel.altAlternative;
 
   return (
     <div className='relative h-[281px] overflow-hidden md:h-[347px] xl:h-[506px]'>

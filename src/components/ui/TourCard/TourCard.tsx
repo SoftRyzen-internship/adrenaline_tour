@@ -4,6 +4,7 @@ import Image from 'next/image';
 import ArrowRight from '/public/icons/arrow-right.svg';
 import Location from '/public/icons/location.svg';
 
+import { Pages } from '@/@types';
 import LinkButton from '@/components/ui/LinkButton';
 import { tourCardData } from '@/data';
 import { formatDateDayMonthUk } from '@/utils';
@@ -27,12 +28,12 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
 
   return (
     <div className='group relative flex h-[411px] w-full flex-col md:h-[439px] md:w-[334px] xl:h-[485px] xl:w-[384px]'>
-      <span className='absolute right-4 top-4 z-10 bg-white px-3 py-[11px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue transition group-hover:text-accentDefaultOrange md:px-[11px] md:py-4 md:text-[12px] md:leading-[16px]'>
+      <span className='absolute right-4 top-4 z-10 bg-white px-3 py-[11px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue transition group-hover:text-accentDefaultOrange group-focus:text-accentDefaultOrange md:px-[11px] md:py-4 md:text-[12px] md:leading-[16px]'>
         {formatDateDayMonthUk(date)}
       </span>
-      <div className='relative mb-2 h-[291px] w-full md:mb-3 xl:mb-4 xl:h-[333px]'>
+      <div className='relative mb-2 h-[291px] w-full  overflow-hidden md:mb-3 xl:mb-4 xl:h-[333px]'>
         <Image
-          className='object-cover'
+          className='object-cover transition-all duration-700 group-hover:scale-110 group-focus:scale-110'
           src={img.data.attributes.url}
           fill
           sizes='(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw'
@@ -44,15 +45,19 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
           {title}
         </h2>
         <div className='flex flex-wrap pt-[6px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue md:text-[12px] md:leading-[16px]'>
-          <Location width={10} height={14} />
+          <Location
+            width={12}
+            height={12}
+            className='h-[16px] fill-darkBlue md:w-[16px]'
+          />
           <p className='pl-1 pr-2'>{countryNames}</p>
           <p className={clsx('type flex px-2', s['type'])}>{activitiesNames}</p>
           <p className='px-2'>{duration}</p>
         </div>
       </div>
-      <div className='transition-all duration-700 xl:opacity-0 xl:group-hover:flex xl:group-hover:opacity-100'>
+      <div className='transition-all duration-700 xl:opacity-0 xl:group-hover:flex xl:group-hover:opacity-100 xl:group-focus:flex xl:group-focus:opacity-100'>
         <LinkButton
-          href={slug}
+          href={`${Pages.TOURS}/${slug}`}
           variant='secondary'
           iconPosition='after'
           icon={<ArrowRight width={24} height={24} className='h-6 w-6' />}
