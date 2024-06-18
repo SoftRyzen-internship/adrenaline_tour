@@ -24,7 +24,7 @@ const ActivitiesCard: React.FC<IActivitiesCardProp> = ({
 
   return (
     <div key={id} className={clsx('flex', position)}>
-      <div className={clsx('group', containerClasses)}>
+      <div className={clsx('group overflow-hidden', containerClasses)}>
         <Image
           className='object-cover transition-all duration-700 group-hover:scale-110 group-focus:scale-110'
           src={src}
