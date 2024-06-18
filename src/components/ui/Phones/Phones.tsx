@@ -49,10 +49,10 @@ const Phones: React.FC<IPhonesProps> = async ({
                 className='flex transition hover:text-accentDarkOrange focus:text-accentDarkOrange'
               >
                 {formatPhoneNumber(number)}
-                <p className='uppercase'>
+                <span className='uppercase'>
                   <span className='text-white32'>&nbsp;|&nbsp;</span>
                   {country}
-                </p>
+                </span>
               </a>
             </div>
           ))}
@@ -71,10 +71,10 @@ const Phones: React.FC<IPhonesProps> = async ({
             className='flex transition hover:text-accentDarkOrange focus:text-accentDarkOrange'
           >
             {formatPhoneNumber(number)}
-            <p className='uppercase'>
+            <span className='uppercase'>
               <span className='text-white32'>&nbsp;|&nbsp;</span>
               {country}
-            </p>
+            </span>
           </a>
         </div>
       ))}
