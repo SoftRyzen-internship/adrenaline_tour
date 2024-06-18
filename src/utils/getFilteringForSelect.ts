@@ -1,13 +1,11 @@
-import {
-  ISelect,
-  ITourResponse,
-} from '@/sections/Destinations/Destinations.types';
+import { ISelectState } from '@/@types';
+import { ITourResponse } from '@/sections/Destinations/Destinations.types';
 
 const getFilteringForSelect = (
   data: ITourResponse,
   fetchType: 'activities' | 'countries',
-  defaultActivities: ISelect,
-  defaultCountries: ISelect,
+  defaultActivities: ISelectState,
+  defaultCountries: ISelectState,
 ) => {
   const uniqueFiltering = new Set<string>();
   data.tours.data.forEach(tour => {

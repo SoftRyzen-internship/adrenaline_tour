@@ -1,9 +1,9 @@
-import { ISelect } from '@/sections/Destinations/Destinations.types';
+import { ISelectState } from '@/@types';
 
 const mapDataToSelectItems = (
-  dataItems: ISelect[],
-  defaultSelect: ISelect,
-): ISelect[] => {
+  dataItems: ISelectState[],
+  defaultSelect: ISelectState,
+): ISelectState[] => {
   return [
     ...dataItems.map((item, index) => ({
       id: index + 1,
