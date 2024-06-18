@@ -11,7 +11,6 @@ const fetchToursByMonth = async (
   const variables = {
     startOfMonth,
     endOfMonth,
-    pageSize: 9,
     ...filters,
   };
 

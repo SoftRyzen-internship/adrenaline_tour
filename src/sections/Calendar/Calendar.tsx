@@ -14,6 +14,7 @@ interface ICalendarProps {}
 interface IFilters {
   activityName?: string;
   countryName?: string;
+  pageSize?: number;
 }
 
 const defaultActivity: ISelectState = {
@@ -24,6 +25,8 @@ const defaultCountry: ISelectState = {
   id: -1,
   attributes: { name: 'Всі країни' },
 };
+
+const perPage = 3;
 
 const Calendar: React.FC<ICalendarProps> = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -53,12 +56,8 @@ const Calendar: React.FC<ICalendarProps> = () => {
   );
 
   useEffect(() => {
-    console.log('First useEffect');
-    fetchData();
-  }, [startOfMonth, endOfMonth, fetchData]);
-
-  useEffect(() => {
     const filters: IFilters = {};
+    filters.pageSize = perPage;
     if (selectedActivitiesItem?.id !== -1) {
       filters.activityName = selectedActivitiesItem?.attributes.name;
     }
@@ -69,7 +68,13 @@ const Calendar: React.FC<ICalendarProps> = () => {
     if (selectedActivitiesItem || selectedCountryItem) {
       fetchData(filters);
     }
-  }, [selectedActivitiesItem, selectedCountryItem, fetchData]);
+  }, [
+    startOfMonth,
+    endOfMonth,
+    selectedActivitiesItem,
+    selectedCountryItem,
+    fetchData,
+  ]);
 
   useEffect(() => {
     if (selectedActivitiesItem.id !== -1 && tours) {
