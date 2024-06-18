@@ -26,8 +26,6 @@ const defaultCountry: ISelectState = {
   attributes: { name: 'Всі країни' },
 };
 
-const perPage = 3;
-
 const Calendar: React.FC<ICalendarProps> = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [tours, setTours] = useState<ITours[] | null>(null);
@@ -57,7 +55,6 @@ const Calendar: React.FC<ICalendarProps> = () => {
 
   useEffect(() => {
     const filters: IFilters = {};
-    filters.pageSize = perPage;
     if (selectedActivitiesItem?.id !== -1) {
       filters.activityName = selectedActivitiesItem?.attributes.name;
     }
@@ -81,9 +78,9 @@ const Calendar: React.FC<ICalendarProps> = () => {
       const filteredCountryArray: ISelectState[] = tours?.flatMap(
         tour => tour.attributes.countries.data,
       );
-      const uniqueCountries = Array.from(
-        new Map(filteredCountryArray.map(item => [item.id, item])).values(),
-      );
+      const uniqueCountries = [
+        ...new Map(filteredCountryArray.map(item => [item.id, item])).values(),
+      ];
 
       setCountries(uniqueCountries);
     }
@@ -92,8 +89,9 @@ const Calendar: React.FC<ICalendarProps> = () => {
       const filteredActivityArray: ISelectState[] = tours?.flatMap(
         tour => tour.attributes.activities.data,
       );
+
       const uniqueActivity = [
-        new Map(filteredActivityArray.map(item => [item.id, item])).values(),
+        ...new Map(filteredActivityArray.map(item => [item.id, item])).values(),
       ];
       setActivities(uniqueActivity);
     }
