@@ -346,6 +346,21 @@ export interface IReviewResponse {
   };
 }
 
+export interface IToursByMonthResponse {
+  activities: {
+    data: ISelectState[];
+  };
+  countries: {
+    data: ISelectState[];
+  };
+  tours: {
+    data: ITours[];
+    meta: {
+      pagination: { pageCount: number };
+    };
+  };
+}
+
 export interface IEmailAndPhone {
   email: string;
   numbers: {
@@ -408,4 +423,13 @@ export interface ITourGalleryQueryResponse {
   tours: {
     data: ITourGallery[];
   };
+}
+
+export interface IFilters {
+  startOfMonth?: string;
+  endOfMonth?: string;
+  activityName?: string;
+  countryName?: string;
+  pageSize?: number;
+  page?: number;
 }
