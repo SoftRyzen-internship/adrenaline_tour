@@ -75,24 +75,23 @@ const Calendar: React.FC<ICalendarProps> = () => {
 
   useEffect(() => {
     if (selectedActivitiesItem.id !== -1 && tours) {
-      const filteredCountryArray: ISelectState[] = tours?.flatMap(
+      const filteredCountryArray: ISelectState[] = tours.flatMap(
         tour => tour.attributes.countries.data,
       );
-      const uniqueCountries = [
-        ...new Map(filteredCountryArray.map(item => [item.id, item])).values(),
-      ];
+      const uniqueCountries = Array.from(
+        new Map(filteredCountryArray.map(item => [item.id, item])).values(),
+      );
 
       setCountries(uniqueCountries);
     }
 
     if (selectedCountryItem.id !== -1 && tours) {
-      const filteredActivityArray: ISelectState[] = tours?.flatMap(
+      const filteredActivityArray: ISelectState[] = tours.flatMap(
         tour => tour.attributes.activities.data,
       );
-
-      const uniqueActivity = [
-        ...new Map(filteredActivityArray.map(item => [item.id, item])).values(),
-      ];
+      const uniqueActivity = Array.from(
+        new Map(filteredActivityArray.map(item => [item.id, item])).values(),
+      );
       setActivities(uniqueActivity);
     }
   }, [tours, selectedActivitiesItem, selectedCountryItem]);
