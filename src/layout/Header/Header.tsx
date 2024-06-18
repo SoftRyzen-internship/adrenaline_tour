@@ -21,7 +21,7 @@ const Header = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const pathname = usePathname();
 
-  const isTextWhite = pathname === Pages.MAIN || pathname.includes(Pages.TOURS);
+  const isTextWhite = pathname === Pages.MAIN || pathname === `/${Pages.TOURS}`;
 
   return (
     <header
