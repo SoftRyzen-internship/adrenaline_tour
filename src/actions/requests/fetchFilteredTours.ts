@@ -1,16 +1,12 @@
-import { IToursByMonthResponse } from '@/@types';
+import { IToursByMonthResponse, IFilters } from '@/@types';
 
 import fetchData from '../fetchData';
 import { getFilteredTours as query } from '../query';
 
-const fetchFilteredTours = async (filters: object) => {
-  const variables = {
-    ...filters,
-  };
-
-  const result = (await fetchData(query, variables)) as IToursByMonthResponse;
-
-  return result;
+const fetchFilteredTours = async (
+  variables: IFilters,
+): Promise<IToursByMonthResponse> => {
+  return (await fetchData(query, variables)) as IToursByMonthResponse;
 };
 
 export default fetchFilteredTours;

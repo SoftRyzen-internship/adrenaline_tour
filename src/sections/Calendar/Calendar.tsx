@@ -8,18 +8,19 @@ import DropdownList from '@/components/common/DropdownList';
 import CustomSelect from '@/components/ui/CustomSelect';
 import MonthSlider from '@/components/ui/MonthSlider';
 import ToursList from '@/components/ui/ToursList';
+import { selectedTours } from '@/data';
 import { createDataSelectOptions, createStartAndEndDayOfMonth } from '@/utils';
 
 const defaultActivity: ISelectState = {
   id: -1,
-  attributes: { name: 'Всі активності' },
+  attributes: { name: selectedTours.defaultActivity },
 };
 const defaultCountry: ISelectState = {
   id: -1,
-  attributes: { name: 'Всі країни' },
+  attributes: { name: selectedTours.defaultCountry },
 };
 
-const PER_PAGE = 6;
+const PER_PAGE = 2;
 
 const Calendar = () => {
   const [page, setPage] = useState(1);
@@ -139,6 +140,7 @@ const Calendar = () => {
             )}
           </DropdownList>
         </div>
+
         <ToursList
           isLoading={isLoading}
           tours={tours}

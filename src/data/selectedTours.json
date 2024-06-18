@@ -1,4 +1,6 @@
 {
   "buttonMore": "Більше",
-  "buttonLess": "Меньше"
+  "buttonLess": "Меньше",
+  "defaultActivity": "Всі активності",
+  "defaultCountry": "Всі країни"
 }

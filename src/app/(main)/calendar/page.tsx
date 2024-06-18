@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   },
 };
 
-const CalendarPage: React.FC = () => {
+const CalendarPage = () => {
   return <Calendar />;
 };
 

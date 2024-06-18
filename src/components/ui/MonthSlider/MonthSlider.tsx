@@ -1,3 +1,4 @@
+import { calendar } from '@/data';
 import { getMonthName } from '@/utils';
 
 import { IMonthSliderProps } from './MonthSlider.types';
@@ -43,7 +44,7 @@ const MonthSlider: React.FunctionComponent<IMonthSliderProps> = ({
     <div className='mb-6 flex items-center justify-center gap-4 border-b-[0.5px] border-accentDarkOrange pb-6 pt-4 md:pb-8 md:pt-6 xl:mb-0 xl:border-b-0'>
       <IconButton
         type='button'
-        ariaLabel='Test'
+        ariaLabel={calendar.prev}
         onClick={handlePrevMonth}
         disabled={
           currentMonth.getMonth() === new Date().getMonth() &&
@@ -61,7 +62,7 @@ const MonthSlider: React.FunctionComponent<IMonthSliderProps> = ({
 
       <IconButton
         type='button'
-        ariaLabel='Test'
+        ariaLabel={calendar.next}
         onClick={handleNextMonth}
         disabled={
           currentMonth.getMonth() === maxMonth.getMonth() &&
