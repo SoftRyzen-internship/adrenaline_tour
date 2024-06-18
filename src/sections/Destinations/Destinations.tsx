@@ -84,13 +84,8 @@ const Destinations: React.FC = () => {
   };
 
   const setSelectsList: ISetSelectsList = (data, country, activity) => {
-    console.log(
-      `data, country, activity ${JSON.stringify(data)} ${country} ${activity}`,
-    );
-
     let countriesForSelect: ISelect[] = [];
     if (country) {
-      setIsLoading(true);
       fetchSelectsList('countries');
     } else {
       const dataCountries = data.countries.data;
@@ -113,7 +108,6 @@ const Destinations: React.FC = () => {
     }
 
     setFilteredActivities(activitiesForSelect);
-    setIsLoading(false);
   };
 
   const fetchTheTours = async (page: number) => {
