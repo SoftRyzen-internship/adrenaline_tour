@@ -24,12 +24,18 @@ const ActivitiesCard: React.FC<IActivitiesCardProp> = ({
 
   return (
     <div key={id} className={clsx('flex', position)}>
-      <div className={containerClasses}>
-        <Image className='object-cover' src={src} alt={alt} fill sizes='50vw' />
+      <div className={clsx('group', containerClasses)}>
+        <Image
+          className='object-cover transition-all duration-700 group-hover:scale-110 group-focus:scale-110'
+          src={src}
+          alt={alt}
+          fill
+          sizes='50vw'
+        />
 
         <div
           className={clsx(
-            'absolute bottom-0 left-0 right-0 top-0 flex flex-col justify-end text-xl font-bold text-white',
+            'absolute bottom-0 left-0 right-0 top-0 flex flex-col justify-end text-xl font-bold text-white transition-all duration-700 group-hover:scale-110 group-focus:scale-110',
             s.gradient,
             'p-2 md:p-[24px] xl:p-[32px]',
           )}
