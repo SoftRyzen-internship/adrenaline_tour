@@ -1,3 +1,5 @@
+import { ITourDetailsAttributes } from '@/@types';
+
 export interface IFeaturesTableProps {
-  slug: string;
+  tourDetails: ITourDetailsAttributes;
 }
