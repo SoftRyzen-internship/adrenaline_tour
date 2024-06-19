@@ -23,7 +23,7 @@ const ToursList: React.FC<IToursList> = ({
   resetVisibleTours,
 }) => {
   return (
-    <>
+    <div className='min-h-[400px] xl:min-h-[485px]'>
       {isLoading && tours.length === 0 ? (
         <div className='flex h-full items-center justify-center'>
           <CircleIcon className='size-10 animate-spin' />
@@ -74,7 +74,7 @@ const ToursList: React.FC<IToursList> = ({
           )
         )}
       </div>
-    </>
+    </div>
   );
 };
 

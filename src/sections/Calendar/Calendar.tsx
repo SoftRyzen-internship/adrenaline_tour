@@ -116,6 +116,18 @@ const Calendar = () => {
     setSelectedCountryItem(defaultCountry);
   };
 
+  const handleActivityChange = (newActivity: ISelectState) => {
+    setSelectedActivitiesItem(newActivity);
+    setPage(1);
+    setTours([]);
+  };
+
+  const handleCountryChange = (newCountry: ISelectState) => {
+    setSelectedCountryItem(newCountry);
+    setPage(1);
+    setTours([]);
+  };
+
   return (
     <section
       className='section pt-[104px] md:pt-[128px] xl:pt-[160px]'
@@ -136,7 +148,7 @@ const Calendar = () => {
                   selectedTours.defaultActivity,
                 )}
                 selectedItem={selectedActivitiesItem}
-                onChange={setSelectedActivitiesItem}
+                onChange={handleActivityChange}
               />
             )}
             {countries && (
@@ -146,7 +158,7 @@ const Calendar = () => {
                   selectedTours.defaultCountry,
                 )}
                 selectedItem={selectedCountryItem}
-                onChange={setSelectedCountryItem}
+                onChange={handleCountryChange}
               />
             )}
           </DropdownList>
