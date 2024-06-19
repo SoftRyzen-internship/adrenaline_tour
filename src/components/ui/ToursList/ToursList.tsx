@@ -12,6 +12,7 @@ import LinkButton from '@/components/ui/LinkButton';
 import { IToursList } from './ToursList.types';
 
 const ToursList: React.FC<IToursList> = ({
+  to,
   isLoading,
   filtersChanged,
   tours,
@@ -22,7 +23,7 @@ const ToursList: React.FC<IToursList> = ({
   resetVisibleTours,
 }) => {
   return (
-    <>
+    <div className='min-h-[400px] xl:min-h-[485px]'>
       {isLoading && tours.length === 0 ? (
         <div className='flex h-full items-center justify-center'>
           <CircleIcon className='size-10 animate-spin' />
@@ -65,7 +66,7 @@ const ToursList: React.FC<IToursList> = ({
               iconPosition='after'
               icon={<ArrowRightDownIcon className='size-6 md:size-8' />}
               toScroll
-              to='calendar'
+              to={to}
               onClick={resetVisibleTours}
             >
               {selectedTours.buttonLess}
@@ -73,7 +74,7 @@ const ToursList: React.FC<IToursList> = ({
           )
         )}
       </div>
-    </>
+    </div>
   );
 };
 
