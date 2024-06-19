@@ -4,5 +4,4 @@ export interface IIconButtonProps
   ariaLabel: string;
   onClick?: () => void;
   className?: string;
-  disabled?: boolean;
 }

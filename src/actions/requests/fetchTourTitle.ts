@@ -7,7 +7,7 @@ const fetchTourTitle = async (slug: string): Promise<ITourTitle> => {
   const variables = { slug };
   const result = (await fetchData(query, variables)) as ITourTitleQueryResponse;
 
-  const title = result.tours.data[0]?.attributes.title;
+  const title = result.tours.data[0].attributes.title;
 
   return { title };
 };

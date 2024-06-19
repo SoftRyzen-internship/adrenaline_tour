@@ -12,7 +12,7 @@ const fetchTourMainInfo = async (
     variables,
   )) as ITourMainInfoQueryResponse;
 
-  return result.tours.data[0]?.attributes;
+  return result.tours.data[0].attributes;
 };
 
 export default fetchTourMainInfo;

@@ -42,18 +42,18 @@ const Phones: React.FC<IPhonesProps> = async ({
           {Object.entries(data.numbers).map(([country, number]) => (
             <div
               key={country}
-              className='cursor-pointer font-inter text-[16px] leading-[1.30] text-white md:text-lightLarge md:font-medium xl:text-extraLarge'
+              className='flex cursor-pointer font-inter text-[16px] leading-[1.30] text-white md:text-lightLarge md:font-medium xl:text-extraLarge'
             >
               <a
                 href={`tel:${number}`}
-                className='flex transition hover:text-accentDarkOrange focus:text-accentDarkOrange'
+                className='transition hover:text-accentDarkOrange focus:text-accentDarkOrange'
               >
                 {formatPhoneNumber(number)}
-                <span className='uppercase'>
-                  <span className='text-white32'>&nbsp;|&nbsp;</span>
-                  {country}
-                </span>
               </a>
+              <span className='text-white32'>&nbsp;|&nbsp;</span>
+              <p className='uppercase transition hover:text-accentDarkOrange focus:text-accentDarkOrange'>
+                {country}
+              </p>
             </div>
           ))}
         </div>
@@ -64,18 +64,18 @@ const Phones: React.FC<IPhonesProps> = async ({
       {Object.entries(data.numbers).map(([country, number]) => (
         <div
           key={country}
-          className='cursor-pointer font-inter text-light text-white md:leading-[1.50] xl:text-[16px]'
+          className='flex cursor-pointer font-inter text-light text-white md:leading-[1.50] xl:text-[16px]'
         >
           <a
             href={`tel:${number}`}
-            className='flex transition hover:text-accentDarkOrange focus:text-accentDarkOrange'
+            className='transition hover:text-accentDarkOrange focus:text-accentDarkOrange'
           >
             {formatPhoneNumber(number)}
-            <span className='uppercase'>
-              <span className='text-white32'>&nbsp;|&nbsp;</span>
-              {country}
-            </span>
           </a>
+          <span className='text-white32'>&nbsp;|&nbsp;</span>
+          <p className='uppercase transition hover:text-accentDarkOrange focus:text-accentDarkOrange'>
+            {country}
+          </p>
         </div>
       ))}
     </div>
