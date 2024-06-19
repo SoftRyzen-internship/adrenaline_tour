@@ -12,6 +12,7 @@ import LinkButton from '@/components/ui/LinkButton';
 import { IToursList } from './ToursList.types';
 
 const ToursList: React.FC<IToursList> = ({
+  to,
   isLoading,
   filtersChanged,
   tours,
@@ -65,7 +66,7 @@ const ToursList: React.FC<IToursList> = ({
               iconPosition='after'
               icon={<ArrowRightDownIcon className='size-6 md:size-8' />}
               toScroll
-              to='calendar'
+              to={to}
               onClick={resetVisibleTours}
             >
               {selectedTours.buttonLess}

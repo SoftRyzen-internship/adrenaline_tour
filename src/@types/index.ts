@@ -3,6 +3,7 @@ export enum Pages {
   CALENDAR = 'calendar',
   TOURS = 'tours',
   POLICY = 'policy',
+  DESTINATIONS = 'destinations',
 }
 
 export enum IdForScroll {

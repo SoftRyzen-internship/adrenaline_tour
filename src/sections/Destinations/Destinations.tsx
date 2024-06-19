@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 
 import { ISelectState, ITours } from '@/@types';
-import { IFilters } from '@/@types';
+import { Pages, IFilters } from '@/@types';
 import { fetchFilteredTours } from '@/actions/requests';
 import DropdownList from '@/components/common/DropdownList';
 import CustomSelect from '@/components/ui/CustomSelect';
@@ -26,8 +26,10 @@ const Destinations = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [tours, setTours] = useState<ITours[]>([]);
-  const [countries, setCountries] = useState<ISelectState[] | null>(null);
-  const [activities, setActivities] = useState<ISelectState[] | null>(null);
+  const [countries, setCountries] = useState<ISelectState[]>([defaultActivity]);
+  const [activities, setActivities] = useState<ISelectState[]>([
+    defaultCountry,
+  ]);
   const [selectedActivitiesItem, setSelectedActivitiesItem] =
     useState<ISelectState>(defaultActivity);
   const [selectedCountryItem, setSelectedCountryItem] =
@@ -93,7 +95,7 @@ const Destinations = () => {
   }, [selectedActivitiesItem, selectedCountryItem, page, fetchData]);
 
   return (
-    <section id='destinations' className='section container'>
+    <section id={Pages.DESTINATIONS} className='section container'>
       <div className='mb-10 items-center justify-between md:mb-14 xl:mb-16 xl:flex'>
         <h2 className='section-title mb-10 whitespace-break-spaces xl:mb-0'>
           {destinations.title}
@@ -124,6 +126,7 @@ const Destinations = () => {
       </div>
 
       <ToursList
+        to={Pages.DESTINATIONS}
         isLoading={isLoading}
         tours={tours}
         totalPages={totalPages}
