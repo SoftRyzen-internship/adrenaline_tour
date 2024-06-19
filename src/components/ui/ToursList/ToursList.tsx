@@ -1,3 +1,5 @@
+'use client';
+
 import CircleIcon from '/public/icons/circle.svg';
 import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
 
@@ -10,6 +12,8 @@ import Button from '@/components/ui/Button';
 import LinkButton from '@/components/ui/LinkButton';
 
 import { IToursList } from './ToursList.types';
+
+import LoadingComponent from '../LoadingComponent';
 
 const ToursList: React.FC<IToursList> = ({
   to,
@@ -24,9 +28,9 @@ const ToursList: React.FC<IToursList> = ({
 }) => {
   return (
     <div className='min-h-[400px] xl:min-h-[485px]'>
-      {isLoading && tours.length === 0 ? (
-        <div className='flex h-full items-center justify-center'>
-          <CircleIcon className='size-10 animate-spin' />
+      {isLoading ? (
+        <div className='pt-20'>
+          <LoadingComponent />
         </div>
       ) : tours.length > 0 ? (
         <div className='mb-10 grid gap-8 md:mb-14 md:grid-cols-2 md:gap-y-10 xl:mb-16  xl:grid-cols-3'>
