@@ -26,7 +26,7 @@ const ToursList: React.FC<IToursList> = ({
 }) => {
   return (
     <div className='min-h-[400px] xl:min-h-[485px]'>
-      {isLoading ? (
+      {isLoading && tours.length === 0 ? (
         <div className='pt-20'>
           <LoadingComponent />
         </div>

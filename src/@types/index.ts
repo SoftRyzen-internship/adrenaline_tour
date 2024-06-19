@@ -81,12 +81,7 @@ export interface IImage {
 
 export interface IToursAttributes {
   img: {
-    data: {
-      attributes: {
-        url: string;
-        alternativeText: string | null;
-      };
-    };
+    data: IImage;
   };
   title: string;
   date: string;
@@ -113,18 +108,6 @@ export interface IAllToursProps {
 export interface ITourResponse {
   tours: {
     data: ITours[];
-  };
-}
-
-export interface ICountryResponse {
-  countries: {
-    data: ICountry[];
-  };
-}
-
-export interface IActivitiesResponse {
-  activities: {
-    data: IActivity[];
   };
 }
 
