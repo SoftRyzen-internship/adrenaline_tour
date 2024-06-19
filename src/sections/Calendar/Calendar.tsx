@@ -28,10 +28,8 @@ const Calendar = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [tours, setTours] = useState<ITours[]>([]);
-  const [countries, setCountries] = useState<ISelectState[]>([defaultActivity]);
-  const [activities, setActivities] = useState<ISelectState[]>([
-    defaultCountry,
-  ]);
+  const [countries, setCountries] = useState<ISelectState[]>([]);
+  const [activities, setActivities] = useState<ISelectState[]>([]);
   const [selectedActivitiesItem, setSelectedActivitiesItem] =
     useState<ISelectState>(defaultActivity);
   const [selectedCountryItem, setSelectedCountryItem] =
@@ -85,6 +83,9 @@ const Calendar = () => {
       page: page,
     };
 
+    if (selectedActivitiesItem?.id !== -1 && selectedCountryItem?.id !== -1) {
+      setPage(1);
+    }
     if (selectedActivitiesItem?.id !== -1) {
       filters.activityName = selectedActivitiesItem?.attributes.name;
 
