@@ -3,7 +3,9 @@ import clsx from 'clsx';
 import { IReview } from '@/@types';
 import { fetchReviews } from '@/actions/requests';
 import Slider from '@/components/common/Slider';
+import AnimatedText from '@/components/ui/AnimatedText';
 import ReviewCard from '@/components/ui/ReviewCard';
+import Title from '@/components/ui/Title';
 import { reviews } from '@/data';
 
 import s from './Reviews.module.css';
@@ -35,12 +37,15 @@ const Reviews = async () => {
     >
       <div className='container relative'>
         <div className='top-[41px] xl:absolute'>
-          <h2 className='section-title mb-4 text-center text-white md:mb-6'>
+          <Title className='section-title mb-4 text-center text-white md:mb-6'>
             {reviews.title}
-          </h2>
-          <p className='mx-auto mb-[61px] w-[267px] text-center font-inter text-light text-white md:mb-12 md:w-[403px] md:text-medium xl:mb-0 xl:w-[345px] xl:text-left xl:text-lightLarge'>
-            {reviews.description}
-          </p>
+          </Title>
+
+          <AnimatedText className='xl:[--x-hidden:80px]'>
+            <p className='mx-auto mb-[61px] w-[267px] text-center font-inter text-light text-white md:mb-12 md:w-[403px] md:text-medium xl:mb-0 xl:w-[345px] xl:text-left xl:text-lightLarge'>
+              {reviews.description}
+            </p>
+          </AnimatedText>
         </div>
         <Slider
           slides={slides}
