@@ -7,7 +7,7 @@ const fetchTourPlans = async (slug: string): Promise<ITourAttributesPlans> => {
   const variables = { slug };
   const result = (await fetchData(query, variables)) as ITourPlansQueryResponse;
 
-  return result.tours.data[0]?.attributes.plans;
+  return result.tours.data[0].attributes.plans;
 };
 
 export default fetchTourPlans;

@@ -18,7 +18,7 @@ const CustomSelect: React.FC<ICustomSelectProps> = ({
   onChange,
   className,
 }) => {
-  const pickedValue = selectedItem?.attributes.name;
+  const pickedValue = selectedItem.attributes.name;
 
   return (
     <div

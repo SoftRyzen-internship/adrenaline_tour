@@ -8,18 +8,12 @@ const IconButton: React.FC<IIconButtonProps> = ({
   children,
   ariaLabel,
   className,
-  disabled,
   ...rest
 }) => {
   return (
     <button
-      className={clsx(
-        'flex items-center justify-center',
-        disabled && 'cursor-not-allowed opacity-50',
-        className,
-      )}
+      className={clsx('flex items-center justify-center', className)}
       aria-label={ariaLabel}
-      disabled={disabled}
       {...rest}
     >
       {children}

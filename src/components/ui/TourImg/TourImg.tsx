@@ -2,13 +2,11 @@ import Image from 'next/image';
 
 import { ariaLabel } from '@/data';
 
-import ErrorSection from '../ErrorSection';
-
 import { ITourImgProps } from './TourImg.types';
 
 const TourImg: React.FC<ITourImgProps> = ({ data }) => {
   if (!data) {
-    return <ErrorSection isLoadingError />;
+    return;
   }
   const altText = data.alternativeText || ariaLabel.altAlternative;
 
