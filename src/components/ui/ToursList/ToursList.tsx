@@ -1,5 +1,3 @@
-'use client';
-
 import CircleIcon from '/public/icons/circle.svg';
 import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
 
