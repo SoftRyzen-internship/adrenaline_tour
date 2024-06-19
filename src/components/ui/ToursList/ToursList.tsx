@@ -48,9 +48,9 @@ const ToursList: React.FC<IToursList> = ({
             iconPosition='after'
             icon={
               isLoading ? (
-                <CircleIcon className='size-6 animate-spin md:mr-2 md:size-6' />
+                <CircleIcon className='size-6 animate-spin md:mr-2 md:size-8' />
               ) : (
-                <ArrowRightDownIcon className='size-6 md:size-6' />
+                <ArrowRightDownIcon className='size-6 md:size-8' />
               )
             }
             onClick={loadMore}

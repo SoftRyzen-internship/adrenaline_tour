@@ -64,7 +64,6 @@ const Destinations = () => {
         setTotalPages(data.tours.meta.pagination.pageCount);
       } catch (error) {
         console.error('Error fetching tours:', error);
-        setIsLoading(false);
       } finally {
         setIsLoading(false);
       }
@@ -80,19 +79,29 @@ const Destinations = () => {
 
     if (selectedActivitiesItem?.id !== -1) {
       filters.activityName = selectedActivitiesItem?.attributes.name;
-      setTours([]);
-      setPage(1);
+
       setFiltersChanged(true);
     }
     if (selectedCountryItem?.id !== -1) {
       filters.countryName = selectedCountryItem?.attributes.name;
-      setTours([]);
-      setPage(1);
+
       setFiltersChanged(true);
     }
 
     fetchData(filters);
   }, [selectedActivitiesItem, selectedCountryItem, page, fetchData]);
+
+  const handleActivityChange = (newActivity: ISelectState) => {
+    setSelectedActivitiesItem(newActivity);
+    setPage(1);
+    setTours([]);
+  };
+
+  const handleCountryChange = (newCountry: ISelectState) => {
+    setSelectedCountryItem(newCountry);
+    setPage(1);
+    setTours([]);
+  };
 
   return (
     <section id={Pages.DESTINATIONS} className='section container'>
@@ -109,7 +118,7 @@ const Destinations = () => {
                 selectedTours.defaultActivity,
               )}
               selectedItem={selectedActivitiesItem}
-              onChange={setSelectedActivitiesItem}
+              onChange={handleActivityChange}
             />
           )}
           {countries && (
@@ -119,7 +128,7 @@ const Destinations = () => {
                 selectedTours.defaultCountry,
               )}
               selectedItem={selectedCountryItem}
-              onChange={setSelectedCountryItem}
+              onChange={handleCountryChange}
             />
           )}
         </DropdownList>
