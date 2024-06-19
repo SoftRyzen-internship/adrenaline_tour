@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import { Pages } from '@/@types';
 import { ISingleTourPageProps } from '@/@types';
 import { fetchTourTitle } from '@/actions/requests';
+import { ariaLabel } from '@/data';
 import { configuration } from '@/utils';
 
 export async function generateMetadata({
@@ -13,7 +14,7 @@ export async function generateMetadata({
     const { title } = await fetchTourTitle(slug);
 
     if (!title) {
-      throw new Error('Сторінка не знайдена');
+      throw new Error(ariaLabel.titleNotFound);
     }
 
     return {
@@ -24,14 +25,15 @@ export async function generateMetadata({
     };
   } catch (error) {
     return {
-      title: 'Сторінка не знайдена',
+      title: ariaLabel.titleNotFound,
       alternates: {
         canonical: `${configuration.BASE_APP_URL}/404`,
       },
     };
   }
 }
-const SingleTourPage = () => {
+
+const SingleTourPage: React.FC<ISingleTourPageProps> = () => {
   return <></>;
 };
 

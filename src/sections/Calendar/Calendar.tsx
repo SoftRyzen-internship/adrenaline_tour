@@ -28,8 +28,10 @@ const Calendar = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [tours, setTours] = useState<ITours[]>([]);
-  const [countries, setCountries] = useState<ISelectState[] | null>(null);
-  const [activities, setActivities] = useState<ISelectState[] | null>(null);
+  const [countries, setCountries] = useState<ISelectState[]>([defaultActivity]);
+  const [activities, setActivities] = useState<ISelectState[]>([
+    defaultCountry,
+  ]);
   const [selectedActivitiesItem, setSelectedActivitiesItem] =
     useState<ISelectState>(defaultActivity);
   const [selectedCountryItem, setSelectedCountryItem] =
@@ -48,6 +50,9 @@ const Calendar = () => {
     setTours(tours.slice(0, PER_PAGE));
     setPage(1);
   };
+
+  console.log('TotalPage', totalPages);
+  console.log('Page', page);
 
   const fetchData = useCallback(
     async (filters: IFilters = {}) => {
@@ -68,7 +73,6 @@ const Calendar = () => {
         setTotalPages(tourByMonth.tours.meta.pagination.pageCount);
       } catch (error) {
         console.error('Error fetching tours:', error);
-        setIsLoading(false);
       } finally {
         setIsLoading(false);
       }
@@ -84,16 +88,17 @@ const Calendar = () => {
       page: page,
     };
 
+    if (selectedActivitiesItem?.id !== -1 && selectedCountryItem?.id !== -1) {
+      setPage(1);
+    }
     if (selectedActivitiesItem?.id !== -1) {
       filters.activityName = selectedActivitiesItem?.attributes.name;
-      setTours([]);
-      setPage(1);
+
       setFiltersChanged(true);
     }
     if (selectedCountryItem?.id !== -1) {
       filters.countryName = selectedCountryItem?.attributes.name;
-      setTours([]);
-      setPage(1);
+
       setFiltersChanged(true);
     }
 
@@ -111,6 +116,8 @@ const Calendar = () => {
     setCurrentMonth(newMonth);
     setPage(1);
     setTours([]);
+    setSelectedActivitiesItem(defaultActivity);
+    setSelectedCountryItem(defaultCountry);
   };
 
   return (
@@ -129,14 +136,20 @@ const Calendar = () => {
             <DropdownList className='mb-4'>
               {activities && (
                 <CustomSelect
-                  data={createDataSelectOptions(activities, 'Всі активності')}
+                  data={createDataSelectOptions(
+                    activities,
+                    selectedTours.defaultActivity,
+                  )}
                   selectedItem={selectedActivitiesItem}
                   onChange={setSelectedActivitiesItem}
                 />
               )}
               {countries && (
                 <CustomSelect
-                  data={createDataSelectOptions(countries, 'Всі країни')}
+                  data={createDataSelectOptions(
+                    countries,
+                    selectedTours.defaultCountry,
+                  )}
                   selectedItem={selectedCountryItem}
                   onChange={setSelectedCountryItem}
                 />
@@ -154,6 +167,7 @@ const Calendar = () => {
           loadMore={loadMore}
           resetVisibleTours={resetVisibleTours}
           filtersChanged={filtersChanged}
+          to={Pages.CALENDAR}
         />
       </div>
     </section>
