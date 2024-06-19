@@ -1,4 +1,5 @@
 'use client';
+
 import { useState, useEffect, useCallback } from 'react';
 
 import { ISelectState, ITours } from '@/@types';
@@ -6,10 +7,9 @@ import { Pages, IFilters } from '@/@types';
 import { fetchFilteredTours } from '@/actions/requests';
 import DropdownList from '@/components/common/DropdownList';
 import CustomSelect from '@/components/ui/CustomSelect';
-import MonthSlider from '@/components/ui/MonthSlider';
 import ToursList from '@/components/ui/ToursList';
-import { selectedTours } from '@/data';
-import { createDataSelectOptions, createStartAndEndDayOfMonth } from '@/utils';
+import { selectedTours, destinations } from '@/data';
+import { createDataSelectOptions } from '@/utils';
 
 const defaultActivity: ISelectState = {
   id: -1,
@@ -20,12 +20,11 @@ const defaultCountry: ISelectState = {
   attributes: { name: selectedTours.defaultCountry },
 };
 
-const PER_PAGE = 9;
+const PER_PAGE = 6;
 
-const Calendar = () => {
+const Destinations = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const [currentMonth, setCurrentMonth] = useState(new Date());
   const [tours, setTours] = useState<ITours[]>([]);
   const [countries, setCountries] = useState<ISelectState[]>([defaultActivity]);
   const [activities, setActivities] = useState<ISelectState[]>([
@@ -37,9 +36,6 @@ const Calendar = () => {
     useState<ISelectState>(defaultCountry);
   const [isLoading, setIsLoading] = useState(false);
   const [filtersChanged, setFiltersChanged] = useState(false);
-
-  const { startOfMonth, endOfMonth } =
-    createStartAndEndDayOfMonth(currentMonth);
 
   const loadMore = () => {
     setPage(prevState => prevState + 1);
@@ -54,19 +50,18 @@ const Calendar = () => {
     async (filters: IFilters = {}) => {
       try {
         setIsLoading(true);
-        const tourByMonth = await fetchFilteredTours(filters);
-
+        const data = await fetchFilteredTours(filters);
         if (page === 1) {
-          setTours(tourByMonth.tours.data);
+          setTours(data.tours.data);
         } else {
-          setTours(prevTours => [...prevTours, ...tourByMonth.tours.data]);
+          setTours(prevTours => [...prevTours, ...data.tours.data]);
         }
 
         if (page === 1) {
-          setActivities(tourByMonth.activities.data);
-          setCountries(tourByMonth.countries.data);
+          setActivities(data.activities.data);
+          setCountries(data.countries.data);
         }
-        setTotalPages(tourByMonth.tours.meta.pagination.pageCount);
+        setTotalPages(data.tours.meta.pagination.pageCount);
       } catch (error) {
         console.error('Error fetching tours:', error);
       } finally {
@@ -78,8 +73,6 @@ const Calendar = () => {
 
   useEffect(() => {
     const filters: IFilters = {
-      startOfMonth,
-      endOfMonth,
       pageSize: PER_PAGE,
       page: page,
     };
@@ -99,22 +92,7 @@ const Calendar = () => {
     }
 
     fetchData(filters);
-  }, [
-    startOfMonth,
-    endOfMonth,
-    selectedActivitiesItem,
-    selectedCountryItem,
-    page,
-    fetchData,
-  ]);
-
-  const handleMonthChange = (newMonth: Date) => {
-    setCurrentMonth(newMonth);
-    setPage(1);
-    setTours([]);
-    setSelectedActivitiesItem(defaultActivity);
-    setSelectedCountryItem(defaultCountry);
-  };
+  }, [selectedActivitiesItem, selectedCountryItem, page, fetchData]);
 
   const handleActivityChange = (newActivity: ISelectState) => {
     setSelectedActivitiesItem(newActivity);
@@ -131,55 +109,49 @@ const Calendar = () => {
   };
 
   return (
-    <section
-      className='section pt-[104px] md:pt-[128px] xl:pt-[160px]'
-      id={Pages.CALENDAR}
-    >
-      <div className='container'>
-        <div className='items-center justify-between xl:mb-12 xl:flex xl:border-b-[0.5px] xl:border-accentDarkOrange'>
-          <MonthSlider
-            currentMonth={currentMonth}
-            onMonthChange={handleMonthChange}
-          />
+    <section id={Pages.DESTINATIONS} className='section container'>
+      <div className='mb-10 items-center justify-between md:mb-14 xl:mb-16 xl:flex'>
+        <h2 className='section-title mb-10 whitespace-break-spaces xl:mb-0'>
+          {destinations.title}
+        </h2>
 
-          <DropdownList className='mb-4'>
-            {activities && (
-              <CustomSelect
-                data={createDataSelectOptions(
-                  activities,
-                  selectedTours.defaultActivity,
-                )}
-                selectedItem={selectedActivitiesItem}
-                onChange={handleActivityChange}
-              />
-            )}
-            {countries && (
-              <CustomSelect
-                data={createDataSelectOptions(
-                  countries,
-                  selectedTours.defaultCountry,
-                )}
-                selectedItem={selectedCountryItem}
-                onChange={handleCountryChange}
-              />
-            )}
-          </DropdownList>
-        </div>
-
-        <ToursList
-          isLoading={isLoading}
-          tours={tours}
-          totalPages={totalPages}
-          currentPage={page}
-          quantityPerPage={PER_PAGE}
-          loadMore={loadMore}
-          resetVisibleTours={resetVisibleTours}
-          filtersChanged={filtersChanged}
-          to={Pages.CALENDAR}
-        />
+        <DropdownList>
+          {activities && (
+            <CustomSelect
+              data={createDataSelectOptions(
+                activities,
+                selectedTours.defaultActivity,
+              )}
+              selectedItem={selectedActivitiesItem}
+              onChange={handleActivityChange}
+            />
+          )}
+          {countries && (
+            <CustomSelect
+              data={createDataSelectOptions(
+                countries,
+                selectedTours.defaultCountry,
+              )}
+              selectedItem={selectedCountryItem}
+              onChange={handleCountryChange}
+            />
+          )}
+        </DropdownList>
       </div>
+
+      <ToursList
+        to={Pages.DESTINATIONS}
+        isLoading={isLoading}
+        tours={tours}
+        totalPages={totalPages}
+        currentPage={page}
+        quantityPerPage={PER_PAGE}
+        loadMore={loadMore}
+        resetVisibleTours={resetVisibleTours}
+        filtersChanged={filtersChanged}
+      />
     </section>
   );
 };
 
-export default Calendar;
+export default Destinations;

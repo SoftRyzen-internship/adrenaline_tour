@@ -26,7 +26,7 @@ const ToursList: React.FC<IToursList> = ({
 }) => {
   return (
     <div className='min-h-[400px] xl:min-h-[485px]'>
-      {isLoading ? (
+      {isLoading && tours.length === 0 ? (
         <div className='pt-20'>
           <LoadingComponent />
         </div>
@@ -50,9 +50,9 @@ const ToursList: React.FC<IToursList> = ({
             iconPosition='after'
             icon={
               isLoading ? (
-                <CircleIcon className='size-6 animate-spin md:mr-2 md:size-6' />
+                <CircleIcon className='size-6 animate-spin md:mr-2 md:size-8' />
               ) : (
-                <ArrowRightDownIcon className='size-6 md:size-6' />
+                <ArrowRightDownIcon className='size-6 md:size-8' />
               )
             }
             onClick={loadMore}
