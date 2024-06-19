@@ -4,7 +4,7 @@ import { fetchAllTours } from '@/actions/requests';
 import Slider from '@/components/common/Slider';
 import LinkButton from '@/components/ui/LinkButton';
 import TourCard from '@/components/ui/TourCard';
-import AnimationContainer from '@/components/common/AnimationContainer';
+import Title from '@/components/ui/Title';
 import { Pages, SLIDER_THRESHOLD } from '@/@types';
 import { upcomingTours } from '@/data';
 
@@ -33,11 +33,9 @@ const UpcomingTours = async () => {
 
   return (
     <section className='section container'>
-      <AnimationContainer className='xl:[--x-hidden:-80px]'>
-        <h2 className='section-title mb-8 w-[206px] md:mb-14 md:w-[478px] xl:mb-12 xl:w-[520px]'>
-          {upcomingTours.title}
-        </h2>
-      </AnimationContainer>
+      <Title className='section-title mb-8 w-[206px] md:mb-14 md:w-[478px] xl:mb-12 xl:w-[520px]'>
+        {upcomingTours.title}
+      </Title>
 
       {upcomingToursContent}
       <div className='flex justify-center'>
