@@ -1,5 +1,7 @@
 import showdown from 'showdown';
 
+import { removeIdsFromHeadings } from '@/utils';
+
 import { ITourPlansProps } from './TourPlans.types';
 
 const converter = new showdown.Converter();
@@ -8,7 +10,9 @@ const TourPlans: React.FC<ITourPlansProps> = ({ data }) => {
   if (!data) {
     return;
   }
-  const htmlContent = converter.makeHtml(data.description);
+
+  let htmlContent = converter.makeHtml(data.description);
+  htmlContent = removeIdsFromHeadings(htmlContent);
 
   return (
     <div className='mt-12 notXL:container'>

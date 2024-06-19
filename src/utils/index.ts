@@ -7,3 +7,4 @@ export { default as formatDateDayMonthUk } from './formatDateDayMonthUk';
 export { default as createDataSelectOptions } from './createDataSelectOptions';
 export { default as createStartAndEndDayOfMonth } from './createStartAndEndDayOfMonth';
 export { default as getMonthName } from './getMonthName';
+export { default as removeIdsFromHeadings } from './removeIdsFromHeadings';
