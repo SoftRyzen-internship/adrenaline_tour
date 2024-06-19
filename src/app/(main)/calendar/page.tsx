@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import { Pages } from '@/@types';
 import { metaData } from '@/data';
+import Calendar from '@/sections/Calendar';
 
 export const metadata: Metadata = {
   title: metaData.calendarTitle,
@@ -10,8 +11,8 @@ export const metadata: Metadata = {
   },
 };
 
-const HomePage = () => {
-  return <h1 className=' bg-green-400 text-6xl'>Calendar Page</h1>;
+const CalendarPage = () => {
+  return <Calendar />;
 };
 
-export default HomePage;
+export default CalendarPage;
