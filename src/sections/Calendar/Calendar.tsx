@@ -20,7 +20,7 @@ const defaultCountry: ISelectState = {
   attributes: { name: selectedTours.defaultCountry },
 };
 
-const PER_PAGE = 9;
+const PER_PAGE = 1;
 
 const Calendar = () => {
   const [page, setPage] = useState(1);
@@ -49,9 +49,6 @@ const Calendar = () => {
     setTours(tours.slice(0, PER_PAGE));
     setPage(1);
   };
-
-  console.log('TotalPage', totalPages);
-  console.log('Page', page);
 
   const fetchData = useCallback(
     async (filters: IFilters = {}) => {
@@ -87,9 +84,6 @@ const Calendar = () => {
       page: page,
     };
 
-    if (selectedActivitiesItem?.id !== -1 && selectedCountryItem?.id !== -1) {
-      setPage(1);
-    }
     if (selectedActivitiesItem?.id !== -1) {
       filters.activityName = selectedActivitiesItem?.attributes.name;
 
@@ -119,6 +113,18 @@ const Calendar = () => {
     setSelectedCountryItem(defaultCountry);
   };
 
+  const handleActivityChange = (newActivity: ISelectState) => {
+    setSelectedActivitiesItem(newActivity);
+    setPage(1);
+    setTours([]);
+  };
+
+  const handleCountryChange = (newCountry: ISelectState) => {
+    setSelectedCountryItem(newCountry);
+    setPage(1);
+    setTours([]);
+  };
+
   return (
     <section
       className='section pt-[104px] md:pt-[128px] xl:pt-[160px]'
@@ -139,7 +145,7 @@ const Calendar = () => {
                   selectedTours.defaultActivity,
                 )}
                 selectedItem={selectedActivitiesItem}
-                onChange={setSelectedActivitiesItem}
+                onChange={handleActivityChange}
               />
             )}
             {countries && (
@@ -149,7 +155,7 @@ const Calendar = () => {
                   selectedTours.defaultCountry,
                 )}
                 selectedItem={selectedCountryItem}
-                onChange={setSelectedCountryItem}
+                onChange={handleCountryChange}
               />
             )}
           </DropdownList>
