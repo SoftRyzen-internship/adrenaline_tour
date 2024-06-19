@@ -26,10 +26,8 @@ const Destinations = () => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [tours, setTours] = useState<ITours[]>([]);
-  const [countries, setCountries] = useState<ISelectState[]>([defaultActivity]);
-  const [activities, setActivities] = useState<ISelectState[]>([
-    defaultCountry,
-  ]);
+  const [countries, setCountries] = useState<ISelectState[]>([]);
+  const [activities, setActivities] = useState<ISelectState[]>([]);
   const [selectedActivitiesItem, setSelectedActivitiesItem] =
     useState<ISelectState>(defaultActivity);
   const [selectedCountryItem, setSelectedCountryItem] =
