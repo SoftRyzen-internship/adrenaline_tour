@@ -15,7 +15,7 @@ const Loading = () => {
       <BarLoader
         color='#FF4F1E'
         height={8}
-        width={112}
+        width='100%'
         cssOverride={override}
         loading
       />
