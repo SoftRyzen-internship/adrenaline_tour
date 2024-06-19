@@ -117,12 +117,14 @@ const Calendar = () => {
     setSelectedActivitiesItem(newActivity);
     setPage(1);
     setTours([]);
+    setTotalPages(0);
   };
 
   const handleCountryChange = (newCountry: ISelectState) => {
     setSelectedCountryItem(newCountry);
     setPage(1);
     setTours([]);
+    setTotalPages(0);
   };
 
   return (
