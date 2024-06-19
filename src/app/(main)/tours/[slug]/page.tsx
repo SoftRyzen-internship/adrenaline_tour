@@ -1,55 +1,38 @@
 import { Metadata } from 'next';
 
 import { Pages } from '@/@types';
-import { getTour } from '@/actions/query';
+import { ISingleTourPageProps } from '@/@types';
+import { fetchTourTitle } from '@/actions/requests';
 import { configuration } from '@/utils';
-
-export interface ISingleTourPageProps {
-  params: { slug: string };
-}
 
 export async function generateMetadata({
   params,
 }: ISingleTourPageProps): Promise<Metadata> {
-  const slug = params.slug;
-  const query = getTour;
-  const variables = {
-    slug: slug,
-  };
-  const response = await fetch(`${configuration.BASE_DATA_URL}graphql`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      query: query,
-      variables: variables,
-    }),
-    cache: 'no-store',
-  });
+  const { slug } = params;
+  try {
+    const { title } = await fetchTourTitle(slug);
 
-  if (!response.ok) {
-    throw new Error(`Failed to fetch tour data: ${response.statusText}`);
+    if (!title) {
+      throw new Error('Сторінка не знайдена');
+    }
+
+    return {
+      title: title,
+      alternates: {
+        canonical: `${configuration.BASE_APP_URL}${Pages.TOURS}/${slug}`,
+      },
+    };
+  } catch (error) {
+    return {
+      title: 'Сторінка не знайдена',
+      alternates: {
+        canonical: `${configuration.BASE_APP_URL}/404`,
+      },
+    };
   }
-  const result = await response.json();
-  const tour = result.data.tour;
-
-  return {
-    title: tour.title,
-    alternates: {
-      canonical: `${configuration.BASE_APP_URL}${Pages.TOURS}/${slug}`,
-    },
-  };
 }
-
-const SingleTourPage: React.FC<ISingleTourPageProps> = ({ params }) => {
-  return (
-    <>
-      <h1 className='bg-green-400 text-6xl'>
-        Single Tour Page - {params.slug}
-      </h1>
-    </>
-  );
+const SingleTourPage = () => {
+  return <></>;
 };
 
 export default SingleTourPage;

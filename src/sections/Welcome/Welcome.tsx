@@ -1,3 +1,4 @@
+'use client';
 import clsx from 'clsx';
 
 import { IdForScroll } from '@/@types';
@@ -6,6 +7,8 @@ import { welcome } from '@/data';
 import s from './Welcome.module.css';
 
 import LinkButton from '@/components/ui/LinkButton';
+import Title from '@/components/ui/Title';
+import AnimationContainer from '@/components/common/AnimationContainer';
 
 import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
 
@@ -18,13 +21,17 @@ const Welcome = () => {
       )}
     >
       <div className='container'>
-        <h2 className='section-title mb-6 text-center text-white xl:mx-auto xl:mb-8 xl:w-[791px]'>
+        <Title className='section-title mb-6 text-center text-white xl:mx-auto xl:mb-8 xl:w-[791px]'>
           {welcome.title}
-        </h2>
-        <p className='mb-12 text-center font-inter text-light text-white md:mx-auto md:w-[545px] md:text-[16px] md:leading-[1.50] xl:w-[729px] xl:text-[18px]'>
-          {welcome.description}
-        </p>
-        <div className='flex justify-center'>
+        </Title>
+
+        <AnimationContainer className='xl:[--x-hidden:80px]'>
+          <p className='mb-12 text-center font-inter text-light text-white md:mx-auto md:w-[545px] md:text-[16px] md:leading-[1.50] xl:w-[729px] xl:text-[18px]'>
+            {welcome.description}
+          </p>
+        </AnimationContainer>
+
+        <AnimationContainer className='flex justify-center xl:[--x-hidden:-80px]'>
           <LinkButton
             to={IdForScroll.CONTACTS}
             toScroll={true}
@@ -41,7 +48,7 @@ const Welcome = () => {
           >
             {welcome.btn}
           </LinkButton>
-        </div>
+        </AnimationContainer>
       </div>
     </section>
   );

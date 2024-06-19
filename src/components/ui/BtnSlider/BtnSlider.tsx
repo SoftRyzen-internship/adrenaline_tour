@@ -17,10 +17,15 @@ const BtnSlider: React.FC<IBtnSliderProps> = ({
   return (
     <div
       className={clsx(
+        'flex gap-3 md:gap-4 xl:gap-6',
+        section === 'upcomingTours' &&
+          'absolute right-0 top-[-80px] fill-accentLightOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:top-[-136px] xl:top-[-157px]',
         section === 'reviews' &&
-          'mt-8 flex justify-center gap-3 md:mt-[55px] md:gap-4 xl:mt-0',
+          'mt-8 justify-center md:mt-[55px] xl:absolute xl:bottom-[40px] xl:left-[-516px] xl:mt-0',
         section === 'gallery' &&
-          'container relative w-full fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange',
+          'container relative w-full fill-accentLightOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange',
+        section === 'worthVisiting' &&
+          'absolute right-0 top-[-80px] fill-accentLightOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:top-[-136px] xl:top-[-195px]',
       )}
     >
       <IconButton
@@ -28,14 +33,11 @@ const BtnSlider: React.FC<IBtnSliderProps> = ({
         ariaLabel={btnSlider.prev}
         className={clsx(
           'btn-prev',
-          section === 'reviews' &&
-            'reviews xl:absolute xl:bottom-[40px] xl:left-[-516px] xl:z-10',
+          section === 'reviews' && 'reviews',
           section === 'reviews' && !isPrevSlide && 'fill-white',
           section === 'reviews' && isPrevSlide && 'fill-accentLightOrange',
-          section === 'upcomingTours' &&
-            'upcomingTours absolute right-[52px] top-[-80px] z-10 h-10 w-10 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:right-[80px] md:top-[-136px] md:h-16 md:w-16 xl:right-[114px] xl:top-[-157px] xl:h-[90px] xl:w-[90px]',
-          section === 'worthVisiting' &&
-            'worthVisiting absolute right-[52px] top-[-80px] h-10 w-10 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:right-[80px] md:top-[-136px] md:h-16 md:w-16 xl:right-[114px] xl:top-[-195px] xl:h-[90px] xl:w-[90px]',
+          section === 'upcomingTours' && 'upcomingTours',
+          section === 'worthVisiting' && 'worthVisiting',
           section === 'gallery' &&
             'gallery absolute right-[68px] top-[-353px] md:right-[114px] md:top-[-467px] xl:right-[146px] xl:top-[-652px]',
         )}
@@ -51,14 +53,11 @@ const BtnSlider: React.FC<IBtnSliderProps> = ({
         ariaLabel={btnSlider.next}
         className={clsx(
           'btn-next',
-          section === 'reviews' &&
-            'reviews xl:absolute xl:bottom-[40px] xl:left-[-402px] xl:z-10',
+          section === 'reviews' && 'reviews',
           section === 'reviews' && !isNextSlide && 'fill-white',
           section === 'reviews' && isNextSlide && 'fill-accentLightOrange',
-          section === 'upcomingTours' &&
-            'upcomingTours absolute right-0 top-[-80px] h-10 w-10 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:top-[-136px] md:h-16 md:w-16 xl:top-[-157px] xl:h-[90px] xl:w-[90px]',
-          section === 'worthVisiting' &&
-            'worthVisiting absolute right-0 top-[-80px] h-10 w-10 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:top-[-136px] md:h-16 md:w-16 xl:top-[-195px] xl:h-[90px] xl:w-[90px]',
+          section === 'upcomingTours' && 'upcomingTours',
+          section === 'worthVisiting' && 'worthVisiting',
           section === 'gallery' &&
             'gallery absolute right-[16px] top-[-353px] md:right-[34px] md:top-[-467px] xl:right-[32px] xl:top-[-652px]',
         )}

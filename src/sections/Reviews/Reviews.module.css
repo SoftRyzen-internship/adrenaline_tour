@@ -2,7 +2,9 @@
   background-image: url('/images/reviews/mountainVector@1x.webp'),
     url('/images/bg-icons@1x.webp');
   background-repeat: no-repeat;
-  background-position: top center,bottom;
+  background-position:
+    top center,
+    bottom;
   background-size:
     100% 44px,
     2088px;

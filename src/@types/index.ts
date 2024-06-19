@@ -64,6 +64,13 @@ export interface ICountry {
   };
 }
 
+export interface ITour {
+  id: string;
+  attributes: {
+    name: string;
+  };
+}
+
 export interface IImage {
   attributes: {
     url: string;
@@ -73,10 +80,10 @@ export interface IImage {
 
 export interface IToursAttributes {
   activities: {
-    data: IActivity[];
+    data: ISelectState[];
   };
   countries: {
-    data: ICountry[];
+    data: ISelectState[];
   };
   date: string;
   duration: string;
@@ -113,14 +120,16 @@ export interface IDetailWithLocation {
   location: { place: string }[];
 }
 
+export interface ITourDetailsAttributesDetails {
+  difficult: IDetailWithDescription;
+  meet: IDetailWithLocation;
+  price: IDetailWithDescription;
+  route: IDetailWithDescription;
+  seasons: IDetailWithDescription;
+}
+
 export interface ITourDetailsAttributes {
-  details: {
-    difficult: IDetailWithDescription;
-    meet: IDetailWithLocation;
-    price: IDetailWithDescription;
-    route: IDetailWithDescription;
-    seasons: IDetailWithDescription;
-  };
+  details: ITourDetailsAttributesDetails;
 }
 
 export interface ITourDetails {
@@ -128,9 +137,137 @@ export interface ITourDetails {
   attributes: ITourDetailsAttributes;
 }
 
+export interface ITourDetailsData {
+  data: ITourDetails[];
+}
+
 export interface ITourDetailsResponse {
+  tours: ITourDetailsData;
+}
+
+export interface IImgAttributes {
+  alternativeText: string;
+  url: string;
+}
+
+export interface IImgData {
+  id: string;
+  attributes: IImgAttributes;
+}
+
+interface ITourImgAttributes {
+  img: {
+    data: IImgData;
+  };
+}
+
+interface ITourImg {
+  id: string;
+  attributes: ITourImgAttributes;
+}
+
+export interface ITourImgQueryResponse {
   tours: {
-    data: ITourDetails[];
+    data: ITourImg[];
+  };
+}
+
+export interface IActivityMainInfo {
+  id: string;
+  attributes: {
+    name: string;
+  };
+}
+
+export interface ICountryMainInfo {
+  id: string;
+  attributes: {
+    name: string;
+  };
+}
+
+export interface ITourAttributesMainInfo {
+  activities: {
+    data: IActivityMainInfo[];
+  };
+  countries: {
+    data: ICountryMainInfo[];
+  };
+  description: string;
+  duration: string;
+  title: string;
+}
+
+export interface ITourMainInfo {
+  attributes: ITourAttributesMainInfo;
+}
+
+export interface ITourMainInfoQueryResponse {
+  tours: {
+    data: ITourMainInfo[];
+  };
+}
+
+export interface ITourAttributesPlans {
+  description: string;
+  title: string;
+}
+
+export interface ITourAttributesTourPlans {
+  plans: ITourAttributesPlans;
+}
+
+export interface ITourPlans {
+  attributes: ITourAttributesTourPlans;
+}
+
+export interface ITourPlansQueryResponse {
+  tours: {
+    data: ITourPlans[];
+  };
+}
+
+export interface ITourAttributesRent {
+  equipment: string;
+  title: string;
+}
+
+export interface ITourAttributesTourRent {
+  rent: ITourAttributesRent;
+}
+
+export interface ITourRent {
+  attributes: ITourAttributesTourRent;
+}
+
+export interface ITourRentQueryResponse {
+  tours: {
+    data: ITourRent[];
+  };
+}
+
+export interface IFeatures {
+  id: string;
+  name: string;
+  included: boolean;
+}
+
+export interface ITourAttributesServices {
+  features: IFeatures[];
+  title: string;
+}
+
+export interface ITourAttributesTourServices {
+  services: ITourAttributesServices;
+}
+
+export interface ITourServices {
+  attributes: ITourAttributesTourServices;
+}
+
+export interface ITourServicesQueryResponse {
+  tours: {
+    data: ITourServices[];
   };
 }
 
@@ -144,15 +281,15 @@ export interface IGallery {
   attributes: IGalleryAttributes;
 }
 
-interface GalleryImages {
+export interface GalleryImages {
   data: IGallery[];
 }
 
-interface GalleryAttributes {
+export interface GalleryAttributes {
   images: GalleryImages;
 }
 
-interface GalleryData {
+export interface GalleryData {
   attributes: GalleryAttributes;
 }
 
@@ -184,6 +321,21 @@ export interface IReviewResponse {
   };
 }
 
+export interface IToursByMonthResponse {
+  activities: {
+    data: ISelectState[];
+  };
+  countries: {
+    data: ISelectState[];
+  };
+  tours: {
+    data: ITours[];
+    meta: {
+      pagination: { pageCount: number };
+    };
+  };
+}
+
 export interface IEmailAndPhone {
   email: string;
   numbers: {
@@ -199,4 +351,60 @@ export interface IContactResponse {
   contact: {
     data: { attributes: IEmailAndPhone };
   };
+}
+
+export interface ISingleTourPageProps {
+  params: { slug: string };
+}
+
+export interface ITourTitle {
+  title: string;
+}
+
+export interface ITourTitleAttributes {
+  attributes: ITourTitle;
+}
+
+export interface ITourTitleQueryResponse {
+  tours: {
+    data: ITourTitleAttributes[];
+  };
+}
+
+export interface ITourGalleryAttribut {
+  url: string;
+  alternativeText: string;
+}
+
+export interface ITourGalleryData {
+  id: string;
+  attributes: ITourGalleryAttribut;
+}
+
+export interface ITourGalleryGallery {
+  data: ITourGalleryData[];
+}
+
+export interface ITourGalleryAttributes {
+  gallery: ITourGalleryGallery;
+}
+
+export interface ITourGallery {
+  id: string;
+  attributes: ITourGalleryAttributes;
+}
+
+export interface ITourGalleryQueryResponse {
+  tours: {
+    data: ITourGallery[];
+  };
+}
+
+export interface IFilters {
+  startOfMonth?: string;
+  endOfMonth?: string;
+  activityName?: string;
+  countryName?: string;
+  pageSize?: number;
+  page?: number;
 }

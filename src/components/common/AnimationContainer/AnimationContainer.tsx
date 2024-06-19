@@ -1,4 +1,6 @@
-import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+
+import { motion, useAnimation } from 'framer-motion';
 
 import { IAnimationContainerProps } from './AnimationContainer.types';
 
@@ -6,12 +8,25 @@ const AnimationContainer: React.FC<IAnimationContainerProps> = ({
   className,
   children,
 }) => {
+  const controls = useAnimation();
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    } else {
+      controls.start('hidden');
+    }
+  }, [inView, controls]);
+
   return (
     <motion.div
       className={`relative w-full xl:[--opacity-hidden:0%] notXL:[--opacity-hidden:100%] notXL:[--x-hidden:0px] ${className}`}
       initial='hidden'
-      whileInView='visible'
-      viewport={{ once: true, amount: 0.6 }}
+      animate={controls}
+      onViewportEnter={() => setInView(true)}
+      onViewportLeave={() => setInView(false)}
+      viewport={{ once: false, amount: 0.6 }}
       transition={{ duration: 0.6 }}
       variants={{
         hidden: { opacity: 'var(--opacity-hidden)', x: 'var(--x-hidden, 0)' },
