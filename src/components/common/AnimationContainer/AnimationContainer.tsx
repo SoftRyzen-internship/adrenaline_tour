@@ -21,7 +21,7 @@ const AnimationContainer: React.FC<IAnimationContainerProps> = ({
 
   return (
     <motion.div
-      className={`relative w-full xl:[--opacity-hidden:0%] notXL:[--opacity-hidden:100%] notXL:[--x-hidden:0px] notXL:[--y-hidden:0px] ${className}`}
+      className={`relative xl:[--opacity-hidden:0%] notXL:[--opacity-hidden:100%] notXL:[--x-hidden:0px] notXL:[--y-hidden:0px] ${className}`}
       initial='hidden'
       animate={controls}
       onViewportEnter={() => setInView(true)}

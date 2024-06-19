@@ -1,6 +1,7 @@
 import { SLIDER_THRESHOLD } from '@/@types';
 import SliderGallery from '@/components/common/SliderGallery';
 import CardGallery from '@/components/ui/CardGallery';
+import Title from '@/components/ui/Title';
 import { gallery } from '@/data';
 
 import { ITourGalleryProps } from './TourGallery.types';
@@ -40,9 +41,9 @@ const TourGallery: React.FC<ITourGalleryProps> = ({ data }) => {
   return (
     <>
       <div className='container'>
-        <h2 className='section-title mb-[38px] pt-[6px] md:mb-16 md:pt-2 xl:mb-[69px] xl:pt-[13px]'>
+        <Title className='section-title mb-[38px] pt-[6px] md:mb-16 md:pt-2 xl:mb-[69px] xl:pt-[13px]'>
           {gallery.title}
-        </h2>
+        </Title>
       </div>
       {galleryContent}
     </>

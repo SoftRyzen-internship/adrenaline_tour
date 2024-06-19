@@ -1,4 +1,7 @@
+'use client';
+
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 
 import Button from '@/components/ui/Button';
 
@@ -16,10 +19,19 @@ const CardRule: React.FC<ICardRuleProps> = ({
   isActive,
   onClick,
 }) => {
+  const item = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
+  };
+
   return (
-    <div
+    <motion.div
+      variants={item}
       className={clsx(
-        'flex h-[325px] flex-col justify-end bg-blueDefault p-6 transition xl:w-[280px]',
+        'flex h-[325px] flex-col justify-end bg-blueDefault p-6 transition xl:w-[280px] notXL:opacity-100',
         s['bgCardRule'],
         {
           'xl:bg-blueDefault': isActive,
@@ -65,7 +77,7 @@ const CardRule: React.FC<ICardRuleProps> = ({
           {rules.btn}
         </Button>
       )}
-    </div>
+    </motion.div>
   );
 };
 
