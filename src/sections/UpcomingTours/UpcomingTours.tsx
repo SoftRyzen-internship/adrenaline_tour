@@ -16,20 +16,24 @@ const UpcomingTours = async () => {
   const shouldShowSlider = tours.length >= SLIDER_THRESHOLD;
 
   const upcomingToursContent = shouldShowSlider ? (
-    <Slider
-      section='upcomingTours'
-      className={'mb-8 md:mb-14'}
-      slides={tours.map(item => ({
-        id: item.id,
-        content: <TourCard key={item.id} data={item} />,
-      }))}
-    />
+    <AnimatedText className='xl:[--x-hidden:80px]'>
+      <Slider
+        section='upcomingTours'
+        className={'mb-8 md:mb-14'}
+        slides={tours.map(item => ({
+          id: item.id,
+          content: <TourCard key={item.id} data={item} />,
+        }))}
+      />
+    </AnimatedText>
   ) : (
-    <div className='mb-8 grid grid-cols-1 gap-2 sm:grid-cols-2 md:mb-14 xl:grid-cols-3'>
-      {tours.map(item => (
-        <TourCard key={item.id} data={item} />
-      ))}
-    </div>
+    <AnimatedText className='xl:[--x-hidden:80px]'>
+      <div className='mb-8 grid grid-cols-1 gap-2 sm:grid-cols-2 md:mb-14 xl:grid-cols-3'>
+        {tours.map(item => (
+          <TourCard key={item.id} data={item} />
+        ))}
+      </div>
+    </AnimatedText>
   );
 
   return (
