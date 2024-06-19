@@ -77,6 +77,9 @@ const Destinations = () => {
       page: page,
     };
 
+    if (selectedActivitiesItem?.id !== -1 && selectedCountryItem?.id !== -1) {
+      setPage(1);
+    }
     if (selectedActivitiesItem?.id !== -1) {
       filters.activityName = selectedActivitiesItem?.attributes.name;
 
@@ -95,12 +98,14 @@ const Destinations = () => {
     setSelectedActivitiesItem(newActivity);
     setPage(1);
     setTours([]);
+    setTotalPages(0);
   };
 
   const handleCountryChange = (newCountry: ISelectState) => {
     setSelectedCountryItem(newCountry);
     setPage(1);
     setTours([]);
+    setTotalPages(0);
   };
 
   return (

@@ -20,7 +20,7 @@ const defaultCountry: ISelectState = {
   attributes: { name: selectedTours.defaultCountry },
 };
 
-const PER_PAGE = 9;
+const PER_PAGE = 4;
 
 const Calendar = () => {
   const [page, setPage] = useState(1);
