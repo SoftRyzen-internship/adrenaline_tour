@@ -115,6 +115,8 @@ const Calendar = () => {
     setCurrentMonth(newMonth);
     setPage(1);
     setTours([]);
+    setSelectedActivitiesItem(defaultActivity);
+    setSelectedCountryItem(defaultCountry);
   };
 
   return (
