@@ -11,6 +11,7 @@ import ArrowRightDownIcon from '/public/icons/arrow-right_up.svg';
 import CircleIcon from '/public/icons/circle.svg';
 
 import { IFormState } from '@/@types';
+import AnimationContainer from '@/components/common/AnimationContainer';
 import Button from '@/components/ui/Button';
 import Checkbox from '@/components/ui/Checkbox';
 import FormInput from '@/components/ui/FormInput';
@@ -88,43 +89,57 @@ const Form = () => {
             />
           );
         })}
-        <FormTextArea
-          label={textarea.label}
-          placeholder={textarea.placeholder}
-          {...register(textarea.name as keyof IFormState)}
-        />
-        <Controller
-          name={checkbox.name as keyof IFormState}
-          control={control}
-          render={({ field }) => (
-            <Checkbox
-              label={checkbox.label}
-              checked={!!field.value}
-              onChange={field.onChange}
-              errorMessage={errors[checkbox.name as keyof IFormState]?.message}
-            />
-          )}
-        />
-        <Button
-          variant='main'
-          type='submit'
-          iconPosition='after'
-          className='md:max-w-[286px]'
-          disabled={isSending}
-          icon={
-            isSending ? (
-              <CircleIcon
-                width={24}
-                height={24}
-                className='h-6 w-6 animate-spin'
+        <AnimationContainer className='xl:[--x-hidden:80px]'>
+          <FormTextArea
+            label={textarea.label}
+            placeholder={textarea.placeholder}
+            {...register(textarea.name as keyof IFormState)}
+          />
+        </AnimationContainer>
+
+        <AnimationContainer className='xl:[--x-hidden:80px]'>
+          <Controller
+            name={checkbox.name as keyof IFormState}
+            control={control}
+            render={({ field }) => (
+              <Checkbox
+                label={checkbox.label}
+                checked={!!field.value}
+                onChange={field.onChange}
+                errorMessage={
+                  errors[checkbox.name as keyof IFormState]?.message
+                }
               />
-            ) : (
-              <ArrowRightDownIcon width={24} height={24} className='h-6 w-6' />
-            )
-          }
-        >
-          {form.buttonText}
-        </Button>
+            )}
+          />
+        </AnimationContainer>
+
+        <AnimationContainer className='xl:[--x-hidden:80px]'>
+          <Button
+            variant='main'
+            type='submit'
+            iconPosition='after'
+            className='md:max-w-[286px]'
+            disabled={isSending}
+            icon={
+              isSending ? (
+                <CircleIcon
+                  width={24}
+                  height={24}
+                  className='h-6 w-6 animate-spin'
+                />
+              ) : (
+                <ArrowRightDownIcon
+                  width={24}
+                  height={24}
+                  className='h-6 w-6'
+                />
+              )
+            }
+          >
+            {form.buttonText}
+          </Button>
+        </AnimationContainer>
       </form>
       <FormModal
         open={modalOpen}

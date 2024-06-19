@@ -7,6 +7,7 @@ import TourCard from '@/components/ui/TourCard';
 import Title from '@/components/ui/Title';
 import { Pages, SLIDER_THRESHOLD } from '@/@types';
 import { upcomingTours } from '@/data';
+import AnimatedText from '@/components/ui/AnimatedText';
 
 const UpcomingTours = async () => {
   const dataAllTours = await fetchAllTours();
@@ -38,23 +39,26 @@ const UpcomingTours = async () => {
       </Title>
 
       {upcomingToursContent}
-      <div className='flex justify-center'>
-        <LinkButton
-          href={Pages.CALENDAR}
-          variant='main'
-          iconPosition='before'
-          icon={
-            <CalendarIcon
-              width={24}
-              height={24}
-              className='h-6 w-6 md:h-8 md:w-8'
-            />
-          }
-          className={'w-full md:w-[332px] md:py-[14px]'}
-        >
-          {upcomingTours.btn}
-        </LinkButton>
-      </div>
+
+      <AnimatedText className='xl:[--y-hidden:-80px]'>
+        <div className='flex justify-center'>
+          <LinkButton
+            href={Pages.CALENDAR}
+            variant='main'
+            iconPosition='before'
+            icon={
+              <CalendarIcon
+                width={24}
+                height={24}
+                className='h-6 w-6 md:h-8 md:w-8'
+              />
+            }
+            className={'w-full md:w-[332px] md:py-[14px]'}
+          >
+            {upcomingTours.btn}
+          </LinkButton>
+        </div>
+      </AnimatedText>
     </section>
   );
 };

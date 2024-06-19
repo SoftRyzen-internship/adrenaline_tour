@@ -31,7 +31,7 @@ const Welcome = () => {
           </p>
         </AnimationContainer>
 
-        <AnimationContainer className='flex justify-center xl:[--x-hidden:-80px]'>
+        <AnimationContainer className='flex justify-center xl:[--y-hidden:-80px]'>
           <LinkButton
             to={IdForScroll.CONTACTS}
             toScroll={true}
