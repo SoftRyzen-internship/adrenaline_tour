@@ -13,7 +13,7 @@ const linkButtonStyle = {
   secondary:
     'relative gap-2 bg-transparent  fill-accentDarkOrange font-unbounded text-sm text-accentDefaultOrange transition-colors after:absolute after:bottom-[-3px] after:block after:h-[1.5px] after:w-full after:bg-accentDefaultOrange after:opacity-0 after:transition-opacity hover:fill-accentDarkOrange hover:text-accentDarkOrange hover:after:opacity-100  focus:fill-accentDarkOrange focus:text-accentDarkOrange  focus:after:opacity-100 xl:text-base font-medium leading-[1.5]',
   navLink:
-    'inline-block font-unbounded text-[24px] font-bold leading-none text-blueDefault transition-colors hover:text-accentLightOrange focus:text-accentLightOrange active:text-accentDefaultOrange md:text-[40px] font-medium leading-[1.5]',
+    'inline-block font-unbounded text-[24px] font-bold leading-none text-blueDefault transition-colors hover:text-accentLightOrange focus:text-accentLightOrange active:text-accentDefaultOrange md:text-[40px]',
   footer:
     'font-inter text-sm font-normal leading-[1.3] text-white transition hover:text-accentDarkOrange focus:text-accentDarkOrange',
   disclosure:
