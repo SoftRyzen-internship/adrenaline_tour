@@ -1,4 +1,5 @@
 'use client';
+
 import AnimationContainer from '@/components/common/AnimationContainer';
 
 import { IAnimatedTextProps } from './AnimatedText.types';

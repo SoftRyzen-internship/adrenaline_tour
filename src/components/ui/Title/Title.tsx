@@ -1,4 +1,3 @@
-'use client';
 import AnimationContainer from '@/components/common/AnimationContainer';
 
 import { ITitleProps } from './Title.types';

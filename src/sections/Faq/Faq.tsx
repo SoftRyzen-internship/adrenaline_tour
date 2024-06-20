@@ -1,4 +1,3 @@
-'use client';
 import AnimationContainer from '@/components/common/AnimationContainer';
 import DisclosureFaq from '@/components/common/DisclosureFaq';
 import FaqNavMenu from '@/components/common/FaqNavMenu';

@@ -1,5 +1,3 @@
-'use client';
-
 import AnimationContainer from '@/components/common/AnimationContainer';
 import CardTips from '@/components/ui/CardTips';
 import { tipsData } from '@/data';
