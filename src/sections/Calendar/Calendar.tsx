@@ -10,6 +10,7 @@ import CustomSelect from '@/components/ui/CustomSelect';
 import MonthSlider from '@/components/ui/MonthSlider';
 import ToursList from '@/components/ui/ToursList';
 import { selectedTours } from '@/data';
+import { calendar } from '@/data';
 import { createDataSelectOptions, createStartAndEndDayOfMonth } from '@/utils';
 
 const defaultActivity: ISelectState = {
@@ -22,10 +23,8 @@ const defaultCountry: ISelectState = {
 };
 
 const PER_PAGE = 9;
-
 const Calendar = () => {
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [tours, setTours] = useState<ITours[]>([]);
   const [countries, setCountries] = useState<ISelectState[]>([]);
@@ -35,6 +34,7 @@ const Calendar = () => {
   const [selectedCountryItem, setSelectedCountryItem] =
     useState<ISelectState>(defaultCountry);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadMore, setIsLoadMore] = useState(false);
   const [filtersChanged, setFiltersChanged] = useState(false);
 
   const { startOfMonth, endOfMonth } =
@@ -65,7 +65,8 @@ const Calendar = () => {
           setActivities(tourByMonth.activities.data);
           setCountries(tourByMonth.countries.data);
         }
-        setTotalPages(tourByMonth.tours.meta.pagination.pageCount);
+        const totalPage = tourByMonth.tours.meta.pagination.pageCount;
+        totalPage > page ? setIsLoadMore(true) : setIsLoadMore(false);
       } catch (error) {
         console.error('Error fetching tours:', error);
       } finally {
@@ -119,14 +120,14 @@ const Calendar = () => {
     setSelectedActivitiesItem(newActivity);
     setPage(1);
     setTours([]);
-    setTotalPages(0);
+    setIsLoadMore(false);
   };
 
   const handleCountryChange = (newCountry: ISelectState) => {
     setSelectedCountryItem(newCountry);
     setPage(1);
     setTours([]);
-    setTotalPages(0);
+    setIsLoadMore(false);
   };
 
   return (
@@ -135,6 +136,7 @@ const Calendar = () => {
       id={Pages.CALENDAR}
     >
       <div className='container'>
+        <h1 className='hidden'>{calendar.title}</h1>
         <div className='items-center justify-between xl:mb-12 xl:flex xl:border-b-[0.5px] xl:border-accentDarkOrange'>
           <MonthSlider
             currentMonth={currentMonth}
@@ -169,9 +171,8 @@ const Calendar = () => {
 
         <ToursList
           isLoading={isLoading}
+          isLoadMore={isLoadMore}
           tours={tours}
-          totalPages={totalPages}
-          currentPage={page}
           quantityPerPage={PER_PAGE}
           loadMore={loadMore}
           resetVisibleTours={resetVisibleTours}
