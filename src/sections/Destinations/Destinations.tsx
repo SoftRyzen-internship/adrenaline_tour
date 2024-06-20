@@ -26,7 +26,6 @@ const PER_PAGE = 6;
 
 const Destinations = () => {
   const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
   const [tours, setTours] = useState<ITours[]>([]);
   const [countries, setCountries] = useState<ISelectState[]>([]);
   const [activities, setActivities] = useState<ISelectState[]>([]);
@@ -35,6 +34,7 @@ const Destinations = () => {
   const [selectedCountryItem, setSelectedCountryItem] =
     useState<ISelectState>(defaultCountry);
   const [isLoading, setIsLoading] = useState(false);
+  const [isLoadMore, setIsLoadMore] = useState(false);
   const [filtersChanged, setFiltersChanged] = useState(false);
 
   const loadMore = () => {
@@ -61,7 +61,8 @@ const Destinations = () => {
           setActivities(data.activities.data);
           setCountries(data.countries.data);
         }
-        setTotalPages(data.tours.meta.pagination.pageCount);
+        const totalPage = data.tours.meta.pagination.pageCount;
+        totalPage > page ? setIsLoadMore(true) : setIsLoadMore(false);
       } catch (error) {
         console.error('Error fetching tours:', error);
       } finally {
@@ -98,14 +99,14 @@ const Destinations = () => {
     setSelectedActivitiesItem(newActivity);
     setPage(1);
     setTours([]);
-    setTotalPages(0);
+    setIsLoadMore(false);
   };
 
   const handleCountryChange = (newCountry: ISelectState) => {
     setSelectedCountryItem(newCountry);
     setPage(1);
     setTours([]);
-    setTotalPages(0);
+    setIsLoadMore(false);
   };
 
   return (
@@ -144,9 +145,8 @@ const Destinations = () => {
       <ToursList
         to={Pages.DESTINATIONS}
         isLoading={isLoading}
+        isLoadMore={isLoadMore}
         tours={tours}
-        totalPages={totalPages}
-        currentPage={page}
         quantityPerPage={PER_PAGE}
         loadMore={loadMore}
         resetVisibleTours={resetVisibleTours}

@@ -17,10 +17,9 @@ import AnimatedText from '../AnimatedText';
 const ToursList: React.FC<IToursList> = ({
   to,
   isLoading,
+  isLoadMore,
   filtersChanged,
   tours,
-  totalPages,
-  currentPage,
   quantityPerPage,
   loadMore,
   resetVisibleTours,
@@ -43,7 +42,7 @@ const ToursList: React.FC<IToursList> = ({
       )}
 
       <div className='flex justify-center'>
-        {totalPages > currentPage ? (
+        {isLoadMore ? (
           <AnimatedText className='xl:[--y-hidden:-80px]'>
             <Button
               className='w-full px-4 md:h-[59px] md:w-[176px] md:px-7'
