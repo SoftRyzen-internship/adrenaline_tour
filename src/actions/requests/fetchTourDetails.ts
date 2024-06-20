@@ -8,7 +8,7 @@ const fetchTourDetails = async (
 ): Promise<ITourDetailsAttributes> => {
   const result = (await fetchData(query, { slug })) as ITourDetailsResponse;
 
-  return result.tours.data[0].attributes;
+  return result.tours.data[0]?.attributes;
 };
 
 export default fetchTourDetails;
