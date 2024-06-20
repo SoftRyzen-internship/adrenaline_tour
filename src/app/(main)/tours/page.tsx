@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import { Pages } from '@/@types';
 import { metaData } from '@/data';
+import Destinations from '@/sections/Destinations';
 import Gallery from '@/sections/Gallery';
 import Hero from '@/sections/Hero';
 import Reviews from '@/sections/Reviews';
@@ -20,6 +21,7 @@ const ToursPage = () => {
   return (
     <>
       <Hero page={Pages.TOURS} />
+      <Destinations />
       <WorthVisiting />
       <Tips />
       <Rules />

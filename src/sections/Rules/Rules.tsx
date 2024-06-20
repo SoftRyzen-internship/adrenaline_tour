@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 
+import AnimationContainer from '@/components/common/AnimationContainer';
 import Slider from '@/components/common/Slider';
 import CardRule from '@/components/ui/CardRule';
+import Title from '@/components/ui/Title';
 
 import Nature from '/public/icons/nature.svg';
 import Rafting from '/public/icons/rafting.svg';
@@ -40,20 +42,22 @@ const Rules = () => {
 
   return (
     <section className='section container'>
-      <h2 className='section-title mb-8 w-[194px]'>{rules.title}</h2>
+      <Title className='section-title mb-8 w-[194px]'>{rules.title}</Title>
       {isDesktop ? (
-        <ul className='flex gap-8'>
-          {rules.rules.map(({ id, title, description }, index) => (
-            <CardRule
-              key={id}
-              title={title}
-              description={description}
-              icon={IconsRules[id]}
-              isActive={index === activeIndex}
-              onClick={() => setActiveIndex(index)}
-            />
-          ))}
-        </ul>
+        <AnimationContainer className='xl:[--x-hidden:80px]'>
+          <ul className='flex gap-8'>
+            {rules.rules.map(({ id, title, description }, index) => (
+              <CardRule
+                key={id}
+                title={title}
+                description={description}
+                icon={IconsRules[id]}
+                isActive={index === activeIndex}
+                onClick={() => setActiveIndex(index)}
+              />
+            ))}
+          </ul>
+        </AnimationContainer>
       ) : (
         <Slider slides={slides} section='upcomingTours' />
       )}

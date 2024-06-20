@@ -25,6 +25,7 @@ const ActivitiesGallery = () => {
           />
         ))}
       </div>
+
       <div className={s.secondColumnCards}>
         {secondColumnCards.map(card => (
           <ActivitiesCard

@@ -1,0 +1,25 @@
+.animationContainer {
+  opacity: 1;
+  transform: scale(1);
+  transition: none;
+}
+
+.animationContainer.hid {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@media screen and (min-width: 1280px) {
+  .animationContainer {
+    opacity: 1;
+    transform: scale(1);
+    transition:
+      opacity 0.6s,
+      transform 0.6s;
+  }
+
+  .animationContainer.hid {
+    opacity: 0;
+    transform: scale(0);
+  }
+}

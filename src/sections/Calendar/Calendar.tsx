@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { ISelectState, ITours } from '@/@types';
 import { Pages, IFilters } from '@/@types';
 import { fetchFilteredTours } from '@/actions/requests';
+import AnimationContainer from '@/components/common/AnimationContainer';
 import DropdownList from '@/components/common/DropdownList';
 import CustomSelect from '@/components/ui/CustomSelect';
 import MonthSlider from '@/components/ui/MonthSlider';
@@ -20,15 +21,13 @@ const defaultCountry: ISelectState = {
   attributes: { name: selectedTours.defaultCountry },
 };
 
-const PER_PAGE = 9;
+const PER_PAGE = 2;
 const Calendar = () => {
   const [page, setPage] = useState(1);
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [tours, setTours] = useState<ITours[]>([]);
-  const [countries, setCountries] = useState<ISelectState[]>([defaultActivity]);
-  const [activities, setActivities] = useState<ISelectState[]>([
-    defaultCountry,
-  ]);
+  const [countries, setCountries] = useState<ISelectState[]>([]);
+  const [activities, setActivities] = useState<ISelectState[]>([]);
   const [selectedActivitiesItem, setSelectedActivitiesItem] =
     useState<ISelectState>(defaultActivity);
   const [selectedCountryItem, setSelectedCountryItem] =
@@ -84,6 +83,9 @@ const Calendar = () => {
       page: page,
     };
 
+    if (selectedActivitiesItem?.id !== -1 && selectedCountryItem?.id !== -1) {
+      setPage(1);
+    }
     if (selectedActivitiesItem?.id !== -1) {
       filters.activityName = selectedActivitiesItem?.attributes.name;
 
@@ -139,28 +141,30 @@ const Calendar = () => {
             onMonthChange={handleMonthChange}
           />
 
-          <DropdownList className='mb-4'>
-            {activities && (
-              <CustomSelect
-                data={createDataSelectOptions(
-                  activities,
-                  selectedTours.defaultActivity,
-                )}
-                selectedItem={selectedActivitiesItem}
-                onChange={handleActivityChange}
-              />
-            )}
-            {countries && (
-              <CustomSelect
-                data={createDataSelectOptions(
-                  countries,
-                  selectedTours.defaultCountry,
-                )}
-                selectedItem={selectedCountryItem}
-                onChange={handleCountryChange}
-              />
-            )}
-          </DropdownList>
+          <AnimationContainer className='xl:[--x-hidden:80px]'>
+            <DropdownList className='mb-4'>
+              {activities && (
+                <CustomSelect
+                  data={createDataSelectOptions(
+                    activities,
+                    selectedTours.defaultActivity,
+                  )}
+                  selectedItem={selectedActivitiesItem}
+                  onChange={handleActivityChange}
+                />
+              )}
+              {countries && (
+                <CustomSelect
+                  data={createDataSelectOptions(
+                    countries,
+                    selectedTours.defaultCountry,
+                  )}
+                  selectedItem={selectedCountryItem}
+                  onChange={handleCountryChange}
+                />
+              )}
+            </DropdownList>
+          </AnimationContainer>
         </div>
 
         <ToursList
