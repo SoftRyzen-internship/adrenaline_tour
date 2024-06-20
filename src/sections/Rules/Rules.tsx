@@ -42,7 +42,9 @@ const Rules = () => {
 
   return (
     <section className='section container'>
-      <Title className='section-title mb-8 w-[194px]'>{rules.title}</Title>
+      <Title className='section-title mb-8 w-[194px] md:mb-14 md:w-[478px] xl:mb-20 xl:w-[573px]'>
+        {rules.title}
+      </Title>
       {isDesktop ? (
         <AnimationContainer className='xl:[--x-hidden:80px]'>
           <ul className='flex gap-8'>
