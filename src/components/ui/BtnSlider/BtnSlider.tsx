@@ -19,7 +19,7 @@ const BtnSlider: React.FC<IBtnSliderProps> = ({
       className={clsx(
         'flex gap-3 md:gap-4 xl:gap-6',
         section === 'upcomingTours' &&
-          'absolute right-0 top-[-80px] md:top-[-136px] xl:top-[-157px]',
+          'absolute right-0 top-[-80px] z-30 md:top-[-136px] xl:top-[-157px]',
         section === 'reviews' &&
           'mt-8 justify-center md:mt-[55px] xl:absolute xl:bottom-[40px] xl:left-[-516px] xl:mt-0',
         section === 'gallery' && 'container relative w-full',
