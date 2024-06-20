@@ -6,7 +6,9 @@ import { ISelectState, ITours } from '@/@types';
 import { Pages, IFilters } from '@/@types';
 import { fetchFilteredTours } from '@/actions/requests';
 import DropdownList from '@/components/common/DropdownList';
+import AnimatedText from '@/components/ui/AnimatedText';
 import CustomSelect from '@/components/ui/CustomSelect';
+import Title from '@/components/ui/Title';
 import ToursList from '@/components/ui/ToursList';
 import { selectedTours, destinations } from '@/data';
 import { createDataSelectOptions } from '@/utils';
@@ -109,32 +111,34 @@ const Destinations = () => {
   return (
     <section id={Pages.DESTINATIONS} className='section container'>
       <div className='mb-10 items-center justify-between md:mb-14 xl:mb-16 xl:flex'>
-        <h2 className='section-title mb-10 whitespace-break-spaces xl:mb-0'>
+        <Title className='section-title mb-10 whitespace-break-spaces xl:mb-0'>
           {destinations.title}
-        </h2>
+        </Title>
 
-        <DropdownList>
-          {activities && (
-            <CustomSelect
-              data={createDataSelectOptions(
-                activities,
-                selectedTours.defaultActivity,
-              )}
-              selectedItem={selectedActivitiesItem}
-              onChange={handleActivityChange}
-            />
-          )}
-          {countries && (
-            <CustomSelect
-              data={createDataSelectOptions(
-                countries,
-                selectedTours.defaultCountry,
-              )}
-              selectedItem={selectedCountryItem}
-              onChange={handleCountryChange}
-            />
-          )}
-        </DropdownList>
+        <AnimatedText className='xl:[--x-hidden:80px]'>
+          <DropdownList>
+            {activities && (
+              <CustomSelect
+                data={createDataSelectOptions(
+                  activities,
+                  selectedTours.defaultActivity,
+                )}
+                selectedItem={selectedActivitiesItem}
+                onChange={handleActivityChange}
+              />
+            )}
+            {countries && (
+              <CustomSelect
+                data={createDataSelectOptions(
+                  countries,
+                  selectedTours.defaultCountry,
+                )}
+                selectedItem={selectedCountryItem}
+                onChange={handleCountryChange}
+              />
+            )}
+          </DropdownList>
+        </AnimatedText>
       </div>
 
       <ToursList

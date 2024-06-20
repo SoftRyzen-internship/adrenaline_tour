@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 
 import { IdForScroll } from '@/@types';
 import Form from '@/components/common/Form';
+import Title from '@/components/ui/Title';
 import { form } from '@/data';
 
 import s from './Contacts.module.css';
@@ -23,9 +24,10 @@ const Contacts = ({ children }: { children: React.ReactNode }) => {
       )}
     >
       <div className='container'>
-        <h2 className='section-title mb-6 text-white smOnly:pl-[10px] md:mb-10 xl:mb-20 xl:max-w-[854px]'>
+        <Title className='section-title mb-6 text-white smOnly:pl-[10px] md:mb-10 xl:mb-20 xl:max-w-[854px]'>
           {form.title}
-        </h2>
+        </Title>
+
         <div className='xl:flex'>
           {children}
 

@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { ISelectState, ITours } from '@/@types';
 import { Pages, IFilters } from '@/@types';
 import { fetchFilteredTours } from '@/actions/requests';
+import AnimationContainer from '@/components/common/AnimationContainer';
 import DropdownList from '@/components/common/DropdownList';
 import CustomSelect from '@/components/ui/CustomSelect';
 import MonthSlider from '@/components/ui/MonthSlider';
@@ -140,28 +141,30 @@ const Calendar = () => {
             onMonthChange={handleMonthChange}
           />
 
-          <DropdownList className='mb-4'>
-            {activities && (
-              <CustomSelect
-                data={createDataSelectOptions(
-                  activities,
-                  selectedTours.defaultActivity,
-                )}
-                selectedItem={selectedActivitiesItem}
-                onChange={handleActivityChange}
-              />
-            )}
-            {countries && (
-              <CustomSelect
-                data={createDataSelectOptions(
-                  countries,
-                  selectedTours.defaultCountry,
-                )}
-                selectedItem={selectedCountryItem}
-                onChange={handleCountryChange}
-              />
-            )}
-          </DropdownList>
+          <AnimationContainer className='xl:[--x-hidden:80px]'>
+            <DropdownList className='mb-4'>
+              {activities && (
+                <CustomSelect
+                  data={createDataSelectOptions(
+                    activities,
+                    selectedTours.defaultActivity,
+                  )}
+                  selectedItem={selectedActivitiesItem}
+                  onChange={handleActivityChange}
+                />
+              )}
+              {countries && (
+                <CustomSelect
+                  data={createDataSelectOptions(
+                    countries,
+                    selectedTours.defaultCountry,
+                  )}
+                  selectedItem={selectedCountryItem}
+                  onChange={handleCountryChange}
+                />
+              )}
+            </DropdownList>
+          </AnimationContainer>
         </div>
 
         <ToursList

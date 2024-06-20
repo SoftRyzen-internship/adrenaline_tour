@@ -1,3 +1,4 @@
+import AnimationContainer from '@/components/common/AnimationContainer';
 import { calendar } from '@/data';
 import { getMonthName } from '@/utils';
 
@@ -41,7 +42,7 @@ const MonthSlider: React.FunctionComponent<IMonthSliderProps> = ({
   };
 
   return (
-    <div className='mb-6 flex items-center justify-center gap-4 border-b-[0.5px] border-accentDarkOrange pb-6 pt-4 md:pb-8 md:pt-6 xl:mb-0 xl:border-b-0'>
+    <AnimationContainer className='mb-6 flex items-center gap-4 border-b-[0.5px] border-accentDarkOrange pb-6 pt-4 md:pb-8 md:pt-6 xl:mb-0 xl:border-b-0 xl:[--x-hidden:-80px]'>
       <IconButton
         type='button'
         ariaLabel={calendar.prev}
@@ -75,7 +76,7 @@ const MonthSlider: React.FunctionComponent<IMonthSliderProps> = ({
           className='size-6 fill-accentDefaultOrange transition hover:fill-accentDarkOrange focus:fill-accentDarkOrange active:fill-accentDarkOrange md:size-12 xl:size-16'
         />
       </IconButton>
-    </div>
+    </AnimationContainer>
   );
 };
 
