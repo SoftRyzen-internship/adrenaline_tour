@@ -22,7 +22,7 @@ const defaultCountry: ISelectState = {
   attributes: { name: selectedTours.defaultCountry },
 };
 
-const PER_PAGE = 2;
+const PER_PAGE = 6;
 
 const Destinations = () => {
   const [page, setPage] = useState(1);
