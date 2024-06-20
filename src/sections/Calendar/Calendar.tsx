@@ -10,6 +10,7 @@ import CustomSelect from '@/components/ui/CustomSelect';
 import MonthSlider from '@/components/ui/MonthSlider';
 import ToursList from '@/components/ui/ToursList';
 import { selectedTours } from '@/data';
+import { calendar } from '@/data';
 import { createDataSelectOptions, createStartAndEndDayOfMonth } from '@/utils';
 
 const defaultActivity: ISelectState = {
@@ -135,6 +136,7 @@ const Calendar = () => {
       id={Pages.CALENDAR}
     >
       <div className='container'>
+        <h1 className='hidden'>{calendar.title}</h1>
         <div className='items-center justify-between xl:mb-12 xl:flex xl:border-b-[0.5px] xl:border-accentDarkOrange'>
           <MonthSlider
             currentMonth={currentMonth}
