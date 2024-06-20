@@ -11,7 +11,7 @@ const Hero: React.FC<IHeroProps> = ({ page }) => {
     <section className='relative -z-10 h-[640px] md:h-[780px]'>
       <div className={clsx('h-full', s.hero_bg)}>
         <SliderHero page={page} />
-        <div className='container relative pt-[268px] md:pt-[264px] xl:pt-[224px]'>
+        <div className='container relative pt-[259px] md:pt-[264px] xl:pt-[224px]'>
           <HeroCard page={page} />
         </div>
       </div>
