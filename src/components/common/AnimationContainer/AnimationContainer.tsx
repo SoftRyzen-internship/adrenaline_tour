@@ -22,7 +22,7 @@ const AnimationContainer: React.FC<IAnimationContainerProps> = ({
         },
         visible: { opacity: 1, x: 0, y: 0 },
       }}
-      className={`relative xl:[--opacity-hidden:0%] notXL:[--opacity-hidden:100%] notXL:[--x-hidden:0px] notXL:[--y-hidden:0px] ${className}`}
+      className={`relative z-20 xl:[--opacity-hidden:0%] notXL:[--opacity-hidden:100%] notXL:[--x-hidden:0px] notXL:[--y-hidden:0px] ${className}`}
     >
       {children}
     </motion.div>
