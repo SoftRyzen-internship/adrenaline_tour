@@ -16,17 +16,16 @@ import LoadingComponent from '../LoadingComponent';
 const ToursList: React.FC<IToursList> = ({
   to,
   isLoading,
+  isLoadMore,
   filtersChanged,
   tours,
-  totalPages,
-  currentPage,
   quantityPerPage,
   loadMore,
   resetVisibleTours,
 }) => {
   return (
     <div className='min-h-[400px] xl:min-h-[485px]'>
-      {isLoading ? (
+      {isLoading && tours.length === 0 ? (
         <div className='pt-20'>
           <LoadingComponent />
         </div>
@@ -42,7 +41,7 @@ const ToursList: React.FC<IToursList> = ({
       )}
 
       <div className='flex justify-center'>
-        {totalPages > currentPage ? (
+        {isLoadMore ? (
           <Button
             className='w-full px-4 md:h-[59px] md:w-[176px] md:px-7'
             variant='main'
