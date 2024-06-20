@@ -16,7 +16,7 @@ import { IBurgerMenuProps } from './BurgerMenu.types';
 const BurgerMenu: React.FC<IBurgerMenuProps> = ({ onCloseMenu }) => {
   const isDesktop = useScreenSize('(min-width: 1280px)');
   return (
-    <div className='scroll-bar-custom container flex h-full flex-col justify-between pb-11 pt-6 md:pb-[100px] xl:pl-20 xl:pr-28'>
+    <div className='scroll-bar-custom container flex h-dvh flex-col justify-between pb-11 pt-6 md:pb-[100px] xl:pl-20 xl:pr-28'>
       <div className='flex items-center justify-between xl:justify-end xl:pt-6'>
         {isDesktop ? null : (
           <Logo
