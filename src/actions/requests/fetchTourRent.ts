@@ -7,7 +7,7 @@ const fetchTourRent = async (slug: string): Promise<ITourAttributesRent> => {
   const variables = { slug };
   const result = (await fetchData(query, variables)) as ITourRentQueryResponse;
 
-  return result.tours.data[0].attributes.rent;
+  return result.tours.data[0]?.attributes.rent;
 };
 
 export default fetchTourRent;

@@ -6,6 +6,10 @@ import { gallery } from '@/data';
 import { ITourGalleryProps } from './TourGallery.types';
 
 const TourGallery: React.FC<ITourGalleryProps> = ({ data }) => {
+  if (data.length === 0 || !data) {
+    return;
+  }
+
   const shouldShowSlider = data.length >= SLIDER_THRESHOLD;
 
   const galleryContent = shouldShowSlider ? (

@@ -19,45 +19,41 @@ To run the application locally, follow these steps:
 
 ## Technologies Used
 
-#### `NEXT`:
-
-- This is a Next.js project bootstrapped with `create-next-app`. Next.js is a React framework for building server-side rendered (SSR) and statically generated web applications. It provides features like automatic code splitting, hot module replacement, and server-side rendering out of the box.
-
 #### `react`:
 
 - React is a JavaScript library for building user interfaces. It enables developers to create reusable UI components and manage the application's state efficiently.
 
-#### `react-dom`:
+#### `NEXT.js`:
 
-- React DOM is a package that serves as the entry point to the DOM and server renderers for React. It provides DOM-specific methods that can be used to interact with the DOM during React component lifecycle.
+- This is a Next.js project bootstrapped with `create-next-app`. Next.js is a React framework for building server-side rendered (SSR) and statically generated web applications. It provides features like automatic code splitting, hot module replacement, and server-side rendering out of the box.
 
-#### `swiper`:
+#### `TypeScript`:
 
-- A library for creating sliders and carousels in web applications. It provides smooth animations, touch gesture support for mobile devices, and many configuration options and customization possibilities.
+- TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
 
-#### `react-fast-marquee`:
+#### `Tailwindcss`:
 
-- A lightweight and easy-to-use React component for creating marquee or scrolling text effects. It is optimized for smooth animations and high performance.
+- Tailwind CSS is a utility-first CSS framework that works exceptionally well with Next.js.
+
+#### `graphql`:
+
+- GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 
 #### `react-hook-form`:
 
 - A popular library for managing forms in React, using hooks to handle form state and validation. It provides a convenient and flexible way to work with forms.
 
-#### `react-hook-form-persist`:
-
-- A plugin for react-hook-form that allows persisting form state in the browser's local storage. This is useful for maintaining form state across page refreshes or sessions.
-
-#### `react-scroll`:
-
-- A library for adding smooth scrolling to web pages. It provides convenient methods for scrolling to specific elements or positions on the page with customizable animation parameters.
-
-#### `clsx`:
-
-- A tiny utility for conditionally joining CSS classNames together. It makes it easier to dynamically create strings of classes in React based on certain conditions or component state.
-
 #### `@headlessui/react`:
 
 - A UI component library for React, providing a set of ready-made and accessible components such as menus, modals, dropdowns, and more.
+
+#### `Swiper`:
+
+- A library for creating sliders and carousels in web applications. It provides smooth animations, touch gesture support for mobile devices, and many configuration options and customization possibilities.
+
+#### `Framer Motion`:
+
+- Framer Motion is an animation library. Framer Motion is an open source, production-ready library that’s designed for all creative developers.
 
 <h2 align="center">Components that the application consists of:</h2>
 
@@ -309,9 +305,121 @@ The MovingLine component utilizes the React Fast Marquee library - a lightweight
 
 <h3 align="center">Our Destinations Page</h3>
 
+<div align="center"><img src="/public/images/readme/destinations-page.webp" alt="policy images" width="800" align="center"></div>
+
+In Single page , parallel routing is implemented to allow simultaneous display of various components, providing users with flexibility and ease of navigation.
+
+## Layout
+
+The main Layout accepts several props and passes data to various child components. Layout is used to organize the page structure and manage the display of different sections.
+
+## Props
+
+The Layout accepts the following props:
+
+| Prop       | Required | Type            |
+| ---------- | -------- | --------------- |
+| `img`      | not      | React.ReactNode |
+| `mainInfo` | not      | React.ReactNode |
+| `plans`    | not      | React.ReactNode |
+| `rent`     | not      | React.ReactNode |
+| `services` | not      | React.ReactNode |
+| `details`  | not      | React.ReactNode |
+| `gallery`  | not      | React.ReactNode |
+
+## Props Description
+
+- img: Component for displaying an image.
+- mainInfo: Component for displaying main information.
+- plans: Component for displaying plans.
+- rent: Component for displaying rental information.
+- services: Component for displaying a list of services.
+- details: Component for displaying additional details.
+- gallery: Component for displaying an image gallery.
+
+Each component described above accepts Prop:
+
+| Prop   | Required | Type   | Description          |
+| ------ | -------- | ------ | -------------------- |
+| `data` | yes      | object | received from strapi |
+
+## Parallel Routing
+
+Parallel routing allows components to operate independently of each other, enhancing the user experience. Each of the components listed above can be loaded and displayed simultaneously without blocking the loading of other components.
+
+This is particularly useful when working with large amounts of data, ensuring fast and smooth page navigation.
+
+<hr>
+
+#### component AnimationContainer
+
+AnimationContainer – a reusable component for animating certain components.
+
+| Prop | Type | Description |
+| --- | --- | --- |
+| className | string | required, you need to pass the class lg:[--x-hidden:-80px] or lg:[--x-hidden:80px] depending on how you want to animate from left to right or right to left. Other classes can also be transferred. |
+| children | ReactNode | required, components & JSX-markup |
+
 <hr>
 
 <h3 align="center">Calendar</h3>
+
+<div align="center"><img src="/public/images/readme/calendar.webp" alt="calendar page" width="800" align="center"></div>
+
+A separate page. Data obtained from strapi admin. Also include Contact form component.
+
+- #### component MonthSlider
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `currentMonth` | yes | Date | The current month displayed in the slider. |
+| `onMonthChange` | yes | func | Function called when the month changes. Takes a new date as an argument. |
+
+<hr>
+
+## The application example - `<DropdownList />`
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `children` | yes | ReactNode | The component <CustomSelect /> for rendering into the wrapper |
+| `className` | not | string | The component wrapper can styled using this prop |
+
+## The application example - `<CustomSelect />`
+
+| Prop | Required | Type | Description |
+| --- | --- | --- | --- |
+| `data` | yes | ReactNode | The data for Select options () |
+| `selectedItem` | yes | The started value for Select. It`s using value from your initial State (when defining the state, pass the initial value for the option list into Select) |
+| `onChange` | yes | function | The set function from your definite State |
+| `className` | not | string | styles can be passed for the Select wrapper |
+
+#### The remark
+
+If you want an extra item in data for a definite start value, You'll use `createDataSelectOptions(data, defaultValue)`. It's helped function with two required arguments.
+
+### For instance
+
+```
+const activitiesData = createDataSelectOptions(activitiesDataTemporary.data, 'Всі активності');
+const countriesData = createDataSelectOptions(countriesDataTemporary.data, Всі країни');
+
+const [selectedActivitiesItem, setSelectedActivitiesItem] = useState<ISelectState>(activitiesData.at(-1) as ISelectState);
+const [selectedCountryItem, setSelectedCountryItem] = useState<ISelectState>(countriesData.at(-1) as ISelectState,);
+
+<DropdownList>
+   <CustomSelect
+    data={activitiesData}
+    selectedItem={selectedActivitiesItem}
+    onChange={setSelectedActivitiesItem}
+  />
+  <CustomSelect
+    data={countriesData}
+    selectedItem={selectedCountryItem}
+    onChange={setSelectedCountryItem}
+  />
+</DropdownList>
+
+```
 
 <hr>
 
