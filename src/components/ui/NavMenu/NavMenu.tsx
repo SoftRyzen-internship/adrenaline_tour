@@ -17,7 +17,8 @@ const NavMenu: React.FC<INavMenuProps> = ({
         className={clsx(
           'flex flex-col text-center xl:text-left',
           buttonStyle === 'navLink' && 'gap-4 md:gap-10',
-          buttonStyle === 'footer' && 'gap-[6px] xl:flex-row xl:gap-8',
+          buttonStyle === 'footer' &&
+            'gap-[6px] mdOnly:text-left xl:h-full xl:flex-row xl:items-center xl:gap-8',
         )}
       >
         {navList.map(({ id, page, title }) =>

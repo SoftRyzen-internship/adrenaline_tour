@@ -3,6 +3,7 @@ export interface ILogoProps {
   width?: number;
   height?: number;
   toScroll?: boolean;
+  forFooter?: boolean;
   onClick?: () => void;
   className?: string;
 }
