@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { ISelectState, ITours } from '@/@types';
 import { Pages, IFilters } from '@/@types';
 import { fetchFilteredTours } from '@/actions/requests';
+import AnimationContainer from '@/components/common/AnimationContainer';
 import DropdownList from '@/components/common/DropdownList';
 import CustomSelect from '@/components/ui/CustomSelect';
 import MonthSlider from '@/components/ui/MonthSlider';
@@ -27,10 +28,8 @@ const Calendar = () => {
   const [totalPages, setTotalPages] = useState(0);
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const [tours, setTours] = useState<ITours[]>([]);
-  const [countries, setCountries] = useState<ISelectState[]>([defaultActivity]);
-  const [activities, setActivities] = useState<ISelectState[]>([
-    defaultCountry,
-  ]);
+  const [countries, setCountries] = useState<ISelectState[]>([]);
+  const [activities, setActivities] = useState<ISelectState[]>([]);
   const [selectedActivitiesItem, setSelectedActivitiesItem] =
     useState<ISelectState>(defaultActivity);
   const [selectedCountryItem, setSelectedCountryItem] =
@@ -49,9 +48,6 @@ const Calendar = () => {
     setTours(tours.slice(0, PER_PAGE));
     setPage(1);
   };
-
-  console.log('TotalPage', totalPages);
-  console.log('Page', page);
 
   const fetchData = useCallback(
     async (filters: IFilters = {}) => {
@@ -119,6 +115,20 @@ const Calendar = () => {
     setSelectedCountryItem(defaultCountry);
   };
 
+  const handleActivityChange = (newActivity: ISelectState) => {
+    setSelectedActivitiesItem(newActivity);
+    setPage(1);
+    setTours([]);
+    setTotalPages(0);
+  };
+
+  const handleCountryChange = (newCountry: ISelectState) => {
+    setSelectedCountryItem(newCountry);
+    setPage(1);
+    setTours([]);
+    setTotalPages(0);
+  };
+
   return (
     <section
       className='section pt-[104px] md:pt-[128px] xl:pt-[160px]'
@@ -131,28 +141,30 @@ const Calendar = () => {
             onMonthChange={handleMonthChange}
           />
 
-          <DropdownList className='mb-4'>
-            {activities && (
-              <CustomSelect
-                data={createDataSelectOptions(
-                  activities,
-                  selectedTours.defaultActivity,
-                )}
-                selectedItem={selectedActivitiesItem}
-                onChange={setSelectedActivitiesItem}
-              />
-            )}
-            {countries && (
-              <CustomSelect
-                data={createDataSelectOptions(
-                  countries,
-                  selectedTours.defaultCountry,
-                )}
-                selectedItem={selectedCountryItem}
-                onChange={setSelectedCountryItem}
-              />
-            )}
-          </DropdownList>
+          <AnimationContainer className='xl:[--x-hidden:80px]'>
+            <DropdownList className='mb-4'>
+              {activities && (
+                <CustomSelect
+                  data={createDataSelectOptions(
+                    activities,
+                    selectedTours.defaultActivity,
+                  )}
+                  selectedItem={selectedActivitiesItem}
+                  onChange={handleActivityChange}
+                />
+              )}
+              {countries && (
+                <CustomSelect
+                  data={createDataSelectOptions(
+                    countries,
+                    selectedTours.defaultCountry,
+                  )}
+                  selectedItem={selectedCountryItem}
+                  onChange={handleCountryChange}
+                />
+              )}
+            </DropdownList>
+          </AnimationContainer>
         </div>
 
         <ToursList

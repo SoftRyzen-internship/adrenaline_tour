@@ -15,7 +15,7 @@ const Button: React.FC<IButtonProps> = ({
   return (
     <button
       className={clsx(
-        'inline-flex items-center justify-center leading-[1.5]',
+        'inline-flex items-center justify-between leading-[1.5]',
         variant === 'main' &&
           'gap-4 bg-accentDefaultOrange px-8 py-4 font-unbounded text-sm font-medium text-white transition hover:bg-accentDarkOrange md:py-[17.5px] md:text-base',
         variant === 'secondary' &&

@@ -1,6 +1,3 @@
-export { default as activitiesDataTemporary } from './activitiesDataTemporary.json';
-export { default as countriesDataTemporary } from './countriesDataTemporary.json';
-
 export { default as metaData } from './metaData.json';
 export { default as logo } from './logo.json';
 export { default as social } from './social.json';
@@ -26,6 +23,7 @@ export { default as rules } from './rules.json';
 export { default as worthVisiting } from './worthVisiting.json';
 export { default as featuresData } from './featuresData.json';
 export { default as tipsData } from './tipsData.json';
+export { default as destinations } from './destinations.json';
 export { default as errorData } from './errorData.json';
 export { default as calendar } from './calendar.json';
 export { default as selectedTours } from './selectedTours.json';

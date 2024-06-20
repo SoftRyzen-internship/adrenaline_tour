@@ -7,6 +7,7 @@ import {
   Transition,
 } from '@headlessui/react';
 
+import AnimationContainer from '@/components/common/AnimationContainer';
 import { tourDisclosure } from '@/data';
 
 import MinusIcon from '/public/icons/minus.svg';
@@ -14,7 +15,7 @@ import PlusIcon from '/public/icons/plus.svg';
 
 const DisclosureTour = () => {
   return (
-    <div className='mx-auto w-full'>
+    <AnimationContainer className='mx-auto w-full xl:[--x-hidden:-80px]'>
       <ul>
         {tourDisclosure.map(item => (
           <Disclosure
@@ -74,7 +75,7 @@ const DisclosureTour = () => {
           </Disclosure>
         ))}
       </ul>
-    </div>
+    </AnimationContainer>
   );
 };
 

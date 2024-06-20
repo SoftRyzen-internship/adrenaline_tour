@@ -3,6 +3,7 @@ export enum Pages {
   CALENDAR = 'calendar',
   TOURS = 'tours',
   POLICY = 'policy',
+  DESTINATIONS = 'destinations',
 }
 
 export enum IdForScroll {
@@ -79,20 +80,20 @@ export interface IImage {
 }
 
 export interface IToursAttributes {
+  img: {
+    data: IImage;
+  };
+  title: string;
+  date: string;
+  slug: string;
+  duration: string;
+  recommended: boolean;
   activities: {
     data: ISelectState[];
   };
   countries: {
     data: ISelectState[];
   };
-  date: string;
-  duration: string;
-  img: {
-    data: IImage;
-  };
-  recommended: boolean;
-  slug: string;
-  title: string;
 }
 
 export interface ITours {
@@ -108,6 +109,13 @@ export interface ITourResponse {
   tours: {
     data: ITours[];
   };
+}
+
+export interface IFeatureRow {
+  id: number;
+  caption: string;
+  text: string | null;
+  icon: string;
 }
 
 export interface IDetailWithDescription {
