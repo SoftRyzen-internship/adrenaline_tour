@@ -13,8 +13,8 @@ const HeroCard: React.FC<IHeroProps> = ({ page }) => {
   const wrapperTitle = 'flex w-full items-center justify-start';
 
   const title = clsx(
-    'title xl:w-3/5',
-    page === Pages.MAIN && 'w-[304px] md:w-full',
+    'title',
+    page === Pages.MAIN && 'w-[304px] pt-[9px] md:w-full md:pt-0 xl:w-3/5',
     page === Pages.TOURS && 'w-1/2 md:w-1/3',
   );
   const wrapperDescription = clsx(

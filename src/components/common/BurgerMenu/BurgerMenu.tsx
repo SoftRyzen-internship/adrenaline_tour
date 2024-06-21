@@ -33,11 +33,11 @@ const BurgerMenu: React.FC<IBurgerMenuProps> = ({ onCloseMenu }) => {
           onClick={onCloseMenu}
           className='stroke-grey01 transition hover:stroke-accentDarkOrange focus:stroke-accentDarkOrange'
         >
-          <CloseIcon className='h-6 w-6 md:h-12 md:w-12 ' />
+          <CloseIcon className='my-auto h-6 w-6 md:h-10 md:w-10 xl:h-12 xl:w-12' />
         </IconButton>
       </div>
       <NavMenu buttonStyle='navLink' onCloseMenu={onCloseMenu} />
-      <div className='mt-8 smOnly:space-y-8 md:mt-10 md:space-x-12 notXL:text-center'>
+      <div className='mt-8 smOnly:space-y-8 md:mt-10 md:flex md:items-center md:justify-center md:space-x-12 xl:justify-start notXL:text-center'>
         <PageConditionalRender<ILinkButtonProps>
           pages={[Pages.POLICY]}
           trueProps={{
@@ -54,7 +54,7 @@ const BurgerMenu: React.FC<IBurgerMenuProps> = ({ onCloseMenu }) => {
           component={LinkButton}
           trueContent={burgerMenuData.textButton}
           alternativeContent={burgerMenuData.textButton}
-          className='smOnly:w-full'
+          className='smOnly:w-full md:h-[59px] md:w-[246px]'
         />
         <Social variant='header' className='inline-flex' />
       </div>
