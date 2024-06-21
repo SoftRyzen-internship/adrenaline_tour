@@ -20,7 +20,7 @@ const FormInput = forwardRef<HTMLInputElement, IFormInputProps>(
             ref={ref}
           />
           {errorMessage && (
-            <span className='absolute bottom-[-26px] left-0 text-accentDefaultOrange'>
+            <span className='absolute bottom-[-26px] left-0 font-inter text-xs font-medium text-red'>
               {errorMessage}
             </span>
           )}
