@@ -25,7 +25,7 @@ const ToursList: React.FC<IToursList> = ({
   resetVisibleTours,
 }) => {
   return (
-    <div className='min-h-[400px] xl:min-h-[485px]'>
+    <div className='min-h-[400px] w-full xl:min-h-[485px]'>
       {isLoading && tours.length === 0 ? (
         <div className='pt-20'>
           <LoadingComponent />
@@ -41,19 +41,19 @@ const ToursList: React.FC<IToursList> = ({
         tours.length === 0 && <ErrorComponent isLoadingError />
       )}
 
-      <div className='flex justify-center'>
+      <div className='w-full justify-center md:flex'>
         {isLoadMore ? (
           <AnimatedText className='xl:[--y-hidden:-80px]'>
             <Button
-              className='w-full px-4 md:h-[59px] md:w-[176px] md:px-7'
+              className='w-full px-4 md:h-[59px] md:w-[176px] md:px-8'
               variant='main'
               type='button'
               iconPosition='after'
               icon={
                 isLoading ? (
-                  <CircleIcon className='size-6 animate-spin md:mr-2 md:size-8' />
+                  <CircleIcon className='my-[2px] mr-1 size-6 animate-spin md:mr-2 md:size-8' />
                 ) : (
-                  <ArrowRightDownIcon className='size-6 md:size-8' />
+                  <ArrowRightDownIcon className='size-6 rotate-90 md:size-8' />
                 )
               }
               onClick={loadMore}
@@ -66,7 +66,7 @@ const ToursList: React.FC<IToursList> = ({
           tours.length > quantityPerPage && (
             <AnimatedText className='xl:[--y-hidden:-80px]'>
               <LinkButton
-                className='w-full px-4 md:w-[199px] md:px-7'
+                className='w-full px-4 md:w-[199px] md:px-8'
                 variant='main'
                 iconPosition='after'
                 icon={<ArrowRightDownIcon className='size-6 md:size-8' />}
