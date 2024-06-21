@@ -22,16 +22,18 @@ const TourMainInfo: React.FC<ITourMainInfoProps> = ({ data }) => {
           {title}
         </h1>
         <div className='mb-6 flex h-[26px] items-center font-inter text-[14px] font-bold leading-[1.30] text-blueDefault md:mb-8 md:h-[34px] md:text-[18px] md:leading-[1.50] xl:text-[20px] xl:leading-[1.30]'>
-          <Location
-            width={14}
-            height={14}
-            className='fill-blueDefault md:h-[18px] md:w-[18px] xl:h-[22px] xl:w-[22px]'
-          />
           {countryNames && (
-            <p className='pl-1 pr-2 md:pl-[6px] md:pr-3'>
-              {countryNames}
-              <span className='pl-2 text-blue32 md:pl-3'>|</span>
-            </p>
+            <>
+              <Location
+                width={14}
+                height={14}
+                className='fill-blueDefault md:h-[18px] md:w-[18px] xl:h-[22px] xl:w-[22px]'
+              />
+              <p className='pl-1 pr-2 md:pl-[6px] md:pr-3'>
+                {countryNames}
+                <span className='pl-2 text-blue32 md:pl-3'>|</span>
+              </p>
+            </>
           )}
           {activitiesNames && (
             <p>

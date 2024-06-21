@@ -50,12 +50,16 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
             {title}
           </h2>
           <div className='flex flex-wrap items-center pt-[6px] font-unbounded text-[10px] font-bold leading-[1.30] text-darkBlue md:text-[12px]'>
-            <Location
-              width={12}
-              height={12}
-              className='h-[16px] fill-darkBlue md:w-[16px]'
-            />
-            {countryNames && <p className='pl-1 pr-2'>{countryNames}</p>}
+            {countryNames && (
+              <>
+                <Location
+                  width={12}
+                  height={12}
+                  className='h-[16px] fill-darkBlue md:w-[16px]'
+                />
+                <p className='pl-1 pr-2'>{countryNames}</p>
+              </>
+            )}
             {activitiesNames && (
               <p className={clsx('type flex px-2', s['type'])}>
                 {activitiesNames}
