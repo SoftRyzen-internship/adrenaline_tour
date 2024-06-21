@@ -29,7 +29,7 @@ const formSchema: yup.ObjectSchema<IFormState> = yup.object({
     .string()
     .trim()
     .required(required)
-    .min(12, phoneMin)
+    .min(9, phoneMin)
     .max(30, phoneMax)
     .matches(/^[0-9+\-\(\)\s]*$/, phonePattern),
   email: yup
