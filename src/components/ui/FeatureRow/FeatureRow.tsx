@@ -10,7 +10,7 @@ const FeatureRow: React.FC<IFeatureRowProps> = ({ feature }) => {
     <>
       <p
         className={clsx(
-          'mb-3 flex items-center font-unbounded text-xs/[1.3] font-bold text-darkBlue md:text-sm',
+          'mb-3 flex items-center font-unbounded text-xs/[1.3] font-bold text-darkBlue md:text-sm xl:text-lg/[1.3]',
           s.feature,
         )}
         style={
