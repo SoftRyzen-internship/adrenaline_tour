@@ -8,9 +8,9 @@ const Faq: React.FC = () => {
   const { disclosures } = faq;
   return (
     <section className='section container'>
-      <div className='top-0 z-10 pb-4 xl:sticky xl:bg-white/40'>
+      <div className='top-0 z-30 pb-4 xl:sticky xl:bg-white/40'>
         <div className='bg-white xl:mb-10 xl:flex xl:justify-between'>
-          <Title className='section-title mb-10 text-start md:mb-14 xl:mb-0'>
+          <Title className='section-title mb-10 text-center md:mb-14 xl:mb-0 xl:text-start'>
             FAQ
           </Title>
 
