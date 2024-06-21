@@ -14,7 +14,7 @@ const FormInput = forwardRef<HTMLInputElement, IFormInputProps>(
             {label} <span className='text-accentDefaultOrange'>*</span>
           </span>
           <input
-            className='bg-transparent pb-3 pt-[10px]'
+            className='bg-transparent pb-3 pt-[10px] placeholder:text-placeholderBlue'
             autoComplete='off'
             {...rest}
             ref={ref}

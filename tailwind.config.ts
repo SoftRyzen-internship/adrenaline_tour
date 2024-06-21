@@ -42,6 +42,7 @@ const config: Config = {
         blue32: 'rgba(26, 89, 124, 0.32)',
         lightBlue: '#E7F5F9',
         darkBlue: '#022C43',
+        placeholderBlue: 'rgba(137, 158, 170, 0.32)',
         additionalBlue: '#10425D',
         white: '#FFFFFF',
         blueWhite: '#F5FAFD',
