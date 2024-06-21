@@ -19,7 +19,7 @@ const Layout: React.FC<LayoutProps> = ({
 }) => {
   return (
     <>
-      <section className='pb-10 md:pb-[60px] md:pt-[128px] xl:pb-20 xl:pt-[160px]'>
+      <section className='pb-20 md:pb-[120px] md:pt-[128px] xl:pb-20 xl:pt-[160px]'>
         <div className='xl:hidden'>
           {img}
           {mainInfo}
