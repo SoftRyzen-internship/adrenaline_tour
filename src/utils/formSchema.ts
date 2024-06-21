@@ -14,6 +14,7 @@ const {
     phonePattern,
     emailMax,
     emailPattern,
+    textareaMax,
   },
 } = form;
 
@@ -29,15 +30,15 @@ const formSchema: yup.ObjectSchema<IFormState> = yup.object({
     .string()
     .trim()
     .required(required)
-    .min(12, phoneMin)
+    .min(9, phoneMin)
     .max(30, phoneMax)
     .matches(/^[0-9+\-\(\)\s]*$/, phonePattern),
   email: yup
     .string()
     .required(required)
     .max(63, emailMax)
-    .matches(/^$|^\s*[^\s@]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\s*$/, emailPattern),
-  message: yup.string().trim().nullable(),
+    .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, emailPattern),
+  message: yup.string().trim().nullable().max(500, textareaMax),
   privacyPolicy: yup.boolean().oneOf([true]).required(),
 });
 

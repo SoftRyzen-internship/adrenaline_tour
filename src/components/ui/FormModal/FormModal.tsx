@@ -24,8 +24,8 @@ function FormModal({
     >
       <h3
         className={clsx(
-          'mb-4 pt-[72px] text-center font-inter text-[18px] font-bold uppercase leading-[1.15] text-[#3B433E] md:pt-[88px] md:text-lightLarge md:leading-[1.15] xl:text-3xl xl:leading-[1.15]',
-          error && 'text-accentDefaultOrange',
+          'mb-4 pt-[72px] text-center font-inter text-[18px] font-bold leading-[1.15] text-[#3B433E] md:pt-[88px] md:text-lightLarge md:leading-[1.15] xl:text-3xl xl:leading-[1.15]',
+          error && 'text-red',
         )}
       >
         {title}
