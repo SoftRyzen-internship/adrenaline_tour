@@ -1,7 +1,7 @@
 import Phone from '/public/icons/phone.svg';
 import Email from '/public/icons/email.svg';
 
-import AnimatedText from '@/components/ui/AnimatedText';
+import AnimationContainer from '@/components/common/AnimationContainer';
 import { fetchContacts } from '@/actions/requests';
 import { formatPhoneNumber } from '@/utils';
 
@@ -18,7 +18,7 @@ const Phones: React.FC<IPhonesProps> = async ({
 
   return variant === 'contacts' ? (
     <div className={`flex flex-col gap-4 md:gap-8 xl:gap-10 ${className}`}>
-      <AnimatedText className='xl:[--x-hidden:-80px]'>
+      <AnimationContainer className='xl:[--x-hidden:-80px]'>
         <div className='flex items-center gap-4 xl:gap-6'>
           <Email
             className='h-8 w-8 md:h-10 md:w-10 xl:h-12 xl:w-12'
@@ -35,8 +35,8 @@ const Phones: React.FC<IPhonesProps> = async ({
             </a>
           </div>
         </div>
-      </AnimatedText>
-      <AnimatedText className='xl:[--x-hidden:-80px]'>
+      </AnimationContainer>
+      <AnimationContainer className='xl:[--x-hidden:-80px]'>
         <div className='flex gap-4 xl:gap-6'>
           <Phone
             className='h-8 w-8 md:h-10 md:w-10 xl:h-12 xl:w-12'
@@ -63,7 +63,7 @@ const Phones: React.FC<IPhonesProps> = async ({
             ))}
           </div>
         </div>
-      </AnimatedText>
+      </AnimationContainer>
     </div>
   ) : (
     <div className={`flex flex-col items-center gap-[6px] ${className}`}>

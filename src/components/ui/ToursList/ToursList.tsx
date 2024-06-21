@@ -6,13 +6,13 @@ import { selectedTours } from '@/data';
 import ErrorComponent from '../ErrorComponent';
 import TourCard from '../TourCard';
 
+import AnimationContainer from '@/components/common/AnimationContainer';
 import Button from '@/components/ui/Button';
 import LinkButton from '@/components/ui/LinkButton';
 
 import { IToursList } from './ToursList.types';
 
 import LoadingComponent from '../LoadingComponent';
-import AnimatedText from '../AnimatedText';
 
 const ToursList: React.FC<IToursList> = ({
   to,
@@ -43,7 +43,7 @@ const ToursList: React.FC<IToursList> = ({
 
       <div className='flex justify-center'>
         {isLoadMore ? (
-          <AnimatedText className='xl:[--y-hidden:-80px]'>
+          <AnimationContainer className='xl:[--x-hidden:80px]'>
             <Button
               className='w-full px-4 md:h-[59px] md:w-[176px] md:px-7'
               variant='main'
@@ -61,10 +61,10 @@ const ToursList: React.FC<IToursList> = ({
             >
               {selectedTours.buttonMore}
             </Button>
-          </AnimatedText>
+          </AnimationContainer>
         ) : (
           tours.length > quantityPerPage && (
-            <AnimatedText className='xl:[--y-hidden:-80px]'>
+            <AnimationContainer className='xl:[--x-hidden:80px]'>
               <LinkButton
                 className='w-full px-4 md:w-[199px] md:px-7'
                 variant='main'
@@ -76,7 +76,7 @@ const ToursList: React.FC<IToursList> = ({
               >
                 {selectedTours.buttonLess}
               </LinkButton>
-            </AnimatedText>
+            </AnimationContainer>
           )
         )}
       </div>
