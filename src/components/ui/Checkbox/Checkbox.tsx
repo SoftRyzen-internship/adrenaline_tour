@@ -10,7 +10,7 @@ const Checkbox = ({
   errorMessage,
 }: ICheckboxProps) => {
   return (
-    <label className='flex cursor-pointer gap-3  text-light font-light text-white md:text-medium'>
+    <label className='mt-6 flex cursor-pointer gap-3  text-light font-light text-white md:text-medium'>
       <input
         className={clsx(
           errorMessage && s['custom-checkbox-error'],

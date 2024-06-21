@@ -16,7 +16,7 @@ const Social: React.FC<ISocialProps> = ({
       className={clsx(
         'flex',
         variant === 'header' && 'gap-4 md:gap-6',
-        variant === 'footer' && 'gap-2',
+        variant === 'footer' && 'flex-row-reverse gap-2',
         className,
       )}
     >
@@ -35,8 +35,8 @@ const Social: React.FC<ISocialProps> = ({
                 'fill-white p-2.5 hover:fill-accentDarkOrange focus:fill-accentDarkOrange xl:p-[13px]',
             )}
           >
-            {item.name === 'instagram' && (
-              <Instagram
+            {item.name === 'facebook' && (
+              <Facebook
                 width={20}
                 height={20}
                 className={clsx(
@@ -45,8 +45,8 @@ const Social: React.FC<ISocialProps> = ({
                 )}
               />
             )}
-            {item.name === 'facebook' && (
-              <Facebook
+            {item.name === 'instagram' && (
+              <Instagram
                 width={20}
                 height={20}
                 className={clsx(

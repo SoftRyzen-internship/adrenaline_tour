@@ -9,18 +9,31 @@ import Phones from '@/components/ui/Phones';
 import Social from '@/components/ui/Social';
 import { Pages } from '@/@types';
 import { footerData } from '@/data';
+import PageConditionalRender from '@/components/ui/PageConditionalRender';
+import { ILogoProps } from '@/components/ui/Logo/Logo.types';
 
 const Footer = () => {
   return (
     <footer className='section border-t border-white32 bg-darkBlue p-0'>
       <div className='container flex flex-col items-center gap-6 py-6 md:flex-row md:justify-between md:py-8'>
         <div className='flex flex-col gap-6 md:flex-row md:justify-between mdOnly:basis-7/12 xl:gap-8'>
-          <Logo
-            textWhite
-            width={166}
-            height={53}
+          <PageConditionalRender<ILogoProps>
+            pages={[Pages.MAIN]}
+            trueProps={{
+              textWhite: true,
+              forFooter: true,
+              width: 166,
+              height: 53,
+              toScroll: true,
+            }}
+            alternativeProps={{
+              textWhite: true,
+              forFooter: true,
+              width: 166,
+              height: 53,
+            }}
+            component={Logo}
             className='md:h-12 md:w-[151px] xl:h-[51px] xl:w-[153px]'
-            toScroll
           />
           <Phones variant='footer' />
         </div>

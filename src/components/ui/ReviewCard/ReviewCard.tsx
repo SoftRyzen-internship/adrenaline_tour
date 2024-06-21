@@ -60,7 +60,7 @@ const ReviewCard: React.FC<IReviewCardProps> = ({
           </div>
           <div>
             {isOverflowing && (
-              <div className='mb-7 flex justify-center'>
+              <div className='mb-7 flex justify-center md:mb-10 xl:mb-12'>
                 <Button
                   type='button'
                   onClick={() => setIsModalOpen(true)}

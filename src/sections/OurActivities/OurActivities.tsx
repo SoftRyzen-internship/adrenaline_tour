@@ -17,7 +17,7 @@ const OurActivities = () => {
 
       <ActivitiesGallery />
 
-      <AnimationContainer className='mt-14 flex w-full justify-center xl:[--y-hidden:-80px]'>
+      <AnimationContainer className='mt-14 flex w-full justify-center xl:[--x-hidden:80px]'>
         <LinkButton
           href={Pages.TOURS}
           className='w-full text-nowrap px-[16px] md:w-[381px] md:px-[28px]'

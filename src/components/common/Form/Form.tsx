@@ -94,6 +94,7 @@ const Form = () => {
             label={textarea.label}
             placeholder={textarea.placeholder}
             {...register(textarea.name as keyof IFormState)}
+            errorMessage={errors[textarea.name as keyof IFormState]?.message}
           />
         </AnimationContainer>
 

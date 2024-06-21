@@ -25,7 +25,9 @@ const Contacts = ({ children }: { children: React.ReactNode }) => {
     >
       <div className='container'>
         <Title className='section-title mb-6 text-white smOnly:pl-[10px] md:mb-10 xl:mb-20 xl:max-w-[854px]'>
-          {form.title}
+          {form.title[0]}
+          <br />
+          {form.title[1]}
         </Title>
 
         <div className='xl:flex'>

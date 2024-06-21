@@ -14,7 +14,7 @@ const ReviewModalContent: React.FC<IReviewModalContentProps> = ({
         {title}
       </h3>
       <div className='scroll-bar-custom h-[95%]'>
-        <p className='mb-6 text-center font-inter text-light text-dark md:mb-10 md:text-medium xl:mb-8 xl:leading-[1.50]'>
+        <p className='mb-6 pr-4 text-center font-inter text-light text-dark md:mb-10 md:pr-6 md:text-medium xl:mb-8 xl:leading-[1.50]'>
           {description}
         </p>
         <h4 className='mb-[6px] text-center font-inter text-[12px] font-bold leading-[1.30] text-dark md:mb-2 md:text-[14px]'>

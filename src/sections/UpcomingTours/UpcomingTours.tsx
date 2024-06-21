@@ -7,7 +7,7 @@ import TourCard from '@/components/ui/TourCard';
 import Title from '@/components/ui/Title';
 import { Pages, SLIDER_THRESHOLD } from '@/@types';
 import { upcomingTours } from '@/data';
-import AnimatedText from '@/components/ui/AnimatedText';
+import AnimationContainer from '@/components/common/AnimationContainer';
 
 const UpcomingTours = async () => {
   const dataAllTours = await fetchAllTours();
@@ -16,24 +16,20 @@ const UpcomingTours = async () => {
   const shouldShowSlider = tours.length >= SLIDER_THRESHOLD;
 
   const upcomingToursContent = shouldShowSlider ? (
-    <AnimatedText className='xl:[--x-hidden:80px]'>
-      <Slider
-        section='upcomingTours'
-        className={'mb-8 md:mb-14'}
-        slides={tours.map(item => ({
-          id: item.id,
-          content: <TourCard key={item.id} data={item} />,
-        }))}
-      />
-    </AnimatedText>
+    <Slider
+      section='upcomingTours'
+      className={'mb-8 md:mb-14'}
+      slides={tours.map(item => ({
+        id: item.id,
+        content: <TourCard key={item.id} data={item} />,
+      }))}
+    />
   ) : (
-    <AnimatedText className='xl:[--x-hidden:80px]'>
-      <div className='mb-8 grid grid-cols-1 gap-2 sm:grid-cols-2 md:mb-14 xl:grid-cols-3'>
-        {tours.map(item => (
-          <TourCard key={item.id} data={item} />
-        ))}
-      </div>
-    </AnimatedText>
+    <div className='mb-8 grid grid-cols-1 gap-2 sm:grid-cols-2 md:mb-14 xl:grid-cols-3'>
+      {tours.map(item => (
+        <TourCard key={item.id} data={item} />
+      ))}
+    </div>
   );
 
   return (
@@ -44,7 +40,7 @@ const UpcomingTours = async () => {
 
       {upcomingToursContent}
 
-      <AnimatedText className='xl:[--y-hidden:-80px]'>
+      <AnimationContainer className='xl:[--x-hidden:80px]'>
         <div className='flex justify-center'>
           <LinkButton
             href={Pages.CALENDAR}
@@ -62,7 +58,7 @@ const UpcomingTours = async () => {
             {upcomingTours.btn}
           </LinkButton>
         </div>
-      </AnimatedText>
+      </AnimationContainer>
     </section>
   );
 };

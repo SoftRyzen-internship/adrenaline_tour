@@ -19,6 +19,7 @@ const Logo: React.FC<ILogoProps> = ({
   toScroll,
   onClick,
   className,
+  forFooter,
 }) => {
   const logoStyles = clsx(
     'inline-block fill-white  transition hover:fill-accentDarkOrange hover:text-accentDarkOrange focus:fill-accentDarkOrange focus:text-accentDarkOrange',
@@ -52,7 +53,15 @@ const Logo: React.FC<ILogoProps> = ({
           aria-label={logo.ariaLabel}
           onClick={onClick}
         >
-          <LogoIcon width={width} height={height} className={logoStyles} />
+          {forFooter ? (
+            <LogoIconFooter
+              width={width}
+              height={height}
+              className={logoStyles}
+            />
+          ) : (
+            <LogoIcon width={width} height={height} className={logoStyles} />
+          )}
         </Link>
       )}
     </>

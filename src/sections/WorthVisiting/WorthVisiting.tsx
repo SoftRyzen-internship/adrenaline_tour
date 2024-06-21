@@ -1,7 +1,6 @@
 import { SLIDER_THRESHOLD } from '@/@types';
 import { fetchRecommendedTours } from '@/actions/requests';
 import Slider from '@/components/common/Slider';
-import AnimatedText from '@/components/ui/AnimatedText';
 import Title from '@/components/ui/Title';
 import TourCard from '@/components/ui/TourCard';
 import { worthVisiting } from '@/data';
@@ -13,23 +12,19 @@ const WorthVisiting = async () => {
   const shouldShowSlider = data.length >= SLIDER_THRESHOLD;
 
   const worthVisitingContent = shouldShowSlider ? (
-    <AnimatedText className='xl:[--x-hidden:80px]'>
-      <Slider
-        section='worthVisiting'
-        slides={data.map(item => ({
-          id: item.id,
-          content: <TourCard key={item.id} data={item} />,
-        }))}
-      />
-    </AnimatedText>
+    <Slider
+      section='worthVisiting'
+      slides={data.map(item => ({
+        id: item.id,
+        content: <TourCard key={item.id} data={item} />,
+      }))}
+    />
   ) : (
-    <AnimatedText className='xl:[--x-hidden:80px]'>
-      <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3'>
-        {data.map(item => (
-          <TourCard key={item.id} data={item} />
-        ))}
-      </div>
-    </AnimatedText>
+    <div className='grid grid-cols-1 gap-2 sm:grid-cols-2 xl:grid-cols-3'>
+      {data.map(item => (
+        <TourCard key={item.id} data={item} />
+      ))}
+    </div>
   );
   return (
     <section className='section container'>

@@ -6,7 +6,6 @@ import clsx from 'clsx';
 
 import AnimationContainer from '@/components/common/AnimationContainer';
 import DisclosureFaqItem from '@/components/common/DisclosureFaqItem';
-import AnimatedText from '@/components/ui/AnimatedText';
 
 import { IDisclosureFaqListProps } from './DisclosureFaq.types';
 const DisclosureFaqList: React.FC<IDisclosureFaqListProps> = ({
@@ -29,7 +28,7 @@ const DisclosureFaqList: React.FC<IDisclosureFaqListProps> = ({
             id={disclosure.sectionId}
             className='mb-8 last:mb-0 md:mb-14 xl:mb-12 xl:flex xl:justify-between xl:py-8 xl:pl-1'
           >
-            <AnimatedText className='xl:[--x-hidden:-80px]'>
+            <AnimationContainer className='xl:[--x-hidden:-80px]'>
               <p
                 className={clsx(
                   'mb-6 inline-block border-2 border-accentDefaultOrange px-4 py-3 text-xs/[1.3] font-bold text-accentDefaultOrange  md:mb-8  md:text-light xl:self-baseline xl:px-8 xl:py-4 xl:text-medium',
@@ -40,7 +39,7 @@ const DisclosureFaqList: React.FC<IDisclosureFaqListProps> = ({
               >
                 {disclosure.label}
               </p>
-            </AnimatedText>
+            </AnimationContainer>
 
             <ul>
               {disclosure.items.map(item => (
