@@ -36,7 +36,7 @@ const formSchema: yup.ObjectSchema<IFormState> = yup.object({
     .string()
     .required(required)
     .max(63, emailMax)
-    .matches(/^$|^\s*[^\s@]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\s*$/, emailPattern),
+    .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/, emailPattern),
   message: yup.string().trim().nullable(),
   privacyPolicy: yup.boolean().oneOf([true]).required(),
 });
