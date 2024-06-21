@@ -28,6 +28,7 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
   iconPosition,
   toScroll,
   to = '',
+  onSetActive,
   currentDisclosure,
   className,
   ...rest
@@ -42,6 +43,7 @@ const LinkButton: React.FC<ILinkButtonProps> = ({
           smooth={true}
           spy={true}
           duration={500}
+          onSetActive={onSetActive && onSetActive}
           offset={variant === 'disclosure' ? -94 : 0}
           className={clsx(
             'inline-flex items-center justify-center',

@@ -14,5 +14,6 @@ export interface ILinkButtonProps {
   iconPosition?: 'before' | 'after';
   currentDisclosure?: boolean;
   onClick?: () => void;
+  onSetActive?: (to: string) => void;
   className?: string;
 }
