@@ -30,7 +30,7 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
   return (
     <Link href={`${Pages.TOURS}/${slug}`}>
       <div className='group relative flex h-[411px] w-full flex-col md:h-[439px] md:w-[334px] xl:h-[485px] xl:w-[384px]'>
-        <span className='absolute right-4 top-4 z-10 bg-white px-3 py-[11px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue transition group-hover:text-accentDefaultOrange group-focus:text-accentDefaultOrange md:px-[11px] md:py-4 md:text-[12px] md:leading-[16px]'>
+        <span className='absolute right-4 top-4 z-10 bg-white px-3 py-[11px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue transition group-hover:text-accentDefaultOrange group-focus:text-accentDefaultOrange md:px-4 md:py-[11px] md:text-[12px] md:leading-[13px]'>
           {formatDateDayMonthUk(date)}
         </span>
         <div className='relative mb-2 h-[291px] w-full  overflow-hidden md:mb-3 xl:mb-4 xl:h-[333px]'>
@@ -46,7 +46,7 @@ const TourCard: React.FC<ITourCardProps> = ({ data }) => {
           <h2 className='mb-[6px] font-inter text-lightLarge font-bold text-blueDefault md:mb-2 md:text-extraLarge xl:text-[28px] xl:leading-[30px]'>
             {title}
           </h2>
-          <div className='flex flex-wrap pt-[6px] font-unbounded text-[10px] font-bold leading-[15px] text-darkBlue md:text-[12px] md:leading-[16px]'>
+          <div className='flex flex-wrap items-center pt-[6px] font-unbounded text-[10px] font-bold leading-[13px] text-darkBlue md:text-[12px]'>
             <Location
               width={12}
               height={12}

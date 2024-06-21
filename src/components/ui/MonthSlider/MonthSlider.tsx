@@ -42,7 +42,7 @@ const MonthSlider: React.FunctionComponent<IMonthSliderProps> = ({
   };
 
   return (
-    <AnimationContainer className='mb-6 flex items-center gap-4 border-b-[0.5px] border-accentDarkOrange pb-6 pt-4 md:pb-8 md:pt-6 xl:mb-0 xl:border-b-0 xl:[--x-hidden:-80px]'>
+    <AnimationContainer className='mb-6 flex items-center justify-center gap-4 border-b-[0.5px] border-accentDarkOrange pb-6 pt-4 md:pb-8 md:pt-6 xl:mb-0 xl:border-b-0 xl:py-[45px] xl:[--x-hidden:-80px]'>
       <IconButton
         type='button'
         ariaLabel={calendar.prev}

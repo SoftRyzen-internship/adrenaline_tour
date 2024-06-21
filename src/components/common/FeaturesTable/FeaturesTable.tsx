@@ -20,7 +20,7 @@ const FeaturesTable: React.FunctionComponent<IFeaturesTableProps> = ({
   return (
     <div className='h-full'>
       <div className='notXL:container xl:sticky xl:top-0 xl:-mt-6 xl:pt-6'>
-        <div className='border-grey03 border-2 p-6 md:py-8 xl:max-w-[500px]'>
+        <div className='border-grey03 border-2 p-6 md:py-8 xl:max-w-[500px] xl:py-12'>
           <ul className='mb-8 flex flex-col gap-6 xl:mb-12'>
             {tourDetails &&
               Object.entries(tourDetails.details).map(([key, value]) => (
