@@ -17,7 +17,7 @@ const BtnSlider: React.FC<IBtnSliderProps> = ({
   return (
     <div
       className={clsx(
-        'flex gap-3 md:gap-4 xl:gap-6',
+        'z-20 flex gap-3 md:gap-4 xl:gap-6',
         section === 'upcomingTours' &&
           'absolute right-0 top-[-80px] z-30 md:top-[-136px] xl:top-[-157px]',
         section === 'reviews' &&
