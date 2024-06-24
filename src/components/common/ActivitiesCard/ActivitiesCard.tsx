@@ -8,8 +8,8 @@ const getContainerClasses = (id: number) => {
   return clsx(
     'relative flex',
     id % 2 !== 0
-      ? 'w-[156px] md:w-[334px] xl:w-[600px]'
-      : 'w-[140px] md:w-[306px] xl:w-[455px]',
+      ? 'w-[156px] md:w-[334px] xl:w-[594px]'
+      : 'w-[140px] md:w-[300px] xl:w-[450px]',
   );
 };
 
