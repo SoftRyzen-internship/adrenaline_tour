@@ -12,7 +12,7 @@ const secondColumnCards = activities.images.slice(
 );
 const ActivitiesGallery = () => {
   return (
-    <div className='grid grid-cols-2 gap-[16px] md:gap-[32px] xl:gap-[28px]'>
+    <div className='grid grid-cols-2 gap-4 md:gap-8 xl:gap-7'>
       <div className={s.firstColumnCards}>
         {firstColumnCards.map(card => (
           <ActivitiesCard
